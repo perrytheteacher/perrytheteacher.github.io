@@ -27,6 +27,13 @@ input.good{border-color:#15803d;background:#e8f6ec}input.wrong{border-color:#b91
 .opt img,.mol img{max-width:100%;height:auto;mix-blend-mode:multiply}
 .hint{font-size:13px;color:#5b6370;margin-top:8px}
 .done{text-align:center;padding:30px 10px}.done .big{font-size:40px;font-weight:800;color:#1a6d97}
+
+/* celá obrazovka: obsah vycentrovat a grafy omezit výškou okna */
+body{max-width:1180px;margin-left:auto;margin-right:auto}
+.chartbox svg{max-height:70vh}
+.multi .chartbox svg{max-height:17vh;min-height:90px}
+#azChart svg{max-height:68vh}
+img{max-width:100%;height:auto}
 </style></head><body>
 <div class="top">
  <div class="seg" id="mode"><button class="on" data-m="name">Pojmenuj vzorec</button><button data-m="formula">Najdi vzorec k názvu</button></div>

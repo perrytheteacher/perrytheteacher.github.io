@@ -161,6 +161,13 @@ footer.ai{max-width:1180px;margin:0 auto;padding:0 20px 30px;font-size:12px;colo
 body{background:#fff;padding:14px;font-size:16px}
 .app{border:none;padding:0;margin:0;background:#fff}
 @media (min-width:560px){.aze{grid-template-columns:minmax(0,1fr) 210px}}
+
+/* celá obrazovka: obsah vycentrovat a grafy omezit výškou okna */
+body{max-width:1180px;margin-left:auto;margin-right:auto}
+.chartbox svg{max-height:70vh}
+.multi .chartbox svg{max-height:17vh;min-height:90px}
+#azChart svg{max-height:68vh}
+img{max-width:100%;height:auto}
 </style>
 </head>
 <body>
