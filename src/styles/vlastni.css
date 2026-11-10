@@ -104,3 +104,43 @@
 	color: #111;
 	font-size: 1.15rem;
 }
+
+/* Export do PDF (tisk). Tlačítka jsou v src/components/Nadpis.astro.
+   body.tisk = tisk spuštěný tlačítkem, body.tisk-reseni = verze s řešením. */
+@media print {
+	.sl-markdown-content .sl-anchor-link,
+	.sl-markdown-content .otazka .vysledek {
+		display: none !important;
+	}
+	.sl-markdown-content details,
+	.sl-markdown-content .otazka,
+	.sl-markdown-content .vzorce figure,
+	.sl-markdown-content tr {
+		break-inside: avoid;
+	}
+	/* bez řešení: pod otázkou zůstane místo na odpověď do sešitu */
+	body.tisk:not(.tisk-reseni) .sl-markdown-content details:not([open]) {
+		padding-bottom: 3rem;
+	}
+	.sl-markdown-content details summary {
+		list-style: none;
+	}
+	.sl-markdown-content details.tisk-vynechat {
+		display: none;
+	}
+	.sl-markdown-content .otazka button {
+		background: none !important;
+		color: #111 !important;
+		border: 1px solid #999 !important;
+	}
+	body.tisk-reseni .sl-markdown-content .otazka button.tisk-spravne {
+		border: 2px solid #111 !important;
+		font-weight: 700;
+	}
+	body.tisk-reseni .sl-markdown-content .otazka button.tisk-spravne::after {
+		content: ' ✓';
+	}
+	.ai-poznamka {
+		color: #555 !important;
+	}
+}

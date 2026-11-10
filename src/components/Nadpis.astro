@@ -1,0 +1,121 @@
+---
+// Nadpis stránky (původní PageTitle Starlightu) + tlačítka „Export do PDF“ u kapitol a metodik.
+// Tlačítka otevřou tiskový dialog prohlížeče; žák zvolí „Uložit jako PDF“.
+// Úpravy tisku (skryté menu, aplikace nahrazené odkazem, řešení) jsou ve vlastni.css v části @media print.
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+
+const id = Astro.locals.starlightRoute.id;
+const casti = id.split('/');
+const jeKapitola =
+	!id.endsWith('index') &&
+	(casti.length >= 3 || (casti.length === 2 && ['ai', 'pro-ucitele'].includes(casti[0])));
+const adresa = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<Default />
+{
+	jeKapitola && (
+		<div class="export-pdf print:hidden">
+			<button type="button" data-reseni="0" title="Zápis a procvičování bez řešení – místo pro odpovědi do sešitu">
+				Export do PDF
+			</button>
+			<button type="button" data-reseni="1" title="Zápis a procvičování včetně řešení">
+				PDF s řešením
+			</button>
+			<span class="export-pdf__tip">V dialogu tisku zvolte „Uložit jako PDF“.</span>
+		</div>
+	)
+}
+<p class="tisk-zdroj">Perry the Teacher · {adresa}</p>
+
+<script>
+	function pripravTisk(reseni: boolean) {
+		const obsah = document.querySelector('.sl-markdown-content');
+		if (!obsah) return () => {};
+		document.body.classList.add('tisk');
+		document.body.classList.toggle('tisk-reseni', reseni);
+		const detaily = [...obsah.querySelectorAll('details')];
+		const otevreno = detaily.map((d) => d.open);
+		detaily.forEach((d) => (d.open = reseni));
+		// bez řešení: rozbalovací bloky „Řešení…“ úplně vynecháme
+		const jenReseni = detaily.filter((d) =>
+			/^\s*(zobrazit\s+)?řešení/i.test(d.querySelector('summary')?.textContent ?? ''),
+		);
+		if (!reseni) jenReseni.forEach((d) => d.classList.add('tisk-vynechat'));
+		const skryte: HTMLElement[] = [];
+		const oznacene: HTMLElement[] = [];
+		if (reseni) {
+			obsah.querySelectorAll<HTMLElement>('.otazka').forEach((o) => {
+				const tl = o.querySelector<HTMLElement>(`button[data-i="${o.dataset.spravne}"]`);
+				if (tl) { tl.classList.add('tisk-spravne'); oznacene.push(tl); }
+				const v = o.querySelector<HTMLElement>('.vysvetleni');
+				if (v && v.hidden) { v.hidden = false; skryte.push(v); }
+			});
+		}
+		return () => {
+			document.body.classList.remove('tisk', 'tisk-reseni');
+			jenReseni.forEach((d) => d.classList.remove('tisk-vynechat'));
+			detaily.forEach((d, i) => (d.open = otevreno[i]));
+			skryte.forEach((v) => (v.hidden = true));
+			oznacene.forEach((t) => t.classList.remove('tisk-spravne'));
+		};
+	}
+	document.querySelectorAll<HTMLButtonElement>('.export-pdf button').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			const obnov = pripravTisk(tl.dataset.reseni === '1');
+			window.addEventListener('afterprint', obnov, { once: true });
+			window.print();
+		});
+	});
+</script>
+
+<style>
+	.export-pdf {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+	}
+	.export-pdf button {
+		font: inherit;
+		font-size: var(--sl-text-sm);
+		padding: 0.35rem 0.85rem;
+		border-radius: 0.4rem;
+		border: 1px solid var(--sl-color-accent);
+		background: var(--sl-color-accent);
+		color: var(--sl-color-white);
+		cursor: pointer;
+	}
+	:root[data-theme='light'] .export-pdf button {
+		color: #fff;
+	}
+	.export-pdf button[data-reseni='1'] {
+		background: transparent;
+		color: var(--sl-color-accent-high);
+	}
+	:root[data-theme='light'] .export-pdf button[data-reseni='1'] {
+		color: var(--sl-color-accent);
+	}
+	.export-pdf button:hover {
+		filter: brightness(1.1);
+	}
+	.export-pdf__tip {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.tisk-zdroj {
+		display: none;
+	}
+	@media print {
+		.export-pdf {
+			display: none;
+		}
+		.tisk-zdroj {
+			display: block;
+			font-size: 0.75rem;
+			color: #555;
+			margin: 0.25rem 0 0;
+		}
+	}
+</style>

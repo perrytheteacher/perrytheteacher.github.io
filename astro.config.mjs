@@ -23,6 +23,7 @@ export default defineConfig({
 			customCss: ['./src/styles/vlastni.css'],
 			components: {
 				Footer: './src/components/Paticka.astro',
+				PageTitle: './src/components/Nadpis.astro',
 			},
 			// Menu. Pořadí podkapitol se řídí pořadím v seznamech níže.
 			// Novou oblast přidáte řádkem oblast('Název', 'cesta/ke/slozce').

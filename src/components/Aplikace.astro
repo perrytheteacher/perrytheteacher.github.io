@@ -9,12 +9,14 @@ interface Props {
 }
 const { src, title = 'Interaktivní aplikace', vyska = 560 } = Astro.props;
 const adresa = import.meta.env.BASE_URL.replace(/\/$/, '') + src;
+const online = new URL(adresa, Astro.site).href;
 ---
 
 <figure class="aplikace">
 	<iframe src={adresa} title={title} loading="lazy" style={`height:${vyska}px`}></iframe>
 	<figcaption>
-		{title} · <a href={adresa} target="_blank" rel="noopener">otevřít na celou obrazovku</a>
+		<span class="tisk-skryt">{title} · <a href={adresa} target="_blank" rel="noopener">otevřít na celou obrazovku</a></span>
+		<span class="tisk-jen">Interaktivní aplikace „{title}“ – vyzkoušej online: {online}</span>
 	</figcaption>
 </figure>
 
@@ -32,5 +34,21 @@ const adresa = import.meta.env.BASE_URL.replace(/\/$/, '') + src;
 		font-size: 0.85rem;
 		color: var(--sl-color-gray-3);
 		margin-top: 0.25rem;
+	}
+	.tisk-jen {
+		display: none;
+	}
+	@media print {
+		.aplikace iframe,
+		.tisk-skryt {
+			display: none;
+		}
+		.tisk-jen {
+			display: block;
+			padding: 0.5rem 0.75rem;
+			border: 1px dashed #888;
+			border-radius: 0.4rem;
+			color: #333;
+		}
 	}
 </style>

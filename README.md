@@ -19,6 +19,10 @@ Web: https://perrytheteacher.github.io
 - Rámeček: `:::note`, `:::tip`, `:::caution` … `:::`
 - Chemické vzorce: `H<sub>2</sub>SO<sub>4</sub>`
 
+## Export do PDF
+
+Každá kapitola (a metodika) má pod nadpisem tlačítka **Export do PDF** (zápis a procvičování bez řešení, s místem na odpovědi) a **PDF s řešením**. Otevřou tiskový dialog prohlížeče, kde se zvolí „Uložit jako PDF“. Aplikace se v PDF nahradí odkazem. Nastavení je v `src/components/Nadpis.astro` a ve `vlastni.css` (část `@media print`).
+
 ## Úprava obsahu
 
 Otevřete soubor na GitHubu, klikněte na tužku, upravte a dejte **Commit changes**.
