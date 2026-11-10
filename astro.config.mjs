@@ -46,6 +46,7 @@ export default defineConfig({
 						{ label: 'Přehled', slug: 'biologie' },
 						oblast('Obecná biologie', 'biologie/obecna-biologie'),
 						oblast('Buněčná biologie', 'biologie/bunecna-biologie'),
+						oblast('Mykologie', 'biologie/mykologie'),
 						oblast('Botanika', 'biologie/botanika'),
 						oblast('Zoologie', 'biologie/zoologie'),
 						oblast('Antropologie', 'biologie/antropologie'),

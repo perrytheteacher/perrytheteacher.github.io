@@ -1,0 +1,217 @@
+---
+title: Lišejníky – BS
+description: Biologický seminář, 3. ročník – soužití houby a fotobionta, stavba a typy stélek, rozmnožování, lišejníkové látky a bioindikace.
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import Otazka from '../../../../components/Otazka.astro';
+
+Druhá kapitola mykologie pro biologický seminář. Lišejník je soužití houby s řasou nebo sinicí. Podle lišejníků poznáme, jak čistý je vzduch, a pomocí jednoduché chemie je dokonce určíme.
+
+:::note[Nosná otázka]
+Jak může soužití dvou organismů vytvořit „nový“ organismus s vlastním tvarem, vlastními látkami a vlastní citlivostí k prostředí?
+:::
+
+**Na konci kapitoly dokážeš:**
+
+- vysvětlit, kdo lišejník tvoří a co si partneři vyměňují,
+- popsat vrstvy heteromerní stélky a rozlišit korovitou, lupenitou, keříčkovitou a dvojtvárnou stélku,
+- vysvětlit, jak se lišejníky šíří a proč snášejí vyschnutí,
+- popsat princip stélkových reakcí K, C a KC,
+- použít lišejníky k odhadu kvality ovzduší a kriticky ho porovnat s měřením.
+
+## 1 Co je lišejník
+
+Lišejník (lichenizovaná houba) tvoří dva partneři:
+
+| Partner | Kdo to je | Co dává |
+|---|---|---|
+| **mykobiont** (houba) | asi v 98 % případů vřeckatá houba, výjimečně stopkovýtrusná | tvoří většinu stélky, chrání před vyschnutím a světlem, získává vodu a minerální látky |
+| **fotobiont** | zelená řasa (nejčastěji *Trebouxia*, také *Trentepohlia*) nebo sinice (např. *Nostoc*) | organické látky z fotosyntézy; sinice navíc váže vzdušný dusík |
+
+Lišejník je pojmenovaný podle houby a v systému patří mezi houby. Známe jich kolem 20 000 druhů. Stejná řasa může žít s mnoha různými houbami, tvar stélky ale určuje houba.
+
+:::tip[Pro zvídavé]
+V roce 2016 se ukázalo, že v kůře některých lišejníků žije ještě třetí partner: kvasinka ze stopkovýtrusných hub. Představa „jedna houba + jedna řasa“ je tedy zjednodušení.
+:::
+
+:::note[Je to opravdu vzájemně výhodné?]
+Lišejník se tradičně uvádí jako příklad mutualismu. Houba ale fotobionta „drží“ a jeho buňky ve stélce rostou pomaleji než volně žijící řasa. Některé učebnice proto mluví o řízeném parazitismu. Pro seminář stačí: oba partneři ze soužití něco mají, ale vztah nemusí být vyrovnaný.
+:::
+
+## 2 Stavba a typy stélek
+
+Tělo lišejníku je **stélka**. U jednodušších (homeomerních) stélek jsou buňky řasy rozptýlené mezi hyfami. Většina lišejníků má stélku **heteromerní**, vrstevnatou:
+
+<figure class="obrazek">
+	<img src="/obrazky/mykologie/rez-stelkou.svg" alt="Příčný řez heteromerní stélkou: svrchní kůra, řasová vrstva, dřeň, spodní kůra, rhiziny" />
+	<figcaption>Příčný řez heteromerní (lupenitou) stélkou. Řasová vrstva leží těsně pod svrchní kůrou, kam proniká nejvíc světla.</figcaption>
+</figure>
+
+### Typy stélek
+
+| Typ | Popis | Příklady |
+|---|---|---|
+| korovitá | těsně přirostlá k podkladu, nedá se oddělit bez poškození | mapovník *(Rhizocarpon)*, prachovník *(Lepraria)* |
+| lupenitá | plochá, laločnatá, spodní stranou přichycená rhizinami | terčovka *(Parmelia, Hypogymnia)*, terčník *(Physcia)*, terčovník zední *(Xanthoria)* |
+| keříčkovitá | větvená, vzpřímená nebo převislá, přichycená v jednom místě | provazovka *(Usnea)*, hávnatka *(Ramalina)* |
+| dvojtvárná | prvotní šupinatá stélka na podkladu + druhotné vzpřímené útvary (podecie, „pohárky“) | dutohlávky *(Cladonia)* |
+
+<figure class="obrazek">
+	<img src="/obrazky/mykologie/typy-stelek.png" alt="Šest kreseb lišejníků s různými typy stélky, očíslovaných 1 až 6" />
+	<figcaption>Urči typ stélky u lišejníků 1–6. Kresby nejsou ve stejném měřítku.</figcaption>
+</figure>
+
+<details>
+<summary>Zobrazit řešení</summary>
+
+1 keříčkovitá (převislá, provazovka) · 2 keříčkovitá · 3 lupenitá · 4 korovitá · 5 dvojtvárná (dutohlávka s pohárky) · 6 keříčkovitá
+
+</details>
+
+## 3 Jak lišejník žije a šíří se
+
+- **Bez kořenů a bez kutikuly:** vodu a rozpuštěné látky přijímá celou stélkou přímo z deště, mlhy a vzduchu. Proto do sebe nabere i znečišťující látky.
+- **Poikilohydrie:** obsah vody se mění s okolím. Za sucha lišejník vyschne a „usne“, po dešti během minut znovu fotosyntetizuje. Díky tomu osídlí skály, střechy i polární oblasti.
+- **Pomalý růst:** korovité stélky přirůstají často méně než o milimetr za rok. Mapovník zeměpisný se proto používá k odhadu stáří odkrytých skal a morén (lichenometrie).
+- **Pionýři:** lišejníkové kyseliny a hyfy narušují horninu a pomáhají vzniku půdy.
+
+### Rozmnožování
+
+| Způsob | Co se šíří | Příklad |
+|---|---|---|
+| soredie | prachovitá zrnka: několik buněk fotobionta opředených hyfami | prachovník – celá stélka je jen „prášek“ soredií |
+| izidie | drobné výrůstky stélky s kůrou, snadno se odlamují | některé terčovky |
+| fragmentace | úlomky stélky | keříčkovité lišejníky, dutohlávky |
+| výtrusy houby | askospory z plodnic (nejčastěji terčíků – apothecií) | terčovník zední s oranžovými terčíky |
+
+:::note[Proč nestačí výtrusy?]
+Askospora obsahuje jen houbu. Po vyklíčení musí najít vhodného fotobionta, jinak lišejník nevznikne. Soredie a izidie nesou oba partnery najednou.
+:::
+
+## 4 Lišejníkové látky a stélkové reakce
+
+Mykobiont vytváří stovky specifických látek, souhrnně **lišejníkové kyseliny** (hlavně depsidy a depsidony). Chrání před UV zářením, okusem a mikroby. Žlutý **parietin** terčovníku zedního funguje jako opalovací krém, **kyselina usnová** provazovek působí antibakteriálně. Z lišejníků rodu *Roccella* se získával **lakmus**, známý acidobazický indikátor.
+
+| Činidlo | Složení | Typ činidla |
+|---|---|---|
+| K | roztok KOH (8–12 %) | silná zásada |
+| C | chlornan (chlorové vápno, SAVO – NaClO) | oxidační činidlo |
+| KC | nejprve K, hned potom C na stejné místo | zásada uvolní z látky reaktivní fenolovou skupinu, chlornan ji pak oxiduje na barevný produkt |
+
+Příklad: parietin terčovníku zedního dává s K okamžitě **purpurově červenou** reakci. Reakce s C je rychlá a brzy mizí. Chlornan se na světle rozkládá, proto se uchovává v tmavé lahvičce a často obnovuje.
+
+:::caution[Bezpečnost]
+KOH i chlornan leptají kůži a oči. Pracuj v ochranných brýlích a činidlo nanášej párátkem v malé kapce.
+:::
+
+## 5 Lišejníky jako bioindikátory
+
+Lišejníky nemají jak se znečištění „zbavit“, přijímají ho celou stélkou a hromadí. Citlivé druhy proto mizí, odolné zůstávají. Výskyt druhů ukazuje stav ovzduší za mnoho let, ne okamžitou koncentraci.
+
+| Skupina | Co ukazuje | Příklady |
+|---|---|---|
+| citlivé na SO<sub>2</sub> | dlouhodobě čistší vzduch | provazovky, hávnatky |
+| odolné | přežijí i ve znečištění | prachovník, některé korovité druhy |
+| nitrofilní | dostatek dusíku (doprava, hnojiva, chov zvířat, prach) | terčovník zední, terčníky |
+
+**Hawksworthova–Roseova stupnice** přiřazuje k přítomným druhům zóny od nejznečištěnějšího po nejčistší ovzduší. Původně byla sestavena pro SO<sub>2</sub> v Anglii. Dnes je hlavním problémem spíš dusík, proto se výsledek vždy porovnává s měřením.
+
+:::tip[Příběh severních Čech]
+V 70. a 80. letech bylo ovzduší severních Čech silně znečištěné oxidem siřičitým z hnědouhelných elektráren a citlivé lišejníky z krajiny téměř zmizely. Po odsíření elektráren v 90. letech se pomalu vracejí. Každá nalezená provazovka nebo hávnatka je tak malým svědkem změny.
+:::
+
+## 6 Lišejníky kolem nás
+
+Při terénním cvičení pod Stoličnou horou (říjen 2026) jsme našli tři lišejníky a jednu řasu, která je partnerem lišejníků:
+
+| Nález | Typ stélky | Co prozradil |
+|---|---|---|
+| dutohlávka *(Cladonia sp.)* | dvojtvárná | do pohárků dopadají kapky deště a vystřikují z nich rozmnožovací částice |
+| terčovník zední *(Xanthoria parietina)* | lupenitá | nitrofilní: prospívá mu dusík z prachu a hnojiv; žlutý parietin chrání před UV |
+| prachovník *(Lepraria sp.)* | korovitá, jen soredie | bez plodnic, šíří se výhradně sorediemi |
+| řasa *Trentepohlia* | není lišejník | oranžová zelená řasa (karotenoidy), fotobiont některých lišejníků |
+
+Na stromech v parku jsme viděli i svraštělku javorovou. Je to houba, ne lišejník, ale na SO<sub>2</sub> je citlivá podobně. Více v kapitole [Houby – BS](/biologie/mykologie/01-houby-bs/).
+
+## 7 Laboratoř: lišejníky
+
+K dispozici jsou herbářové položky z okolí školy (dutohlávka červcová, dutohlávka běžná, provazovka, hávnatka, mapovník, terčník, terčovka) a čerstvá terčovka pro řez.
+
+1. **Typy stélek:** herbářové položky pozoruj okem a lupou, urči typ stélky, podklad a způsob přichycení.
+2. **Příčný řez terčovkou:** žiletkou v bezové duši nařež tenké řezy, nakresli a popiš vrstvy. Hypotéza předem: kde budou buňky řasy a proč?
+3. **Stélkové reakce K, C, KC:** na kůře i na obnažené dřeni, výsledek zapiš jako + s barvou, nebo −.
+4. **Bioindikace:** u každého druhu dohledej citlivost k SO<sub>2</sub> a vztah k dusíku (M. Skalka: [Lišejníky jako bioindikátory](https://www.ziva.avcr.cz/files/ziva/pdf/lisejniky-jako-bioindikatory.pdf), Živa 3/2004), odhadni zónu podle Hawksworthovy–Roseovy stupnice a porovnej s měřením [stanice ČHMÚ Děčín](https://ovzdusi.chmi.cz/lokalita.php?ID=UDCM).
+
+## Procvičování
+
+<Otazka
+	zadani="Kdo tvoří stélku lišejníku převážně?"
+	moznosti={["řasa", "houba (mykobiont)", "sinice", "mech"]}
+	spravne={1}
+	vysvetleni="Houba tvoří většinu stélky a určuje její tvar; fotobiont je v řasové vrstvě."
+/>
+
+<Otazka
+	zadani="Proč leží řasová vrstva těsně pod svrchní kůrou?"
+	moznosti={["aby byla chráněná před vodou", "protože tam proniká nejvíc světla pro fotosyntézu", "protože tam jsou rhiziny", "protože tam je nejvíc dusíku"]}
+	spravne={1}
+	vysvetleni="Fotobiont potřebuje světlo, kůra ho přitom chrání před vyschnutím a silným zářením."
+/>
+
+<Otazka
+	zadani="Které rozmnožovací částice přenášejí oba partnery najednou?"
+	moznosti={["askospory", "konidie", "soredie a izidie", "zygospory"]}
+	spravne={2}
+	vysvetleni="Askospora nese jen houbu, která pak musí najít fotobionta."
+/>
+
+<Otazka
+	zadani="Dutohlávka s pohárky má stélku…"
+	moznosti={["korovitou", "lupenitou", "keříčkovitou", "dvojtvárnou"]}
+	spravne={3}
+	vysvetleni="Prvotní šupinatá stélka + druhotné vzpřímené podecie."
+/>
+
+<Otazka
+	zadani="Hojný terčovník zední na kmenech u silnice ukazuje hlavně…"
+	moznosti={["velmi čistý vzduch bez znečištění", "dostatek dusíkatých látek", "vysokou koncentraci SO<sub>2</sub>", "kyselý déšť"]}
+	spravne={1}
+	vysvetleni="Terčovník je nitrofilní, dusík mu prospívá."
+/>
+
+<Otazka
+	zadani="Jakou úlohu má při reakci KC činidlo C?"
+	moznosti={["je to zásada, která neutralizuje K", "je to oxidační činidlo (chlornan)", "je to indikátor pH", "rozpouští kůru stélky"]}
+	spravne={1}
+	vysvetleni="K nejprve látku zpřístupní, chlornan ji oxiduje na barevný produkt."
+/>
+
+## Kritické myšlení
+
+<details>
+<summary>„Na stromech u školy rostou lišejníky, takže máme čistý vzduch.“ Posuď tvrzení.</summary>
+
+Záleží na tom, které druhy to jsou. Nitrofilní terčovník zední nebo odolný prachovník rostou i ve znečištěném prostředí, terčovník dokonce ukazuje nadbytek dusíku. O čistém vzduchu vypovídají citlivé druhy, například provazovky a hávnatky.
+
+</details>
+
+<details>
+<summary>Lišejníky ukazují čistý vzduch, ale stanice ČHMÚ naměřila vyšší hodnoty NO<sub>2</sub>. Kdo má pravdu?</summary>
+
+Obojí může platit. Stanice měří okamžité koncentrace konkrétních látek, lišejníky ukazují dlouhodobý souhrnný stav a reagují hlavně na SO<sub>2</sub>. Rostou pomalu, takže změny zachytí se zpožděním let. Metody se doplňují, nenahrazují.
+
+</details>
+
+<details>
+<summary>Proč se na skalách a v polárních oblastech uplatní lišejníky lépe než mechy nebo rostliny?</summary>
+
+Snesou úplné vyschnutí (poikilohydrie), nepotřebují půdu ani kořeny, vodu přijímají celým povrchem a fotobiont jim dodává organické látky přímo na místě. Rostou ale velmi pomalu.
+
+</details>
+
+<Aside type="tip" title="Pro učitele">
+Metodické poznámky k této kapitole najdete v oddílu [Pro učitele → Metodika: Lišejníky – BS](/pro-ucitele/metodika-lisejniky-bs/).
+</Aside>

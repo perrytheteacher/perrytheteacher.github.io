@@ -9,3 +9,56 @@
 	--sl-color-accent: #1a6d97;
 	--sl-color-accent-high: #0b3550;
 }
+
+/* Obrázky s popiskem a fotogalerie v kapitolách.
+   <figure class="obrazek"><img src="..." alt="..."><figcaption>…</figcaption></figure>
+   <div class="galerie"> …figure… </div> */
+.sl-markdown-content figure.obrazek {
+	margin: 1.25rem 0;
+	padding: 0.5rem;
+	background: #fff;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.5rem;
+}
+.sl-markdown-content figure.obrazek img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.sl-markdown-content figure figcaption {
+	font-size: 0.85rem;
+	color: #5b636b;
+	padding: 0.4rem 0.2rem 0;
+}
+.sl-markdown-content .galerie {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr));
+	gap: 0.75rem;
+	margin: 1rem 0;
+}
+.sl-markdown-content .galerie figure {
+	margin: 0;
+	padding: 0.4rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.5rem;
+}
+.sl-markdown-content .galerie img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 3 / 4;
+	object-fit: cover;
+	border-radius: 0.3rem;
+}
+.sl-markdown-content .galerie figcaption {
+	color: var(--sl-color-gray-2);
+}
+.sl-markdown-content details {
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.5rem;
+	padding: 0.6rem 1rem;
+	margin: 0.75rem 0;
+}
+.sl-markdown-content details summary {
+	cursor: pointer;
+	font-weight: 600;
+}
