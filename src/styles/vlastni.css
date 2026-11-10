@@ -1,0 +1,11 @@
+/* Vlastní vzhled webu. Barvu zvýraznění změníte úpravou hodnot níže. */
+:root {
+	--sl-color-accent-low: #0b2a3d;
+	--sl-color-accent: #1f7aa8;
+	--sl-color-accent-high: #bfe3f5;
+}
+:root[data-theme='light'] {
+	--sl-color-accent-low: #d6eef9;
+	--sl-color-accent: #1a6d97;
+	--sl-color-accent-high: #0b3550;
+}

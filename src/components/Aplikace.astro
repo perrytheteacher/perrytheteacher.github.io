@@ -1,0 +1,36 @@
+---
+// Vložení vlastní HTML aplikace. Aplikaci nahrajte do složky public/aplikace/<nazev>/index.html
+// a v kapitole ji vložte takto:
+// <Aplikace src="/aplikace/nazev/" title="Popis aplikace" vyska={600} />
+interface Props {
+	src: string;
+	title?: string;
+	vyska?: number;
+}
+const { src, title = 'Interaktivní aplikace', vyska = 560 } = Astro.props;
+const adresa = import.meta.env.BASE_URL.replace(/\/$/, '') + src;
+---
+
+<figure class="aplikace">
+	<iframe src={adresa} title={title} loading="lazy" style={`height:${vyska}px`}></iframe>
+	<figcaption>
+		{title} · <a href={adresa} target="_blank" rel="noopener">otevřít na celou obrazovku</a>
+	</figcaption>
+</figure>
+
+<style>
+	.aplikace {
+		margin: 1rem 0;
+	}
+	.aplikace iframe {
+		width: 100%;
+		border: 1px solid var(--sl-color-hairline);
+		border-radius: 0.5rem;
+		background: white;
+	}
+	.aplikace figcaption {
+		font-size: 0.85rem;
+		color: var(--sl-color-gray-3);
+		margin-top: 0.25rem;
+	}
+</style>

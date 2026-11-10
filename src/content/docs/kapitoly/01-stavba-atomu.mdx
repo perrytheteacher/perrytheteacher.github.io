@@ -1,0 +1,92 @@
+---
+title: 1. Stavba atomu
+description: Z čeho se skládá atom, protonové a nukleonové číslo, izotopy.
+sidebar:
+  order: 1
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import Aplikace from '../../../components/Aplikace.astro';
+import Otazka from '../../../components/Otazka.astro';
+import YouTube from '../../../components/YouTube.astro';
+
+:::note[Co se v této kapitole naučíte]
+- popsat, z jakých částic se atom skládá,
+- určit počet protonů, neutronů a elektronů z protonového a nukleonového čísla,
+- vysvětlit, co jsou izotopy.
+:::
+
+## Výklad
+
+Atom je nejmenší částice prvku, která si zachovává jeho chemické vlastnosti. Skládá se ze dvou částí:
+
+- **jádra**, ve kterém jsou **protony** (kladný náboj) a **neutrony** (bez náboje),
+- **elektronového obalu**, ve kterém se pohybují **elektrony** (záporný náboj).
+
+Téměř celá hmotnost atomu je soustředěna v jádře, přestože jádro zabírá jen nepatrnou část objemu atomu.
+
+### Protonové a nukleonové číslo
+
+| Veličina | Značka | Co udává |
+|---|---|---|
+| protonové číslo | Z | počet protonů v jádře |
+| nukleonové číslo | A | počet protonů a neutronů v jádře |
+| neutronové číslo | N | počet neutronů, platí N = A − Z |
+
+V elektroneutrálním atomu je počet elektronů roven počtu protonů.
+
+### Vyzkoušejte si to
+
+<Aplikace src="/aplikace/ukazka/" title="Ukázková aplikace – počet částic v atomu" vyska={420} />
+
+{/*
+  Sem lze vložit video z YouTube. Stačí odstranit tento komentář a doplnit kód videa:
+  <YouTube id="KÓD_VIDEA" title="Stavba atomu" />
+*/}
+
+### Izotopy
+
+Atomy téhož prvku mají vždy stejný počet protonů, ale mohou se lišit počtem neutronů. Takovým atomům říkáme **izotopy**. Například uhlík se v přírodě vyskytuje hlavně jako izotop <sup>12</sup>C (6 protonů, 6 neutronů), v menší míře jako <sup>13</sup>C a ve stopovém množství jako radioaktivní <sup>14</sup>C.
+
+## Shrnutí
+
+- Atom = jádro (protony + neutrony) + elektronový obal (elektrony).
+- Z = počet protonů, A = počet nukleonů, N = A − Z.
+- Izotopy mají stejné Z, ale různé A.
+
+## Procvičování
+
+<Otazka
+	zadani="Kolik neutronů má atom <sup>23</sup>Na (Z = 11)?"
+	moznosti={["11", "12", "23", "34"]}
+	spravne={1}
+	vysvetleni="N = A − Z = 23 − 11 = 12."
+/>
+
+<Otazka
+	zadani="Čím se od sebe liší izotopy téhož prvku?"
+	moznosti={["počtem protonů", "počtem neutronů", "počtem elektronů v neutrálním atomu"]}
+	spravne={1}
+	vysvetleni="Izotopy mají stejné protonové číslo, liší se nukleonovým číslem, tedy počtem neutronů."
+/>
+
+<Otazka
+	zadani="Kolik elektronů má elektroneutrální atom kyslíku (Z = 8)?"
+	moznosti={["6", "8", "16"]}
+	spravne={1}
+	vysvetleni="V elektroneutrálním atomu je počet elektronů roven počtu protonů."
+/>
+
+## Kritické myšlení
+
+<Steps>
+
+1. Představte si, že by atom měl velikost fotbalového stadionu. Jak velké by asi bylo jádro? Co z toho plyne pro tvrzení, že „pevné látky jsou plné“?
+
+2. Molekula vody H<sub>2</sub>O může obsahovat různé izotopy vodíku. Liší se taková „těžká voda“ chemicky, nebo jen fyzikálně? Svůj názor zdůvodněte.
+
+</Steps>
+
+<Aside type="tip" title="Pro učitele">
+Metodické poznámky k této kapitole najdete v oddílu [Pro učitele → Metodika: Stavba atomu](../../pro-ucitele/metodika-stavba-atomu/).
+</Aside>

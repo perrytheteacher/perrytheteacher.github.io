@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Počet částic v atomu</title>
+<style>
+  body { font-family: system-ui, sans-serif; color: #111; background: #fff; margin: 0; padding: 16px; }
+  h1 { font-size: 1.1rem; margin: 0 0 12px; }
+  label { display: block; margin: 10px 0 4px; font-weight: 600; }
+  input[type=range] { width: 100%; }
+  .vysledek { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+  .box { border: 1px solid #ccc; border-radius: 8px; padding: 10px 14px; min-width: 110px; }
+  .box b { display: block; font-size: 1.5rem; }
+  .chyba { color: #b00020; margin-top: 10px; }
+</style>
+</head>
+<body>
+  <h1>Kolik částic má atom?</h1>
+  <label for="z">Protonové číslo Z: <span id="zv"></span></label>
+  <input id="z" type="range" min="1" max="30" value="6">
+  <label for="a">Nukleonové číslo A: <span id="av"></span></label>
+  <input id="a" type="range" min="1" max="70" value="12">
+  <div class="vysledek">
+    <div class="box">protony<b id="p"></b></div>
+    <div class="box">neutrony<b id="n"></b></div>
+    <div class="box">elektrony<b id="e"></b></div>
+  </div>
+  <p class="chyba" id="chyba" hidden>Nukleonové číslo nemůže být menší než protonové.</p>
+<script>
+  const z = document.getElementById('z'), a = document.getElementById('a');
+  function prepocet() {
+    const Z = +z.value, A = +a.value;
+    document.getElementById('zv').textContent = Z;
+    document.getElementById('av').textContent = A;
+    const chyba = A < Z;
+    document.getElementById('chyba').hidden = !chyba;
+    document.getElementById('p').textContent = Z;
+    document.getElementById('n').textContent = chyba ? '–' : A - Z;
+    document.getElementById('e').textContent = Z;
+  }
+  z.addEventListener('input', prepocet);
+  a.addEventListener('input', prepocet);
+  prepocet();
+</script>
+</body>
+</html>

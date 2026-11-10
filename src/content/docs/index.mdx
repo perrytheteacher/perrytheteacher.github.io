@@ -1,0 +1,32 @@
+---
+title: Chemie pro gymnázia
+description: Webová učebnice chemie s procvičováním, kritickým myšlením a metodikou pro učitele.
+template: splash
+hero:
+  tagline: Výklad, procvičování a kritické myšlení na jednom místě.
+  actions:
+    - text: Začít s učením
+      link: kapitoly/01-stavba-atomu/
+      icon: right-arrow
+    - text: Pro učitele
+      link: pro-ucitele/
+      icon: open-book
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+	<Card title="Kapitoly" icon="open-book">
+		Učivo rozdělené jako v učebnici: výklad, obrázky, videa a interaktivní aplikace.
+	</Card>
+	<Card title="Procvičování" icon="pencil">
+		Otázky s okamžitou zpětnou vazbou na konci každé kapitoly.
+	</Card>
+	<Card title="Kritické myšlení" icon="puzzle">
+		Úlohy, které vedou k přemýšlení, ne jen k zapamatování.
+	</Card>
+	<Card title="Pro učitele" icon="information">
+		Metodické poznámky, doporučený postup a typické chyby žáků.
+	</Card>
+</CardGrid>
