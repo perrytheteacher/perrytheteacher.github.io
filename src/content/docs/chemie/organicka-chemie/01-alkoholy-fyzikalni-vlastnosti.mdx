@@ -1,0 +1,349 @@
+---
+title: 1. Alkoholy – dělení a fyzikální vlastnosti
+description: Hydroxysloučeniny – dělení alkoholů podle sytnosti a polohy –OH, vodíkové vazby, trendy fyzikálních vlastností, rozpustnost a azeotrop.
+sidebar:
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import Aplikace from '../../../../components/Aplikace.astro';
+import Otazka from '../../../../components/Otazka.astro';
+
+Proč je methanol kapalina, když stejně velký methanal je plyn? Proč se ethanol mísí s vodou a oktanol ne? A proč nejde destilací získat čistý ethanol? Odpověď je pokaždé stejná: záleží na skupině –OH.
+
+:::note[Co se v této kapitole naučíte]
+- roztřídit alkoholy podle **sytnosti** a podle **polohy –OH** (primární, sekundární, terciární),
+- vysvětlit, jak **vodíkové vazby** ovlivňují teplotu varu a rozpustnost,
+- vyčíst z grafů **trendy** v homologické řadě a posoudit, co je korelace a co příčina,
+- vysvětlit, co je **azeotrop** a proč destilací nezískáme 100% ethanol.
+:::
+
+## 1 Hádanka: stejná velikost, jiný osud
+
+Tři molekuly mají téměř stejnou molární hmotnost (30–32 g/mol). Jen jedna z nich je při 20 °C kapalina. Tipni si dřív, než se podíváš na data.
+
+<div class="galerie" style="grid-template-columns:repeat(auto-fit,minmax(10rem,1fr))">
+<figure><img src="/obrazky/alkoholy/methanal.png" alt="Methanal CH2=O" style="aspect-ratio:auto;object-fit:contain;width:auto;height:2.4rem;margin:1rem auto" /><figcaption>methanal, M = 30,0 g/mol</figcaption></figure>
+<figure><img src="/obrazky/alkoholy/methanamin.png" alt="Methanamin CH3–NH2" style="aspect-ratio:auto;object-fit:contain;width:auto;height:2.4rem;margin:1rem auto" /><figcaption>methanamin, M = 31,1 g/mol</figcaption></figure>
+<figure><img src="/obrazky/alkoholy/methanol.png" alt="Methanol CH3–OH" style="aspect-ratio:auto;object-fit:contain;width:auto;height:2.4rem;margin:1rem auto" /><figcaption>methanol, M = 32,0 g/mol</figcaption></figure>
+</div>
+
+<Otazka
+	zadani="Která z těchto tří látek je při 20 °C kapalina?"
+	moznosti={["methanal", "methanamin", "methanol"]}
+	spravne={2}
+	vysvetleni="Methanol vře při 65 °C, methanal při −19 °C a methanamin při −6 °C. Rozhodují vodíkové vazby (rozbal data níže)."
+/>
+
+<details>
+<summary>Zobrazit data a vysvětlení</summary>
+
+| | methanal | methanamin | methanol |
+|---|---|---|---|
+| M (g/mol) | 30,0 | 31,1 | 32,0 |
+| t. tání | −92 °C | −93 °C | −98 °C |
+| **t. varu** | **−19 °C** | **−6 °C** | **65 °C** |
+| skupenství při 20 °C | plyn | plyn | **kapalina** |
+| rozpustnost ve vodě | asi 400 g/l | asi 1 080 g/l | neomezeně mísitelný |
+| dipólový moment μ | 2,33 D | 1,31 D | 1,70 D |
+
+- **Methanal – vodíkové vazby mezi molekulami ne.** Vodík je na uhlíku, ne na kyslíku. Působí jen dipól–dipól a disperzní síly. Kyslík ale přijme vodík od vody, proto se dobře rozpouští.
+- **Methanamin – vodíkové vazby ano, ale slabé.** Dusík je méně elektronegativní než kyslík, vazba N–H je méně polární. Stačí to na vyšší teplotu varu než u methanalu a výbornou rozpustnost, na kapalinu ne.
+- **Methanol – vodíkové vazby ano, silné.** Vazba O–H je silně polární a kyslík má dva volné elektronové páry. Molekuly se drží pevně, proto je methanol kapalina.
+
+**Závěr:** Molekuly jsou stejně velké, takže disperzní síly mají skoro stejné. Rozdíl dělá jen to, zda a jak silné vodíkové vazby tvoří: methanal žádné → methanamin slabé → methanol silné. Teplota varu roste ve stejném pořadí: −19 → −6 → 65 °C.
+
+</details>
+
+## 2 Dělení alkoholů
+
+Alkoholy jsou **alifatické hydroxyderiváty** uhlovodíků: skupina –OH je vázána na uhlík, který není součástí aromatického jádra. (Je-li –OH přímo na benzenovém jádře, jde o **fenoly**.) Alkoholy třídíme podle dvou nezávislých hledisek.
+
+### a) Podle sytnosti: kolik je v molekule skupin –OH
+
+| sytnost | příklad |
+|---|---|
+| **jednosytné** – jedna –OH | <img src="/obrazky/alkoholy/ethanol.png" alt="CH3–CH2–OH" width="132" /><br />ethanol |
+| **dvojsytné** (dioly) – dvě –OH | <img src="/obrazky/alkoholy/ethandiol.png" alt="HO–CH2–CH2–OH" width="178" /><br />ethan-1,2-diol (ethylenglykol) |
+| **trojsytné** (trioly) – tři –OH; čtyři a více = vícesytné | <img src="/obrazky/alkoholy/glycerol.png" alt="HO–CH2–CH(OH)–CH2–OH" width="223" /><br />propan-1,2,3-triol (glycerol) |
+
+### b) Podle polohy –OH: na jakém uhlíku skupina sedí
+
+Podíváme se na uhlík, který nese –OH, a spočítáme, na kolik **dalších uhlíků** je vázán.
+
+| typ | příklad |
+|---|---|
+| **primární** – uhlík s –OH je vázán na **1** další uhlík | <img src="/obrazky/alkoholy/propan1ol.png" alt="CH3–CH2–CH2–OH" width="176" /><br />propan-1-ol |
+| **sekundární** – uhlík s –OH je vázán na **2** další uhlíky | <img src="/obrazky/alkoholy/propan2ol.png" alt="CH3–CH(OH)–CH3" width="140" /><br />propan-2-ol (isopropylalkohol) |
+| **terciární** – uhlík s –OH je vázán na **3** další uhlíky | <img src="/obrazky/alkoholy/mp2ol.png" alt="(CH3)3C–OH" width="140" /><br />2-methylpropan-2-ol (terc-butylalkohol) |
+
+:::caution[Pozor]
+Rozhoduje uhlík nesoucí –OH, ne to, jestli je řetězec rozvětvený. 2-methylpropan-1-ol je rozvětvený, ale –OH sedí na CH<sub>2</sub> navázaném jen na jeden uhlík, je to tedy **primární** alkohol. Methanol (uhlík bez dalšího uhlíku) se řadí k primárním.
+:::
+
+### Třídič: urči typ alkoholu
+
+<Otazka
+	zadani="Jaký je to alkohol podle polohy –OH?<br><img src='/obrazky/alkoholy/mp1ol.png' alt='' width='177'>"
+	moznosti={["primární", "sekundární", "terciární"]}
+	spravne={0}
+	vysvetleni="2-methylpropan-1-ol: řetězec je rozvětvený, ale –OH je na CH<sub>2</sub> vázaném jen na jeden uhlík."
+/>
+
+<Otazka
+	zadani="Jaký je to alkohol podle polohy –OH?<br><img src='/obrazky/alkoholy/butan2ol.png' alt='' width='184'>"
+	moznosti={["primární", "sekundární", "terciární"]}
+	spravne={1}
+	vysvetleni="Butan-2-ol: uhlík č. 2 nese –OH a je vázán na dva uhlíky."
+/>
+
+<Otazka
+	zadani="Jaký je to alkohol podle polohy –OH?<br><img src='/obrazky/alkoholy/m2butan2ol.png' alt='' width='185'>"
+	moznosti={["primární", "sekundární", "terciární"]}
+	spravne={2}
+	vysvetleni="2-methylbutan-2-ol: uhlík nesoucí –OH je vázán na tři další uhlíky."
+/>
+
+<Otazka
+	zadani="Jaký je to alkohol podle polohy –OH?<br><img src='/obrazky/alkoholy/pentan3ol.png' alt='' width='228'>"
+	moznosti={["primární", "sekundární", "terciární"]}
+	spravne={1}
+	vysvetleni="Pentan-3-ol: prostřední uhlík nese –OH a je vázán na dva uhlíky."
+/>
+
+<Otazka
+	zadani="Urči sytnost a polohu skupin –OH.<br><img src='/obrazky/alkoholy/propandiol.png' alt='' width='177'>"
+	moznosti={["jednosytný, sekundární", "dvojsytný, primární", "dvojsytný, primární i sekundární", "trojsytný, sekundární"]}
+	spravne={2}
+	vysvetleni="Propan-1,2-diol má dvě skupiny –OH: na C1 primární, na C2 sekundární."
+/>
+
+<Otazka
+	zadani="Urči sytnost a polohu skupin –OH.<br><img src='/obrazky/alkoholy/ethandiol.png' alt='' width='178'>"
+	moznosti={["jednosytný, primární", "dvojsytný, primární", "dvojsytný, sekundární"]}
+	spravne={1}
+	vysvetleni="Ethan-1,2-diol: dvě skupiny –OH, každá na CH<sub>2</sub> vázaném na jeden uhlík."
+/>
+
+## 3 Polarita vazeb v molekule alkoholu
+
+Kyslík je výrazně elektronegativnější než uhlík i vodík. K sobě proto přitahuje elektrony obou vazeb: C–O i O–H. Na kyslíku vzniká částečný záporný náboj (δ−), na sousedním uhlíku a hlavně na vodíku skupiny –OH částečný kladný náboj (δ+). Kyslík má navíc **dva volné elektronové páry**.
+
+<figure class="obrazek">
+	<img src="/obrazky/alkoholy/polarita.svg" alt="Polarizace vazeb R–CH2–O–H: δ+ na uhlíku a vodíku, δ− na kyslíku se dvěma volnými elektronovými páry" />
+	<figcaption>R = uhlovodíkový zbytek · δ = parciální náboj · šipky směřují k elektronegativnějšímu kyslíku</figcaption>
+</figure>
+
+Polarizovaný vodík (δ+) jedné molekuly je přitahován volným elektronovým párem kyslíku (δ−) sousední molekuly. Tak vzniká **vodíková vazba** (vodíkový můstek).
+
+## 4 Vodíkové vazby
+
+Molekula alkoholu je zároveň **donor** vodíkové vazby (poskytuje vodík z –OH) i **akceptor** (volné elektronové páry kyslíku). Molekuly se proto pospojují do řetězců a sítí. Abychom je od sebe oddělili (var), musíme dodat energii navíc.
+
+<figure class="obrazek">
+	<img src="/obrazky/alkoholy/vodikove-vazby-alkohol.svg" alt="Řetězec molekul alkoholu R–O–H spojených vodíkovými vazbami" />
+	<figcaption>Alkohol – alkohol: vodík –OH jedné molekuly je přitahován kyslíkem sousední molekuly. Ethanol (M = 46 g/mol) proto vře až při 78 °C.</figcaption>
+</figure>
+
+<figure class="obrazek">
+	<img src="/obrazky/alkoholy/vodikove-vazby-voda.svg" alt="Molekuly alkoholu a vody střídavě spojené vodíkovými vazbami" />
+	<figcaption>Alkohol – voda: obě látky mají skupinu –OH, a zapojí se proto do společné sítě vodíkových vazeb. Čím delší je zbytek R, tím víc síť ruší.</figcaption>
+</figure>
+
+<figure class="obrazek">
+	<img src="/obrazky/alkoholy/vodikove-vazby-alkan.svg" alt="Molekuly propanu bez vodíkových vazeb" />
+	<figcaption>Pro srovnání alkan: propan (M = 44 g/mol) nemá polarizovaný vodík ani volné elektronové páry, molekuly drží jen slabé disperzní síly. Vře při −42 °C.</figcaption>
+</figure>
+
+## 5 Aplikace: vlastnosti a trendy
+
+Data pro homologickou řadu primárních alkoholů od methanolu po dekan-1-ol. Najeď myší (nebo prstem) na bod v grafu. Na kartě **Trendy** uvidíš všechny vlastnosti najednou a můžeš hledat korelace. Karty **Poloha –OH** a **Sytnost** porovnávají izomery butanolu a alkoholy s jednou, dvěma a třemi skupinami –OH.
+
+<Aplikace src="/aplikace/alkoholy-vlastnosti/" title="Fyzikální vlastnosti alkoholů – grafy, trendy a korelace" vyska={860} />
+
+### Co pozoruješ na kartě Trendy?
+
+<details>
+<summary>Které vlastnosti rostou s délkou řetězce téměř lineárně?</summary>
+
+Molární hmotnost (každá skupina CH<sub>2</sub> přidá 14 g/mol) a teplota varu (zhruba +18 až +20 °C na každý uhlík). S délkou řetězce rostou disperzní síly, kdežto vodíková vazba je pořád jen jedna (jedna skupina –OH).
+
+</details>
+
+<details>
+<summary>Která vlastnost se chová „nepravidelně“ a proč?</summary>
+
+Teplota tání: od methanolu po propan-1-ol klesá, pak roste. Tání závisí i na tom, jak dobře se molekuly *skládají do krystalu*, a to se s tvarem molekuly mění skokově. Data proto nemusí být hladká jako u teploty varu.
+
+</details>
+
+<details>
+<summary>Proč se křivka hustoty zplošťuje?</summary>
+
+Hustota alkoholů (0,79 → 0,83 g/cm³) roste jen málo a stále pomaleji. Podíl skupiny –OH v molekule klesá a alkohol se svými vlastnostmi blíží alkanu. Zapni alkany: rozdíl mezi oběma řadami se s délkou řetězce zmenšuje.
+
+</details>
+
+<details>
+<summary>Teplota varu a rozpustnost: co spolu souvisí a co ne?</summary>
+
+Mají silnou zápornou korelaci (čím vyšší teplota varu, tím horší rozpustnost). Nejde ale o příčinu a následek. **Obě vlastnosti řídí společná třetí proměnná: délka uhlovodíkového řetězce.** Delší řetězec zvyšuje disperzní síly (vyšší t. varu) a zároveň zvětšuje hydrofobní část molekuly (horší rozpustnost).
+
+</details>
+
+### Co pozoruješ na kartách Poloha –OH a Sytnost?
+
+<details>
+<summary>Proč má terciární 2-methylpropan-2-ol nejnižší teplotu varu ze čtyř izomerů butanolu?</summary>
+
+Molekula je kompaktní, téměř kulovitá. Má malý povrch, takže **disperzní síly** mezi molekulami jsou slabší než u dlouhého řetězce butan-1-olu. Skupina –OH je navíc „schovaná“ mezi třemi methyly (sterické stínění), což vodíkové vazby oslabuje. Proto čím větvenější molekula, tím nižší teplota varu.
+
+</details>
+
+<details>
+<summary>A proč má naopak nejvyšší teplotu tání (asi 25 °C)?</summary>
+
+Kulovité molekuly se snadno a pravidelně skládají do krystalu, podobně jako kuličky v krabici. 2-methylpropan-2-ol je proto v chladnější laboratoři pevná látka, přestože vře už při 82 °C. Teplotu tání a teplotu varu ovlivňuje tvar molekuly *opačně*.
+
+</details>
+
+<details>
+<summary>Proč je větvený alkohol lépe rozpustný ve vodě?</summary>
+
+Kompaktní uhlovodíková část narušuje síť vodíkových vazeb vody méně než dlouhý řetězec. 2-methylpropan-2-ol se s vodou mísí neomezeně, butan-1-ol jen omezeně.
+
+</details>
+
+<details>
+<summary>Proč je glycerol hustší a viskóznější než propan-1-ol?</summary>
+
+Každá další skupina –OH znamená další vodíkové vazby. Molekula glycerolu jich může tvořit mnoho najednou a molekuly jsou propojené do hustší a pevnější sítě. Kapalina proto „neteče“ (viskozita je asi 600× vyšší než u propan-1-olu), je hustší a vře mnohem výš. Molární hmotnost přitom vzroste jen z 60 na 92 g/mol.
+
+</details>
+
+## 6 Rozpustnost ve vodě: hlava a ocas
+
+Molekula alkoholu má dvě části. Skupina **–OH je hydrofilní** („má ráda vodu“) a tvoří s vodou vodíkové vazby. **Uhlovodíkový řetězec je hydrofobní**: vodíkové vazby netvoří a síť vody narušuje. Která část „vyhraje“, rozhoduje o rozpustnosti.
+
+<Aplikace src="/aplikace/alkoholy-rozpustnost/" title="Rozpustnost alkoholů ve vodě podle délky řetězce" vyska={340} />
+
+:::tip[Pravidlo]
+Do 3 uhlíků se alkoholy s vodou mísí v libovolném poměru. Od butanolu rozpustnost rychle klesá, přibližně 3–4× s každým dalším uhlíkem. Vyšší alkoholy (od C<sub>6</sub>) jsou prakticky nerozpustné a s vodou tvoří dvě vrstvy. Opačně se chovají vícesytné alkoholy: další –OH skupiny rozpustnost zvyšují (glycerol se s vodou mísí).
+:::
+
+## 7 Azeotrop: proč nejde vydestilovat čistý ethanol
+
+Když zahříváme směs dvou kapalin (např. vody a ethanolu), těkavější složka se odpařuje snáz. **Pára má jiné složení než kapalina** a opakovanou destilací se složky postupně oddělují. Tak se běžně čistí kapaliny.
+
+Některé směsi ale vytvářejí tak silné vzájemné interakce (u vody a ethanolu jsou to vodíkové vazby), že při určitém složení **má pára úplně stejné složení jako kapalina** a teplota varu je konstantní. Směs se pak chová jako jediná čistá látka. Tomu se říká **azeotrop** (z řeckého „nezměnitelný var“). Pro vodu a ethanol je to **95,6 % hmotnostních ethanolu, t. varu 78,2 °C**, tedy o něco níž než čistý ethanol (78,4 °C).
+
+<Aplikace src="/aplikace/azeotrop-voda-ethanol/" title="Simulace destilace směsi voda–ethanol" vyska={440} />
+
+<details>
+<summary>Jak se tedy vyrábí bezvodý (absolutní) ethanol?</summary>
+
+Azeotrop je potřeba „rozbít“ jinak než obyčejnou destilací. Například se zbylá voda odstraní sušidlem nebo molekulovými síty (pórovitý materiál zachytí malé molekuly vody), případně se ke směsi přidá třetí látka, která azeotrop posune. Kvasným procesem vznikne nejvýš asi 15 % ethanolu a destilací se dojde nejvýš k 95,6 %.
+
+</details>
+
+## Shrnutí
+
+- Alkoholy dělíme podle **sytnosti** (počet –OH) a podle **polohy –OH** (počet uhlíků vázaných na uhlík nesoucí –OH).
+- Vazba O–H je silně polární, a alkoholy proto tvoří **vodíkové vazby** mezi sebou i s vodou.
+- Vodíkové vazby vysvětlují **vysoké teploty varu** ve srovnání s alkany a **mísitelnost** nižších alkoholů s vodou.
+- S délkou řetězce roste teplota varu, rozpustnost klesá; větvení snižuje teplotu varu; další –OH skupiny zvyšují teplotu varu, hustotu i viskozitu.
+- Voda a ethanol tvoří **azeotrop** (95,6 % hm., 78,2 °C), destilací proto nezískáme čistý ethanol.
+
+## Procvičování
+
+<Otazka
+	zadani="Jak se nazývá funkční skupina alkoholů?"
+	moznosti={["karbonylová", "hydroxylová", "karboxylová"]}
+	spravne={1}
+	vysvetleni="Skupina –OH je hydroxylová (hydroxyskupina)."
+/>
+
+<Otazka
+	zadani="Methanol patří podle sytnosti mezi alkoholy…"
+	moznosti={["jednosytné", "dvojsytné", "trojsytné"]}
+	spravne={0}
+	vysvetleni="Methanol CH<sub>3</sub>OH má jedinou skupinu –OH."
+/>
+
+<Otazka
+	zadani="Díky čemu je ethanol rozpustný ve vodě?"
+	moznosti={["díky disperzním silám", "díky vodíkovým vazbám", "díky iontové vazbě"]}
+	spravne={1}
+	vysvetleni="Skupina –OH ethanolu tvoří s molekulami vody vodíkové vazby (můstky)."
+/>
+
+<Otazka
+	zadani="Jak se nazývá alkohol se třemi uhlíky a třemi skupinami –OH?"
+	moznosti={["ethylenglykol", "propylenglykol", "glycerol"]}
+	spravne={2}
+	vysvetleni="Glycerol je propan-1,2,3-triol."
+/>
+
+<Otazka
+	zadani="Jaký je triviální název propan-2-olu?"
+	moznosti={["propylalkohol", "isopropylalkohol", "terc-butylalkohol"]}
+	spravne={1}
+	vysvetleni="Propan-2-ol = isopropylalkohol (isopropanol)."
+/>
+
+<Otazka
+	zadani="Který z alkoholů má nejvyšší teplotu varu?"
+	moznosti={["butan-1-ol", "2-methylpropan-2-ol", "propan-1,2,3-triol"]}
+	spravne={2}
+	vysvetleni="Glycerol (290 °C) má tři skupiny –OH, a tedy nejvíc vodíkových vazeb. Butan-1-ol vře při 118 °C, 2-methylpropan-2-ol při 82 °C."
+/>
+
+### Vysvětli vlastními slovy
+
+<details>
+<summary>Proč mají alkoholy vyšší teplotu varu než alkany s podobnou molární hmotností?</summary>
+
+Molekuly alkoholů jsou navzájem spojené vodíkovými vazbami (skupina –OH je donor i akceptor). Alkany drží pohromadě jen slabé disperzní síly. Příklad: ethanol (M 46) vře při 78 °C, propan (M 44) při −42 °C.
+
+</details>
+
+<details>
+<summary>Co rozhoduje o primárním, sekundárním a terciárním charakteru alkoholu?</summary>
+
+Počet atomů uhlíku vázaných na ten uhlík, který nese skupinu –OH: jeden (nebo žádný) = primární, dva = sekundární, tři = terciární. Rozvětvení jinde v řetězci nerozhoduje.
+
+</details>
+
+<details>
+<summary>Jaký je rozdíl mezi ethanolem a ethylalkoholem?</summary>
+
+Žádný, jde o tutéž látku. „Ethanol“ je substituční (systematický) název, „ethylalkohol“ je název skupinový (ethyl + alkohol).
+
+</details>
+
+## Kritické myšlení
+
+<details>
+<summary>Spolužák tvrdí: „Teplota varu závisí na molární hmotnosti, korelace je skoro 1.“ Má pravdu?</summary>
+
+Jen zčásti. V homologické řadě opravdu M i teplota varu rostou spolu (r ≈ 1), ale obojí je důsledek prodlužování řetězce. Hmotnost sama var nezpůsobuje, rozhodují mezimolekulové síly. Důkazy: methanol a ethan mají skoro stejnou M a liší se v teplotě varu o 150 °C. Izomery butanolu mají stejnou M a jejich teploty varu se liší o 35 °C.
+
+</details>
+
+<details>
+<summary>Methanal má větší dipólový moment (2,33 D) než methanol (1,70 D). Proč je přesto plyn?</summary>
+
+Dipól–dipólové interakce jsou slabší než vodíkové vazby. Methanal vodíkové vazby mezi svými molekulami netvoří, protože jeho vodíky jsou vázané na uhlík, ne na kyslík. Velký dipól tedy nestačí, rozhoduje vodík na kyslíku.
+
+</details>
+
+<details>
+<summary>Proč podle tebe nemůže domácí „pálení“ spolehlivě oddělit jedovatý methanol od ethanolu?</summary>
+
+Teploty varu jsou blízko sebe (65 a 78 °C) a obě látky tvoří s vodou i navzájem směsi s vodíkovými vazbami. Destilací se jejich podíl mění jen postupně, nikdy úplně. Methanol se proto do destilátu dostává.
+
+</details>
+
+<Aside type="tip" title="Pro učitele">
+Doporučený postup, časování a typické miskoncepce najdete v metodice [Alkoholy – dělení a fyzikální vlastnosti](/pro-ucitele/metodika-alkoholy/).
+</Aside>

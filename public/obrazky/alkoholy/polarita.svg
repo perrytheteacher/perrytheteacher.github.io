@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="background:#fff" viewBox="0 0 720 230" font-family="system-ui,Segoe UI,Arial">
+<text x="360" y="26" text-anchor="middle" font-size="17" font-weight="700">Polarizace vazeb v obecném alkoholu</text>
+<text x="90" y="130" font-size="40" text-anchor="middle">R</text>
+<line x1="118" y1="117" x2="200" y2="117" stroke="#111" stroke-width="3"></line>
+<text x="258" y="130" font-size="40" text-anchor="middle">CH<tspan font-size="26" dy="10">2</tspan></text>
+<line x1="318" y1="117" x2="420" y2="117" stroke="#111" stroke-width="3"></line>
+<text x="450" y="130" font-size="40" text-anchor="middle" fill="#b91c1c">O</text>
+<line x1="482" y1="117" x2="574" y2="117" stroke="#111" stroke-width="3"></line>
+<text x="600" y="130" font-size="40" text-anchor="middle">H</text>
+<text x="258" y="70" font-size="24" text-anchor="middle" fill="#2563eb" font-weight="700">δ+</text>
+<text x="450" y="70" font-size="24" text-anchor="middle" fill="#b91c1c" font-weight="700">δ−</text>
+<text x="600" y="70" font-size="24" text-anchor="middle" fill="#2563eb" font-weight="700">δ+</text>
+<circle cx="440" cy="84" r="4"></circle><circle cx="460" cy="84" r="4"></circle><circle cx="440" cy="152" r="4"></circle><circle cx="460" cy="152" r="4"></circle>
+<text x="476" y="88" font-size="13" fill="#555">volný elektronový pár</text><text x="476" y="157" font-size="13" fill="#555">volný elektronový pár</text>
+<line x1="300" y1="190" x2="400" y2="190" stroke="#334155" stroke-width="2.5"></line><path d="M402 190 l-12 -6 v12z" fill="#334155"></path><line x1="300" y1="182" x2="300" y2="198" stroke="#334155" stroke-width="2.5"></line>
+<text x="350" y="214" font-size="13" text-anchor="middle" fill="#334155">dipól C–O</text>
+<line x1="600" y1="190" x2="500" y2="190" stroke="#334155" stroke-width="2.5"></line><path d="M498 190 l12 -6 v12z" fill="#334155"></path><line x1="600" y1="182" x2="600" y2="198" stroke="#334155" stroke-width="2.5"></line>
+<text x="550" y="214" font-size="13" text-anchor="middle" fill="#334155">dipól O–H</text>
+</svg>
