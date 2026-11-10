@@ -2,10 +2,10 @@
 title: 'Metodika: Alkoholy – dělení a fyzikální vlastnosti'
 description: Doporučený postup, aktivity a typické miskoncepce ke kapitole Alkoholy – dělení a fyzikální vlastnosti.
 sidebar:
-  order: 4
+  order: 5
 ---
 
-Kapitola [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/01-alkoholy-fyzikalni-vlastnosti/) navazuje na prezentaci **Kyslíkaté deriváty – hydroxysloučeniny** (slidy Dělení alkoholů, FVL, vodíkové vazby, azeotrop, Doplň).
+Kapitola [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/02-alkoholy-fyzikalni-vlastnosti/) navazuje na prezentaci **Kyslíkaté deriváty – hydroxysloučeniny** (slidy Dělení alkoholů, FVL, vodíkové vazby, azeotrop, Doplň).
 
 ## Doporučený postup (2 vyučovací hodiny)
 

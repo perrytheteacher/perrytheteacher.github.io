@@ -62,3 +62,45 @@
 	cursor: pointer;
 	font-weight: 600;
 }
+
+/* Vzorce (RDKit) v kapitolách.
+   <div class="vzorce"><figure><img src="..." alt=""><figcaption>A1</figcaption></figure> … </div>
+   Jeden vzorec: <div class="vzorce jeden">…</div> */
+.sl-markdown-content .vzorce {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+	gap: 0.75rem;
+	margin: 1rem 0;
+}
+.sl-markdown-content .vzorce.jeden {
+	grid-template-columns: minmax(0, 22rem);
+}
+.sl-markdown-content .vzorce figure {
+	margin: 0;
+	padding: 0.75rem 0.6rem 0.4rem;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.5rem;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.4rem;
+	min-height: 6rem;
+}
+.sl-markdown-content .vzorce img {
+	max-width: 100%;
+	height: auto;
+	margin: auto;
+}
+.sl-markdown-content .vzorce figcaption {
+	color: #3a3f45;
+	font-size: 0.85rem;
+	text-align: center;
+	padding: 0;
+}
+.sl-markdown-content .vzorce .vzorec-text {
+	margin: auto;
+	color: #111;
+	font-size: 1.15rem;
+}
