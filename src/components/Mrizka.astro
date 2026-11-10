@@ -1,0 +1,31 @@
+---
+// Mřížka pro dlaždice. Použití:
+// <Mrizka> ...dlaždice... </Mrizka>
+// <Mrizka sloupce={3}> – pevný počet sloupců na širokém displeji (na mobilu vždy pod sebou)
+interface Props {
+	sloupce?: number;
+}
+const { sloupce } = Astro.props;
+const styl = sloupce ? `--sloupce:${sloupce}` : undefined;
+---
+
+<div class:list={['mrizka', { pevna: !!sloupce }]} style={styl}>
+	<slot />
+</div>
+
+<style>
+	.mrizka {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+		gap: 1rem;
+		margin-top: 1.25rem;
+	}
+	.mrizka > :global(*) {
+		margin-top: 0 !important;
+	}
+	@media (min-width: 50rem) {
+		.mrizka.pevna {
+			grid-template-columns: repeat(var(--sloupce), minmax(0, 1fr));
+		}
+	}
+</style>

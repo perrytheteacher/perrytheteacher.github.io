@@ -1,0 +1,161 @@
+---
+// Klikací dlaždice s odkazem. Použití (vždy uvnitř <Mrizka>):
+// <Dlazdice href="/chemie/" nazev="Chemie" popis="Krátký popis" ikona="chemie" barva="modra" />
+// ikona: chemie | biologie | ai | kniha (nepovinné)
+// barva: modra | zelena | fialova | oranzova (nepovinné, výchozí modrá)
+interface Props {
+	href: string;
+	nazev: string;
+	popis?: string;
+	ikona?: 'chemie' | 'biologie' | 'ai' | 'kniha';
+	barva?: 'modra' | 'zelena' | 'fialova' | 'oranzova';
+	velka?: boolean;
+}
+const { href, nazev, popis, ikona, barva = 'modra', velka = false } = Astro.props;
+const adresa = import.meta.env.BASE_URL.replace(/\/$/, '') + href;
+---
+
+<a class:list={['dlazdice', `barva-${barva}`, { velka }]} href={adresa}>
+	{
+		ikona && (
+			<span class="ikona" aria-hidden="true">
+				{ikona === 'chemie' && (
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M9 3h6M10 3v6.5L4.6 18.2A1.8 1.8 0 0 0 6.1 21h11.8a1.8 1.8 0 0 0 1.5-2.8L14 9.5V3" />
+						<path d="M7.2 15h9.6" />
+					</svg>
+				)}
+				{ikona === 'biologie' && (
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M7 3c0 6 10 6 10 12s-10 6-10 6M17 3c0 6-10 6-10 12" />
+						<path d="M8.5 6.5h7M8.5 17.5h7M10 12h4" />
+					</svg>
+				)}
+				{ikona === 'ai' && (
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="6" y="6" width="12" height="12" rx="2" />
+						<path d="M10 10h4v4h-4zM9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
+					</svg>
+				)}
+				{ikona === 'kniha' && (
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5" />
+					</svg>
+				)}
+			</span>
+		)
+	}
+	<span class="text">
+		<span class="nazev">{nazev}</span>
+		{popis && <span class="popis">{popis}</span>}
+	</span>
+	<span class="sipka" aria-hidden="true">→</span>
+</a>
+
+<style>
+	.dlazdice {
+		--akcent: #1a6d97;
+		--akcent-pozadi: #e3f1f9;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1.1rem 1.25rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-left: 5px solid var(--akcent);
+		border-radius: 0.6rem;
+		background: var(--sl-color-bg);
+		color: var(--sl-color-white);
+		text-decoration: none;
+		transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+	}
+	.dlazdice:hover,
+	.dlazdice:focus-visible {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
+		border-color: var(--akcent);
+	}
+	.barva-zelena {
+		--akcent: #2f7d3b;
+		--akcent-pozadi: #e4f3e6;
+	}
+	.barva-fialova {
+		--akcent: #6b4bb3;
+		--akcent-pozadi: #ece6f8;
+	}
+	.barva-oranzova {
+		--akcent: #b25d12;
+		--akcent-pozadi: #f9eadb;
+	}
+	:global([data-theme='dark']) .dlazdice {
+		--akcent-pozadi: rgb(255 255 255 / 0.08);
+	}
+	:global([data-theme='dark']) .barva-modra {
+		--akcent: #5fb3dd;
+	}
+	:global([data-theme='dark']) .barva-zelena {
+		--akcent: #6cc27a;
+	}
+	:global([data-theme='dark']) .barva-fialova {
+		--akcent: #a98ce8;
+	}
+	:global([data-theme='dark']) .barva-oranzova {
+		--akcent: #e9a15c;
+	}
+	.ikona {
+		flex: none;
+		display: grid;
+		place-items: center;
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 0.5rem;
+		background: var(--akcent-pozadi);
+		color: var(--akcent);
+	}
+	.ikona svg {
+		width: 1.6rem;
+		height: 1.6rem;
+	}
+	.text {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		min-width: 0;
+	}
+	.nazev {
+		font-size: var(--sl-text-lg);
+		font-weight: 600;
+		line-height: 1.25;
+	}
+	.popis {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+		line-height: 1.4;
+	}
+	.sipka {
+		flex: none;
+		color: var(--akcent);
+		font-size: 1.25rem;
+	}
+	.velka {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1.5rem;
+		min-height: 11rem;
+	}
+	.velka .ikona {
+		width: 3.5rem;
+		height: 3.5rem;
+	}
+	.velka .ikona svg {
+		width: 2rem;
+		height: 2rem;
+	}
+	.velka .nazev {
+		font-size: var(--sl-text-2xl);
+	}
+	.velka .sipka {
+		align-self: flex-end;
+		margin-top: auto;
+	}
+</style>

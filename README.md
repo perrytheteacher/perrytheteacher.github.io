@@ -4,7 +4,8 @@ Web: https://perrytheteacher.github.io
 
 ## Kde co je
 
-- `src/content/docs/chemie/`, `biologie/`, `ai/` – kapitoly podle předmětů (jeden soubor = jedna kapitola)
+- `src/content/docs/chemie/<oblast>/`, `biologie/<oblast>/`, `ai/` – kapitoly podle předmětů a oblastí (jeden soubor = jedna kapitola; nová oblast se přidává i do menu v `astro.config.mjs`)
+- Dlaždice: `<Mrizka><Dlazdice href="/chemie/" nazev="Chemie" popis="..." ikona="chemie" barva="modra" /></Mrizka>`
 - `src/content/docs/pro-ucitele/` – metodická vrstva pro učitele
 - `public/aplikace/` – vlastní HTML aplikace (každá ve své složce se souborem `index.html`)
 - `public/obrazky/` – obrázky (vložíte je do kapitoly zápisem `![popis](/obrazky/nazev.png)`)

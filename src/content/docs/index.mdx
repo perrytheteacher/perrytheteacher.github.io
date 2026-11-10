@@ -5,8 +5,8 @@ template: splash
 hero:
   tagline: Chemie, biologie a AI pro gymnázia
   actions:
-    - text: Začít s učením
-      link: chemie/01-stavba-atomu/
+    - text: Jak učebnici používat
+      link: uvod/
       icon: right-arrow
     - text: Pro učitele
       link: pro-ucitele/
@@ -15,10 +15,41 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import Dlazdice from '../../components/Dlazdice.astro';
+import Mrizka from '../../components/Mrizka.astro';
 
-<CardGrid stagger>
-	<Card title="Kapitoly" icon="open-book">
-		Učivo rozdělené jako v učebnici: výklad, obrázky, videa a interaktivní aplikace.
+<Mrizka sloupce={3}>
+	<Dlazdice
+		velka
+		href="/chemie/"
+		nazev="Chemie"
+		popis="Obecná, anorganická a organická chemie, biochemie"
+		ikona="chemie"
+		barva="modra"
+	/>
+	<Dlazdice
+		velka
+		href="/biologie/"
+		nazev="Biologie"
+		popis="Od buňky po ekosystémy, genetika a biologie člověka"
+		ikona="biologie"
+		barva="zelena"
+	/>
+	<Dlazdice
+		velka
+		href="/ai/"
+		nazev="Umělá inteligence"
+		popis="Jak AI funguje a jak ji rozumně využívat"
+		ikona="ai"
+		barva="fialova"
+	/>
+</Mrizka>
+
+## Co v učebnici najdete
+
+<CardGrid>
+	<Card title="Výklad" icon="open-book">
+		Učivo rozdělené jako v učebnici: text, obrázky, videa a interaktivní aplikace.
 	</Card>
 	<Card title="Procvičování" icon="pencil">
 		Otázky s okamžitou zpětnou vazbou na konci každé kapitoly.

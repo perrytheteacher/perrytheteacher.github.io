@@ -1,9 +1,11 @@
 ---
 title: Umělá inteligence
-description: Jak rozumět umělé inteligenci a jak ji využívat ve škole.
+description: Jak umělá inteligence funguje a jak ji rozumně využívat ve škole.
 sidebar:
+  label: Přehled
   order: 0
-  label: Připravujeme
 ---
 
-Kapitoly o umělé inteligenci připravujeme.
+Jak umělá inteligence funguje a jak ji rozumně využívat ve škole.
+
+Kapitoly postupně doplňujeme.

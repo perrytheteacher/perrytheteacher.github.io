@@ -3,6 +3,13 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+/** Sbalitelná skupina menu, která automaticky obsahuje všechny kapitoly ze složky. */
+const oblast = (label, directory) => ({
+	label,
+	collapsed: true,
+	items: [{ autogenerate: { directory } }],
+});
+
 export default defineConfig({
 	site: 'https://perrytheteacher.github.io',
 	integrations: [
@@ -17,18 +24,38 @@ export default defineConfig({
 			components: {
 				Footer: './src/components/Paticka.astro',
 			},
+			// Menu. Pořadí podkapitol se řídí pořadím v seznamech níže.
+			// Novou oblast přidáte řádkem oblast('Název', 'cesta/ke/slozce').
 			sidebar: [
 				{ label: 'Úvod', slug: 'uvod' },
 				{
 					label: 'Chemie',
-					items: [{ autogenerate: { directory: 'chemie' } }],
+					collapsed: true,
+					items: [
+						{ label: 'Přehled', slug: 'chemie' },
+						oblast('Obecná chemie', 'chemie/obecna-chemie'),
+						oblast('Anorganická chemie', 'chemie/anorganicka-chemie'),
+						oblast('Organická chemie', 'chemie/organicka-chemie'),
+						oblast('Biochemie', 'chemie/biochemie'),
+					],
 				},
 				{
 					label: 'Biologie',
-					items: [{ autogenerate: { directory: 'biologie' } }],
+					collapsed: true,
+					items: [
+						{ label: 'Přehled', slug: 'biologie' },
+						oblast('Obecná biologie', 'biologie/obecna-biologie'),
+						oblast('Buněčná biologie', 'biologie/bunecna-biologie'),
+						oblast('Botanika', 'biologie/botanika'),
+						oblast('Zoologie', 'biologie/zoologie'),
+						oblast('Antropologie', 'biologie/antropologie'),
+						oblast('Genetika', 'biologie/genetika'),
+						oblast('Ekologie', 'biologie/ekologie'),
+					],
 				},
 				{
 					label: 'Umělá inteligence',
+					collapsed: true,
 					items: [{ autogenerate: { directory: 'ai' } }],
 				},
 				{
