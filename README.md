@@ -1,8 +1,10 @@
-# Chemie pro gymnázia – webová učebnice
+# Perry the Teacher – chemie, biologie a AI pro gymnázia
+
+Web: https://perrytheteacher.github.io
 
 ## Kde co je
 
-- `src/content/docs/kapitoly/` – kapitoly učebnice (jeden soubor = jedna kapitola)
+- `src/content/docs/chemie/`, `biologie/`, `ai/` – kapitoly podle předmětů (jeden soubor = jedna kapitola)
 - `src/content/docs/pro-ucitele/` – metodická vrstva pro učitele
 - `public/aplikace/` – vlastní HTML aplikace (každá ve své složce se souborem `index.html`)
 - `public/obrazky/` – obrázky (vložíte je do kapitoly zápisem `![popis](/obrazky/nazev.png)`)

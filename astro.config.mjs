@@ -4,12 +4,11 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-	// Až budete znát adresu webu, doplňte ji sem, např. 'https://perka-chemie.github.io'
-	// site: 'https://vasejmeno.github.io',
+	site: 'https://perrytheteacher.github.io',
 	integrations: [
 		starlight({
-			title: 'Chemie pro gymnázia',
-			description: 'Webová učebnice chemie s procvičováním, kritickým myšlením a metodikou pro učitele.',
+			title: 'Perry the Teacher',
+			description: 'Chemie, biologie a AI pro gymnázia – výklad, procvičování, kritické myšlení a metodika pro učitele.',
 			defaultLocale: 'root',
 			locales: {
 				root: { label: 'Čeština', lang: 'cs' },
@@ -21,8 +20,16 @@ export default defineConfig({
 			sidebar: [
 				{ label: 'Úvod', slug: 'uvod' },
 				{
-					label: 'Kapitoly',
-					items: [{ autogenerate: { directory: 'kapitoly' } }],
+					label: 'Chemie',
+					items: [{ autogenerate: { directory: 'chemie' } }],
+				},
+				{
+					label: 'Biologie',
+					items: [{ autogenerate: { directory: 'biologie' } }],
+				},
+				{
+					label: 'Umělá inteligence',
+					items: [{ autogenerate: { directory: 'ai' } }],
 				},
 				{
 					label: 'Pro učitele',
