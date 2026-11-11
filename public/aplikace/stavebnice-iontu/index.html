@@ -29,6 +29,10 @@
   .zasobnik{border:1px solid var(--line);border-radius:8px;padding:6px 8px;margin-bottom:8px;background:var(--bg)}
   .rada{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:3px 0}
   .rada .nadpis{font-size:.75rem;color:var(--muted);width:100%;margin-top:2px}
+  .zalozky{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin:6px 0 2px}
+  .zalozky .nadpis{font-size:.75rem;color:var(--muted);margin-right:4px}
+  .zalozka{font-size:.78rem;padding:2px 9px;border-radius:12px}
+  .zalozka.aktivni{background:#1f2328;color:#fff;border-color:#1f2328}
   .chip{touch-action:none;cursor:grab;border-radius:5px;padding:3px 7px;font-size:.92rem;font-weight:600;
         border:1.5px solid;min-width:42px;text-align:center;line-height:1.5}
   .chip{background:var(--f);border-color:var(--s)}
@@ -37,7 +41,8 @@
   .z-k3{--f:#f5a3a3;--s:#b42318} .z-k4{--f:#eeb0d3;--s:#9c2f6b}
   /* anionty – studené barvy podle náboje, organické zvlášť */
   .z-a1{--f:#bfdcf5;--s:#2e75b6} .z-a2{--f:#b2e3df;--s:#1a7f78}
-  .z-a3{--f:#d3c8f0;--s:#5e45a0} .z-org{--f:#c9ebc6;--s:#2f7d32}
+  .z-a3{--f:#d3c8f0;--s:#5e45a0} .z-a4{--f:#c4cdf2;--s:#3949ab}
+  .z-a5{--f:#b9e6f2;--s:#00838f} .z-a6{--f:#d9dee6;--s:#455a64} .z-org{--f:#c9ebc6;--s:#2f7d32}
   .chip:active{cursor:grabbing}
   .plocha-obal{position:relative}
   #plocha{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:8px;touch-action:none;
@@ -73,7 +78,7 @@
 </head>
 <body>
 <h1>Stavebnice iontů</h1>
-<p class="napoveda">Přetáhni ionty z nabídky na plochu. <b>Kation</b> má na pravé straně tolik <b>děr</b>, kolik má kladných nábojů, <b>anion</b> má vlevo tolik <b>výstupků</b>, kolik má záporných nábojů. Anion přilož zprava ke kationtu. Sloučenina je hotová, když jsou všechny díry zaplněné a žádný výstupek nezbývá. Dílek odstraníš přetažením do koše nebo dvojklikem.</p>
+<p class="napoveda">Přetáhni ionty z nabídky na plochu. <b>Kation</b> má na pravé straně tolik <b>děr</b>, kolik má kladných nábojů, <b>anion</b> má vlevo tolik <b>výstupků</b>, kolik má záporných nábojů. Anion přilož zprava ke kationtu. Sloučenina je hotová, když jsou všechny díry zaplněné a žádný výstupek nezbývá. Anionty jsou rozdělené do záložek, 🎯 Nový úkol vybírá z právě otevřené záložky. Dílek odstraníš přetažením do koše nebo dvojklikem.</p>
 
 <div class="lista">
   <button class="hlavni" id="btnUkol">🎯 Nový úkol</button>
@@ -100,70 +105,110 @@ const sup = (n, s) => `<sup>${n > 1 ? n : ""}${s}</sup>`;
 const subs = t => t.replace(/(\d+)/g, "<sub>$1</sub>");
 
 /* ---------- ionty ---------- */
-// [id, vzorec (číslice = dolní index), náboj, přídavné jméno, víceatomový]
+// kationty: [id, vzorec (číslice = dolní index), náboj, přídavné jméno, víceatomový]
 const KATIONTY = [
   ["H","H",1,"vodíkový"],["Li","Li",1,"lithný"],["Na","Na",1,"sodný"],["K","K",1,"draselný"],["Ag","Ag",1,"stříbrný"],
   ["Cu1","Cu",1,"měďný"],["NH4","NH4",1,"amonný",true],
-  ["Mg","Mg",2,"hořečnatý"],["Ca","Ca",2,"vápenatý"],["Ba","Ba",2,"barnatý"],["Zn","Zn",2,"zinečnatý"],
-  ["Cu2","Cu",2,"měďnatý"],["Fe2","Fe",2,"železnatý"],["Pb2","Pb",2,"olovnatý"],["Mn2","Mn",2,"manganatý"],["Ni2","Ni",2,"nikelnatý"],
+  ["Mg","Mg",2,"hořečnatý"],["Ca","Ca",2,"vápenatý"],["Sr","Sr",2,"strontnatý"],["Ba","Ba",2,"barnatý"],["Zn","Zn",2,"zinečnatý"],
+  ["Cd","Cd",2,"kademnatý"],["Hg2","Hg",2,"rtuťnatý"],["Cu2","Cu",2,"měďnatý"],["Fe2","Fe",2,"železnatý"],["Co2","Co",2,"kobaltnatý"],
+  ["Ni2","Ni",2,"nikelnatý"],["Mn2","Mn",2,"manganatý"],["Sn2","Sn",2,"cínatý"],["Pb2","Pb",2,"olovnatý"],
   ["Al","Al",3,"hlinitý"],["Fe3","Fe",3,"železitý"],["Cr3","Cr",3,"chromitý"],
   ["Sn4","Sn",4,"cíničitý"],["Pb4","Pb",4,"olovičitý"]
 ];
-// [id, vzorec, náboj (absolutně), název, víceatomový]
+// anionty: [id, vzorec, náboj (absolutně), název, víceatomový, skupina, sloučenina s H⁺, vzorec sloučeniny s H⁺ (jen když se liší)]
 const ANIONTY = [
-  ["F","F",1,"fluorid"],["Cl","Cl",1,"chlorid"],["Br","Br",1,"bromid"],["I","I",1,"jodid"],
-  ["OH","OH",1,"hydroxid",true],["NO3","NO3",1,"dusičnan",true],["NO2","NO2",1,"dusitan",true],
-  ["HCO3","HCO3",1,"hydrogenuhličitan",true],["HSO4","HSO4",1,"hydrogensíran",true],
-  ["ClO3","ClO3",1,"chlorečnan",true],["ClO4","ClO4",1,"chloristan",true],["MnO4","MnO4",1,"manganistan",true],
-  ["O","O",2,"oxid"],["S","S",2,"sulfid"],["SO4","SO4",2,"síran",true],["SO3","SO3",2,"siřičitan",true],
-  ["CO3","CO3",2,"uhličitan",true],["CrO4","CrO4",2,"chroman",true],["Cr2O7","Cr2O7",2,"dichroman",true],
-  ["HPO4","HPO4",2,"hydrogenfosforečnan",true],
-  ["N","N",3,"nitrid"],["PO4","PO4",3,"fosforečnan",true]
+  ["Hm","H",1,"hydrid",false,"zak","vodík","H2"],
+  ["F","F",1,"fluorid",false,"zak","fluorovodík (kyselina fluorovodíková)"],
+  ["Cl","Cl",1,"chlorid",false,"zak","chlorovodík (kyselina chlorovodíková)"],
+  ["Br","Br",1,"bromid",false,"zak","bromovodík (kyselina bromovodíková)"],
+  ["I","I",1,"jodid",false,"zak","jodovodík (kyselina jodovodíková)"],
+  ["OH","OH",1,"hydroxid",true,"zak","voda","H2O"],
+  ["CN","CN",1,"kyanid",true,"zak","kyanovodík (kyselina kyanovodíková)"],
+  ["O","O",2,"oxid",false,"zak","voda"],
+  ["O2","O2",2,"peroxid",true,"zak","peroxid vodíku"],
+  ["S","S",2,"sulfid",false,"zak","sulfan (kyselina sirovodíková)"],
+  ["Se","Se",2,"selenid",false,"zak","selan (kyselina selenovodíková)"],
+  ["C2","C2",2,"acetylid",true,"zak","ethyn (acetylen)","C2H2"],
+  ["N","N",3,"nitrid",false,"zak","amoniak","NH3"],
+  ["P","P",3,"fosfid",false,"zak","fosfan","PH3"],
+  ["C","C",4,"karbid",false,"zak","methan","CH4"],
+  ["HS","HS",1,"hydrogensulfid",true,"hyd","sulfan (kyselina sirovodíková)","H2S"],
+  ["ClO", "ClO", 1, "chlornan", true, "oxo", "kyselina chlorná", ""],
+  ["ClO3", "ClO3", 1, "chlorečnan", true, "oxo", "kyselina chlorečná", ""],
+  ["ClO4", "ClO4", 1, "chloristan", true, "oxo", "kyselina chloristá", ""],
+  ["NO2", "NO2", 1, "dusitan", true, "oxo", "kyselina dusitá", ""],
+  ["NO3", "NO3", 1, "dusičnan", true, "oxo", "kyselina dusičná", ""],
+  ["SO3", "SO3", 2, "siřičitan", true, "oxo", "kyselina siřičitá", ""],
+  ["SO4", "SO4", 2, "síran", true, "oxo", "kyselina sírová", ""],
+  ["CO3", "CO3", 2, "uhličitan", true, "oxo", "kyselina uhličitá", ""],
+  ["SiO3", "SiO3", 2, "křemičitan", true, "oxo", "kyselina křemičitá", ""],
+  ["BO3", "BO3", 3, "boritan", true, "oxo", "kyselina boritá", ""],
+  ["PO4", "PO4", 3, "fosforečnan", true, "oxo", "kyselina fosforečná", ""],
+  ["MnO4", "MnO4", 1, "manganistan", true, "oxo", "kyselina manganistá", ""],
+  ["CrO4", "CrO4", 2, "chroman", true, "oxo", "kyselina chromová", ""],
+  ["Cr2O7", "Cr2O7", 2, "dichroman", true, "oxo", "kyselina dichromová", ""],
+  ["HCO3", "HCO3", 1, "hydrogenuhličitan", true, "hyd", "kyselina uhličitá", "H2CO3"],
+  ["HSO4", "HSO4", 1, "hydrogensíran", true, "hyd", "kyselina sírová", "H2SO4"],
+  ["HSO3", "HSO3", 1, "hydrogensiřičitan", true, "hyd", "kyselina siřičitá", "H2SO3"],
+  ["H2PO4", "H2PO4", 1, "dihydrogenfosforečnan", true, "hyd", "kyselina fosforečná", "H3PO4"],
+  ["HPO4", "HPO4", 2, "hydrogenfosforečnan", true, "hyd", "kyselina fosforečná", "H3PO4"],
+  ["S2O7", "S2O7", 2, "disíran", true, "roz", "kyselina disírová", ""],
+  ["P2O7", "P2O7", 4, "difosforečnan", true, "roz", "kyselina difosforečná", ""],
+  ["P3O10", "P3O10", 5, "trifosforečnan", true, "roz", "kyselina trifosforečná", ""],
+  ["B4O7", "B4O7", 2, "tetraboritan", true, "roz", "kyselina tetraboritá", ""],
+  ["SiO4", "SiO4", 4, "tetraoxokřemičitan", true, "roz", "kyselina tetraoxokřemičitá", ""],
+  ["IO6", "IO6", 5, "hexaoxojodistan", true, "roz", "kyselina hexaoxojodistá", ""],
+  ["TeO6", "TeO6", 6, "hexaoxotelluran", true, "roz", "kyselina hexaoxotellurová", ""],
+  ["BrO3", "BrO3", 1, "bromičnan", true, "roz", "kyselina bromičná", ""],
+  ["IO3", "IO3", 1, "jodičnan", true, "roz", "kyselina jodičná", ""],
+  ["ClO2", "ClO2", 1, "chloritan", true, "roz", "kyselina chloritá", ""],
+  ["SeO4", "SeO4", 2, "selenan", true, "roz", "kyselina selenová", ""],
+  ["AsO4", "AsO4", 3, "arseničnan", true, "roz", "kyselina arseničná", ""],
+  ["MnO4b", "MnO4", 2, "manganan", true, "roz", "kyselina manganová", ""],
+  ["FeO4", "FeO4", 2, "železan", true, "roz", "kyselina železová", ""],
+  ["MoO4", "MoO4", 2, "molybdenan", true, "roz", "kyselina molybdenová", ""],
+  ["WO4", "WO4", 2, "wolframan", true, "roz", "kyselina wolframová", ""],
+  ["S2O3", "S2O3", 2, "thiosíran", true, "roz", "kyselina thiosírová", ""],
+  ["S2O8", "S2O8", 2, "peroxodisíran", true, "roz", "kyselina peroxodisírová", ""]
 ];
-// organické anionty: [id, vzorec, náboj, název, tradiční/alternativní název]
+// organické anionty: [id, vzorec, náboj, název, tradiční název, sloučenina s H⁺]
 const ORG_ANIONTY = [
-  ["CH3O","CH3O",1,"methoxid","methanolát"],["C2H5O","C2H5O",1,"ethoxid","ethanolát"],
-  ["HCOO","HCOO",1,"formiát","mravenčan"],["CH3COO","CH3COO",1,"acetát","octan"],
-  ["C3H7COO","C3H7COO",1,"butanoát","máselnan"],["C2O4","C2O4",2,"oxalát","šťavelan"]
+  ["CH3O","CH3O",1,"methoxid","methanolát","methanol"],["C2H5O","C2H5O",1,"ethoxid","ethanolát","ethanol"],
+  ["HCOO","HCOO",1,"formiát","mravenčan","kyselina mravenčí (methanová)"],["CH3COO","CH3COO",1,"acetát","octan","kyselina octová (ethanová)"],
+  ["C3H7COO","C3H7COO",1,"butanoát","máselnan","kyselina máselná (butanová)"],["C2O4","C2O4",2,"oxalát","šťavelan","kyselina šťavelová (ethandiová)"]
 ];
+const SKUPINY = [["zak","Jednoduché"],["oxo","Oxoanionty"],["hyd","Hydrogenanionty"],["roz","Rozšiřující"],["org","Organické"],["vse","Vše"]];
 const ION = {};
+const VODIK = {}; // id aniontu -> [název sloučeniny s H⁺, vzorec (jen kde se liší od složení z iontů)]
 KATIONTY.forEach(([id,f,z,jm,poly]) => ION[id] = {id, typ:"k", f, z, jm, poly:!!poly,
   stitek: subs(f) + sup(z, "+")});
-ANIONTY.forEach(([id,f,z,jm,poly]) => ION[id] = {id, typ:"a", f, z, jm, poly:!!poly,
-  stitek: subs(f) + sup(z, MINUS)});
-ORG_ANIONTY.forEach(([id,f,z,jm,alt]) => ION[id] = {id, typ:"a", f, z, jm, alt, poly:true,
+ANIONTY.forEach(([id,f,z,jm,poly,sk,sH,vH]) => { ION[id] = {id, typ:"a", f, z, jm, poly:!!poly, sk,
+  stitek: subs(f) + sup(z, MINUS)}; VODIK[id] = [sH, vH || null]; });
+ORG_ANIONTY.forEach(([id,f,z,jm,alt,sH]) => { ION[id] = {id, typ:"a", f, z, jm, alt, poly:true, sk:"org",
   org: id!=="C2O4",   // karboxyláty a alkoholáty píšeme ve vzorci před kationtem: CH3COONa, (CH3COO)2Ca
-  stitek: subs(f) + sup(z, MINUS)});
+  stitek: subs(f) + sup(z, MINUS)}; VODIK[id] = [sH, null]; });
 // šířka dílku v jednotkách mřížky podle délky vzorce
 Object.values(ION).forEach(i => { const delka = i.f.replace(/\d/g,"").length + i.f.replace(/\D/g,"").length*0.6;
   i.w = delka > 4.3 ? 3 : 2; });
-
-/* ---------- vodíkový kation: kyseliny a další sloučeniny vodíku ---------- */
-const VODIK = { // id aniontu -> [název, vzorec (jen kde se liší od složení z iontů)]
-  F:["kyselina fluorovodíková"], Cl:["kyselina chlorovodíková"], Br:["kyselina bromovodíková"], I:["kyselina jodovodíková"],
-  OH:["voda","H2O"], NO3:["kyselina dusičná"], NO2:["kyselina dusitá"], HCO3:["kyselina uhličitá","H2CO3"],
-  HSO4:["kyselina sírová","H2SO4"], ClO3:["kyselina chlorečná"], ClO4:["kyselina chloristá"], MnO4:["kyselina manganistá"],
-  O:["voda"], S:["sulfan (kyselina sirovodíková)"], SO4:["kyselina sírová"], SO3:["kyselina siřičitá"],
-  CO3:["kyselina uhličitá"], CrO4:["kyselina chromová"], Cr2O7:["kyselina dichromová"],
-  HPO4:["kyselina fosforečná","H3PO4"], N:["amoniak","NH3"], PO4:["kyselina fosforečná"],
-  CH3O:["methanol"], C2H5O:["ethanol"], HCOO:["kyselina mravenčí (methanová)"], CH3COO:["kyselina octová (ethanová)"],
-  C3H7COO:["kyselina máselná (butanová)"], C2O4:["kyselina šťavelová (ethandiová)"]
-};
 const PREDPONA_H = ["", "hydrogen", "dihydrogen", "trihydrogen"];
 
 /* ---------- úkoly (jen skutečně existující sloučeniny) ---------- */
-const UKOLY = [
+const UKOLY_VLASTNI = [
+  ["Na","Hm"],["Li","Hm"],["K","Hm"],["Ca","Hm"],["Mg","Hm"],["Ba","Hm"],["Al","Hm"],["H","Hm"],
+  ["Na","O2"],["Ba","O2"],["H","O2"],["Ca","C2"],["Al","C"],["K","CN"],["Na","CN"],["H","CN"],["Ca","P"],["Zn","P"],["H","P"],
+  ["H","C"],["H","C2"],["Zn","Se"],["H","Se"],["Na","HS"],["Fe2","S"],["Hg2","S"],["Cd","S"],["Ag","Cl"],["Sn2","Cl"],["Co2","Cl"],
   ["Na","CH3COO"],["Ca","CH3COO"],["K","HCOO"],["Na","CH3O"],["Na","C2H5O"],["Ca","C2O4"],["Na","C2O4"],
   ["Na","C3H7COO"],["Mg","CH3COO"],["Al","CH3COO"],["H","CH3COO"],["H","HCOO"],["H","C2O4"],
-  ["H","Cl"],["H","SO4"],["H","NO3"],["H","PO4"],["H","CO3"],["H","S"],["H","O"],["H","SO3"],["H","NO2"],
-  ["Na","Cl"],["K","SO4"],["Ca","Cl"],["Al","SO4"],["Fe3","O"],["Fe2","O"],["Ca","OH"],["NH4","SO4"],
-  ["Na","PO4"],["Ca","PO4"],["Mg","N"],["Al","Cl"],["Cu2","SO4"],["Cu1","O"],["Cu2","O"],["K","MnO4"],
-  ["K","Cr2O7"],["Na","HCO3"],["Ca","CO3"],["Ba","NO3"],["Ag","NO3"],["Al","O"],["Pb4","O"],["Sn4","O"],
-  ["Na","S"],["Zn","S"],["Fe3","SO4"],["Mg","OH"],["K","NO2"],["Na","CO3"],["Li","O"],["NH4","NO3"],
-  ["Ca","HPO4"],["Cr3","O"],["K","CrO4"],["Na","SO3"],["Al","OH"],["Fe3","OH"],["Ba","SO4"],["Pb2","I"],
-  ["Ag","Br"],["K","ClO3"],["Mg","Cl"],["Fe3","Cl"],["Zn","Cl"],["NH4","Cl"],["Li","F"],["Ca","F"],
-  ["Ba","OH"],["Fe2","SO4"],["NH4","PO4"],["Mg","PO4"],["Ca","HCO3"],["Ni2","SO4"],["Mn2","O"],["Al","N"]
+  ["H","Cl"],["H","SO4"],["H","NO3"],["H","PO4"],["H","CO3"],["H","S"],["H","O"],["H","SO3"],["H","NO2"],["H","ClO"],["H","BO3"],
+  ["H","HSO4"],["H","H2PO4"],["H","S2O7"],["H","MnO4b"],
+  ["Na","Cl"],["Ca","Cl"],["Fe3","O"],["Fe2","O"],["Ca","OH"],["Mg","N"],["Al","Cl"],["Cu1","O"],["Cu2","O"],
+  ["Al","O"],["Pb4","O"],["Sn4","O"],["Na","S"],["Zn","S"],["Mg","OH"],["Li","O"],["Cr3","O"],["Al","OH"],["Fe3","OH"],
+  ["Pb2","I"],["Ag","Br"],["Mg","Cl"],["Fe3","Cl"],["Zn","Cl"],["NH4","Cl"],["Li","F"],["Ca","F"],["Ba","OH"],["Mn2","O"],["Al","N"],
+  ["Na","OH"],["K","OH"],["Sr","OH"],["Ca","O"],["Mg","O"],["Zn","O"]
 ];
+const UKOLY_OXOSOLI = [["Li", "ClO"], ["Li", "ClO3"], ["Li", "ClO4"], ["Li", "NO2"], ["Li", "NO3"], ["Li", "SO3"], ["Li", "SO4"], ["Li", "CO3"], ["Li", "SiO3"], ["Li", "BO3"], ["Li", "PO4"], ["Li", "MnO4"], ["Li", "CrO4"], ["Li", "Cr2O7"], ["Na", "ClO"], ["Na", "ClO3"], ["Na", "ClO4"], ["Na", "NO2"], ["Na", "NO3"], ["Na", "SO3"], ["Na", "SO4"], ["Na", "CO3"], ["Na", "SiO3"], ["Na", "BO3"], ["Na", "PO4"], ["Na", "MnO4"], ["Na", "CrO4"], ["Na", "Cr2O7"], ["K", "ClO"], ["K", "ClO3"], ["K", "ClO4"], ["K", "NO2"], ["K", "NO3"], ["K", "SO3"], ["K", "SO4"], ["K", "CO3"], ["K", "SiO3"], ["K", "BO3"], ["K", "PO4"], ["K", "MnO4"], ["K", "CrO4"], ["K", "Cr2O7"], ["Mg", "ClO"], ["Mg", "ClO3"], ["Mg", "ClO4"], ["Mg", "NO2"], ["Mg", "NO3"], ["Mg", "SO3"], ["Mg", "SO4"], ["Mg", "CO3"], ["Mg", "SiO3"], ["Mg", "BO3"], ["Mg", "PO4"], ["Mg", "MnO4"], ["Mg", "CrO4"], ["Mg", "Cr2O7"], ["Ca", "ClO"], ["Ca", "ClO3"], ["Ca", "ClO4"], ["Ca", "NO2"], ["Ca", "NO3"], ["Ca", "SO3"], ["Ca", "SO4"], ["Ca", "CO3"], ["Ca", "SiO3"], ["Ca", "BO3"], ["Ca", "PO4"], ["Ca", "MnO4"], ["Ca", "CrO4"], ["Ca", "Cr2O7"], ["Ba", "ClO"], ["Ba", "ClO3"], ["Ba", "ClO4"], ["Ba", "NO2"], ["Ba", "NO3"], ["Ba", "SO3"], ["Ba", "SO4"], ["Ba", "CO3"], ["Ba", "SiO3"], ["Ba", "BO3"], ["Ba", "PO4"], ["Ba", "MnO4"], ["Ba", "CrO4"], ["Ba", "Cr2O7"], ["Ag", "NO3"], ["Ag", "NO2"], ["Ag", "ClO3"], ["Ag", "ClO4"], ["Ag", "SO3"], ["Ag", "SO4"], ["Ag", "CO3"], ["Ag", "PO4"], ["Ag", "CrO4"], ["Ag", "Cr2O7"], ["Ag", "MnO4"], ["Zn", "NO3"], ["Zn", "SO4"], ["Zn", "SO3"], ["Zn", "CO3"], ["Zn", "PO4"], ["Zn", "ClO3"], ["Zn", "ClO4"], ["Zn", "CrO4"], ["Al", "NO3"], ["Al", "SO4"], ["Al", "PO4"], ["Al", "ClO4"], ["Fe2", "SO4"], ["Fe2", "NO3"], ["Fe2", "CO3"], ["Fe2", "PO4"], ["Fe2", "ClO4"], ["Fe3", "SO4"], ["Fe3", "NO3"], ["Fe3", "PO4"], ["Fe3", "ClO4"], ["Cu2", "SO4"], ["Cu2", "NO3"], ["Cu2", "CO3"], ["Cu2", "PO4"], ["Cu2", "ClO3"], ["Cu2", "ClO4"], ["Pb2", "NO3"], ["Pb2", "SO4"], ["Pb2", "CO3"], ["Pb2", "CrO4"], ["Pb2", "PO4"], ["Pb2", "ClO4"], ["Cr3", "SO4"], ["Cr3", "NO3"], ["Cr3", "PO4"], ["Cr3", "ClO4"], ["Mn2", "SO4"], ["Mn2", "NO3"], ["Mn2", "CO3"], ["Mn2", "PO4"], ["Ni2", "SO4"], ["Ni2", "NO3"], ["Ni2", "CO3"], ["Ni2", "PO4"], ["Co2", "SO4"], ["Co2", "NO3"], ["Co2", "CO3"], ["Co2", "PO4"], ["NH4", "ClO3"], ["NH4", "ClO4"], ["NH4", "NO2"], ["NH4", "NO3"], ["NH4", "SO3"], ["NH4", "SO4"], ["NH4", "CO3"], ["NH4", "SiO3"], ["NH4", "BO3"], ["NH4", "PO4"], ["NH4", "CrO4"], ["NH4", "Cr2O7"], ["Li", "HCO3"], ["Li", "HSO4"], ["Li", "HSO3"], ["Li", "H2PO4"], ["Li", "HPO4"], ["Na", "HCO3"], ["Na", "HSO4"], ["Na", "HSO3"], ["Na", "H2PO4"], ["Na", "HPO4"], ["K", "HCO3"], ["K", "HSO4"], ["K", "HSO3"], ["K", "H2PO4"], ["K", "HPO4"], ["NH4", "HCO3"], ["NH4", "HSO4"], ["NH4", "H2PO4"], ["NH4", "HPO4"], ["Ca", "HCO3"], ["Ca", "H2PO4"], ["Ca", "HPO4"], ["Mg", "HCO3"], ["Mg", "H2PO4"], ["Mg", "HPO4"], ["Ba", "HCO3"], ["Na", "S2O7"], ["Na", "P2O7"], ["Na", "P3O10"], ["Na", "B4O7"], ["K", "S2O7"], ["K", "P2O7"], ["K", "P3O10"], ["K", "B4O7"], ["NH4", "S2O7"], ["NH4", "P2O7"], ["NH4", "P3O10"], ["NH4", "B4O7"], ["Ca", "P2O7"], ["Ca", "B4O7"], ["Ba", "P2O7"], ["Ba", "B4O7"], ["Mg", "P2O7"], ["Mg", "S2O7"], ["Mg", "B4O7"], ["Zn", "P2O7"], ["Al", "Cr2O7"], ["Mg", "SiO4"], ["Ca", "SiO4"], ["Zn", "SiO4"], ["Ba", "SiO4"], ["Na", "SiO4"], ["Al", "SiO4"], ["Na", "IO6"], ["K", "IO6"], ["Ca", "IO6"], ["Ag", "IO6"], ["Fe3", "IO6"], ["Ba", "IO6"], ["Ag", "TeO6"], ["Zn", "TeO6"], ["Na", "TeO6"], ["K", "TeO6"], ["Na", "BrO3"], ["K", "BrO3"], ["Ca", "BrO3"], ["Ba", "BrO3"], ["Na", "IO3"], ["K", "IO3"], ["Ca", "IO3"], ["Na", "ClO2"], ["K", "ClO2"], ["Na", "SeO4"], ["K", "SeO4"], ["Mg", "SeO4"], ["Al", "SeO4"], ["Ba", "SeO4"], ["Na", "AsO4"], ["K", "AsO4"], ["Ag", "AsO4"], ["Ca", "AsO4"], ["K", "MnO4b"], ["K", "FeO4"], ["Na", "MnO4b"], ["Na", "FeO4"], ["Ba", "MnO4b"], ["Ba", "FeO4"], ["Na", "MoO4"], ["NH4", "MoO4"], ["Ca", "MoO4"], ["Pb2", "MoO4"], ["Na", "WO4"], ["Ca", "WO4"], ["Na", "S2O3"], ["K", "S2O3"], ["NH4", "S2O3"], ["K", "S2O8"], ["Na", "S2O8"], ["NH4", "S2O8"]];
+const UKOLY = [];
+[...UKOLY_VLASTNI, ...UKOLY_OXOSOLI].forEach(u => { if (ION[u[0]] && ION[u[1]] && !UKOLY.some(x => x[0]===u[0] && x[1]===u[1])) UKOLY.push(u); });
 
 /* ---------- stav ---------- */
 const plocha = document.getElementById("plocha");
@@ -302,27 +347,35 @@ function novyDilek(ion){
 }
 
 /* ---------- zásobník ---------- */
+let aktivniSkupina = "zak";
+function chip(ion){
+  const c = document.createElement("div");
+  c.className = "chip " + barva(ion);
+  c.innerHTML = ion.stitek;
+  c.title = (ion.typ==="k" ? "kation " : "anion ") + nazevIontu(ion) + " – přetáhni na plochu";
+  c.addEventListener("pointerdown", e => { if (e.button !== 0 && e.pointerType === "mouse") return; zacniTah(e, novyDilek(ion), true); });
+  return c;
+}
+function anionyVeSkupine(sk){ return Object.values(ION).filter(i => i.typ==="a" && (sk==="vse" || i.sk===sk)); }
 function postavZasobnik(){
   const z = document.getElementById("zasobnik");
-  const skupiny = [
-    ["Kationty (+)", KATIONTY.map(k=>ION[k[0]])],
-    ["Anionty (−)", ANIONTY.map(a=>ION[a[0]])],
-    ["Organické anionty (−)", ORG_ANIONTY.map(a=>ION[a[0]])]
-  ];
   z.innerHTML = "";
-  for (const [nadpis, seznam] of skupiny){
-    const rada = document.createElement("div"); rada.className = "rada";
-    rada.innerHTML = `<span class="nadpis">${nadpis}</span>`;
-    for (const ion of seznam){
-      const c = document.createElement("div");
-      c.className = "chip " + barva(ion);
-      c.innerHTML = ion.stitek;
-      c.title = (ion.typ==="k" ? "kation " : "anion ") + nazevIontu(ion) + " – přetáhni na plochu";
-      c.addEventListener("pointerdown", e => { if (e.button !== 0 && e.pointerType === "mouse") return; zacniTah(e, novyDilek(ion), true); });
-      rada.appendChild(c);
-    }
-    z.appendChild(rada);
-  }
+  const rk = document.createElement("div"); rk.className = "rada";
+  rk.innerHTML = `<span class="nadpis">Kationty (+)</span>`;
+  KATIONTY.forEach(k => rk.appendChild(chip(ION[k[0]])));
+  z.appendChild(rk);
+  const zal = document.createElement("div"); zal.className = "zalozky";
+  zal.innerHTML = `<span class="nadpis">Anionty (−):</span>`;
+  SKUPINY.forEach(([sk, nazev]) => {
+    const t = document.createElement("button");
+    t.textContent = nazev; t.className = "zalozka" + (sk===aktivniSkupina ? " aktivni" : "");
+    t.onclick = () => { aktivniSkupina = sk; postavZasobnik(); };
+    zal.appendChild(t);
+  });
+  z.appendChild(zal);
+  const ra = document.createElement("div"); ra.className = "rada";
+  anionyVeSkupine(aktivniSkupina).forEach(i => ra.appendChild(chip(i)));
+  z.appendChild(ra);
 }
 
 /* ---------- vyhodnocení ---------- */
@@ -416,7 +469,10 @@ function vypisVysledky(hotove){
 /* ---------- úkoly ---------- */
 const ukolEl = document.getElementById("ukol");
 function novyUkol(){
-  let u; do { u = UKOLY[Math.floor(Math.random()*UKOLY.length)]; } while (ukol && u[0]===ukol[0] && u[1]===ukol[1]);
+  // úkoly z právě otevřené skupiny aniontů
+  let vyber = UKOLY.filter(u => aktivniSkupina==="vse" || ION[u[1]].sk===aktivniSkupina);
+  if (vyber.length < 2) vyber = UKOLY;
+  let u; do { u = vyber[Math.floor(Math.random()*vyber.length)]; } while (ukol && u[0]===ukol[0] && u[1]===ukol[1]);
   ukol = u;
   ukolEl.innerHTML = `Sestav: <b>${nazevUkolu(u)}</b> <button id="btnReseni">Ukázat vzorec</button>`;
   document.getElementById("btnReseni").onclick = () => {
@@ -491,7 +547,7 @@ window.addEventListener("resize", () => { clearTimeout(casovac); casovac = setTi
 postavZasobnik();
 mereni(); posledniU = U;
 vyhodnot();
-window.__stavebnice = {dilky:()=>dilky, ION, vlozSestavu, vyhodnot};
+window.__stavebnice = {dilky:()=>dilky, ION, UKOLY, vlozSestavu, vyhodnot};
 })();
 </script>
 </body>
