@@ -1,0 +1,221 @@
+---
+// Novinky – seznam nově vytvořených a upravených kapitol a metodik.
+// Plní se SAMO z historie gitu při každém sestavení webu (tj. po každém commitu),
+// nic se nikam nepíše ručně. Použití:
+//   <Novinky />            – posledních 6 změn (titulní stránka)
+//   <Novinky pocet={30} /> – delší seznam (stránka Novinky)
+//
+// Pravidla:
+// - „Nové“ = soubor kapitoly/metodiky byl přidán; „Aktualizováno“ = později upraven.
+// - Úprava se nepočítá, když commit mění více než 4 moduly naráz (hromadné úpravy
+//   vzhledu, exportu apod.) nebo když zpráva commitu obsahuje [bez novinky].
+// - Přejmenování / přečíslování souboru bez změny obsahu se nepočítá.
+// - Stránku lze z novinek vyřadit ve frontmatteru: `novinky: false`.
+import { getCollection } from 'astro:content';
+import { execFileSync } from 'node:child_process';
+
+interface Props {
+	pocet?: number;
+}
+const { pocet = 6 } = Astro.props;
+
+const SLOZKA = 'src/content/docs/';
+const HROMADNY_COMMIT = 4;
+const DEN = 24 * 60 * 60 * 1000;
+
+// Které stránky jsou „moduly“: kapitoly v předmětech a metodiky, ne přehledy oblastí.
+const jeModul = (cesta: string) =>
+	/\.(md|mdx)$/.test(cesta) &&
+	!/(^|\/)index\.mdx?$/.test(cesta) &&
+	/^(chemie|biologie|ai|pro-ucitele)\//.test(cesta.slice(SLOZKA.length));
+
+// --- historie z gitu ---
+type Zaznam = { vytvoreno?: Date; upraveno?: Date };
+const historie = new Map<string, Zaznam>();
+let gitOk = true;
+try {
+	const vystup = execFileSync(
+		'git',
+		['log', '--reverse', '-M', '--name-status', '--format=@@@%cI%x09%s', '--', SLOZKA],
+		{ encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
+	);
+	for (const blok of vystup.split('@@@').slice(1)) {
+		const [hlavicka, ...radky] = blok.split('\n');
+		const [datumText, ...zprava] = hlavicka.split('\t');
+		const datum = new Date(datumText);
+		const bezNovinky = zprava.join('\t').includes('[bez novinky]');
+		const zmeny = radky
+			.filter(Boolean)
+			.map((r) => r.split('\t'))
+			.filter((c) => /\.(md|mdx)$/.test(c[c.length - 1]));
+		const hromadny = zmeny.filter((c) => c[0] !== 'A' && c[0] !== 'R100' && jeModul(c[c.length - 1])).length > HROMADNY_COMMIT;
+		for (const c of zmeny) {
+			const stav = c[0][0];
+			const cesta = c[c.length - 1];
+			if (stav === 'A') {
+				historie.set(cesta, { vytvoreno: datum });
+			} else if (stav === 'D') {
+				historie.delete(cesta);
+			} else if (stav === 'R') {
+				const z = historie.get(c[1]) ?? {};
+				historie.delete(c[1]);
+				if (c[0] !== 'R100' && !hromadny && !bezNovinky) z.upraveno = datum;
+				historie.set(cesta, z);
+			} else if (stav === 'M' && !hromadny && !bezNovinky) {
+				const z = historie.get(cesta) ?? {};
+				z.upraveno = datum;
+				historie.set(cesta, z);
+			}
+		}
+	}
+} catch {
+	gitOk = false;
+}
+
+// --- propojení s obsahem webu ---
+const stranky = await getCollection('docs');
+const nazvyOblasti = new Map(
+	stranky.filter((s) => /(^|\/)index\.mdx?$/.test(s.filePath ?? '')).map((s) => [s.id, s.data.title]),
+);
+const zaklad = import.meta.env.BASE_URL.replace(/\/$/, '');
+const predmety: Record<string, { nazev: string; barva: string }> = {
+	chemie: { nazev: 'Chemie', barva: 'modra' },
+	biologie: { nazev: 'Biologie', barva: 'zelena' },
+	ai: { nazev: 'Umělá inteligence', barva: 'fialova' },
+	'pro-ucitele': { nazev: 'Pro učitele', barva: 'oranzova' },
+};
+
+const polozky = stranky
+	.filter((s) => s.filePath && jeModul(s.filePath) && (s.data as any).novinky !== false)
+	.map((s) => {
+		const z = historie.get(s.filePath!) ?? {};
+		const vytvoreno = z.vytvoreno;
+		// úprava v den vzniku je pořád „nové“
+		const upraveno = z.upraveno && (!vytvoreno || z.upraveno.getTime() - vytvoreno.getTime() > DEN) ? z.upraveno : undefined;
+		const datum = upraveno ?? vytvoreno;
+		const casti = s.id.split('/');
+		const predmet = predmety[casti[0]] ?? predmety.chemie;
+		const oblast = casti[0] === 'pro-ucitele' ? 'Metodika' : nazvyOblasti.get(casti.slice(0, 2).join('/'));
+		return {
+			nazev: s.data.title.replace(/^Metodika:\s*/, ''),
+			popis: s.data.description,
+			href: `${zaklad}/${s.id}/`,
+			datum,
+			stitek: upraveno ? 'Aktualizováno' : 'Nové',
+			predmet,
+			oblast,
+		};
+	})
+	.filter((p) => p.datum)
+	.sort((a, b) => b.datum!.getTime() - a.datum!.getTime())
+	.slice(0, pocet);
+
+const formatDatum = (d: Date) =>
+	d.toLocaleDateString('cs-CZ', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Europe/Prague' });
+---
+
+{
+	gitOk && polozky.length > 0 && (
+		<ul class="novinky not-content">
+			{polozky.map((p) => (
+				<li>
+					<a class:list={['novinka', `barva-${p.predmet.barva}`]} href={p.href}>
+						<span class="horni">
+							<span class:list={['stitek', { upraveno: p.stitek === 'Aktualizováno' }]}>{p.stitek}</span>
+							<span class="zarazeni">
+								{p.predmet.nazev}
+								{p.oblast && <> · {p.oblast}</>}
+							</span>
+							<time datetime={p.datum!.toISOString()}>{formatDatum(p.datum!)}</time>
+						</span>
+						<span class="nazev">{p.nazev}</span>
+						{p.popis && <span class="popis">{p.popis}</span>}
+					</a>
+				</li>
+			))}
+		</ul>
+	)
+}
+
+<style>
+	.novinky {
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 0;
+		display: grid;
+		gap: 0.6rem;
+	}
+	.novinky li {
+		margin: 0;
+	}
+	.novinka {
+		--akcent: #1a6d97;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 0.8rem 1.1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-left: 4px solid var(--akcent);
+		border-radius: 0.5rem;
+		background: var(--sl-color-bg);
+		color: var(--sl-color-white);
+		text-decoration: none;
+		transition: box-shadow 0.12s ease, border-color 0.12s ease;
+	}
+	.novinka:hover,
+	.novinka:focus-visible {
+		border-color: var(--akcent);
+		box-shadow: 0 4px 14px rgb(0 0 0 / 0.1);
+	}
+	.barva-zelena { --akcent: #2f7d3b; }
+	.barva-fialova { --akcent: #6b4bb3; }
+	.barva-oranzova { --akcent: #b25d12; }
+	:global([data-theme='dark']) .barva-modra { --akcent: #5fb3dd; }
+	:global([data-theme='dark']) .barva-zelena { --akcent: #6cc27a; }
+	:global([data-theme='dark']) .barva-fialova { --akcent: #a98ce8; }
+	:global([data-theme='dark']) .barva-oranzova { --akcent: #e9a15c; }
+	.horni {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.3rem 0.7rem;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.stitek {
+		padding: 0.05rem 0.5rem;
+		border-radius: 999px;
+		background: var(--akcent);
+		color: #fff;
+		font-weight: 600;
+	}
+	.stitek.upraveno {
+		background: transparent;
+		color: var(--akcent);
+		border: 1px solid var(--akcent);
+	}
+	:global([data-theme='dark']) .stitek:not(.upraveno) {
+		color: #111;
+	}
+	.zarazeni {
+		color: var(--akcent);
+		font-weight: 600;
+	}
+	time {
+		margin-left: auto;
+	}
+	.nazev {
+		font-size: var(--sl-text-lg);
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	.popis {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-2);
+		line-height: 1.4;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+</style>

@@ -29,6 +29,7 @@ export default defineConfig({
 			// Novou oblast přidáte řádkem oblast('Název', 'cesta/ke/slozce').
 			sidebar: [
 				{ label: 'Úvod', slug: 'uvod' },
+				{ label: 'Novinky', slug: 'novinky' },
 				{
 					label: 'Chemie',
 					collapsed: true,

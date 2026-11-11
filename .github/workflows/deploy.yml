@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Stáhnout soubory
         uses: actions/checkout@v7
+        with:
+          # celá historie – z ní se počítá sekce Novinky
+          fetch-depth: 0
       - name: Připravit Node.js
         uses: actions/setup-node@v7
         with:

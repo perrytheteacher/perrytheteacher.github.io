@@ -17,6 +17,7 @@ hero:
 import { Card, CardGrid } from '@astrojs/starlight/components';
 import Dlazdice from '../../components/Dlazdice.astro';
 import Mrizka from '../../components/Mrizka.astro';
+import Novinky from '../../components/Novinky.astro';
 
 <Mrizka sloupce={3}>
 	<Dlazdice
@@ -44,6 +45,12 @@ import Mrizka from '../../components/Mrizka.astro';
 		barva="fialova"
 	/>
 </Mrizka>
+
+## Novinky
+
+Nově přidané a upravené kapitoly a metodiky. [Všechny novinky →](/novinky/)
+
+<Novinky pocet={6} />
 
 ## Co v učebnici najdete
 
