@@ -43,6 +43,7 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ slug: 'chemie/anorganicka-chemie', label: 'Přehled' },
+								{ slug: 'chemie/anorganicka-chemie/stavebnice-iontu', label: 'Stavebnice iontů' },
 								{
 									label: 'Názvosloví',
 									collapsed: true,

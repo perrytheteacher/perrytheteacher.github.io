@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stavebnice iontů – skládání vzorců</title>
+<style>
+  :root{
+    --U:36px;
+    --kat:#f8cbad; --kat-s:#c55a11; --kat2:#f4b183;
+    --an:#bdd7ee;  --an-s:#2e75b6;  --an2:#9dc3e6;
+    --ok:#2e7d32; --text:#1f2328; --muted:#5b6470; --line:#d5d9de; --bg:#fafbfc;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);
+       max-width:1180px;margin:0 auto;padding:10px;background:#fff;-webkit-user-select:none;user-select:none}
+  h1{font-size:1.15rem;margin:0 0 4px}
+  .napoveda{font-size:.85rem;color:var(--muted);margin:0 0 8px;line-height:1.35}
+  sub,sup{font-size:68%;line-height:0}
+  .lista{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+  button{font:inherit;font-size:.85rem;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
+  button:hover{background:#f1f3f5}
+  button.hlavni{background:#1f6feb;color:#fff;border-color:#1f6feb}
+  button.hlavni:hover{background:#1a5fd0}
+  .ukol{flex:1 1 220px;font-size:.92rem;min-height:30px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .ukol b{font-size:1rem}
+  .ukol .dobre{color:var(--ok);font-weight:600}
+  .zasobnik{border:1px solid var(--line);border-radius:8px;padding:6px 8px;margin-bottom:8px;background:var(--bg)}
+  .rada{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:3px 0}
+  .rada .nadpis{font-size:.75rem;color:var(--muted);width:100%;margin-top:2px}
+  .chip{touch-action:none;cursor:grab;border-radius:5px;padding:3px 7px;font-size:.92rem;font-weight:600;
+        border:1.5px solid;min-width:42px;text-align:center;line-height:1.5}
+  .chip{background:var(--f);border-color:var(--s)}
+  /* kationty – teplé barvy podle náboje */
+  .z-k1{--f:#ffe699;--s:#b8860b} .z-k2{--f:#fbc89a;--s:#c55a11}
+  .z-k3{--f:#f5a3a3;--s:#b42318} .z-k4{--f:#eeb0d3;--s:#9c2f6b}
+  /* anionty – studené barvy podle náboje, organické zvlášť */
+  .z-a1{--f:#bfdcf5;--s:#2e75b6} .z-a2{--f:#b2e3df;--s:#1a7f78}
+  .z-a3{--f:#d3c8f0;--s:#5e45a0} .z-org{--f:#c9ebc6;--s:#2f7d32}
+  .chip:active{cursor:grabbing}
+  .plocha-obal{position:relative}
+  #plocha{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:8px;touch-action:none;
+          height:clamp(330px, calc(100vh - 540px), 680px);
+          background-color:#fff;
+          background-image:radial-gradient(circle, #d0d5db 1.2px, transparent 1.3px);
+          background-size:var(--U) var(--U);background-position:12px 12px}
+  .kos{position:absolute;right:8px;bottom:8px;width:54px;height:54px;border:2px dashed #c9cdd2;border-radius:10px;
+       display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#9aa1a9;background:rgba(255,255,255,.85);z-index:1;pointer-events:none}
+  .kos.aktivni{border-color:#d1242f;color:#d1242f;background:#fff0f0}
+  .dilek{position:absolute;touch-action:none;cursor:grab;z-index:2}
+  .dilek svg{position:absolute;left:0;top:0;overflow:visible;display:block}
+  .dilek .stitek{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:650;font-size:15px;pointer-events:none;white-space:nowrap}
+  .dilek.an .stitek{padding-left:6px}
+  .dilek.k .stitek{padding-right:8px}
+  .dilek path{stroke-width:1.6;stroke-linejoin:round}
+  .dilek path{fill:var(--f);stroke:var(--s)}
+  .dilek.hotovo path{stroke:#111;stroke-width:2.8}
+  .dilek.tazeny{position:fixed;z-index:50;cursor:grabbing;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
+  .duch{position:absolute;border:2px dashed var(--ok);border-radius:3px;pointer-events:none;z-index:1;display:none}
+  .duch.obsazeno{border-color:#d1242f}
+  .stitek-skupiny{position:absolute;z-index:3;font-size:.82rem;padding:2px 7px;border-radius:5px;white-space:nowrap;pointer-events:none;
+                  background:#fff;border:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .stitek-skupiny.ok{border-color:var(--ok);color:var(--ok);font-weight:650;font-size:.95rem}
+  .stitek-skupiny.chybi{color:#9a6700;border-color:#e3b341;background:#fff8e1}
+  .vysledky{margin-top:8px;font-size:.9rem;min-height:24px}
+  .vysledky ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:3px 18px}
+  .vysledky li{margin:0}
+  .vysledky .vzorec{font-weight:650;font-size:1rem}
+  .vysledky .pozn{color:var(--muted);font-size:.82rem}
+  @media (max-width:560px){ :root{--U:32px} .chip{font-size:.85rem;min-width:38px} }
+</style>
+</head>
+<body>
+<h1>Stavebnice iontů</h1>
+<p class="napoveda">Přetáhni ionty z nabídky na plochu. <b>Kation</b> má na pravé straně tolik <b>děr</b>, kolik má kladných nábojů, <b>anion</b> má vlevo tolik <b>výstupků</b>, kolik má záporných nábojů. Anion přilož zprava ke kationtu. Sloučenina je hotová, když jsou všechny díry zaplněné a žádný výstupek nezbývá. Dílek odstraníš přetažením do koše nebo dvojklikem.</p>
+
+<div class="lista">
+  <button class="hlavni" id="btnUkol">🎯 Nový úkol</button>
+  <button id="btnPriklad">Ukázka</button>
+  <button id="btnVycistit">Vyčistit plochu</button>
+  <div class="ukol" id="ukol"></div>
+</div>
+
+<div class="zasobnik" id="zasobnik"></div>
+
+<div class="plocha-obal">
+  <div id="plocha">
+    <div class="duch" id="duch"></div>
+    <div class="kos" id="kos" title="Koš">🗑</div>
+  </div>
+</div>
+<div class="vysledky" id="vysledky"></div>
+
+<script>
+(() => {
+"use strict";
+const MINUS = "−";
+const sup = (n, s) => `<sup>${n > 1 ? n : ""}${s}</sup>`;
+const subs = t => t.replace(/(\d+)/g, "<sub>$1</sub>");
+
+/* ---------- ionty ---------- */
+// [id, vzorec (číslice = dolní index), náboj, přídavné jméno, víceatomový]
+const KATIONTY = [
+  ["H","H",1,"vodíkový"],["Li","Li",1,"lithný"],["Na","Na",1,"sodný"],["K","K",1,"draselný"],["Ag","Ag",1,"stříbrný"],
+  ["Cu1","Cu",1,"měďný"],["NH4","NH4",1,"amonný",true],
+  ["Mg","Mg",2,"hořečnatý"],["Ca","Ca",2,"vápenatý"],["Ba","Ba",2,"barnatý"],["Zn","Zn",2,"zinečnatý"],
+  ["Cu2","Cu",2,"měďnatý"],["Fe2","Fe",2,"železnatý"],["Pb2","Pb",2,"olovnatý"],["Mn2","Mn",2,"manganatý"],["Ni2","Ni",2,"nikelnatý"],
+  ["Al","Al",3,"hlinitý"],["Fe3","Fe",3,"železitý"],["Cr3","Cr",3,"chromitý"],
+  ["Sn4","Sn",4,"cíničitý"],["Pb4","Pb",4,"olovičitý"]
+];
+// [id, vzorec, náboj (absolutně), název, víceatomový]
+const ANIONTY = [
+  ["F","F",1,"fluorid"],["Cl","Cl",1,"chlorid"],["Br","Br",1,"bromid"],["I","I",1,"jodid"],
+  ["OH","OH",1,"hydroxid",true],["NO3","NO3",1,"dusičnan",true],["NO2","NO2",1,"dusitan",true],
+  ["HCO3","HCO3",1,"hydrogenuhličitan",true],["HSO4","HSO4",1,"hydrogensíran",true],
+  ["ClO3","ClO3",1,"chlorečnan",true],["ClO4","ClO4",1,"chloristan",true],["MnO4","MnO4",1,"manganistan",true],
+  ["O","O",2,"oxid"],["S","S",2,"sulfid"],["SO4","SO4",2,"síran",true],["SO3","SO3",2,"siřičitan",true],
+  ["CO3","CO3",2,"uhličitan",true],["CrO4","CrO4",2,"chroman",true],["Cr2O7","Cr2O7",2,"dichroman",true],
+  ["HPO4","HPO4",2,"hydrogenfosforečnan",true],
+  ["N","N",3,"nitrid"],["PO4","PO4",3,"fosforečnan",true]
+];
+// organické anionty: [id, vzorec, náboj, název, tradiční/alternativní název]
+const ORG_ANIONTY = [
+  ["CH3O","CH3O",1,"methoxid","methanolát"],["C2H5O","C2H5O",1,"ethoxid","ethanolát"],
+  ["HCOO","HCOO",1,"formiát","mravenčan"],["CH3COO","CH3COO",1,"acetát","octan"],
+  ["C3H7COO","C3H7COO",1,"butanoát","máselnan"],["C2O4","C2O4",2,"oxalát","šťavelan"]
+];
+const ION = {};
+KATIONTY.forEach(([id,f,z,jm,poly]) => ION[id] = {id, typ:"k", f, z, jm, poly:!!poly,
+  stitek: subs(f) + sup(z, "+")});
+ANIONTY.forEach(([id,f,z,jm,poly]) => ION[id] = {id, typ:"a", f, z, jm, poly:!!poly,
+  stitek: subs(f) + sup(z, MINUS)});
+ORG_ANIONTY.forEach(([id,f,z,jm,alt]) => ION[id] = {id, typ:"a", f, z, jm, alt, poly:true,
+  org: id!=="C2O4",   // karboxyláty a alkoholáty píšeme ve vzorci před kationtem: CH3COONa, (CH3COO)2Ca
+  stitek: subs(f) + sup(z, MINUS)});
+// šířka dílku v jednotkách mřížky podle délky vzorce
+Object.values(ION).forEach(i => { const delka = i.f.replace(/\d/g,"").length + i.f.replace(/\D/g,"").length*0.6;
+  i.w = delka > 4.3 ? 3 : 2; });
+
+/* ---------- vodíkový kation: kyseliny a další sloučeniny vodíku ---------- */
+const VODIK = { // id aniontu -> [název, vzorec (jen kde se liší od složení z iontů)]
+  F:["kyselina fluorovodíková"], Cl:["kyselina chlorovodíková"], Br:["kyselina bromovodíková"], I:["kyselina jodovodíková"],
+  OH:["voda","H2O"], NO3:["kyselina dusičná"], NO2:["kyselina dusitá"], HCO3:["kyselina uhličitá","H2CO3"],
+  HSO4:["kyselina sírová","H2SO4"], ClO3:["kyselina chlorečná"], ClO4:["kyselina chloristá"], MnO4:["kyselina manganistá"],
+  O:["voda"], S:["sulfan (kyselina sirovodíková)"], SO4:["kyselina sírová"], SO3:["kyselina siřičitá"],
+  CO3:["kyselina uhličitá"], CrO4:["kyselina chromová"], Cr2O7:["kyselina dichromová"],
+  HPO4:["kyselina fosforečná","H3PO4"], N:["amoniak","NH3"], PO4:["kyselina fosforečná"],
+  CH3O:["methanol"], C2H5O:["ethanol"], HCOO:["kyselina mravenčí (methanová)"], CH3COO:["kyselina octová (ethanová)"],
+  C3H7COO:["kyselina máselná (butanová)"], C2O4:["kyselina šťavelová (ethandiová)"]
+};
+const PREDPONA_H = ["", "hydrogen", "dihydrogen", "trihydrogen"];
+
+/* ---------- úkoly (jen skutečně existující sloučeniny) ---------- */
+const UKOLY = [
+  ["Na","CH3COO"],["Ca","CH3COO"],["K","HCOO"],["Na","CH3O"],["Na","C2H5O"],["Ca","C2O4"],["Na","C2O4"],
+  ["Na","C3H7COO"],["Mg","CH3COO"],["Al","CH3COO"],["H","CH3COO"],["H","HCOO"],["H","C2O4"],
+  ["H","Cl"],["H","SO4"],["H","NO3"],["H","PO4"],["H","CO3"],["H","S"],["H","O"],["H","SO3"],["H","NO2"],
+  ["Na","Cl"],["K","SO4"],["Ca","Cl"],["Al","SO4"],["Fe3","O"],["Fe2","O"],["Ca","OH"],["NH4","SO4"],
+  ["Na","PO4"],["Ca","PO4"],["Mg","N"],["Al","Cl"],["Cu2","SO4"],["Cu1","O"],["Cu2","O"],["K","MnO4"],
+  ["K","Cr2O7"],["Na","HCO3"],["Ca","CO3"],["Ba","NO3"],["Ag","NO3"],["Al","O"],["Pb4","O"],["Sn4","O"],
+  ["Na","S"],["Zn","S"],["Fe3","SO4"],["Mg","OH"],["K","NO2"],["Na","CO3"],["Li","O"],["NH4","NO3"],
+  ["Ca","HPO4"],["Cr3","O"],["K","CrO4"],["Na","SO3"],["Al","OH"],["Fe3","OH"],["Ba","SO4"],["Pb2","I"],
+  ["Ag","Br"],["K","ClO3"],["Mg","Cl"],["Fe3","Cl"],["Zn","Cl"],["NH4","Cl"],["Li","F"],["Ca","F"],
+  ["Ba","OH"],["Fe2","SO4"],["NH4","PO4"],["Mg","PO4"],["Ca","HCO3"],["Ni2","SO4"],["Mn2","O"],["Al","N"]
+];
+
+/* ---------- stav ---------- */
+const plocha = document.getElementById("plocha");
+const duch = document.getElementById("duch");
+const kos = document.getElementById("kos");
+const PAD = 12;
+let U = 36, sloupcu = 10, radku = 10;
+let dilky = [];      // {uid, ion, gx, gy, el}
+let dalsiId = 1;
+let tah = null;
+let ukol = null;
+
+function mereni(){
+  U = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--U")) || 36;
+  sloupcu = Math.max(4, Math.floor((plocha.clientWidth - 2*PAD) / U));
+  radku = Math.max(4, Math.floor((plocha.clientHeight - 2*PAD) / U));
+}
+
+/* ---------- kreslení dílku ---------- */
+function cesta(ion){
+  const W = ion.w*U, H = ion.z*U, r = U*0.26;
+  if (ion.typ === "k"){
+    let d = `M0,0 H${W}`;
+    for (let i=0;i<ion.z;i++){ const cy = i*U + U/2;
+      d += ` L${W},${cy-r} A${r},${r} 0 0 0 ${W},${cy+r}`; }
+    return d + ` L${W},${H} H0 Z`;
+  } else {
+    const t = r*0.86;
+    let d = `M0,0 H${W} V${H} H0`;
+    for (let i=ion.z-1;i>=0;i--){ const cy = i*U + U/2;
+      d += ` L0,${cy+t} A${t},${t} 0 0 1 0,${cy-t}`; }
+    return d + " L0,0 Z";
+  }
+}
+function vytvorElement(ion){
+  const el = document.createElement("div");
+  el.className = "dilek " + (ion.typ==="k" ? "k" : "an") + " " + barva(ion);
+  const W = ion.w*U, H = ion.z*U;
+  el.style.width = W+"px"; el.style.height = H+"px";
+  el.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><path d="${cesta(ion)}"/></svg><div class="stitek"><span>${ion.stitek}</span></div>`;
+  el.title = (ion.typ==="k" ? "kation " : "anion ") + nazevIontu(ion);
+  return el;
+}
+function barva(ion){ return ion.typ==="k" ? "z-k"+ion.z : (ion.alt ? "z-org" : "z-a"+ion.z); }
+function nazevIontu(ion){
+  if (ion.id==="H") return "vodíkový (H⁺)";
+  if (ion.alt) return ion.jm + "ový (" + ion.alt + "ový)";
+  if (ion.typ==="a") return ion.jm.replace(/an$/,"anový").replace(/id$/,"idový");
+  return ion.jm.replace(/ý$/,"ý");
+}
+function prekresliVse(){ // po změně velikosti mřížky
+  dilky.forEach(d => { const nove = vytvorElement(d.ion); d.el.replaceWith(nove); d.el = nove; pripojUdalosti(d); umisti(d); });
+}
+function umisti(d){ d.el.style.left = (PAD + d.gx*U)+"px"; d.el.style.top = (PAD + d.gy*U)+"px"; }
+
+/* ---------- obsazenost ---------- */
+function volno(ion, gx, gy, krome){
+  if (gx < 0 || gy < 0 || gx + ion.w > sloupcu || gy + ion.z > radku) return false;
+  for (const d of dilky){
+    if (d === krome) continue;
+    if (gx < d.gx + d.ion.w && d.gx < gx + ion.w && gy < d.gy + d.ion.z && d.gy < gy + ion.z) return false;
+  }
+  return true;
+}
+function najdiVolne(ion, gx, gy, krome, dosah=6){
+  let nej = null, nejV = Infinity;
+  for (let dy=-dosah; dy<=dosah; dy++) for (let dx=-dosah; dx<=dosah; dx++){
+    const v = dx*dx + dy*dy;
+    if (v < nejV && volno(ion, gx+dx, gy+dy, krome)){ nej = {gx:gx+dx, gy:gy+dy}; nejV = v; }
+  }
+  return nej;
+}
+
+/* ---------- tažení ---------- */
+function zacniTah(e, d, novy){
+  e.preventDefault();
+  const r = d.el.getBoundingClientRect();
+  const offX = novy ? r.width/2 : e.clientX - r.left;
+  const offY = novy ? Math.min(r.height/2, U/2) : e.clientY - r.top;
+  document.body.appendChild(d.el);
+  d.el.classList.add("tazeny");
+  tah = {d, offX, offY, novy, puvodni:{gx:d.gx, gy:d.gy}, id:e.pointerId};
+  posunTah(e);
+  window.addEventListener("pointermove", posunTah);
+  window.addEventListener("pointerup", ukonciTah);
+  window.addEventListener("pointercancel", ukonciTah);
+}
+function cilMrizky(e){
+  const p = plocha.getBoundingClientRect();
+  const x = e.clientX - tah.offX - p.left - PAD, y = e.clientY - tah.offY - p.top - PAD;
+  return {gx:Math.round(x/U), gy:Math.round(y/U), uvnitr: e.clientX>=p.left && e.clientX<=p.right && e.clientY>=p.top && e.clientY<=p.bottom};
+}
+function nadKosem(e){ const k = kos.getBoundingClientRect(); return e.clientX>=k.left-6 && e.clientX<=k.right+6 && e.clientY>=k.top-6 && e.clientY<=k.bottom+6; }
+function posunTah(e){
+  if (!tah || e.pointerId !== tah.id) return;
+  tah.d.el.style.left = (e.clientX - tah.offX)+"px";
+  tah.d.el.style.top = (e.clientY - tah.offY)+"px";
+  const c = cilMrizky(e), ion = tah.d.ion, kosAkt = nadKosem(e);
+  kos.classList.toggle("aktivni", kosAkt);
+  if (c.uvnitr && !kosAkt){
+    const gx = Math.min(Math.max(c.gx,0), sloupcu-ion.w), gy = Math.min(Math.max(c.gy,0), radku-ion.z);
+    duch.style.display = "block";
+    duch.style.left = (PAD+gx*U)+"px"; duch.style.top = (PAD+gy*U)+"px";
+    duch.style.width = ion.w*U+"px"; duch.style.height = ion.z*U+"px";
+    duch.classList.toggle("obsazeno", !volno(ion, gx, gy, tah.d));
+  } else duch.style.display = "none";
+}
+function ukonciTah(e){
+  if (!tah || e.pointerId !== tah.id) return;
+  window.removeEventListener("pointermove", posunTah);
+  window.removeEventListener("pointerup", ukonciTah);
+  window.removeEventListener("pointercancel", ukonciTah);
+  const {d, novy, puvodni} = tah;
+  const c = cilMrizky(e);
+  duch.style.display = "none"; kos.classList.remove("aktivni");
+  d.el.classList.remove("tazeny");
+  let misto = null;
+  if (c.uvnitr && !nadKosem(e)){
+    const gx = Math.min(Math.max(c.gx,0), sloupcu-d.ion.w), gy = Math.min(Math.max(c.gy,0), radku-d.ion.z);
+    misto = najdiVolne(d.ion, gx, gy, d);
+  } else if (!novy && !nadKosem(e) && !c.uvnitr){
+    misto = null; // puštěno mimo plochu → odstranit
+  }
+  tah = null;
+  if (misto){ d.gx = misto.gx; d.gy = misto.gy; plocha.appendChild(d.el); umisti(d); }
+  else { d.el.remove(); dilky = dilky.filter(x => x !== d); }
+  vyhodnot();
+}
+function pripojUdalosti(d){
+  d.el.addEventListener("pointerdown", e => { if (e.button === 0 || e.pointerType !== "mouse") zacniTah(e, d, false); });
+  d.el.addEventListener("dblclick", () => { d.el.remove(); dilky = dilky.filter(x => x !== d); vyhodnot(); });
+}
+function novyDilek(ion){
+  const d = {uid:dalsiId++, ion, gx:0, gy:0, el:vytvorElement(ion)};
+  dilky.push(d); pripojUdalosti(d); return d;
+}
+
+/* ---------- zásobník ---------- */
+function postavZasobnik(){
+  const z = document.getElementById("zasobnik");
+  const skupiny = [
+    ["Kationty (+)", KATIONTY.map(k=>ION[k[0]])],
+    ["Anionty (−)", ANIONTY.map(a=>ION[a[0]])],
+    ["Organické anionty (−)", ORG_ANIONTY.map(a=>ION[a[0]])]
+  ];
+  z.innerHTML = "";
+  for (const [nadpis, seznam] of skupiny){
+    const rada = document.createElement("div"); rada.className = "rada";
+    rada.innerHTML = `<span class="nadpis">${nadpis}</span>`;
+    for (const ion of seznam){
+      const c = document.createElement("div");
+      c.className = "chip " + barva(ion);
+      c.innerHTML = ion.stitek;
+      c.title = (ion.typ==="k" ? "kation " : "anion ") + nazevIontu(ion) + " – přetáhni na plochu";
+      c.addEventListener("pointerdown", e => { if (e.button !== 0 && e.pointerType === "mouse") return; zacniTah(e, novyDilek(ion), true); });
+      rada.appendChild(c);
+    }
+    z.appendChild(rada);
+  }
+}
+
+/* ---------- vyhodnocení ---------- */
+const nsd = (a,b) => b ? nsd(b, a%b) : a;
+function vyhodnot(){
+  plocha.querySelectorAll(".stitek-skupiny").forEach(s => s.remove());
+  // díry kationtů a výstupky aniontů podle buněk mřížky
+  const diry = new Map();   // "x,y" -> dílek (kation)
+  dilky.forEach(d => { if (d.ion.typ==="k") for (let i=0;i<d.ion.z;i++) diry.set(`${d.gx+d.ion.w},${d.gy+i}`, d); });
+  const rodic = new Map(dilky.map(d => [d, d]));
+  const najdi = d => rodic.get(d)===d ? d : (rodic.set(d, najdi(rodic.get(d))), rodic.get(d));
+  const spojeni = new Map(dilky.map(d => [d, 0]));
+  dilky.forEach(a => { if (a.ion.typ!=="a") return;
+    for (let i=0;i<a.ion.z;i++){ const k = diry.get(`${a.gx},${a.gy+i}`);
+      if (k){ spojeni.set(a, spojeni.get(a)+1); spojeni.set(k, spojeni.get(k)+1); rodic.set(najdi(a), najdi(k)); } } });
+  const skupiny = new Map();
+  dilky.forEach(d => { const r = najdi(d); if (!skupiny.has(r)) skupiny.set(r, []); skupiny.get(r).push(d); });
+
+  const hotove = [];
+  for (const cleny of skupiny.values()){
+    const spoju = cleny.reduce((s,d)=>s+spojeni.get(d),0)/2;
+    let volneDiry = 0, volneVystupky = 0;
+    cleny.forEach(d => { const zbyva = d.ion.z - spojeni.get(d); if (d.ion.typ==="k") volneDiry += zbyva; else volneVystupky += zbyva; });
+    const hotovo = spoju > 0 && volneDiry===0 && volneVystupky===0;
+    cleny.forEach(d => d.el.classList.toggle("hotovo", hotovo));
+    if (spoju === 0) continue;
+    // štítek nad skupinou
+    const minX = Math.min(...cleny.map(d=>d.gx)), minY = Math.min(...cleny.map(d=>d.gy));
+    const maxY = Math.max(...cleny.map(d=>d.gy+d.ion.z));
+    const s = document.createElement("div");
+    s.className = "stitek-skupiny " + (hotovo ? "ok" : "chybi");
+    if (hotovo){ const v = sestavVzorec(cleny); s.innerHTML = "✔ " + v.html; hotove.push(v); }
+    else {
+      const t = [];
+      if (volneDiry) t.push("chybí " + naboje(volneDiry, "záporn"));
+      if (volneVystupky) t.push("chybí " + naboje(volneVystupky, "kladn"));
+      s.textContent = t.join(", ");
+    }
+    plocha.appendChild(s);
+    const vyskaStitku = 24;
+    let top = PAD + maxY*U + 4;                       // pod skupinou
+    if (top + vyskaStitku > plocha.clientHeight - 2) top = PAD + minY*U - vyskaStitku - 2; // jinak nad ní
+    s.style.left = (PAD + minX*U) + "px"; s.style.top = top + "px";
+    // nevyjet vpravo z plochy
+    const pres = s.offsetLeft + s.offsetWidth - (plocha.clientWidth - 4);
+    if (pres > 0) s.style.left = Math.max(2, s.offsetLeft - pres) + "px";
+  }
+  vypisVysledky(hotove);
+  zkontrolujUkol(hotove);
+}
+function naboje(n, koren){
+  if (n===1) return `1 ${koren}ý náboj`;
+  if (n<5) return `${n} ${koren}é náboje`;
+  return `${n} ${koren}ých nábojů`;
+}
+function sestavVzorec(cleny){
+  const pocty = new Map();
+  cleny.forEach(d => pocty.set(d.ion.id, (pocty.get(d.ion.id)||0)+1));
+  const g = [...pocty.values()].reduce(nsd);
+  // vodík píšeme až za ostatní kationty (NaHSO4, KHCO3)
+  const poradi = id => { if (id==="H") return 99; if (ION[id].org) return -50 + ORG_ANIONTY.findIndex(a=>a[0]===id); const i = KATIONTY.findIndex(k=>k[0]===id); if (i>=0) return i; const j = ANIONTY.findIndex(a=>a[0]===id); return j>=0 ? 100 + j : 150 + ORG_ANIONTY.findIndex(a=>a[0]===id); };
+  const ids = [...pocty.keys()].sort((a,b)=>poradi(a)-poradi(b));
+  let html = "";
+  for (const id of ids){
+    const ion = ION[id], n = pocty.get(id)/g;
+    if (n===1) html += subs(ion.f);
+    else html += (ion.poly ? `(${subs(ion.f)})` : subs(ion.f)) + `<sub>${n}</sub>`;
+  }
+  const kat = ids.filter(id=>ION[id].typ==="k"), an = ids.filter(id=>ION[id].typ==="a");
+  let nazev = null;
+  if (kat.length===1 && an.length===1){
+    if (kat[0]==="H"){ const v = VODIK[an[0]]; nazev = v[0]; if (v[1]) html = subs(v[1]); }
+    else nazev = nazevSoli(kat[0], an[0]);
+  } else if (kat.length===2 && kat.includes("H") && an.length===1 && !ION[an[0]].f.startsWith("H")){
+    // hydrogensoli: NaHSO4, NaH2PO4, KHCO3 …
+    const kov = kat.find(k=>k!=="H"), nH = pocty.get("H")/g;
+    if (nH <= 3) nazev = `${PREDPONA_H[nH]}${ION[an[0]].jm} ${ION[kov].jm}`;
+  }
+  return {html, nazev, nasobek:g, klic: kat.length===1 && an.length===1 ? kat[0]+"|"+an[0] : null, smisena: !nazev};
+}
+function vypisVysledky(hotove){
+  const v = document.getElementById("vysledky");
+  if (!hotove.length){ v.innerHTML = dilky.length ? `<span class="pozn">Zatím žádná hotová sloučenina – doplň dílky tak, aby nezůstala volná díra ani výstupek.</span>` : `<span class="pozn">Plocha je prázdná. Začni přetažením iontu z nabídky.</span>`; return; }
+  v.innerHTML = "<b>Sestavené sloučeniny:</b><ul>" + hotove.map(h =>
+    `<li><span class="vzorec">${h.html}</span>` +
+    (h.nazev ? ` – ${h.nazev}` : ` – <span class="pozn">podvojná nebo smíšená sůl (název zde neuvádím)</span>`) +
+    (h.nasobek>1 ? ` <span class="pozn">(sestaveno ${h.nasobek}× – vzorec se zapisuje v nejmenším poměru)</span>` : "") +
+    `</li>`).join("") + "</ul>";
+}
+
+/* ---------- úkoly ---------- */
+const ukolEl = document.getElementById("ukol");
+function novyUkol(){
+  let u; do { u = UKOLY[Math.floor(Math.random()*UKOLY.length)]; } while (ukol && u[0]===ukol[0] && u[1]===ukol[1]);
+  ukol = u;
+  ukolEl.innerHTML = `Sestav: <b>${nazevUkolu(u)}</b> <button id="btnReseni">Ukázat vzorec</button>`;
+  document.getElementById("btnReseni").onclick = () => {
+    const kat = ION[ukol[0]], an = ION[ukol[1]], g = nsd(kat.z, an.z);
+    const nk = an.z/g, na = kat.z/g;
+    const cast = (ion,n) => n===1 ? subs(ion.f) : (ion.poly ? `(${subs(ion.f)})` : subs(ion.f)) + `<sub>${n}</sub>`;
+    const vz = (kat.id==="H" && VODIK[an.id][1]) ? subs(VODIK[an.id][1]) : cast(kat,nk)+cast(an,na);
+    document.getElementById("btnReseni").outerHTML = `<span>→ ${vz} (${nk}× ${kat.stitek}, ${na}× ${an.stitek})</span>`;
+  };
+  vyhodnot();
+}
+function nazevSoli(k, a){ const an = ION[a], kat = ION[k];
+  return `${an.jm} ${kat.jm}` + (an.alt ? ` (${an.alt} ${kat.jm})` : ""); }
+function nazevUkolu(u){ return u[0]==="H" ? VODIK[u[1]][0] : nazevSoli(u[0], u[1]); }
+function zkontrolujUkol(hotove){
+  if (!ukol) return;
+  const klic = ukol[0]+"|"+ukol[1];
+  const shoda = hotove.find(h => h.klic===klic);
+  if (shoda && !ukolEl.querySelector(".dobre")){
+    ukolEl.innerHTML = `<span class="dobre">✔ Správně! ${nazevUkolu(ukol)} = ${shoda.html}</span> <button id="btnDalsi">Další úkol</button>`;
+    document.getElementById("btnDalsi").onclick = () => { vycistit(); novyUkol(); };
+  }
+}
+
+/* ---------- ukázka a ovládání ---------- */
+function vycistit(){ dilky.forEach(d=>d.el.remove()); dilky = []; vyhodnot(); }
+function vlozSestavu(sestava){ // [[id, dx, dy], …]
+  for (let gy=0; gy<radku; gy++) for (let gx=0; gx<sloupcu; gx++){
+    // sestava + volný okraj 1 políčka kolem (aby se nelepila k jiným dílkům)
+    const x1 = gx-1, y1 = gy-1;
+    const x2 = gx + Math.max(...sestava.map(([id,dx])=>dx+ION[id].w)) + 1;
+    const y2 = gy + Math.max(...sestava.map(([id,,dy])=>dy+ION[id].z)) + 2; // řádek navíc pro štítek
+    if (x2 - 1 > sloupcu || y2 - 2 > radku) continue;
+    const okrajVolny = dilky.every(d => !(x1 < d.gx + d.ion.w && d.gx < x2 && y1 < d.gy + d.ion.z && d.gy < y2));
+    if (okrajVolny && sestava.every(([id,dx,dy]) => volno(ION[id], gx+dx, gy+dy, null))){
+      sestava.forEach(([id,dx,dy]) => { const d = novyDilek(ION[id]); d.gx = gx+dx; d.gy = gy+dy; plocha.appendChild(d.el); umisti(d); });
+      return true;
+    }
+  }
+  return false;
+}
+let ukazka = 0;
+const UKAZKY = [
+  [["K",0,0],["K",0,1],["SO4",2,0]],                                   // K2SO4
+  [["Al",0,0],["Al",0,3],["SO4",2,0],["SO4",2,2],["SO4",2,4]],        // Al2(SO4)3
+  [["Ca",0,0],["Ca",0,2],["Ca",0,4],["PO4",2,0],["PO4",2,3]],         // Ca3(PO4)2
+  [["Fe3",0,0],["Fe3",0,3],["O",2,0],["O",2,2],["O",2,4]]             // Fe2O3
+];
+document.getElementById("btnPriklad").onclick = () => {
+  if (!vlozSestavu(UKAZKY[ukazka % UKAZKY.length])) { vycistit(); vlozSestavu(UKAZKY[ukazka % UKAZKY.length]); }
+  ukazka++; vyhodnot();
+};
+document.getElementById("btnVycistit").onclick = vycistit;
+document.getElementById("btnUkol").onclick = novyUkol;
+
+let posledniU = 0;
+function priZmeneVelikosti(){
+  mereni();
+  if (U !== posledniU && posledniU) prekresliVse();
+  posledniU = U;
+  // dílky mimo plochu přesunout dovnitř
+  // přesouvat jen dílky, které se na zmenšenou plochu nevejdou (ne kvůli překryvu)
+  const venku = d => d.gx + d.ion.w > sloupcu || d.gy + d.ion.z > radku;
+  dilky.forEach(d => { if (venku(d)){
+    const m = najdiVolne(d.ion, Math.min(d.gx, sloupcu-d.ion.w), Math.min(d.gy, radku-d.ion.z), d, 12);
+    if (m){ d.gx=m.gx; d.gy=m.gy; umisti(d); } } });
+  vyhodnot();
+}
+let casovac = null;
+window.addEventListener("resize", () => { clearTimeout(casovac); casovac = setTimeout(priZmeneVelikosti, 300); });
+
+postavZasobnik();
+mereni(); posledniU = U;
+vyhodnot();
+window.__stavebnice = {dilky:()=>dilky, ION, vlozSestavu, vyhodnot};
+})();
+</script>
+</body>
+</html>
