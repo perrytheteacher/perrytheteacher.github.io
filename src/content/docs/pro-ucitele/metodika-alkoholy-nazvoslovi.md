@@ -7,6 +7,12 @@ sidebar:
 
 Kapitola [Alkoholy – názvosloví](/chemie/organicka-chemie/01-alkoholy-nazvoslovi/) odpovídá slidům **Alkoholy**, **tvorba názvů**, **tvorba vzorců** a **Názvy solí alkoholů** v prezentaci *Kyslíkaté deriváty – hydroxysloučeniny*. Úlohy A a B jsou převzaté ze slidů tvorba názvů a tvorba vzorců, řešení je na webu skryté pod rozbalovacím odkazem.
 
+:::tip[Prezentace na hodinu]
+**[▶ Spustit prezentaci](/prezentace/alkoholy-nazvoslovi/)** (28 snímků) – výklad s podpůrnými otázkami, hlasováním a aktivitami, zadání procvičování a na dalším snímku řešení.
+
+Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje i prezentér) · **N** poznámky pro učitele · **T** časovač aktivity · **O** přehled snímků · **B** černá obrazovka · **H** nápověda.
+:::
+
 ## Doporučený postup (1 vyučovací hodina)
 
 | Fáze | Čas | Činnost |

@@ -1,0 +1,151 @@
+/* Perry the Teacher – prezentace na hodinu (sdílený styl pro public/prezentace/*)
+   Snímek = <section class="slide" data-typ="…" data-cas="5">…<aside class="poznamky">…</aside></section>
+   Logická velikost snímku 1280 × 720 (16:9), engine ho škáluje na okno. */
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0f1115;overflow:hidden}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#1f2328;-webkit-font-smoothing:antialiased}
+
+.deck{position:fixed;inset:0}
+.slide{position:absolute;left:50%;top:50%;width:1280px;height:720px;margin:-360px 0 0 -640px;background:#fff;
+  padding:56px 72px 52px;display:none;flex-direction:column;overflow:hidden;font-size:28px;line-height:1.4;transform-origin:center center}
+.slide.on{display:flex}
+.slide h1{font-size:60px;line-height:1.1;margin:0 0 18px;letter-spacing:-.01em}
+.slide h2{font-size:42px;line-height:1.15;margin:0 0 22px;letter-spacing:-.01em}
+.slide h3{font-size:30px;margin:14px 0 8px}
+.slide p{margin:0 0 14px}
+.slide ul,.slide ol{margin:0 0 12px;padding-left:1.2em}
+.slide li{margin:0 0 10px}
+.slide b,.slide strong{font-weight:700}
+.slide sub{font-size:.7em}
+.slide .male{font-size:22px;color:#5b6370}
+.slide .stred{text-align:center}
+.slide .grow{flex:1;min-height:0}
+
+/* titulní snímek */
+.slide.titul{background:linear-gradient(135deg,#1a6d97 0%,#16577a 60%,#123f59 100%);color:#fff;justify-content:center}
+.slide.titul h1{font-size:72px;margin-bottom:20px}
+.slide.titul .podtitul{font-size:30px;opacity:.9}
+.slide.titul .patka{position:absolute;left:72px;bottom:44px;font-size:20px;opacity:.75}
+
+/* štítek typu snímku (vpravo nahoře) */
+.slide[data-typ]::before{position:absolute;top:22px;right:28px;font-size:17px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:6px 14px;border-radius:999px;background:#eef0f4;color:#3a3f45}
+.slide[data-typ="cile"]::before{content:"Cíle hodiny";background:#e6f1f7;color:#1a6d97}
+.slide[data-typ="evokace"]::before{content:"Co už víme?";background:#fff4dc;color:#8a5a00}
+.slide[data-typ="vyklad"]::before{content:"Výklad";background:#eef0f4;color:#3a3f45}
+.slide[data-typ="priklad"]::before{content:"Řešený příklad";background:#eef0f4;color:#3a3f45}
+.slide[data-typ="otazka"]::before{content:"Otázka k zamyšlení";background:#f1ebff;color:#6d28d9}
+.slide[data-typ="dvojice"]::before{content:"Myslím – dvojice – sdílím";background:#f1ebff;color:#6d28d9}
+.slide[data-typ="hlasovani"]::before{content:"Hlasování";background:#fde8ef;color:#b0174e}
+.slide[data-typ="predikce"]::before{content:"Predikce";background:#fde8ef;color:#b0174e}
+.slide[data-typ="ukol"]::before{content:"Úkol";background:#fff4dc;color:#8a5a00}
+.slide[data-typ="reseni"]::before{content:"Řešení";background:#e3f5e8;color:#15803d}
+.slide[data-typ="aplikace"]::before{content:"Aplikace";background:#e6f1f7;color:#1a6d97}
+.slide[data-typ="pokus"]::before{content:"Pokus";background:#fff4dc;color:#8a5a00}
+.slide[data-typ="exit"]::before{content:"Výstupní lístek";background:#fde8ef;color:#b0174e}
+.slide[data-typ="shrnuti"]::before{content:"Shrnutí";background:#e6f1f7;color:#1a6d97}
+.slide[data-typ="reseni"]{border-top:10px solid #15803d}
+.slide[data-typ="ukol"],.slide[data-typ="exit"]{border-top:10px solid #d99a00}
+.slide[data-typ="hlasovani"],.slide[data-typ="predikce"]{border-top:10px solid #b0174e}
+
+/* rozvržení */
+.dva{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.dva.siroky-levy{grid-template-columns:1.35fr 1fr}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ctyri{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pet{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.box{border:2px solid #e3e6ea;border-radius:16px;padding:18px 22px;background:#fff}
+.box.modry{background:#eef6fb;border-color:#cfe3ef}
+.box.zluty{background:#fff8e6;border-color:#f3dfa6}
+.box.zeleny{background:#ecf8ef;border-color:#c5e8cf}
+.box.fialovy{background:#f5f0ff;border-color:#ddd0fb}
+.box h3{margin-top:0}
+
+/* vzorce */
+.vz{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:2px solid #e3e6ea;border-radius:14px;padding:14px 10px;background:#fff;min-height:120px}
+.vz img{max-width:100%;height:auto}
+.vz .pop{font-size:21px;color:#3a3f45;text-align:center;line-height:1.25}
+.vz .pis{font-size:24px;font-weight:800;color:#1a6d97}
+.vz.dobre{border-color:#15803d;background:#ecf8ef}
+.vzorec-text{font-size:30px}
+img.vzorec{height:auto;display:block}
+
+/* tabulky */
+.slide table{border-collapse:collapse;width:100%;font-size:24px}
+.slide th,.slide td{border-bottom:2px solid #e9ecef;padding:9px 12px;text-align:left;vertical-align:middle}
+.slide th{color:#5b6370;font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+.slide td.c,.slide th.c{text-align:center}
+.slide td.r,.slide th.r{text-align:right;font-variant-numeric:tabular-nums}
+.slide tr.zvyrazni td{background:#ecf8ef;font-weight:700}
+
+/* hlasovací karty */
+.moznosti{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px}
+.moznost{display:flex;align-items:center;gap:18px;border:3px solid #e3e6ea;border-radius:16px;padding:16px 20px;font-size:28px;background:#fff}
+.moznost .p{flex:none;width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:28px}
+.moznost:nth-child(1) .p{background:#1a6d97}.moznost:nth-child(2) .p{background:#b0174e}
+.moznost:nth-child(3) .p{background:#d99a00}.moznost:nth-child(4) .p{background:#15803d}
+.moznost.spravne{border-color:#15803d;background:#ecf8ef}
+.moznost.spravne::after{content:"✓";margin-left:auto;color:#15803d;font-weight:800;font-size:34px}
+
+/* kroky */
+.kroky{counter-reset:k;list-style:none;padding:0}
+.kroky>li{counter-increment:k;position:relative;padding-left:62px;margin-bottom:16px}
+.kroky>li::before{content:counter(k);position:absolute;left:0;top:-2px;width:44px;height:44px;border-radius:50%;background:#1a6d97;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:24px}
+
+/* sebehodnocení */
+.semafor{list-style:none;padding:0}
+.semafor li{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.semafor li::before{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:conic-gradient(#dc2626 0 33%,#f59e0b 0 66%,#16a34a 0)}
+
+.zvyraz{background:#fff2b3;padding:0 .15em;border-radius:4px}
+.tag{display:inline-block;font-size:20px;font-weight:700;padding:3px 12px;border-radius:999px;background:#eef0f4;color:#3a3f45;vertical-align:middle}
+.cervena{color:#b91c1c}.zelena{color:#15803d}.modra{color:#1a6d97}.seda{color:#5b6370}
+
+/* vložená aplikace */
+.slide iframe.app{flex:1;width:100%;border:2px solid #e3e6ea;border-radius:14px;background:#fff;min-height:0}
+
+/* fragmenty (postupné odkrývání) */
+.f{opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
+.f.vid{opacity:1;transform:none}
+.f.zesedni.vid.minula{opacity:.45}
+
+/* poznámky pro učitele: ve snímku skryté, zobrazí je panel (klávesa N) */
+.slide .poznamky{display:none}
+
+/* --- ovládání --- */
+.lista{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(15,17,21,.86);color:#e6e8eb;
+  font-size:14px;z-index:20;transition:opacity .3s;backdrop-filter:blur(6px)}
+.lista.skryta{opacity:0;pointer-events:none}
+.lista button{font:inherit;font-size:14px;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 11px;cursor:pointer}
+.lista button:hover{background:rgba(255,255,255,.18)}
+.lista button.on{background:#1a6d97;border-color:#1a6d97}
+.lista .nazev{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.8;padding:0 8px}
+.lista .cislo{font-variant-numeric:tabular-nums;opacity:.9;padding:0 6px}
+.prubeh{position:fixed;left:0;top:0;height:5px;background:#1a6d97;z-index:21;transition:width .25s}
+.casovac{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:22;background:#111;color:#fff;font-size:34px;font-weight:800;font-variant-numeric:tabular-nums;
+  padding:6px 20px;border-radius:14px;display:none;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.casovac.bezi{display:block}
+.casovac.konec{background:#b91c1c;animation:blik 1s infinite}
+@keyframes blik{50%{opacity:.6}}
+.panel-poznamky{position:fixed;left:0;right:0;bottom:46px;max-height:38vh;overflow:auto;background:#fffdf5;color:#1f2328;border-top:4px solid #d99a00;
+  padding:14px 22px;font-size:17px;line-height:1.5;z-index:19;display:none}
+.panel-poznamky.on{display:block}
+.panel-poznamky h4{margin:0 0 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8a5a00}
+.panel-poznamky ul{margin:4px 0;padding-left:20px}
+.cerna{position:fixed;inset:0;background:#000;z-index:30;display:none}
+.cerna.on{display:block}
+.prehled{position:fixed;inset:0;z-index:25;background:#0f1115;overflow:auto;padding:24px;display:none}
+.prehled.on{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-content:start}
+.prehled .nahled{background:#fff;border-radius:10px;padding:12px 14px;cursor:pointer;border:3px solid transparent;font-size:14px;min-height:96px}
+.prehled .nahled:hover{border-color:#1a6d97}
+.prehled .nahled.akt{border-color:#d99a00}
+.prehled .nahled .n{font-weight:800;color:#1a6d97;margin-right:6px}
+.prehled .nahled .t{font-size:12px;color:#5b6370;display:block;margin-top:6px}
+.napoveda{position:fixed;inset:0;z-index:26;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center}
+.napoveda.on{display:flex}
+.napoveda .in{background:#fff;border-radius:16px;padding:24px 30px;max-width:640px;font-size:16px;line-height:1.6}
+.napoveda kbd{display:inline-block;min-width:26px;text-align:center;border:1px solid #c9ced6;border-bottom-width:3px;border-radius:6px;padding:0 6px;font-family:inherit;font-size:14px;background:#f6f7f9}
+.napoveda table{border-collapse:collapse}.napoveda td{padding:4px 12px 4px 0}
+.ai-pozn{position:absolute;left:72px;right:72px;bottom:18px;font-size:13px;color:#8a919b}
+.slide.titul .ai-pozn{color:rgba(255,255,255,.65)}

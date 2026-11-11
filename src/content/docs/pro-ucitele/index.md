@@ -10,6 +10,7 @@ Tento oddíl je určen učitelům, zejména těm začínajícím. Ke každé kap
 - **doporučený postup** výuky a orientační časování,
 - **typické miskoncepce** žáků a jak s nimi pracovat,
 - **tipy na aktivity** a využití aplikací z kapitoly,
-- **odkazy na další materiály** (prezentace, pracovní listy, testy).
+- **prezentaci na hodinu** spustitelnou na celou obrazovku (výklad, podpůrné otázky, procvičování a řešení, poznámky pro učitele),
+- **odkazy na další materiály** (pracovní listy, testy).
 
 Metodické stránky jsou v menu sbalené, aby žáky nerušily při učení.
