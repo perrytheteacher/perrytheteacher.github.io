@@ -1,0 +1,451 @@
+---
+title: 3. Alkoholy – chemické vlastnosti
+description: Reakční centra molekuly alkoholu, acidobazické vlastnosti a alkoholáty, esterifikace, substituce, eliminace a oxidace alkoholů včetně metabolismu ethanolu a methanolu.
+sidebar:
+  order: 3
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import Aplikace from '../../../../components/Aplikace.astro';
+import Otazka from '../../../../components/Otazka.astro';
+
+Ethanol hoří, v játrech se mění na acetaldehyd, s kyselinou octovou voní po ovoci a s koncentrovanou kyselinou sírovou se z něj stane plyn ethen. Všechny tyto přeměny lze předpovědět z jediného obrázku: z rozložení parciálních nábojů v molekule alkoholu.
+
+Navazuje na kapitoly [Alkoholy – názvosloví](/chemie/organicka-chemie/01-alkoholy-nazvoslovi/) a [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/02-alkoholy-fyzikalni-vlastnosti/).
+
+:::note[Co se v této kapitole naučíte]
+- z polarity vazeb odvodit, kde molekula alkoholu reaguje,
+- vysvětlit kyselost a zásaditost alkoholů, zapsat vznik alkoholátu a pojmenovat ho,
+- zapsat esterifikaci, substituci, eliminaci a oxidaci obecně i na konkrétních alkoholech a pojmenovat produkty,
+- rozlišit chování primárních, sekundárních a terciárních alkoholů při oxidaci,
+- vysvětlit, proč je methanol jedovatý a jak se v těle odbourává ethanol.
+:::
+
+:::tip[Jak číst reakční schémata]
+Činidlo a katalyzátor (podmínky) píšeme **nad šipku**, odštěpené malé anorganické molekuly **pod šipku se znaménkem minus**. Dvojitá šipka ⇌ znamená vratnou reakci. Symbol **[O]** označuje oxidační činidlo.
+:::
+
+## 1 Kde molekula alkoholu reaguje
+
+<figure class="obrazek">
+	<img src="/obrazky/alkoholy/polarita.svg" alt="Polarizace vazeb R–CH2–O–H: δ+ na uhlíku a vodíku, δ− na kyslíku se dvěma volnými elektronovými páry" />
+</figure>
+
+Z rozložení nábojů plynou čtyři reakční centra:
+
+| | místo v molekule | co se děje | typ reakce |
+|---|---|---|---|
+| 1 | vazba **O–H** (H je δ+) | odštěpí se H⁺ | kyselost → **alkoholáty**; esterifikace |
+| 2 | **volné elektronové páry** kyslíku | kyslík přijme H⁺ nebo napadne kladně nabitý uhlík | zásaditost; alkohol jako **nukleofil** (esterifikace) |
+| 3 | vazba **C–O** (C je δ+) | odstoupí –OH (po protonaci jako H<sub>2</sub>O) | **substituce**, **eliminace** |
+| 4 | **vodík na uhlíku s –OH** | odštěpí se spolu s H z –OH | **oxidace** |
+
+## 2 Acidobazické vlastnosti
+
+### Alkohol jako (velmi slabá) kyselina
+
+Vazba O–H je polární, takže se může odštěpit proton:
+
+<p class="rovnice">R–OH + H<sub>2</sub>O ⇌ R–O<sup>−</sup> + H<sub>3</sub>O<sup>+</sup></p>
+
+Rovnováha je ale silně posunutá doleva. Alkoholy jsou **slabší kyseliny než voda** (methanol je zhruba stejně kyselý), roztoky alkoholů jsou neutrální, nebarví indikátory a s hydroxidem sodným prakticky nereagují. Kyselost klesá v řadě **methanol > primární > sekundární > terciární**. Fenoly jsou asi milionkrát kyselejší a s NaOH reagují.
+
+Sůl alkoholu, **alkoholát (alkoxid)**, proto připravíme reakcí s **alkalickým kovem**:
+
+<p class="rovnice">2 CH<sub>3</sub>CH<sub>2</sub>OH + 2 Na → 2 CH<sub>3</sub>CH<sub>2</sub>O<sup>−</sup>Na<sup>+</sup> + H<sub>2</sub></p>
+
+Reakce je podobná reakci sodíku s vodou, jen mnohem klidnější. V laboratoři se proto zbytky sodíku bezpečně likvidují ethanolem.
+
+Alkoholáty jsou **silné zásady** (silnější než hydroxidy). Vodou se rozkládají zpět na alkohol:
+
+<p class="rovnice">CH<sub>3</sub>CH<sub>2</sub>O<sup>−</sup>Na<sup>+</sup> + H<sub>2</sub>O → CH<sub>3</sub>CH<sub>2</sub>OH + NaOH</p>
+
+:::note[Využití]
+Methanolát sodný je katalyzátor při výrobě **bionafty** (methylesterů mastných kyselin z řepkového oleje). Alkoholáty slouží v organické syntéze jako silné zásady.
+:::
+
+### Alkohol jako (slabá) zásada
+
+Volný elektronový pár kyslíku přijme proton ze **silné kyseliny** a vznikne alkyloxoniový kation:
+
+<p class="rovnice">R–OH + H<sup>+</sup> ⇌ R–OH<sub>2</sub><sup>+</sup></p>
+
+To je první krok substituce i eliminace v kyselém prostředí: z obtížně odstupující skupiny –OH se stane snadno odstupující molekula vody. Alkoholy jsou tedy **amfoterní**, stejně jako voda.
+
+### Názvosloví alkoholátů
+
+<Steps>
+
+1. **Anion** odvodíme od alkoholu (fenolu) koncovkou **-olát**: ethanol → ethanolát, fenol → fenolát. Používá se i koncovka **-oxid** odvozená od alkylu: ethoxid, methoxid.
+
+2. **Kation** vyjádříme přídavným jménem s koncovkou oxidačního čísla: sodný (I), hořečnatý (II), hlinitý (III), železitý (III).
+
+3. Lze se setkat i se zápisem kation + anion: natrium-methoxid, magnesium-bis(ethoxid).
+
+</Steps>
+
+| vzorec | název | další užívané názvy |
+|---|---|---|
+| CH<sub>3</sub>O<sup>−</sup>Na<sup>+</sup> | methanolát sodný | methoxid sodný, natrium-methoxid |
+| (CH<sub>3</sub>CH<sub>2</sub>O<sup>−</sup>)<sub>2</sub>Mg<sup>2+</sup> | ethanolát hořečnatý | ethoxid hořečnatý, magnesium-bis(ethoxid) |
+| (CH<sub>3</sub>)<sub>3</sub>CO<sup>−</sup>K<sup>+</sup> | 2-methylpropan-2-olát draselný | terc-butoxid draselný |
+
+**Úloha A – pojmenuj alkoholáty a fenoláty** (z prezentace)
+
+1. CH<sub>3</sub>O<sup>−</sup>Na<sup>+</sup>
+2. CH<sub>3</sub>CH<sub>2</sub>O<sup>−</sup>K<sup>+</sup>
+3. C<sub>6</sub>H<sub>5</sub>O<sup>−</sup>Li<sup>+</sup>
+4. Na<sup>+</sup> <sup>−</sup>O–CH<sub>2</sub>–CH<sub>2</sub>–O<sup>−</sup> Na<sup>+</sup>
+5. (CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>O<sup>−</sup>)<sub>3</sub>Al<sup>3+</sup>
+6. (C<sub>6</sub>H<sub>5</sub>O<sup>−</sup>)<sub>3</sub>Fe<sup>3+</sup>
+7. (CH<sub>3</sub>CH<sub>2</sub>O<sup>−</sup>)<sub>2</sub>Mg<sup>2+</sup>
+
+<details>
+<summary>Řešení A</summary>
+
+1. **methanolát sodný** (methoxid sodný, natrium-methoxid)
+2. **ethanolát draselný** (ethoxid draselný, kalium-ethoxid)
+3. **fenolát lithný** (lithium-fenolát)
+4. **ethan-1,2-diolát sodný** (dinatrium-ethan-1,2-diolát)
+5. **propan-1-olát hlinitý** (propoxid hlinitý, aluminium-tris(propan-1-olát))
+6. **fenolát železitý** – železo má oxidační číslo III, tedy *železitý*, ne železnatý (ferrum-tris(fenolát))
+7. **ethanolát hořečnatý** (ethoxid hořečnatý, magnesium-bis(ethoxid))
+
+</details>
+
+**Úloha B – napiš vzorec a rovnici vzniku**
+
+1. methanolát draselný
+2. propan-2-olát sodný
+3. 2-methylpropan-2-olát draselný (terc-butoxid draselný)
+4. Doplň rovnici: CH<sub>3</sub>OH + Na →
+5. Doplň rovnici: CH<sub>3</sub>CH<sub>2</sub>ONa + H<sub>2</sub>O →
+
+<details>
+<summary>Řešení B</summary>
+
+1. CH<sub>3</sub>O<sup>−</sup>K<sup>+</sup>
+2. (CH<sub>3</sub>)<sub>2</sub>CHO<sup>−</sup>Na<sup>+</sup>
+3. (CH<sub>3</sub>)<sub>3</sub>CO<sup>−</sup>K<sup>+</sup>
+4. 2 CH<sub>3</sub>OH + 2 Na → 2 CH<sub>3</sub>ONa + H<sub>2</sub>
+5. CH<sub>3</sub>CH<sub>2</sub>ONa + H<sub>2</sub>O → CH<sub>3</sub>CH<sub>2</sub>OH + NaOH
+
+</details>
+
+## 3 Esterifikace (první setkání)
+
+Reakcí alkoholu s karboxylovou kyselinou vzniká **ester** a voda. Reakce je **vratná** (ustaví se rovnováha), katalyzuje ji koncentrovaná kyselina sírová, která zároveň váže vznikající vodu a posouvá rovnováhu ve prospěch esteru.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/g_ester.png" alt="" width="467" /></p>
+
+Alkohol se tu chová jako **nukleofil**: jeho kyslík se váže na uhlík karboxylové skupiny. Pokusy se značeným izotopem <sup>18</sup>O ukázaly, že **kyslík z alkoholu zůstává v esteru** a voda vzniká z –OH kyseliny a vodíku alkoholu.
+
+**Příklad:** kyselina octová + ethanol → **ethyl-acetát** (octan ethylnatý, ethyl-ethanoát)
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ester1.png" alt="" width="703" /></p>
+
+**Příklad:** kyselina octová + 3-methylbutan-1-ol → **3-methylbutyl-acetát** (isoamyl-acetát) – vůně banánů
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ester2.png" alt="" width="881" /></p>
+
+Název esteru: **alkyl-alkanoát** (ethyl-acetát) nebo **alkanoan alkylnatý** (octan ethylnatý). Podrobněji se esterům budeme věnovat u karboxylových kyselin.
+
+:::note[Kde se esterifikace uplatňuje]
+- **Vonné a chuťové látky** (ovocné estery), **rozpouštědla** (ethyl-acetát v odlakovačích a lepidlech).
+- **Tuky a oleje** jsou estery glycerolu s mastnými kyselinami; **bionafta** vzniká jejich přeesterifikací methanolem.
+- Estery anorganických kyselin: **glycerol-trinitrát** (nitroglycerin) je výbušnina (dynamit) i lék při angině pectoris; **fosfáty** alkoholů (cukrů) jsou součástí ATP a nukleových kyselin.
+:::
+
+**Úloha C – esterifikace:** doplň chybějící látky, pojmenuj ester.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_ester_zak.png" alt="Zadání esterifikace" width="788" /></p>
+
+<details>
+<summary>Řešení C</summary>
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_ester_res.png" alt="Řešení esterifikace" width="794" /></p>
+
+- E1: **methyl-formiát** (mravenčan methylnatý)
+- E2: **propyl-propanoát** (propionan propylnatý)
+- E3: chybí **kyselina octová**; produkt **methyl-acetát** (octan methylnatý)
+- E4: nad šipku **H<sub>2</sub>SO<sub>4</sub> (konc.)**, pod šipku **−H<sub>2</sub>O**; produkt **butyl-acetát** (octan butylnatý)
+
+</details>
+
+## 4 Substituce
+
+Skupina –OH se nahradí jiným atomem nebo skupinou, nejčastěji **halogenem**. Samotná –OH odstupuje špatně, proto reakce probíhá v **kyselém prostředí**: kyslík se nejdřív protonuje a odstoupí molekula **vody**. Jde o **nukleofilní substituci**: halogenidový anion (nukleofil) napadá uhlík δ+.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/g_subst.png" alt="" width="242" /></p>
+
+- Reaktivita halogenovodíků: **HI > HBr > HCl** (HCl reaguje až s katalyzátorem ZnCl<sub>2</sub>).
+- Reaktivita alkoholů: **terciární > sekundární > primární**. Na tom je založena **Lucasova zkouška** (HCl + ZnCl<sub>2</sub>): terciární alkohol vytvoří zákal (nerozpustný halogenderivát) okamžitě, sekundární během několika minut, primární za laboratorní teploty nereaguje.
+- Dalšími činidly jsou chloridy fosforu (PCl<sub>5</sub>, PBr<sub>3</sub>) a thionylchlorid SOCl<sub>2</sub>.
+
+**Příklad:** ethanol + HBr → **bromethan**
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_subst1.png" alt="" width="397" /></p>
+
+**Příklad:** 2-methylpropan-2-ol + HCl (ZnCl<sub>2</sub>) → **2-chlor-2-methylpropan** (terc-butylchlorid) – Lucasova zkouška, reaguje okamžitě
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_subst2.png" alt="" width="420" /></p>
+
+**Příklad:** propan-1-ol + SOCl<sub>2</sub> → **1-chlorpropan**
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_subst3.png" alt="" width="481" /></p>
+
+**Vznik etherů.** Zahříváním alkoholu s koncentrovanou H<sub>2</sub>SO<sub>4</sub> na nižší teplotu (u ethanolu asi 140 °C) se druhá molekula alkoholu chová jako nukleofil a vzniká **ether**:
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ether1.png" alt="" width="552" /></p>
+
+Produkt: **diethylether** (ethoxyethan) – rozpouštědlo, dříve celkové anestetikum.
+
+**Úloha D – substituce:** doplň chybějící látky nebo činidla a pojmenuj produkty.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_subst_zak.png" alt="Zadání substituce" width="491" /></p>
+
+<details>
+<summary>Řešení D</summary>
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_subst_res.png" alt="Řešení substituce" width="535" /></p>
+
+- S1: **2-brombutan**
+- S2: **jodmethan** (methyljodid)
+- S3: výchozí látka **2-methylpropan-2-ol**; produkt 2-chlor-2-methylpropan
+- S4: pod šipku **−SO<sub>2</sub>, −HCl**; produkt **1-chlorbutan**
+- S5: činidlo **HBr**; produkt bromethan
+- S6: **dimethylether** (methoxymethan)
+
+</details>
+
+## 5 Eliminace (dehydratace)
+
+Zahříváním s koncentrovanou kyselinou sírovou (nebo fosforečnou, případně nad Al<sub>2</sub>O<sub>3</sub>) se z alkoholu odštěpí –OH a vodík ze **sousedního** uhlíku. Vznikne **alken** a voda.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/g_elim.png" alt="" width="431" /></p>
+
+- Lehkost eliminace: **terciární > sekundární > primární**.
+- Může-li vzniknout více alkenů, převládá ten s **víc substituovanou dvojnou vazbou** (dvojná vazba uvnitř řetězce) – **Zajcevovo pravidlo**.
+- Rozhoduje teplota: ethanol s H<sub>2</sub>SO<sub>4</sub> při **170 °C** dává **ethen** (eliminace), při **140 °C** **diethylether** (substituce).
+- Methanol eliminovat nemůže – nemá sousední uhlík.
+
+**Příklad:** ethanol → **ethen**
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_elim1.png" alt="" width="390" /></p>
+
+**Příklad:** butan-2-ol → **but-2-en** (hlavní produkt) + **but-1-en**
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_elim2.png" alt="" width="903" /></p>
+
+**Příklad:** 2-methylpropan-2-ol → **2-methylpropen** (terciární alkohol eliminuje nejsnáz)
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_elim3.png" alt="" width="420" /></p>
+
+:::note[Průmysl a biochemie]
+- Opačná reakce, **hydratace ethenu**, je průmyslová výroba syntetického ethanolu:
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_hydrat.png" alt="" width="466" /></p>
+
+- Dehydratací **bioethanolu** se vyrábí „zelený“ ethylen pro plasty (např. v Brazílii).
+- V **citrátovém cyklu** katalyzují enzymy dehydrataci citrátu (akonitáza) a adici vody na fumarát (fumaráza) – eliminace a adice vody probíhají i v buňkách.
+:::
+
+**Úloha E – eliminace:** doplň produkty nebo výchozí látky a pojmenuj je.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_elim_zak.png" alt="Zadání eliminace" width="551" /></p>
+
+<details>
+<summary>Řešení E</summary>
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_elim_res.png" alt="Řešení eliminace" width="772" /></p>
+
+- L1: **propen**
+- L2: **2-methylbut-2-en** (hlavní, Zajcevovo pravidlo) + 2-methylbut-1-en
+- L3: **cyklohexen**
+- L4: výchozí látka **pentan-3-ol** (jen z něj vznikne jediný alken, pent-2-en)
+- L5: teplota **170 °C** (při 140 °C by vznikal diethylether); produkt ethen
+
+</details>
+
+## 6 Oxidace
+
+Při oxidaci se odštěpí vodík z –OH a **vodík z uhlíku, který nese –OH**. Proto výsledek závisí na typu alkoholu:
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/g_ox1.png" alt="" width="542" /></p>
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/g_ox2.png" alt="" width="362" /></p>
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/g_ox3.png" alt="" width="342" /></p>
+
+- **primární** alkohol → **aldehyd** → (další oxidací) **karboxylová kyselina**,
+- **sekundární** alkohol → **keton** (dál se běžnými činidly neoxiduje),
+- **terciární** alkohol nemá na uhlíku s –OH vodík → za běžných podmínek se **neoxiduje** (silná oxidační činidla za tepla rozštěpí řetězec).
+
+Oxidační číslo uhlíku nesoucího kyslík roste: ethanol **−I** → ethanal **+I** → kyselina octová **+III**.
+
+| oxidační činidlo | změna, kterou pozorujeme |
+|---|---|
+| KMnO<sub>4</sub> v kyselém prostředí | fialový roztok se odbarví (vzniká Mn<sup>2+</sup>) |
+| K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> v kyselém prostředí | oranžový roztok zezelená (vzniká Cr<sup>3+</sup>) |
+| rozžhavený CuO | černý oxid se redukuje na červenou měď |
+| O<sub>2</sub> + katalyzátor (průmysl), enzymy (organismy) | |
+
+Aby se primární alkohol zastavil u aldehydu, aldehyd se z reakční směsi hned oddestilovává (ethanal vře už při 20 °C).
+
+**Příklad:** methanol → **methanal** (formaldehyd) → **kyselina mravenčí** (methanová)
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ox_meoh.png" alt="" width="556" /></p>
+
+**Příklad:** ethanol → **ethanal** (acetaldehyd) → **kyselina octová** (ethanová)
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ox_etoh.png" alt="" width="688" /></p>
+
+**Příklad:** propan-2-ol → **propanon** (aceton)
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ox_ipa.png" alt="" width="442" /></p>
+
+**Příklad:** 2-methylpropan-2-ol – oxidace neprobíhá
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ox_tbu.png" alt="" width="423" /></p>
+
+:::note[Kde se oxidace alkoholů uplatňuje]
+- **Formaldehyd** se vyrábí oxidací methanolu vzdušným kyslíkem na stříbrném (nebo oxidovém) katalyzátoru; jeho vodný roztok je **formalín**, slouží k výrobě pryskyřic a plastů.
+- **Octové kvašení**: bakterie *Acetobacter* oxidují ethanol na kyselinu octovou – tak vzniká **ocet**.
+- **Aceton** se vyrábí mimo jiné dehydrogenací propan-2-olu.
+- **Cyklohexanon** z cyklohexanolu je surovinou pro výrobu polyamidu (silon, nylon 6).
+- Dechové detektory alkoholu dříve využívaly změnu barvy dichromanu (oranžová → zelená).
+- **Hoření** je úplná oxidace: C<sub>2</sub>H<sub>5</sub>OH + 3 O<sub>2</sub> → 2 CO<sub>2</sub> + 3 H<sub>2</sub>O (bioethanol jako palivo, E10 v benzínu).
+:::
+
+### Oxidace v organismu: ethanol, methanol a toxikologie
+
+V těle oxidují alkoholy především enzymy v **játrech**. **Alkoholdehydrogenáza (ADH)** odebírá alkoholu vodík a předává ho koenzymu **NAD<sup>+</sup>** (vzniká NADH). Vzniklý aldehyd dál oxiduje **aldehyddehydrogenáza (ALDH)**.
+
+**Ethanol**
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/bio_etoh.png" alt="" width="1008" /></p>
+
+- Ethanol → **acetaldehyd** (ethanal) → **kyselina octová** (acetát) → acetyl-CoA → citrátový cyklus → CO<sub>2</sub> + H<sub>2</sub>O.
+- **Acetaldehyd je jedovatý** – způsobuje zarudnutí, bušení srdce, nevolnost a podílí se na „kocovině“. Část lidí (častěji ve východní Asii) má méně účinnou ALDH a acetaldehyd se jim hromadí.
+- Lék **disulfiram** (Antabus) blokuje ALDH; po napití se hromadí acetaldehyd a je velmi zle – využívá se při léčbě závislosti.
+- Játra odbourají přibližně **0,1 g ethanolu na kilogram tělesné hmotnosti za hodinu**; rychlost nelze podstatně urychlit.
+- Při dlouhodobém pití se zapojuje i další enzymový systém (cytochrom P450, CYP2E1) a vzniká ztučnění jater až **cirhóza**.
+
+**Methanol**
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/bio_meoh.png" alt="" width="556" /></p>
+
+- Stejné enzymy mění methanol na **formaldehyd** a dál na **kyselinu mravenčí** (formiát). Ta se odbourává pomalu, hromadí se a způsobuje **metabolickou acidózu** a poškození **zrakového nervu** (oslepnutí); otrava může skončit smrtí.
+- Příznaky se objevují se zpožděním (často až po 12–24 h), protože jedovaté jsou až produkty oxidace.
+- **Protijed** je **ethanol** nebo **fomepizol**: obsadí ADH (ethanol má k enzymu vyšší afinitu než methanol), takže se methanol oxiduje jen pomalu a postupně se vyloučí; nemocný se dále léčí hemodialýzou.
+- V roce 2012 zemřely v Česku při **metanolové aféře** po požití nelegálních lihovin desítky lidí.
+
+**Ethylenglykol** (nemrznoucí směsi) se stejnou cestou mění až na **kyselinu šťavelovou**; šťavelan vápenatý poškozuje ledviny. Léčba je stejná jako u methanolu.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/bio_eg.png" alt="" width="655" /></p>
+
+**Úloha F – oxidace:** doplň a pojmenuj produkty nebo výchozí látky.
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_ox_zak.png" alt="Zadání oxidace" width="666" /></p>
+
+<details>
+<summary>Řešení F</summary>
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/cv_ox_res.png" alt="Řešení oxidace" width="720" /></p>
+
+- X1: **propanal** → **kyselina propanová**
+- X2: **butanon** (ethylmethylketon)
+- X3: výchozí látka **2-methylpropan-1-ol**; produkt 2-methylpropanal
+- X4: **cyklohexanon**
+- X5: terciární alkohol – **oxidace neprobíhá**
+- X6: **ethanal** (acetaldehyd); oranžový roztok zezelená
+
+</details>
+
+## 7 Reakční automat
+
+Vyber alkohol a reakci, tipni si produkt a pak ho odkryj. Uvidíš, jak se primární, sekundární a terciární alkoholy liší.
+
+<Aplikace src="/aplikace/alkoholy-reakce/" title="Reakční automat: reakce alkoholů" vyska={860} />
+
+## Shrnutí
+
+| reakce | činidlo, podmínky | co se mění | produkt |
+|---|---|---|---|
+| s alkalickým kovem | Na, K | odštěpí se H z –OH | alkoholát + H<sub>2</sub> |
+| esterifikace | karboxylová kyselina, H<sub>2</sub>SO<sub>4</sub> (konc.) | vratná, odštěpí se H<sub>2</sub>O | ester |
+| substituce | HX (HCl + ZnCl<sub>2</sub>, HBr, HI), SOCl<sub>2</sub> | –OH → –X | halogenderivát |
+| vznik etheru | H<sub>2</sub>SO<sub>4</sub> (konc.), 140 °C | 2 R–OH → R–O–R | ether |
+| eliminace | H<sub>2</sub>SO<sub>4</sub> (konc.), 170 °C | odštěpí se H<sub>2</sub>O ze sousedních uhlíků | alken |
+| oxidace | KMnO<sub>4</sub>, K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (H<sup>+</sup>), ADH | odštěpí se 2 H | aldehyd → kyselina / keton / terciární neprobíhá |
+
+## Procvičování
+
+<Otazka
+	zadani="Proč alkoholy prakticky nereagují s hydroxidem sodným, ale reagují se sodíkem?"
+	moznosti={["alkoholy nejsou kyseliny vůbec", "alkoholy jsou slabší kyseliny než voda, rovnováha s NaOH je posunutá k výchozím látkám", "sodík je silnější kyselina než NaOH"]}
+	spravne={1}
+	vysvetleni="Alkoholát je silnější zásada než hydroxid, takže rovnováha R–OH + OH⁻ ⇌ R–O⁻ + H₂O leží vlevo. Sodík alkohol redukuje (vzniká H₂) a reakce probíhá úplně."
+/>
+
+<Otazka
+	zadani="Který alkohol se oxidací dichromanem v kyselém prostředí NEZMĚNÍ?"
+	moznosti={["butan-1-ol", "butan-2-ol", "2-methylpropan-2-ol", "2-methylpropan-1-ol"]}
+	spravne={2}
+	vysvetleni="Terciární alkohol nemá na uhlíku s –OH vodík, oranžová barva dichromanu zůstane."
+/>
+
+<Otazka
+	zadani="Co vznikne oxidací propan-2-olu?"
+	moznosti={["propanal", "kyselina propanová", "propanon (aceton)", "propen"]}
+	spravne={2}
+	vysvetleni="Sekundární alkohol se oxiduje na keton. Propen by vznikl eliminací."
+/>
+
+<Otazka
+	zadani="Hlavním produktem dehydratace butan-2-olu je:"
+	moznosti={["but-1-en", "but-2-en", "butan", "dibutylether"]}
+	spravne={1}
+	vysvetleni="Podle Zajcevova pravidla převládá alken s víc substituovanou dvojnou vazbou."
+/>
+
+<Otazka
+	zadani="Proč se otrava methanolem léčí podáním ethanolu?"
+	moznosti={["ethanol methanol neutralizuje", "ethanol obsadí alkoholdehydrogenázu, a methanol se proto pomalu mění na jedovaté produkty", "ethanol urychlí oxidaci methanolu", "ethanol rozkládá kyselinu mravenčí"]}
+	spravne={1}
+	vysvetleni="Jedovaté jsou až produkty oxidace (formaldehyd, kyselina mravenčí). Ethanol kompetitivně blokuje ADH a methanol se mezitím vyloučí."
+/>
+
+<Otazka
+	zadani="Při esterifikaci ethanolu kyselinou octovou se atom kyslíku z ethanolu dostane do:"
+	moznosti={["vody", "esteru", "kyseliny sírové", "rovnoměrně do vody i esteru"]}
+	spravne={1}
+	vysvetleni="Alkohol je nukleofil, jeho kyslík se váže na uhlík karboxylu; voda vzniká z –OH kyseliny (důkaz izotopem ¹⁸O)."
+/>
+
+## Kritické myšlení
+
+<details>
+<summary>Spolužák tvrdí: „Methanol je jedovatý, protože je to alkohol. Ethanol je přece taky alkohol a stejně by měl být stejně jedovatý.“ Co mu odpovíš?</summary>
+
+Jedovatost neurčuje skupina –OH, ale produkty metabolismu. Ethanol se mění na acetaldehyd a ten dál na kyselinu octovou, která se snadno zapojí do metabolismu. Methanol se mění na formaldehyd a kyselinu mravenčí, kterou tělo odbourává pomalu – hromadí se a poškozuje zrakový nerv. (Ethanol přitom také není neškodný: acetaldehyd je toxický a dlouhodobé pití poškozuje játra.)
+
+</details>
+
+<details>
+<summary>Proč při přípravě ethenu z ethanolu nestačí „jen zahřát s kyselinou sírovou“, ale je třeba hlídat teplotu?</summary>
+
+Při nižší teplotě (asi 140 °C) převládá substituce a vzniká diethylether; ethen vzniká až při vyšší teplotě (asi 170 °C). Stejné výchozí látky mohou podle podmínek dát různé produkty.
+
+</details>
+
+<details>
+<summary>Jak bys pomocí dichromanu draselného rozlišil tři zkumavky s propan-1-olem, propan-2-olem a 2-methylpropan-2-olem?</summary>
+
+Terciární alkohol oranžovou barvu nezmění. U dvou zbývajících se roztok zbarví zeleně; produkty rozlišíme dál – aldehyd z propan-1-olu dává pozitivní Tollensovu či Fehlingovu zkoušku, keton z propan-2-olu ne. (Alternativa: Lucasova zkouška – terciární hned zákal, sekundární po několika minutách, primární ne.)
+
+</details>
+
+<Aside type="tip" title="Pro učitele">
+Doporučený postup, prezentace na hodinu a typické chyby najdete v metodice [Alkoholy – chemické vlastnosti](/pro-ucitele/metodika-alkoholy-chemicke-vlastnosti/).
+</Aside>

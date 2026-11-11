@@ -144,3 +144,33 @@
 		color: #555 !important;
 	}
 }
+
+/* Reakční schémata (RDKit PNG) a rovnice v kapitolách.
+   <p class="schema"><img src="/obrazky/…/schema.png" width="…" alt=""></p>
+   <p class="rovnice">2 CH<sub>3</sub>OH + 2 Na → …</p> */
+.sl-markdown-content .schema {
+	background: #fff;
+	border-radius: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	text-align: center;
+	overflow-x: auto;
+}
+.sl-markdown-content .schema img {
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+}
+.sl-markdown-content .rovnice {
+	font-size: 1.1rem;
+	text-align: center;
+	padding: 0.4rem 0.75rem;
+	border-left: 3px solid var(--sl-color-accent);
+	background: var(--sl-color-gray-6);
+	border-radius: 0 0.4rem 0.4rem 0;
+}
+@media print {
+	.sl-markdown-content .schema,
+	.sl-markdown-content .rovnice {
+		break-inside: avoid;
+	}
+}
