@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stavba elektronového obalu</title>
+<style>
+:root{
+  /* rozvržení: zadání → model → kontrola; na širokém displeji model vlevo, zadání a kontrola vpravo */
+  --paper:#f4f6f9; --card:#ffffff; --ink:#1b2430; --muted:#566273; --line:#cdd5df; --accent:#1d5d8c;
+  --s:#f7c1d0; --p:#b3d9f6; --d:#fbd5a3; --f:#bfe5c0;
+  --ok:#1b6e43; --okbg:#e2f4e9; --warn:#7a5000; --warnbg:#fff0d2; --bad:#9c2327; --badbg:#fde6e6;
+  --font:"Atkinson Hyperlegible",system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--font)}
+.wrap{max-width:1180px;margin:0 auto;padding:16px}
+h1{font-size:1.45rem;margin:0 0 10px;text-wrap:balance}
+h2{font-size:1rem;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+button,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tab{border:2px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;cursor:pointer;text-align:left;line-height:1.25}
+.tab small{display:block;color:var(--muted)}
+.tab[aria-selected="true"]{border-color:var(--accent);box-shadow:inset 0 -4px 0 var(--accent);font-weight:700}
+
+.grid{display:grid;gap:14px;grid-template-areas:"task" "stage" "panel"}
+@media(min-width:880px){
+  .grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-areas:"stage task" "stage panel";align-items:start}
+}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+#task{grid-area:task}#stage{grid-area:stage;padding:10px}#panel{grid-area:panel}
+
+.zadani{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.tile{border:2px solid var(--ink);border-radius:8px;width:92px;padding:4px 6px 6px;text-align:center;flex:none}
+.tile .z{font-size:.95rem;text-align:left;font-variant-numeric:tabular-nums}
+.tile .sym{font-size:2.3rem;font-weight:700;line-height:1}
+.tile .nm{font-size:.85rem}
+.zadani p{margin:0;flex:1 1 180px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+select{padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;max-width:100%}
+.btn{border:2px solid var(--accent);background:#fff;color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;font-weight:700}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.quiet{border-color:var(--line);color:var(--ink);font-weight:400}
+label.inl{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+
+/* orbital = čtvereček */
+.orb{width:var(--b);height:var(--b);border:2px solid var(--ink);border-radius:3px;padding:0;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;font:700 calc(var(--b)*.62)/1 var(--font);color:var(--ink)}
+.orb svg{width:86%;height:86%}
+.orb path{visibility:hidden}
+.orb.v1 .up,.orb.v2 .up,.orb.v2 .dn{visibility:visible}
+.orb:hover{filter:brightness(.95)}
+.t-s{background:var(--s)}.t-p{background:var(--p)}.t-d{background:var(--d)}.t-f{background:var(--f)}
+.orb.err,.orb.nope{box-shadow:0 0 0 4px var(--bad)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 10px;font-size:.95rem}
+.tool{border:2px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;cursor:pointer}
+.tool[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:#fff;font-weight:700}
+
+/* 1 slupkový model */
+.shell{position:relative;width:min(100%,520px,calc(100vh - 150px));aspect-ratio:1;margin:6px auto 10px;--b:30px}
+.shell svg{position:absolute;inset:0;width:100%;height:100%}
+.shell .orb{position:absolute;transform:translate(-50%,-50%)}
+.nucleus{position:absolute;left:50%;top:50%;width:7.6%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+  background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:calc(var(--b)*.5)}
+@media(max-width:480px){.wrap{padding:12px}#stage{padding:6px}}
+
+/* 2 energetický diagram */
+.energy{display:grid;grid-template-columns:26px minmax(0,1fr);--b:clamp(20px,min(7vw,calc((100vh - 215px) / 16)),34px)}
+.axis{position:relative;border-right:2px solid var(--ink);margin:10px 8px 0 0}
+.axis::before{content:"";position:absolute;right:-7px;top:-10px;border:6px solid transparent;border-bottom:10px solid var(--ink);border-top:0}
+.axis span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-90deg);white-space:nowrap;font-size:.85rem;color:var(--muted)}
+#levels{display:flex;flex-direction:column-reverse;gap:7px;padding:10px 0 2px;overflow-x:auto}
+.lvl{display:flex;align-items:center;border-radius:6px}
+.lvl .lab{flex:none;width:2.2em;font-weight:700;font-variant-numeric:tabular-nums}
+.lvl .dash{flex:none;height:0;border-top:2px dashed var(--line)}
+.lvl .boxes{display:flex;flex:none}
+.lvl .boxes .orb+.orb{margin-left:-2px}
+.lvl.err{box-shadow:0 0 0 3px var(--bad)}
+.lvl.moved .lab::after{content:" ↓";color:var(--accent)}
+#dropnote{margin:8px 0 0;font-size:.92rem;color:var(--accent);min-height:1.4em}
+
+.per{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px;border-radius:8px;border-left:5px solid transparent}
+.per+.per{margin-top:6px}
+.per.folded{background:#e9f0f7;border-left-color:var(--accent)}
+.per.folded .chip{opacity:.55}
+.chip{display:inline-flex;align-items:flex-start;gap:3px;border:2px solid var(--ink);border-radius:6px;padding:7px 5px 7px 8px;font-weight:700;font-size:1.15rem;line-height:1.2}
+.chip input{width:2.7em;font:inherit;font-size:.82em;text-align:center;border:1px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);margin-top:-5px;padding:1px 0}
+.chip.err{box-shadow:0 0 0 4px var(--bad)}
+.cum{margin-left:auto;color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums}
+.gas{border:2px dashed var(--line);background:#fff;border-radius:8px;padding:4px 10px;cursor:pointer;font-weight:700;line-height:1.15;color:var(--muted)}
+.gas small{display:block;font-weight:400;font-size:.75rem}
+.gas.ready{border-style:solid;border-color:var(--accent);color:var(--accent)}
+.gas[aria-pressed="true"]{background:var(--accent);color:#fff;border-style:solid;border-color:var(--accent)}
+.readout{font-size:1.2rem;font-variant-numeric:tabular-nums;min-height:1.9em;word-spacing:.15em}
+.readout sup{font-size:.7em}
+.meta{color:var(--muted);font-size:.95rem;margin:2px 0 0}
+#fb{margin-top:12px;border-radius:10px;padding:10px 12px;border-left:6px solid var(--line);background:var(--paper)}
+#fb.ok{background:var(--okbg);border-color:var(--ok)}
+#fb.warn{background:var(--warnbg);border-color:var(--warn)}
+#fb.bad{background:var(--badbg);border-color:var(--bad)}
+#fb strong{display:block}
+#fb.ok strong{color:var(--ok)}#fb.warn strong{color:var(--warn)}#fb.bad strong{color:var(--bad)}
+details{margin-top:12px}
+summary{cursor:pointer;font-weight:700}
+ol,ul{margin:6px 0 0;padding-left:1.3em}
+li{margin:3px 0}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:.88rem;margin-top:8px}
+.legend i{display:inline-block;width:14px;height:14px;border:1.5px solid var(--ink);vertical-align:-2px;margin-right:4px}
+footer{margin-top:18px}
+.ai{margin-top:14px;padding-top:8px;border-top:1px solid var(--line);font-size:.7rem;color:#7a8492}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Stavba elektronového obalu</h1>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-shell" data-mode="shell">1 · Slupkový model<small>prvky 1.–3. periody</small></button>
+    <button class="tab" role="tab" id="tab-energy" data-mode="energy">2 · Energetický diagram<small>prvky 1.–6. periody, včetně výjimek</small></button>
+    <button class="tab" role="tab" id="tab-notation" data-mode="notation">3 · Zápis konfigurace<small>úplný a zkrácený zápis</small></button>
+  </div>
+
+  <main class="grid">
+    <section class="card" id="task">
+      <h2>Zadání</h2>
+      <div class="zadani">
+        <div class="tile"><div class="z" id="tZ"></div><div class="sym" id="tSym"></div><div class="nm" id="tName"></div></div>
+        <p id="taskText"></p>
+      </div>
+      <div class="row">
+        <label class="inl" for="selEl">Prvek <select id="selEl"></select></label>
+        <button class="btn" id="btnRnd">Náhodný prvek</button>
+      </div>
+      <div class="row" id="rangeRow">
+        <label class="inl" for="selRange">Náhodně vybírat z <select id="selRange">
+          <option value="all">1.–6. periody</option>
+          <option value="p13">1.–3. periody</option>
+          <option value="p4">4. periody</option>
+          <option value="p5">5. periody</option>
+          <option value="p6">6. periody</option>
+          <option value="exc5">výjimek: Cr, Cu, Mo, Ag, Au</option>
+          <option value="excAll">všech výjimek</option>
+        </select></label>
+      </div>
+    </section>
+
+    <section class="card" id="stage">
+      <div class="tools" id="tools"><span>Klepnutí na orbital:</span>
+        <button class="tool" id="toolAdd" aria-pressed="true">+ přidá elektron</button>
+        <button class="tool" id="toolRem" aria-pressed="false">− odebere elektron</button></div>
+      <div id="shellView">
+        <div class="shell" id="shell"></div>
+      </div>
+      <div id="energyView" hidden>
+        <div class="energy">
+          <div class="axis"><span>energie roste</span></div>
+          <div id="levels"></div>
+        </div>
+        <p id="dropnote" aria-live="polite"></p>
+      </div>
+      <div id="notaView" hidden>
+        <p class="meta" style="margin:0 0 8px">Každý řádek je jedna perioda a končí vzácným plynem. „Celkem“ je součet elektronů od začátku zápisu.</p>
+        <div id="periods"></div>
+      </div>
+      <div class="legend" id="legend">
+        <span><i class="t-s"></i>orbital s</span><span><i class="t-p"></i>orbitaly p</span>
+        <span class="eonly"><i class="t-d"></i>orbitaly d</span><span class="eonly"><i class="t-f"></i>orbitaly f</span>
+      </div>
+    </section>
+
+    <section class="card" id="panel">
+      <h2>Tvůj zápis</h2>
+      <div class="readout" id="readout"></div>
+      <p class="meta" id="shortLine" hidden>Zkráceně: <span class="readout" id="short"></span></p>
+      <p class="meta">Umístěno elektronů: <b id="count">0</b> · Vyřešeno prvků: <b id="solved">0</b></p>
+      <div class="row">
+        <button class="btn primary" id="btnCheck">Zkontrolovat</button>
+        <button class="btn quiet" id="btnClear">Vymazat</button>
+        <button class="btn quiet" id="btnSolve">Ukázat řešení</button>
+      </div>
+      <div id="fb" aria-live="polite"></div>
+
+      <details open>
+        <summary>Pravidla</summary>
+        <p class="meta" id="howto"></p>
+        <ol id="rules"></ol>
+      </details>
+      <details id="settings">
+        <summary>Nastavení</summary>
+        <p class="conly"><label class="inl"><input type="checkbox" id="optEnforce" checked> Hlídat pravidla už při klikání</label></p>
+        <p class="xonly"><label class="inl"><input type="checkbox" id="optStrict" checked> U výjimek vyžadovat skutečnou konfiguraci</label></p>
+        <p class="eonly"><label class="inl"><input type="checkbox" id="optDrop" checked> Ukazovat pokles energie zcela zaplněných hladin d a f</label></p>
+      </details>
+    </section>
+  </main>
+
+</div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const EL=("H,Vodík;He,Helium;Li,Lithium;Be,Beryllium;B,Bor;C,Uhlík;N,Dusík;O,Kyslík;F,Fluor;Ne,Neon;Na,Sodík;Mg,Hořčík;Al,Hliník;Si,Křemík;P,Fosfor;S,Síra;Cl,Chlor;Ar,Argon;"+
+"K,Draslík;Ca,Vápník;Sc,Skandium;Ti,Titan;V,Vanad;Cr,Chrom;Mn,Mangan;Fe,Železo;Co,Kobalt;Ni,Nikl;Cu,Měď;Zn,Zinek;Ga,Gallium;Ge,Germanium;As,Arsen;Se,Selen;Br,Brom;Kr,Krypton;"+
+"Rb,Rubidium;Sr,Stroncium;Y,Yttrium;Zr,Zirkonium;Nb,Niob;Mo,Molybden;Tc,Technecium;Ru,Ruthenium;Rh,Rhodium;Pd,Palladium;Ag,Stříbro;Cd,Kadmium;In,Indium;Sn,Cín;Sb,Antimon;Te,Tellur;I,Jod;Xe,Xenon;"+
+"Cs,Cesium;Ba,Baryum;La,Lanthan;Ce,Cer;Pr,Praseodym;Nd,Neodym;Pm,Promethium;Sm,Samarium;Eu,Europium;Gd,Gadolinium;Tb,Terbium;Dy,Dysprosium;Ho,Holmium;Er,Erbium;Tm,Thulium;Yb,Ytterbium;Lu,Lutecium;"+
+"Hf,Hafnium;Ta,Tantal;W,Wolfram;Re,Rhenium;Os,Osmium;Ir,Iridium;Pt,Platina;Au,Zlato;Hg,Rtuť;Tl,Thallium;Pb,Olovo;Bi,Bismut;Po,Polonium;At,Astat;Rn,Radon")
+  .split(";").map((t,i)=>{const[a,b]=t.split(",");return{z:i+1,sym:a,name:b}});
+const ORDER=["1s","2s","2p","3s","3p","4s","3d","4p","5s","4d","5p","6s","4f","5d","6p"];
+const NORB={s:1,p:3,d:5,f:7};
+const cap=s=>NORB[s[1]]*2;
+const EXC={Cr:{"4s":1,"3d":5},Cu:{"4s":1,"3d":10},Nb:{"5s":1,"4d":4},Mo:{"5s":1,"4d":5},Ru:{"5s":1,"4d":7},Rh:{"5s":1,"4d":8},
+  Pd:{"5s":0,"4d":10},Ag:{"5s":1,"4d":10},La:{"4f":0,"5d":1},Ce:{"4f":1,"5d":1},Gd:{"4f":7,"5d":1},Pt:{"6s":1,"5d":9},Au:{"6s":1,"5d":10}};
+const EXC_WHY={
+  half:"Napůl zaplněná hladina d (d⁵) je energeticky výhodná. Jeden elektron proto přechází z orbitalu s do d.",
+  full:"Zcela zaplněná hladina d (d¹⁰) je energeticky výhodná. Elektron proto přechází z orbitalu s do d.",
+  other:"Sousední hladiny tu mají velmi blízkou energii a změřené obsazení se od pravidla liší. Tyto výjimky se běžně nezkoušejí."
+};
+const EXC_KIND={Cr:"half",Mo:"half",Cu:"full",Ag:"full",Au:"full",Pd:"full"};
+const MODES={shell:{subs:ORDER.slice(0,5),maxZ:18},energy:{subs:ORDER,maxZ:86},notation:{subs:ORDER,maxZ:86}};
+const PERIODS=[["1s"],["2s","2p"],["3s","3p"],["4s","3d","4p"],["5s","4d","5p"],["6s","4f","5d","6p"]];
+const GAS=[["He",2],["Ne",10],["Ar",18],["Kr",36],["Xe",54]];
+const HOWTO={
+  shell:"Klepnutím na čtvereček přidáš elektron. Odebereš ho po přepnutí na „− odebere elektron“ nebo pravým tlačítkem myši. Aplikace nedovolí tah, který porušuje pravidla.",
+  notation:"Do políčka u každé podslupky napiš počet elektronů. Nepoužité podslupky nech prázdné."
+};
+HOWTO.energy=HOWTO.shell;
+const TASK={
+  shell:"Rozmísti do orbitalů všechny elektrony tohoto atomu. Kolik jich je, poznáš z protonového čísla.",
+  notation:"Zapiš elektronovou konfiguraci tohoto atomu a potom ji zkrať pomocí vzácného plynu."
+};
+TASK.energy=TASK.shell;
+const RULES={
+  shell:["Menší slupka (barevný pás) se plní dřív než větší.","Slupky n = 2 a n = 3 mají dvě podslupky. Nejdřív se plní vnitřní podslupka s (plná kružnice), potom vnější podslupka p (čárkovaná).",
+    "Do orbitalů p přichází nejdřív po jednom elektronu (↑), teprve potom se elektrony párují (↑↓).","V jednom orbitalu jsou nejvýše dva elektrony s opačným spinem."],
+  energy:["Výstavbový princip: elektrony obsazují nejdřív hladiny s nižší energií, tedy odspodu.",
+    "Pauliho princip: v jednom orbitalu jsou nejvýše dva elektrony s opačným spinem (↑↓).",
+    "Hundovo pravidlo: v hladině p, d nebo f přijde nejdřív do každého orbitalu jeden elektron (↑), teprve potom se párují.",
+    "Některé prvky s orbitaly d se od pravidla odchylují, například Cr a Cu."],
+  notation:["Podslupky jsou předepsané v pořadí zaplňování. Další se začíná plnit, až když je předchozí plná.",
+    "Kapacity podslupek: s 2, p 6, d 10, f 14 elektronů.",
+    "Jakmile je zápis až po konec periody úplný, rozsvítí se značka vzácného plynu. Právě tolik elektronů má jeho atom.",
+    "Zkrácený zápis: klepni na značku nejbližšího předchozího vzácného plynu. Začátek zápisu se schová do hranaté závorky."]
+};
+const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const st={mode:"shell",z:{shell:7,energy:24,notation:15},nota:{},fold:-1,occ:{shell:{},energy:{},notation:{}},strict:true,drop:true,enforce:true,tool:"add",unlocked:"",solved:{shell:[],energy:[],notation:[]}};
+ORDER.forEach(s=>st.nota[s]=0);
+try{const s=JSON.parse(localStorage.getItem("obal-solved")||"null");if(s)for(const k in st.solved)if(Array.isArray(s[k]))st.solved[k]=s[k];}catch(e){}
+for(const m in MODES)for(const s of MODES[m].subs)st.occ[m][s]=new Array(NORB[s[1]]).fill(0);
+
+function madelung(z){const c={};let r=z;for(const s of ORDER){const e=Math.min(cap(s),r);c[s]=e;r-=e;}return c;}
+function real(z){const c=madelung(z);Object.assign(c,EXC[EL[z-1].sym]||{});return c;}
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const cnt=(m,s)=>sum(st.occ[m][s]);
+function hundFill(e,k){const a=new Array(k).fill(0);for(let i=0;i<e;i++)a[i%k]++;return a;}
+function plural(n){return n===1?"elektron":(n>=2&&n<=4?"elektrony":"elektronů");}
+function confHTML(c,subs,skip){return subs.filter(s=>c[s]>0&&!(skip&&skip[s])).map(s=>s+"<sup>"+c[s]+"</sup>").join(" ");}
+function shortHTML(z,c){
+  const cores=[[54,"Xe"],[36,"Kr"],[18,"Ar"],[10,"Ne"],[2,"He"]].find(x=>x[0]<z);
+  if(!cores)return "";
+  const core=madelung(cores[0]);const skip={};for(const s of ORDER)if(core[s]>0)skip[s]=1;
+  return "["+cores[1]+"] "+confHTML(c,ORDER,skip);
+}
+
+/* ---------- stavba DOM ---------- */
+function orbBtn(m,s,i){
+  const b=document.createElement("button");
+  b.className="orb t-"+s[1];b.dataset.sub=s;b.dataset.i=i;
+  b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="up" d="M8 20V4M4.4 8.4 8 3.6l3.6 4.8"/><path class="dn" d="M16 4v16M12.4 15.6 16 20.4l3.6-4.8"/></svg>';
+  b.addEventListener("click",()=>clickOrb(m,s,i,false,b));
+  b.addEventListener("contextmenu",e=>{e.preventDefault();clickOrb(m,s,i,true,b);});
+  return b;
+}
+function clickOrb(m,s,i,forceRemove,btn){
+  const a=st.occ[m][s],v=a[i],subs=MODES[m].subs,el=EL[st.z[m]-1];
+  const grp=st.unlocked===m+el.sym?subs.filter(x=>madelung(el.z)[x]!==real(el.z)[x]):[];
+  let msg="";
+  if(!(forceRemove||st.tool==="remove")){
+    if(v===2)msg="Orbital "+s+" je plný. Do jednoho orbitalu se vejdou nejvýše dva elektrony s opačným spinem (Pauliho princip).";
+    else if(st.enforce){
+      if(v===1&&a.includes(0))msg="Pár až potom. V hladině "+s+" je ještě prázdný orbital. Nejdřív dej do každého orbitalu jeden elektron (Hundovo pravidlo).";
+      else if(v===0){
+        const F=subs.slice(0,subs.indexOf(s)).find(x=>cnt(m,x)<cap(x)&&!(grp.includes(s)&&grp.includes(x)));
+        if(F)msg="Sem zatím ne. Nejdřív zaplň hladinu "+F+" (má "+cnt(m,F)+" z "+cap(F)+")"+(m==="shell"?(F[0]===s[0]?". Ve slupce se plní nejdřív orbital s.":". Menší slupka se plní dřív než větší."):", protože má nižší energii.");
+      }
+    }
+    if(!msg)a[i]=v+1;
+  }else{
+    if(v===0)return;
+    if(st.enforce){
+      const top=[...subs].reverse().find(x=>cnt(m,x)>0);
+      if(s!==top&&!grp.includes(s))msg="Odebírej odshora. Nejdřív odeber elektrony z hladiny "+top+".";
+      else if(v===1&&a.includes(2))msg="Nejdřív odeber elektron z dvojice ↑↓ v hladině "+s+".";
+    }
+    if(!msg)a[i]=v-1;
+  }
+  clearMarks();
+  if(msg){setFb("bad","✗ Tento tah pravidla nedovolí",msg);btn.classList.add("nope");setTimeout(()=>btn.classList.remove("nope"),600);}
+  else setFb();
+  update();
+}
+function setTool(t){st.tool=t;$("#toolAdd").setAttribute("aria-pressed",t==="add");$("#toolRem").setAttribute("aria-pressed",t==="remove");}
+const btns={shell:[],energy:[]};
+function buildShell(){
+  const host=$("#shell");
+  /* slupka = barevný pás; uvnitř soustředné podslupky: s (plná kružnice) uvnitř, p (čárkovaná) vně.
+     Jednotky jsou % šířky; čtvereček má stranu B, každý leží celý ve svém pásu a nekříží cizí kružnici. */
+  const B=9.3,PA=[150,90,30];
+  const SH=[{n:1,band:[4.6,15.9],s:10.25,c:"#fdf2ae"},{n:2,band:[16.7,33.25],s:22.2,p:27.5,c:"#fdd9b0"},{n:3,band:[34.05,50],s:39.5,p:44.9,c:"#e2d3f6"}];
+  const pt=(r,a)=>[50+r*Math.cos(a*Math.PI/180),50+r*Math.sin(a*Math.PI/180)];
+  const pill=(x,y,t,fs,fill)=>{const w=t.length*fs*.58+1.4,hh=fs*1.3;
+    return '<rect x="'+(x-w/2)+'" y="'+(y-hh/2)+'" width="'+w+'" height="'+hh+'" rx="1" fill="'+fill+'"/><text x="'+x+'" y="'+(y+fs*.36)+'" font-size="'+fs+'" font-weight="700" text-anchor="middle" fill="#1b2430">'+t+'</text>';};
+  let svg='<svg viewBox="0 0 100 100" aria-hidden="true">',lab="";
+  const slots=[];
+  SH.forEach(h=>{
+    const mid=(h.band[0]+h.band[1])/2;
+    svg+='<circle cx="50" cy="50" r="'+mid+'" fill="none" stroke="'+h.c+'" stroke-width="'+(h.band[1]-h.band[0])+'"/>';
+    svg+='<circle cx="50" cy="50" r="'+h.s+'" fill="none" stroke="#1b2430" stroke-width=".4"/>';
+    if(h.p)svg+='<circle cx="50" cy="50" r="'+h.p+'" fill="none" stroke="#1b2430" stroke-width=".4" stroke-dasharray="1.5 1"/>';
+    lab+=pill(50+mid,50,"n = "+h.n,3,h.c);
+    const off=r=>(B/2+3.6)/r*180/Math.PI;
+    let q=pt(h.s,-90-off(h.s));lab+=pill(q[0],q[1],h.n+"s",3.5,h.c);
+    slots.push({s:h.n+"s",i:0,a:-90,r:h.s});
+    if(h.p){q=pt(h.p,PA[0]+off(h.p));lab+=pill(q[0],q[1],h.n+"p",3.5,h.c);
+      PA.forEach((a,i)=>slots.push({s:h.n+"p",i,a,r:h.p}));}
+  });
+  host.innerHTML=svg+lab+'</svg><div class="nucleus" id="nuc"></div>';
+  slots.forEach(o=>{const q=pt(o.r,o.a);
+    const b=orbBtn("shell",o.s,o.i);b.style.left=q[0]+"%";b.style.top=q[1]+"%";host.appendChild(b);btns.shell.push(b);});
+  const fit=()=>host.style.setProperty("--b",(host.clientWidth*B/100)+"px");
+  fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(host);else addEventListener("resize",fit);
+}
+const rowBySub={};
+function buildEnergy(){
+  const host=$("#levels");const indent={s:.4,p:1.2,d:2,f:2.8};
+  ORDER.forEach(s=>{
+    const row=document.createElement("div");row.className="lvl";row.dataset.sub=s;
+    row.innerHTML='<span class="lab">'+s+'</span><span class="dash" style="width:calc(var(--b)*'+indent[s[1]]+')"></span>';
+    const bx=document.createElement("span");bx.className="boxes";
+    for(let i=0;i<NORB[s[1]];i++){const b=orbBtn("energy",s,i);bx.appendChild(b);btns.energy.push(b);}
+    row.appendChild(bx);host.appendChild(row);rowBySub[s]=row;
+  });
+}
+
+/* ---------- 3 zápis konfigurace ---------- */
+const notaIn={},perRows=[],gasBtns=[];
+function buildNota(){
+  const host=$("#periods");
+  PERIODS.forEach((subs,k)=>{
+    const row=document.createElement("div");row.className="per";
+    subs.forEach(s=>{
+      const c=document.createElement("label");c.className="chip t-"+s[1];c.append(s);
+      const inp=document.createElement("input");inp.type="number";inp.min=0;inp.max=14;inp.inputMode="numeric";inp.id="n-"+s;
+      inp.setAttribute("aria-label","počet elektronů v podslupce "+s);
+      inp.addEventListener("input",()=>{const v=parseInt(inp.value,10);st.nota[s]=isNaN(v)||v<0?0:Math.min(v,99);clearMarks();setFb();update();});
+      c.appendChild(inp);row.appendChild(c);notaIn[s]=inp;
+    });
+    const cum=document.createElement("span");cum.className="cum";row.appendChild(cum);
+    if(GAS[k]){const g=document.createElement("button");g.className="gas";g.innerHTML="["+GAS[k][0]+"]<small>Z = "+GAS[k][1]+"</small>";
+      g.addEventListener("click",()=>foldAt(k));row.appendChild(g);gasBtns.push(g);}
+    host.appendChild(row);perRows.push(row);
+  });
+}
+const prefixSubs=k=>PERIODS.slice(0,k+1).flat();
+const prefixFull=k=>prefixSubs(k).every(s=>st.nota[s]===cap(s));
+function foldAt(k){
+  clearMarks();
+  if(st.fold===k){st.fold=-1;setFb();}
+  else if(!prefixFull(k))setFb("bad","✗ Takhle zkrátit nejde","Značka ["+GAS[k][0]+"] nahrazuje zápis "+prefixSubs(k).map(s=>s+"<sup>"+cap(s)+"</sup>").join(" ")+", tedy "+GAS[k][1]+" elektronů. V tvém zápisu tyto podslupky takhle zaplněné nejsou.");
+  else{st.fold=k;setFb();}
+  update();
+}
+function notaShort(){
+  if(st.fold<0)return "";
+  const skip={};prefixSubs(st.fold).forEach(s=>skip[s]=1);
+  return "["+GAS[st.fold][0]+"] "+confHTML(st.nota,ORDER,skip);
+}
+function syncNota(){ORDER.forEach(s=>{notaIn[s].value=st.nota[s]||"";});}
+function updateNota(){
+  const el=EL[st.z.notation-1];
+  $("#tZ").textContent=el.z;$("#tSym").textContent=el.sym;$("#tName").textContent=el.name;
+  let run=0;
+  PERIODS.forEach((subs,k)=>{
+    subs.forEach(s=>{run+=st.nota[s];notaIn[s].disabled=k<=st.fold;});
+    perRows[k].classList.toggle("folded",k<=st.fold);
+    perRows[k].querySelector(".cum").textContent="celkem "+run;
+    if(gasBtns[k]){gasBtns[k].classList.toggle("ready",prefixFull(k));gasBtns[k].setAttribute("aria-pressed",st.fold===k);}
+  });
+  $("#readout").innerHTML=confHTML(st.nota,ORDER)||'<span class="meta">zatím žádný elektron</span>';
+  $("#short").innerHTML=notaShort()||'<span class="meta">zatím nezkráceno</span>';
+  $("#count").textContent=run;$("#solved").textContent=st.solved.notation.length;
+}
+function addSolved(m,sym){if(!st.solved[m].includes(sym)){st.solved[m].push(sym);try{localStorage.setItem("obal-solved",JSON.stringify(st.solved));}catch(e){}}}
+function checkNota(){
+  const z=st.z.notation,el=EL[z-1],n=st.nota;clearMarks();
+  const markC=l=>l.forEach(s=>notaIn[s].parentNode.classList.add("err"));
+  const over=ORDER.find(s=>n[s]>cap(s));
+  if(over){markC([over]);return setFb("bad","✗ Příliš mnoho elektronů","Do podslupky "+over+" se vejde nejvýše "+cap(over)+" elektronů (počet orbitalů "+NORB[over[1]]+" × 2).");}
+  const total=sum(ORDER.map(s=>n[s]));
+  if(!total)return setFb("bad","✗ Zatím nic","Napiš počet elektronů k první podslupce.");
+  if(total!==z){const d=Math.abs(z-total);
+    return setFb("bad","✗ Nesedí počet elektronů",(total<z?"Chybí ":"Přebývá ")+d+" "+plural(d)+". Součet horních indexů musí být roven protonovému číslu.");}
+  const target=real(z),mad=madelung(z),isExc=!!EXC[el.sym],eq=c=>ORDER.every(s=>n[s]===c[s]);
+  const why=isExc?EXC_WHY[EXC_KIND[el.sym]||"other"]:"";
+  const okReal=eq(target),okMad=isExc&&eq(mad);
+  if(okMad&&st.strict){const diff=ORDER.filter(s=>mad[s]!==target[s]);markC(diff);
+    return setFb("warn","! Podle pravidla ano, ve skutečnosti ne","Zápis přesně odpovídá výstavbovému principu. "+el.name+" je ale výjimka. "+why+" Uprav počty u "+diff.join(" a ")+".");}
+  if(!okReal&&!okMad){
+    for(let i=0;i<ORDER.length;i++){const s=ORDER[i];if(n[s]===cap(s))continue;
+      const later=ORDER.slice(i+1).find(t=>n[t]>0);
+      if(later){markC([s,later]);return setFb("bad","✗ Pořadí zaplňování","Podslupka "+s+" ještě není plná ("+n[s]+" z "+cap(s)+"), a přitom už píšeš elektrony do "+later+".");}
+      break;}
+    return setFb("bad","✗ Ještě ne","Zápis neodpovídá tomuto prvku.");
+  }
+  const best=GAS.filter(g=>g[1]<z).length-1;
+  if(best>=0&&st.fold!==best){
+    if(st.fold<0)return setFb("warn","Úplný zápis je správně. Teď ho zkrať.","Klepni na značku vzácného plynu, který v tabulce nejblíž předchází prvku "+el.sym+". Začátek zápisu se schová do závorky.");
+    if(st.fold<best)return setFb("warn","! Jde zkrátit víc","Zkrácení je platné, ale používá se nejbližší předchozí vzácný plyn. Rozsvícená značka je i o řádek níž.");
+    return setFb("warn","! Zkráceno příliš","["+GAS[st.fold][0]+"] je celý atom tohoto prvku. Vzácný plyn se zkracuje předchozím vzácným plynem, aby v zápisu zůstala jeho valenční slupka.");
+  }
+  addSolved("notation",el.sym);
+  let html=el.name+": "+confHTML(n,ORDER)+"<br>"+(best>=0?"Zkráceně: "+notaShort()+"<br>V závorce je schováno "+GAS[best][1]+" elektronů vnitřních slupek, za ní zůstávají valenční elektrony.":"Tento zápis se nezkracuje, žádný vzácný plyn mu nepředchází.");
+  if(isExc&&okReal)html+="<br>Tento prvek je výjimka z výstavbového principu. "+why;
+  if(isExc&&!okReal)html+="<br>Skutečný atom je ale výjimka: "+confHTML(target,ORDER)+". "+why;
+  setFb("ok","✓ Správně",html);update();
+}
+function solveNota(){
+  const z=st.z.notation,el=EL[z-1],t=real(z);
+  ORDER.forEach(s=>st.nota[s]=t[s]);st.fold=GAS.filter(g=>g[1]<z).length-1;
+  syncNota();clearMarks();update();
+  setFb("warn","Zobrazeno řešení",el.name+": "+confHTML(t,ORDER)+(st.fold>=0?"<br>Zkráceně: "+notaShort():"")+(EXC[el.sym]?"<br>Výjimka. "+EXC_WHY[EXC_KIND[el.sym]||"other"]:""));
+}
+
+/* ---------- pokles zaplněných hladin ---------- */
+function levelOrder(){
+  const o=[...ORDER],moved=[];
+  if(!st.drop)return{o,moved};
+  const full=s=>cnt("energy",s)===cap(s);
+  [["3d","4s"],["4d","5s"],["5d","6s"]].forEach(([d,s])=>{if(full(d)){o.splice(o.indexOf(d),1);o.splice(o.indexOf(s),0,d);moved.push([d,s]);}});
+  if(full("4f")){o.splice(o.indexOf("4f"),1);o.splice(Math.min(o.indexOf("6s"),o.indexOf("5d")),0,"4f");moved.push(["4f","6s"]);}
+  return{o,moved};
+}
+function orderLevels(){
+  const host=$("#levels");const rows=[...host.children];
+  const{o,moved}=levelOrder();
+  ORDER.forEach(s=>rowBySub[s].classList.toggle("moved",moved.some(m=>m[0]===s)));
+  $("#dropnote").textContent=moved.length?moved.map(m=>"Hladina "+m[0]+" je plná, její energie klesla pod "+m[1]+".").join(" ")+" Zápis konfigurace zůstává v pořadí zaplňování.":"";
+  if(rows.map(r=>r.dataset.sub).join()===o.join())return;
+  const before=new Map(rows.map(r=>[r,r.getBoundingClientRect().top]));
+  o.forEach(s=>host.appendChild(rowBySub[s]));
+  if(reduced)return;
+  rows.forEach(r=>{const d=before.get(r)-r.getBoundingClientRect().top;if(d){r.style.transition="none";r.style.transform="translateY("+d+"px)";}});
+  void host.offsetHeight;
+  rows.forEach(r=>{r.style.transition="transform .5s ease";r.style.transform="";});
+}
+
+/* ---------- vykreslení stavu ---------- */
+function update(){
+  if(st.mode==="notation")return updateNota();
+  const m=st.mode,subs=MODES[m].subs,el=EL[st.z[m]-1];
+  btns[m].forEach(b=>{const v=st.occ[m][b.dataset.sub][+b.dataset.i];
+    b.classList.toggle("v1",v===1);b.classList.toggle("v2",v===2);
+    b.setAttribute("aria-label","orbital "+b.dataset.sub+", "+(v===0?"prázdný":v===1?"jeden elektron":"dva elektrony"));});
+  const c={};let total=0;subs.forEach(s=>{c[s]=cnt(m,s);total+=c[s];});
+  $("#readout").innerHTML=confHTML(c,subs)||'<span class="meta">zatím žádný elektron</span>';
+  $("#count").textContent=total;
+  $("#solved").textContent=st.solved[m].length;
+  $("#tZ").textContent=el.z;$("#tSym").textContent=el.sym;$("#tName").textContent=el.name;
+  if(m==="shell")$("#nuc").textContent=el.sym; else orderLevels();
+}
+function clearMarks(){document.querySelectorAll(".err").forEach(e=>e.classList.remove("err"));}
+function mark(list){
+  if(st.mode==="energy")list.forEach(s=>rowBySub[s].classList.add("err"));
+  else btns.shell.forEach(b=>{if(list.includes(b.dataset.sub))b.classList.add("err");});
+}
+function setFb(kind,title,html){
+  const f=$("#fb");f.className=kind||"";
+  f.innerHTML=kind?"<strong>"+title+"</strong>"+html:'<span class="meta">Až budeš mít hotovo, dej Zkontrolovat.</span>';
+}
+function clearOcc(){const m=st.mode;if(m==="notation"){ORDER.forEach(s=>st.nota[s]=0);st.fold=-1;syncNota();return;}for(const s of MODES[m].subs)st.occ[m][s].fill(0);}
+function setElement(z){st.unlocked="";setTool("add");st.z[st.mode]=z;$("#selEl").value=z;clearOcc();clearMarks();setFb();update();}
+
+/* ---------- kontrola ---------- */
+function check(){
+  if(st.mode==="notation")return checkNota();
+  const m=st.mode,subs=MODES[m].subs,z=st.z[m],el=EL[z-1],occ=st.occ[m];
+  clearMarks();
+  const total=sum(subs.map(s=>cnt(m,s)));
+  if(total===0)return setFb("bad","✗ Zatím nic","Klepni na čtvereček orbitalu a přidej první elektron.");
+  if(total!==z){
+    const d=Math.abs(z-total);
+    return setFb("bad","✗ Nesedí počet elektronů",(total<z?"Chybí ":"Přebývá ")+d+" "+plural(d)+". Atom má stejně elektronů jako protonů, tedy tolik, kolik je protonové číslo.");
+  }
+  const target=real(z),mad=madelung(z),isExc=!!EXC[el.sym];
+  const eq=c=>subs.every(s=>cnt(m,s)===c[s]);
+  const why=isExc?EXC_WHY[EXC_KIND[el.sym]||"other"]:"";
+  const hund=subs.find(s=>occ[s].includes(2)&&occ[s].includes(0));
+  const okReal=eq(target),okMad=isExc&&eq(mad);
+  if(okReal||(okMad&&!st.strict)){
+    if(hund){mark([hund]);return setFb("bad","✗ Hundovo pravidlo","V hladině "+hund+" je už dvojice ↑↓, a jiný orbital téže hladiny zůstal prázdný. Nejdřív dej do každého orbitalu jeden elektron, teprve potom páruj.");}
+    addSolved(m,el.sym);
+    const c={};subs.forEach(s=>c[s]=cnt(m,s));
+    const sh=shortHTML(z,c);
+    let html=el.name+": "+confHTML(c,subs)+(sh?"<br>Zkráceně: "+sh:"");
+    if(isExc&&okReal)html+="<br>Tento prvek je výjimka z výstavbového principu. "+why;
+    if(isExc&&!okReal)html+="<br>Podle výstavbového principu je to správně. Skutečný atom je ale výjimka: "+confHTML(target,subs)+". "+why;
+    setFb("ok","✓ Správně",html);update();return;
+  }
+  if(okMad){
+    const diff=subs.filter(s=>mad[s]!==target[s]);mark(diff);st.unlocked=m+el.sym;
+    return setFb("warn","! Podle pravidla ano, ve skutečnosti ne","Postupoval(a) jsi přesně podle výstavbového principu. "+el.name+" je ale výjimka. "+why+" Přesun mezi hladinami "+diff.join(" a ")+" je teď odemčený: přepni na „− odebere elektron“, jeden elektron uber a přidej ho do druhé hladiny.");
+  }
+  for(let i=0;i<subs.length;i++){
+    const s=subs[i];if(cnt(m,s)===cap(s))continue;
+    const later=subs.slice(i+1).find(t=>cnt(m,t)>0);
+    if(later){
+      if(isExc&&st.strict&&cnt(m,s)===target[s]){continue;}
+      mark([s,later]);
+      const txt=m==="shell"&&s[0]===later[0]?"Ve slupce se plní nejdřív orbital s, potom orbitaly p.":
+        m==="shell"?"Menší slupka se musí zaplnit dřív, než začneš plnit větší.":"Elektrony obsazují nejdřív hladinu s nižší energií.";
+      return setFb("bad","✗ Pořadí zaplňování","Hladina "+s+" ještě není plná ("+cnt(m,s)+" z "+cap(s)+"), a přitom už jsou elektrony v "+later+". "+txt);
+    }
+    break;
+  }
+  setFb("bad","✗ Ještě ne","Rozmístění neodpovídá tomuto prvku. Zkontroluj, které hladiny jsou plné a kam přišly poslední elektrony.");
+}
+function solve(){
+  if(st.mode==="notation")return solveNota();
+  const m=st.mode,t=real(st.z[m]);
+  MODES[m].subs.forEach(s=>{st.occ[m][s]=hundFill(t[s],NORB[s[1]]);});
+  clearMarks();update();
+  const el=EL[st.z[m]-1];
+  setFb("warn","Zobrazeno řešení",el.name+": "+confHTML(t,MODES[m].subs)+(EXC[el.sym]?"<br>Výjimka. "+EXC_WHY[EXC_KIND[el.sym]||"other"]:""));
+}
+
+/* ---------- ovládání ---------- */
+function pool(){
+  if(st.mode==="shell")return EL.slice(0,18);
+  const r=$("#selRange").value;
+  const rng={all:[1,86],p13:[1,18],p4:[19,36],p5:[37,54],p6:[55,86]}[r];
+  if(rng)return EL.slice(rng[0]-1,rng[1]);
+  const set=r==="exc5"?["Cr","Cu","Mo","Ag","Au"]:Object.keys(EXC);
+  return EL.filter(e=>set.includes(e.sym));
+}
+function random(){const p=pool().filter(e=>e.z!==st.z[st.mode]);setElement(p[Math.floor(Math.random()*p.length)].z);}
+function setMode(m){
+  st.mode=m;
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.mode===m));
+  $("#shellView").hidden=m!=="shell";$("#energyView").hidden=m!=="energy";
+  $("#notaView").hidden=m!=="notation";$("#rangeRow").hidden=m==="shell";
+  $("#tools").hidden=$("#legend").hidden=m==="notation";$("#shortLine").hidden=m!=="notation";
+  document.querySelectorAll(".xonly").forEach(e=>e.hidden=m==="shell");
+  document.querySelectorAll(".conly").forEach(e=>e.hidden=m==="notation");
+  $("#howto").textContent=HOWTO[m];$("#taskText").textContent=TASK[m];
+  document.querySelectorAll(".eonly").forEach(e=>e.hidden=m!=="energy");
+  $("#selEl").innerHTML=EL.slice(0,MODES[m].maxZ).map(e=>'<option value="'+e.z+'">'+e.z+" "+e.sym+" – "+e.name+"</option>").join("");
+  $("#selEl").value=st.z[m];
+  $("#rules").innerHTML=RULES[m].map(r=>"<li>"+r+"</li>").join("");
+  clearMarks();setFb();update();
+}
+buildShell();buildEnergy();buildNota();
+try{if(window.self!==window.top)document.querySelector("#panel details").open=false;}catch(e){}
+const HASH={shell:"slupky",energy:"energie",notation:"zapis"};
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{setMode(t.dataset.mode);try{location.hash=HASH[t.dataset.mode];}catch(e){}}));
+$("#selEl").addEventListener("change",e=>setElement(+e.target.value));
+$("#btnRnd").addEventListener("click",random);
+$("#btnCheck").addEventListener("click",check);
+$("#btnClear").addEventListener("click",()=>{clearOcc();clearMarks();setFb();update();});
+$("#btnSolve").addEventListener("click",solve);
+$("#optEnforce").addEventListener("change",e=>{st.enforce=e.target.checked;});
+$("#toolAdd").addEventListener("click",()=>setTool("add"));
+$("#toolRem").addEventListener("click",()=>setTool("remove"));
+$("#optStrict").addEventListener("change",e=>{st.strict=e.target.checked;});
+$("#optDrop").addEventListener("change",e=>{st.drop=e.target.checked;update();});
+const fromHash=()=>setMode(Object.keys(HASH).find(k=>"#"+HASH[k]===location.hash)||"shell");
+addEventListener("hashchange",fromHash);fromHash();
+</script>
+</body>
+</html>

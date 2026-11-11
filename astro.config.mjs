@@ -35,7 +35,27 @@ export default defineConfig({
 					collapsed: true,
 					items: [
 						{ label: 'Přehled', slug: 'chemie' },
-						oblast('Obecná chemie', 'chemie/obecna-chemie'),
+						{
+							// Obecná chemie má podskupinu Atom → Elektronový obal (složka atom/elektronovy-obal/).
+							// Další kapitoly přidejte do items jako { slug: 'chemie/obecna-chemie/…' }.
+							label: 'Obecná chemie',
+							collapsed: true,
+							items: [
+								{ slug: 'chemie/obecna-chemie', label: 'Přehled' },
+								{
+									label: 'Atom',
+									collapsed: true,
+									items: [
+										{ slug: 'chemie/obecna-chemie/01-stavba-atomu' },
+										{
+											label: 'Elektronový obal',
+											collapsed: true,
+											items: [{ autogenerate: { directory: 'chemie/obecna-chemie/atom/elektronovy-obal' } }],
+										},
+									],
+								},
+							],
+						},
 						{
 							// Anorganická chemie má podskupinu Názvosloví (složka nazvoslovi/).
 							// Další kapitoly mimo názvosloví přidejte do items jako { slug: 'chemie/anorganicka-chemie/…' }.

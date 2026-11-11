@@ -1,0 +1,52 @@
+---
+title: Elektronový obal – aplikace
+description: Interaktivní sandbox – rozmísti elektrony do orbitalů ve slupkovém modelu a v energetickém diagramu a zapiš úplnou i zkrácenou elektronovou konfiguraci prvků 1.–6. periody.
+sidebar:
+  label: Aplikace
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import Aplikace from '../../../../../../components/Aplikace.astro';
+
+Kam v atomu dusíku přijde šestý a sedmý elektron? A proč má chrom ve 4s jen jeden elektron, když by tam podle pravidla měly být dva? V aplikaci budeš elektrony do orbitalů rozmisťovat sám – a aplikace ti nedovolí tah, který porušuje pravidla. U každého takového tahu ti napíše, proč nejde.
+
+:::note[Co si v aplikaci procvičíš]
+- rozmístit elektrony atomu do orbitalů podle výstavbového principu, Pauliho principu a Hundova pravidla,
+- propojit obrázek obalu (slupky, rámečkový diagram) se zápisem elektronové konfigurace,
+- zapsat úplnou i zkrácenou elektronovou konfiguraci pomocí vzácného plynu,
+- poznat a vysvětlit výjimky z výstavbového principu (Cr, Cu a další).
+:::
+
+## Jak se aplikace ovládá
+
+Aplikace má tři části (záložky nahoře). Vlevo nahoře je vždy **zadání** – prvek, jehož elektrony máš rozmístit. Prvek si můžeš vybrat sám, nebo nechat vylosovat.
+
+1. **Slupkový model** (prvky 1.–3. periody). Slupky n = 1, 2, 3 jsou barevné pásy kolem jádra. Ve slupce 2 a 3 jsou dvě soustředné podslupky: vnitřní **s** (plná kružnice) a vnější **p** (čárkovaná). Každý čtvereček je jeden **orbital**.
+2. **Energetický diagram** (prvky 1.–6. periody). Podslupky jsou seřazené zdola nahoru podle rostoucí energie: 1s, 2s, 2p, 3s, 3p, 4s, 3d… Obsahuje i výjimky, kde skutečné obsazení neodpovídá pravidlu.
+3. **Zápis konfigurace.** Podslupky jsou předepsané, doplňuješ jen počty elektronů. Každý řádek je jedna perioda a končí značkou vzácného plynu. Klepnutím na ni zápis zkrátíš.
+
+Klepnutím na čtvereček orbitalu přidáš elektron (šipku ↑, druhý elektron ↓). Elektron odebereš po přepnutí na **− odebere elektron** nebo pravým tlačítkem myši. Tlačítko **Zkontrolovat** vyhodnotí celé řešení, pod zápisem se průběžně píše konfigurace, kterou právě skládáš.
+
+<Aplikace src="/aplikace/elektronovy-obal/" title="Stavba elektronového obalu" vyska={1720} stahnout="elektronovy-obal.html" />
+
+## Pravidla, která aplikace hlídá
+
+| Pravidlo | Co říká | Jak to poznáš v aplikaci |
+|---|---|---|
+| výstavbový princip | elektrony obsazují nejdřív orbitaly s nejnižší energií | do vyšší podslupky nelze přidat elektron, dokud nižší není plná |
+| Pauliho princip | v jednom orbitalu jsou nejvýše dva elektrony s opačným spinem | do čtverečku se vejde jen ↑↓ |
+| Hundovo pravidlo | v podslupce p, d, f se elektrony nejdřív rozmístí po jednom do všech orbitalů, teprve potom se párují | dvojici ↑↓ nelze vytvořit, dokud je v podslupce prázdný orbital |
+
+Kapacity podslupek plynou z počtu orbitalů: s má 1 orbital (2 elektrony), p 3 orbitaly (6), d 5 orbitalů (10), f 7 orbitalů (14).
+
+## Co si všímat
+
+- **Pořadí není podle čísla slupky.** Podslupka 4s se zaplňuje dřív než 3d, protože má nižší energii. Proto draslík (Z = 19) má konfiguraci [Ar] 4s<sup>1</sup>, ne [Ar] 3d<sup>1</sup>.
+- **Zkrácený zápis.** Vzácný plyn v hranaté závorce zastupuje všechny elektrony vnitřních slupek. Za závorkou zůstávají elektrony, které se účastní reakcí. Fosfor: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>3</sup> = [Ne] 3s<sup>2</sup> 3p<sup>3</sup>. Zkracuje se vždy nejbližším předchozím vzácným plynem.
+- **Výjimky.** Chrom má [Ar] 4s<sup>1</sup> 3d<sup>5</sup> a měď [Ar] 4s<sup>1</sup> 3d<sup>10</sup>. Napůl zaplněná (d<sup>5</sup>) a zcela zaplněná (d<sup>10</sup>) podslupka d je energeticky výhodná, a tak jeden elektron přechází ze 4s do 3d. Totéž platí o řádek níž pro Mo, Ag a o další níž pro Au.
+- **Plná podslupka d klesá.** Jakmile je podslupka 3d plná, její energie klesne pod 4s. Energetický diagram ji v tu chvíli posune níž. Konfigurace se ale dál zapisuje v pořadí zaplňování.
+
+<Aside type="tip" title="Pro učitele">
+Návrh práce s aplikací, typické chyby žáků a nastavení najdete v oddílu [Pro učitele → Metodika: Elektronový obal – aplikace](/pro-ucitele/metodika-elektronovy-obal-aplikace/).
+</Aside>
