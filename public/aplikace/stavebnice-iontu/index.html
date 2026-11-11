@@ -112,8 +112,8 @@ const KATIONTY = [
   ["Mg","Mg",2,"hořečnatý"],["Ca","Ca",2,"vápenatý"],["Sr","Sr",2,"strontnatý"],["Ba","Ba",2,"barnatý"],["Zn","Zn",2,"zinečnatý"],
   ["Cd","Cd",2,"kademnatý"],["Hg2","Hg",2,"rtuťnatý"],["Cu2","Cu",2,"měďnatý"],["Fe2","Fe",2,"železnatý"],["Co2","Co",2,"kobaltnatý"],
   ["Ni2","Ni",2,"nikelnatý"],["Mn2","Mn",2,"manganatý"],["Sn2","Sn",2,"cínatý"],["Pb2","Pb",2,"olovnatý"],
-  ["Al","Al",3,"hlinitý"],["Fe3","Fe",3,"železitý"],["Cr3","Cr",3,"chromitý"],
-  ["Sn4","Sn",4,"cíničitý"],["Pb4","Pb",4,"olovičitý"]
+  ["Al","Al",3,"hlinitý"],["Fe3","Fe",3,"železitý"],["Cr3","Cr",3,"chromitý"],["B","B",3,"boritý",false,true],
+  ["Si","Si",4,"křemičitý",false,true],["Ge","Ge",4,"germaničitý",false,true],["Sn4","Sn",4,"cíničitý"],["Pb4","Pb",4,"olovičitý"]
 ];
 // anionty: [id, vzorec, náboj (absolutně), název, víceatomový, skupina, sloučenina s H⁺, vzorec sloučeniny s H⁺ (jen když se liší)]
 const ANIONTY = [
@@ -122,15 +122,19 @@ const ANIONTY = [
   ["Cl","Cl",1,"chlorid",false,"zak","chlorovodík (kyselina chlorovodíková)"],
   ["Br","Br",1,"bromid",false,"zak","bromovodík (kyselina bromovodíková)"],
   ["I","I",1,"jodid",false,"zak","jodovodík (kyselina jodovodíková)"],
-  ["OH","OH",1,"hydroxid",true,"zak","voda","H2O"],
+  ["OH","OH",1,"hydroxid",true,"zak","voda (oxidan)","H2O"],
   ["CN","CN",1,"kyanid",true,"zak","kyanovodík (kyselina kyanovodíková)"],
-  ["O","O",2,"oxid",false,"zak","voda"],
+  ["O","O",2,"oxid",false,"zak","voda (oxidan)"],
   ["O2","O2",2,"peroxid",true,"zak","peroxid vodíku"],
   ["S","S",2,"sulfid",false,"zak","sulfan (kyselina sirovodíková)"],
   ["Se","Se",2,"selenid",false,"zak","selan (kyselina selenovodíková)"],
+  ["Te","Te",2,"tellurid",false,"zak","tellan (kyselina tellurovodíková)"],
   ["C2","C2",2,"acetylid",true,"zak","ethyn (acetylen)","C2H2"],
-  ["N","N",3,"nitrid",false,"zak","amoniak","NH3"],
+  ["N","N",3,"nitrid",false,"zak","amoniak (azan)","NH3"],
   ["P","P",3,"fosfid",false,"zak","fosfan","PH3"],
+  ["As","As",3,"arsenid",false,"zak","arsan","AsH3"],
+  ["Sb","Sb",3,"antimonid",false,"zak","stiban","SbH3"],
+  ["Bi","Bi",3,"bismutid",false,"zak","bismutan","BiH3"],
   ["C","C",4,"karbid",false,"zak","methan","CH4"],
   ["HS","HS",1,"hydrogensulfid",true,"hyd","sulfan (kyselina sirovodíková)","H2S"],
   ["ClO", "ClO", 1, "chlornan", true, "oxo", "kyselina chlorná", ""],
@@ -180,7 +184,7 @@ const ORG_ANIONTY = [
 const SKUPINY = [["zak","Jednoduché"],["oxo","Oxoanionty"],["hyd","Hydrogenanionty"],["roz","Rozšiřující"],["org","Organické"],["vse","Vše"]];
 const ION = {};
 const VODIK = {}; // id aniontu -> [název sloučeniny s H⁺, vzorec (jen kde se liší od složení z iontů)]
-KATIONTY.forEach(([id,f,z,jm,poly]) => ION[id] = {id, typ:"k", f, z, jm, poly:!!poly,
+KATIONTY.forEach(([id,f,z,jm,poly,formalni]) => ION[id] = {id, typ:"k", f, z, jm, poly:!!poly, formalni:!!formalni,
   stitek: subs(f) + sup(z, "+")});
 ANIONTY.forEach(([id,f,z,jm,poly,sk,sH,vH]) => { ION[id] = {id, typ:"a", f, z, jm, poly:!!poly, sk,
   stitek: subs(f) + sup(z, MINUS)}; VODIK[id] = [sH, vH || null]; });
@@ -191,12 +195,16 @@ ORG_ANIONTY.forEach(([id,f,z,jm,alt,sH]) => { ION[id] = {id, typ:"a", f, z, jm, 
 Object.values(ION).forEach(i => { const delka = i.f.replace(/\d/g,"").length + i.f.replace(/\D/g,"").length*0.6;
   i.w = delka > 4.3 ? 3 : 2; });
 const PREDPONA_H = ["", "hydrogen", "dihydrogen", "trihydrogen"];
+// kovalentní hydridy prvků 13. a 14. skupiny (H⁻ jen formálně podle oxidačního čísla)
+const HYDRIDY_KOV = { Al:"alan (hydrid hlinitý)", B:"boran (existuje jako dimer, diboran B<sub>2</sub>H<sub>6</sub>)",
+  Si:"silan", Ge:"german", Sn4:"stannan", Pb4:"plumban" };
 
 /* ---------- úkoly (jen skutečně existující sloučeniny) ---------- */
 const UKOLY_VLASTNI = [
   ["Na","Hm"],["Li","Hm"],["K","Hm"],["Ca","Hm"],["Mg","Hm"],["Ba","Hm"],["Al","Hm"],["H","Hm"],
   ["Na","O2"],["Ba","O2"],["H","O2"],["Ca","C2"],["Al","C"],["K","CN"],["Na","CN"],["H","CN"],["Ca","P"],["Zn","P"],["H","P"],
-  ["H","C"],["H","C2"],["Zn","Se"],["H","Se"],["Na","HS"],["Fe2","S"],["Hg2","S"],["Cd","S"],["Ag","Cl"],["Sn2","Cl"],["Co2","Cl"],
+  ["H","C"],["H","C2"],["B","Hm"],["Si","Hm"],["Ge","Hm"],["Sn4","Hm"],["Pb4","Hm"],["H","As"],["H","Sb"],["H","Bi"],["H","Te"],["H","N"],
+  ["Si","O"],["B","O"],["Ge","O"],["Si","C"],["Si","N"],["B","N"],["Si","Cl"],["B","F"],["B","Cl"],["Zn","Se"],["H","Se"],["Na","HS"],["Fe2","S"],["Hg2","S"],["Cd","S"],["Ag","Cl"],["Sn2","Cl"],["Co2","Cl"],
   ["Na","CH3COO"],["Ca","CH3COO"],["K","HCOO"],["Na","CH3O"],["Na","C2H5O"],["Ca","C2O4"],["Na","C2O4"],
   ["Na","C3H7COO"],["Mg","CH3COO"],["Al","CH3COO"],["H","CH3COO"],["H","HCOO"],["H","C2O4"],
   ["H","Cl"],["H","SO4"],["H","NO3"],["H","PO4"],["H","CO3"],["H","S"],["H","O"],["H","SO3"],["H","NO2"],["H","ClO"],["H","BO3"],
@@ -352,7 +360,7 @@ function chip(ion){
   const c = document.createElement("div");
   c.className = "chip " + barva(ion);
   c.innerHTML = ion.stitek;
-  c.title = (ion.typ==="k" ? "kation " : "anion ") + nazevIontu(ion) + " – přetáhni na plochu";
+  c.title = (ion.typ==="k" ? "kation " : "anion ") + nazevIontu(ion) + (ion.formalni ? " – jen formální ion (vazby jsou kovalentní)" : "") + " – přetáhni na plochu";
   c.addEventListener("pointerdown", e => { if (e.button !== 0 && e.pointerType === "mouse") return; zacniTah(e, novyDilek(ion), true); });
   return c;
 }
@@ -448,6 +456,7 @@ function sestavVzorec(cleny){
   let nazev = null;
   if (kat.length===1 && an.length===1){
     if (kat[0]==="H"){ const v = VODIK[an[0]]; nazev = v[0]; if (v[1]) html = subs(v[1]); }
+    else if (an[0]==="Hm" && HYDRIDY_KOV[kat[0]]) nazev = HYDRIDY_KOV[kat[0]];
     else nazev = nazevSoli(kat[0], an[0]);
   } else if (kat.length===2 && kat.includes("H") && an.length===1 && !ION[an[0]].f.startsWith("H")){
     // hydrogensoli: NaHSO4, NaH2PO4, KHCO3 …
@@ -486,7 +495,7 @@ function novyUkol(){
 }
 function nazevSoli(k, a){ const an = ION[a], kat = ION[k];
   return `${an.jm} ${kat.jm}` + (an.alt ? ` (${an.alt} ${kat.jm})` : ""); }
-function nazevUkolu(u){ return u[0]==="H" ? VODIK[u[1]][0] : nazevSoli(u[0], u[1]); }
+function nazevUkolu(u){ return u[0]==="H" ? VODIK[u[1]][0] : (u[1]==="Hm" && HYDRIDY_KOV[u[0]]) ? HYDRIDY_KOV[u[0]].replace(/ \(.*$/,"") : nazevSoli(u[0], u[1]); }
 function zkontrolujUkol(hotove){
   if (!ukol) return;
   const klic = ukol[0]+"|"+ukol[1];
