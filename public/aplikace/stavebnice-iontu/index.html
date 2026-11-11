@@ -84,6 +84,7 @@
   <button class="hlavni" id="btnUkol">🎯 Nový úkol</button>
   <button id="btnPriklad">Ukázka</button>
   <button id="btnVycistit">Vyčistit plochu</button>
+  <button id="btnStahnout" title="Stáhne aplikaci jako jeden HTML soubor, který funguje i bez internetu">⬇ Stáhnout pro offline</button>
   <div class="ukol" id="ukol"></div>
 </div>
 
@@ -100,6 +101,8 @@
 <script>
 (() => {
 "use strict";
+// kopie stránky ještě před spuštěním skriptu (prázdná plocha) – pro stažení offline verze
+const PUVODNI_HTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
 const MINUS = "−";
 const sup = (n, s) => `<sup>${n > 1 ? n : ""}${s}</sup>`;
 const subs = t => t.replace(/(\d+)/g, "<sub>$1</sub>");
@@ -535,6 +538,13 @@ document.getElementById("btnPriklad").onclick = () => {
   ukazka++; vyhodnot();
 };
 document.getElementById("btnVycistit").onclick = vycistit;
+document.getElementById("btnStahnout").onclick = () => {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([PUVODNI_HTML], {type:"text/html;charset=utf-8"}));
+  a.download = "stavebnice-iontu.html";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+};
 document.getElementById("btnUkol").onclick = novyUkol;
 
 let posledniU = 0;

@@ -2,12 +2,15 @@
 // Vložení vlastní HTML aplikace. Aplikaci nahrajte do složky public/aplikace/<nazev>/index.html
 // a v kapitole ji vložte takto:
 // <Aplikace src="/aplikace/nazev/" title="Popis aplikace" vyska={600} />
+// Volitelně stahnout="nazev-souboru.html" přidá odkaz ke stažení aplikace pro offline práci
+// (aplikace musí být jeden soběstačný HTML soubor).
 interface Props {
 	src: string;
 	title?: string;
 	vyska?: number;
+	stahnout?: string;
 }
-const { src, title = 'Interaktivní aplikace', vyska = 560 } = Astro.props;
+const { src, title = 'Interaktivní aplikace', vyska = 560, stahnout } = Astro.props;
 const adresa = import.meta.env.BASE_URL.replace(/\/$/, '') + src;
 const online = new URL(adresa, Astro.site).href;
 ---
@@ -15,7 +18,7 @@ const online = new URL(adresa, Astro.site).href;
 <figure class="aplikace">
 	<iframe src={adresa} title={title} loading="lazy" style={`height:${vyska}px`}></iframe>
 	<figcaption>
-		<span class="tisk-skryt">{title} · <a href={adresa} target="_blank" rel="noopener">otevřít na celou obrazovku</a></span>
+		<span class="tisk-skryt">{title} · <a href={adresa} target="_blank" rel="noopener">otevřít na celou obrazovku</a>{stahnout && <> · <a href={adresa.replace(/\/?$/, '/') + 'index.html'} download={stahnout}>stáhnout pro offline práci</a></>}</span>
 		<span class="tisk-jen">Interaktivní aplikace „{title}“ – vyzkoušej online: {online}</span>
 	</figcaption>
 </figure>
