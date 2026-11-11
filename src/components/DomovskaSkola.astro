@@ -1,0 +1,130 @@
+---
+// Pruh s domovskou školou a odkazy na titulní stránce.
+// Odkaz na školní řád míří na konkrétní PDF – po vydání nového řádu ho vyměňte.
+const odkazy = [
+	{
+		nazev: 'Web školy',
+		popis: 'gymnaziumdc.cz',
+		href: 'https://www.gymnaziumdc.cz/',
+	},
+	{
+		nazev: 'Pravidla práce s AI',
+		popis: 'Školní řád, čl. IX – Používání nástrojů umělé inteligence',
+		href: 'https://data.cms.forcandies.com/oK2nZ2j2fSbuyuaJdC0qo/X0plpcY4hpuWl8FrWaJIr--koln-d_1_9_2026(0209)-(1).pdf#page=6',
+	},
+	{
+		nazev: 'Návrat do budoucnosti',
+		popis: 'projekt Ústeckého kraje · AI kabinet chemie',
+		href: 'https://www.navratdobudoucnosti.cz/',
+	},
+];
+---
+
+<section class="skola not-content" aria-labelledby="domovska-skola">
+	<div class="uvod">
+		<p class="stitek">Domovská škola</p>
+		<h2 id="domovska-skola">Gymnázium Děčín</h2>
+		<p>
+			Učebnici vytváří Jaroslav Peřka, učitel chemie, biologie a 3D modelování na Gymnáziu Děčín a AI praktik
+			kabinetu chemie v projektu Návrat do budoucnosti Ústeckého kraje.
+		</p>
+		<a class="mail" href="mailto:jperka@gymnaziumdc.cz">jperka@gymnaziumdc.cz</a>
+	</div>
+	<ul class="odkazy">
+		{
+			odkazy.map((o) => (
+				<li>
+					<a href={o.href} target="_blank" rel="noopener">
+						<span>
+							<span class="nazev">{o.nazev}</span>
+							<span class="popis">{o.popis}</span>
+						</span>
+						<span aria-hidden="true">↗</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</section>
+
+<style>
+	.skola {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem 2.5rem;
+		align-items: center;
+		margin-top: 3rem;
+		padding: 2.25rem;
+		border-radius: 1.25rem;
+		background: #0b3550;
+		color: #ffffff;
+	}
+	.uvod {
+		flex: 1 1 20rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+	.uvod p {
+		margin: 0;
+		color: #d6eef9;
+	}
+	.stitek {
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #bfe3f5 !important;
+	}
+	h2 {
+		margin: 0;
+		font-size: var(--sl-text-3xl);
+		color: #ffffff;
+	}
+	.mail {
+		color: #bfe3f5;
+		font-weight: 600;
+	}
+	.mail:hover {
+		color: #ffffff;
+	}
+	.odkazy {
+		flex: 1 1 22rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.odkazy a {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.9rem 1.1rem;
+		border-radius: 0.75rem;
+		background: #ffffff;
+		color: #0b3550;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.12s ease;
+	}
+	.odkazy a:hover,
+	.odkazy a:focus-visible {
+		transform: translateY(-2px);
+	}
+	.odkazy .nazev,
+	.odkazy .popis {
+		display: block;
+	}
+	.odkazy .popis {
+		font-size: var(--sl-text-sm);
+		font-weight: 400;
+		color: #4a5963;
+	}
+	:global([data-theme='dark']) .skola {
+		background: #0f2f45;
+		border: 1px solid #1f5878;
+	}
+</style>

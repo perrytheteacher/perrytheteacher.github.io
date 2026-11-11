@@ -3,7 +3,12 @@ title: Perry the Teacher
 description: Chemie, biologie a AI pro gymnázia – výklad, procvičování, kritické myšlení a metodika pro učitele.
 template: splash
 hero:
-  tagline: Chemie, biologie a AI pro gymnázia
+  title: Chemie, biologie a AI tak, aby dávaly smysl
+  tagline: Výklad s obrázky a interaktivními aplikacemi, procvičování s okamžitou zpětnou vazbou a úlohy na kritické myšlení. Vše na jednom místě – pro žáky i učitele gymnázií.
+  image:
+    alt: Perry the Teacher – kreslená postavička, alter ego autora
+    light: ../../assets/perry-svetly.svg
+    dark: ../../assets/perry-tmavy.svg
   actions:
     - text: Jak učebnici používat
       link: uvod/
@@ -18,6 +23,34 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 import Dlazdice from '../../components/Dlazdice.astro';
 import Mrizka from '../../components/Mrizka.astro';
 import Novinky from '../../components/Novinky.astro';
+import DomovskaSkola from '../../components/DomovskaSkola.astro';
+
+## Právě probíráme
+
+Kapitoly, ke kterým se teď v hodinách vracíme.
+
+<Mrizka sloupce={3}>
+	<Dlazdice
+		href="/chemie/organicka-chemie/03-alkoholy-chemicke-vlastnosti/"
+		nazev="Alkoholy – chemické vlastnosti"
+		popis="Organická chemie · reakce alkoholů, procvičování a kritické myšlení"
+		barva="modra"
+	/>
+	<Dlazdice
+		href="/chemie/anorganicka-chemie/nazvoslovi/soli-kyslikatych-kyselin/"
+		nazev="Názvosloví solí kyslíkatých kyselin"
+		popis="Anorganická chemie · od názvu ke vzorci a zpět, krok za krokem"
+		barva="modra"
+	/>
+	<Dlazdice
+		href="/chemie/anorganicka-chemie/stavebnice-iontu/"
+		nazev="Stavebnice iontů"
+		popis="Interaktivní aplikace · skládej ionty a vyrovnávej náboje"
+		barva="oranzova"
+	/>
+</Mrizka>
+
+## Předměty
 
 <Mrizka sloupce={3}>
 	<Dlazdice
@@ -68,3 +101,5 @@ Nově přidané a upravené kapitoly a metodiky. [Všechny novinky →](/novinky
 		Metodické poznámky, doporučený postup a typické chyby žáků.
 	</Card>
 </CardGrid>
+
+<DomovskaSkola />
