@@ -36,7 +36,20 @@ export default defineConfig({
 					items: [
 						{ label: 'Přehled', slug: 'chemie' },
 						oblast('Obecná chemie', 'chemie/obecna-chemie'),
-						oblast('Anorganická chemie', 'chemie/anorganicka-chemie'),
+						{
+							// Anorganická chemie má podskupinu Názvosloví (složka nazvoslovi/).
+							// Další kapitoly mimo názvosloví přidejte do items jako { slug: 'chemie/anorganicka-chemie/…' }.
+							label: 'Anorganická chemie',
+							collapsed: true,
+							items: [
+								{ slug: 'chemie/anorganicka-chemie', label: 'Přehled' },
+								{
+									label: 'Názvosloví',
+									collapsed: true,
+									items: [{ autogenerate: { directory: 'chemie/anorganicka-chemie/nazvoslovi' } }],
+								},
+							],
+						},
 						oblast('Organická chemie', 'chemie/organicka-chemie'),
 						oblast('Biochemie', 'chemie/biochemie'),
 					],

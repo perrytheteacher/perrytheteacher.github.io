@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trenažér názvosloví oxosolí</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0 auto;padding:14px;max-width:1180px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1f2328;background:#fff;font-size:16px;line-height:1.5}
+.top{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid #cfd4da;border-radius:9px;overflow:hidden}
+.seg button{font:inherit;font-size:14px;border:none;background:#fff;padding:7px 11px;cursor:pointer;color:#1f2328}
+.seg button+button{border-left:1px solid #cfd4da}.seg button.on{background:#1f2328;color:#fff}
+.stat{font-size:14px;color:#5b6370}.stat b{color:#1a6d97}
+.card{border:1px solid #e3e6ea;border-radius:14px;padding:18px}
+.q{font-size:14px;color:#5b6370;margin-bottom:6px}
+.big{font-size:34px;font-weight:700;text-align:center;margin:12px 0 16px;letter-spacing:.5px}
+.name{font-size:24px;font-weight:700;text-align:center;margin:12px 0 16px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:inherit;font-size:18px;padding:8px 12px;border:1px solid #cfd4da;border-radius:9px;flex:1;min-width:200px}
+input.good{border-color:#15803d;background:#e8f6ec}input.wrong{border-color:#b91c1c;background:#fdecec}
+.prev{min-height:30px;font-size:22px;margin:8px 2px 0;color:#1a6d97}
+.btn{font:inherit;font-size:15px;border:1px solid #cfd4da;background:#fff;padding:8px 14px;border-radius:9px;cursor:pointer;color:#1f2328}
+.btn.primary{background:#1a6d97;border-color:#1a6d97;color:#fff}
+.btn:disabled{opacity:.5;cursor:default}
+.fb{margin-top:12px;padding:10px 14px;border-radius:9px;display:none;font-size:15px}
+.fb.ok{display:block;background:#e8f6ec;color:#14532d}.fb.no{display:block;background:#fdecec;color:#7f1d1d}
+.fb.ok .why,.fb.no .why{color:#1f2328;margin-top:6px}
+.opts{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:560px){.opts{grid-template-columns:1fr 1fr}}
+.opt{font:inherit;font-size:24px;border:2px solid #e3e6ea;border-radius:12px;padding:12px;min-height:64px;cursor:pointer;background:#fff;color:#1f2328}
+.opt:hover{border-color:#1a6d97}.opt.good{border-color:#15803d;background:#e8f6ec}.opt.wrong{border-color:#b91c1c;background:#fdecec}
+.hint{font-size:13px;color:#5b6370;margin-top:8px}
+.done{text-align:center;padding:30px 10px}.done .score{font-size:40px;font-weight:800;color:#1a6d97}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:20px;background:#eef4f8;color:#1a6d97;margin-left:6px;vertical-align:middle}
+sub{font-size:.7em}
+</style></head><body>
+<div class="top">
+ <div class="seg" id="mode"><button class="on" data-m="name">Pojmenuj</button><button data-m="type">Napiš vzorec</button><button data-m="pick">Vyber vzorec</button></div>
+ <div class="seg" id="lvl"><button class="on" data-l="0">Základ</button><button data-l="1">Vše</button><button data-l="2">Pro nadané</button></div>
+ <div class="stat">Úloha <b id="pos">1</b> / <b id="tot">0</b> · správně <b id="ok">0</b></div>
+</div>
+<div class="card" id="card"></div>
+<script>
+const D={"CAT": {"Li": ["Li", "lithný", 1, false], "Na": ["Na", "sodný", 1, false], "K": ["K", "draselný", 1, false], "Ag": ["Ag", "stříbrný", 1, false], "NH4": ["NH4", "amonný", 1, true], "CuI": ["Cu", "měďný", 1, false], "Mg": ["Mg", "hořečnatý", 2, false], "Ca": ["Ca", "vápenatý", 2, false], "Ba": ["Ba", "barnatý", 2, false], "Sr": ["Sr", "strontnatý", 2, false], "Zn": ["Zn", "zinečnatý", 2, false], "CuII": ["Cu", "měďnatý", 2, false], "FeII": ["Fe", "železnatý", 2, false], "Pb": ["Pb", "olovnatý", 2, false], "Mn": ["Mn", "manganatý", 2, false], "Ni": ["Ni", "nikelnatý", 2, false], "Co": ["Co", "kobaltnatý", 2, false], "Al": ["Al", "hlinitý", 3, false], "FeIII": ["Fe", "železitý", 3, false], "Cr": ["Cr", "chromitý", 3, false]}, "AN": {"ClO": ["ClO", "chlornan", 1, true, "HClO", "chlorná", "z"], "ClO3": ["ClO3", "chlorečnan", 1, true, "HClO3", "chlorečná", "z"], "ClO4": ["ClO4", "chloristan", 1, true, "HClO4", "chloristá", "z"], "NO2": ["NO2", "dusitan", 1, true, "HNO2", "dusitá", "z"], "NO3": ["NO3", "dusičnan", 1, true, "HNO3", "dusičná", "z"], "SO3": ["SO3", "siřičitan", 2, true, "H2SO3", "siřičitá", "z"], "SO4": ["SO4", "síran", 2, true, "H2SO4", "sírová", "z"], "CO3": ["CO3", "uhličitan", 2, true, "H2CO3", "uhličitá", "z"], "SiO3": ["SiO3", "křemičitan", 2, true, "H2SiO3", "křemičitá", "z"], "BO3": ["BO3", "boritan", 3, true, "H3BO3", "boritá", "z"], "PO4": ["PO4", "fosforečnan", 3, true, "H3PO4", "fosforečná", "z"], "MnO4": ["MnO4", "manganistan", 1, true, "HMnO4", "manganistá", "z"], "CrO4": ["CrO4", "chroman", 2, true, "H2CrO4", "chromová", "z"], "Cr2O7": ["Cr2O7", "dichroman", 2, true, "H2Cr2O7", "dichromová", "z"], "HCO3": ["HCO3", "hydrogenuhličitan", 1, true, "H2CO3", "uhličitá", "h"], "HSO4": ["HSO4", "hydrogensíran", 1, true, "H2SO4", "sírová", "h"], "HSO3": ["HSO3", "hydrogensiřičitan", 1, true, "H2SO3", "siřičitá", "h"], "H2PO4": ["H2PO4", "dihydrogenfosforečnan", 1, true, "H3PO4", "fosforečná", "h"], "HPO4": ["HPO4", "hydrogenfosforečnan", 2, true, "H3PO4", "fosforečná", "h"], "S2O7": ["S2O7", "disíran", 2, true, "H2S2O7", "disírová", "i"], "P2O7": ["P2O7", "difosforečnan", 4, true, "H4P2O7", "difosforečná", "i"], "P3O10": ["P3O10", "trifosforečnan", 5, true, "H5P3O10", "trifosforečná", "i"], "B4O7": ["B4O7", "tetraboritan", 2, true, "H2B4O7", "tetraboritá", "i"], "SiO4": ["SiO4", "tetraoxokřemičitan", 4, true, "H4SiO4", "tetraoxokřemičitá", "o"], "IO6": ["IO6", "hexaoxojodistan", 5, true, "H5IO6", "hexaoxojodistá", "o"], "TeO6": ["TeO6", "hexaoxotelluran", 6, true, "H6TeO6", "hexaoxotellurová", "o"], "BrO3": ["BrO3", "bromičnan", 1, true, "HBrO3", "bromičná", "m"], "IO3": ["IO3", "jodičnan", 1, true, "HIO3", "jodičná", "m"], "ClO2": ["ClO2", "chloritan", 1, true, "HClO2", "chloritá", "m"], "SeO4": ["SeO4", "selenan", 2, true, "H2SeO4", "selenová", "m"], "AsO4": ["AsO4", "arseničnan", 3, true, "H3AsO4", "arseničná", "m"], "MnO4b": ["MnO4", "manganan", 2, true, "H2MnO4", "manganová", "m"], "FeO4": ["FeO4", "železan", 2, true, "H2FeO4", "železová", "m"], "MoO4": ["MoO4", "molybdenan", 2, true, "H2MoO4", "molybdenová", "m"], "WO4": ["WO4", "wolframan", 2, true, "H2WO4", "wolframová", "m"], "S2O3": ["S2O3", "thiosíran", 2, true, "H2S2O3", "thiosírová", "m"], "S2O8": ["S2O8", "peroxodisíran", 2, true, "H2S2O8", "peroxodisírová", "m"]}, "PAIRS": [["Li", "ClO", 0], ["Li", "ClO3", 0], ["Li", "ClO4", 0], ["Li", "NO2", 0], ["Li", "NO3", 0], ["Li", "SO3", 0], ["Li", "SO4", 0], ["Li", "CO3", 0], ["Li", "SiO3", 0], ["Li", "BO3", 0], ["Li", "PO4", 0], ["Li", "MnO4", 0], ["Li", "CrO4", 0], ["Li", "Cr2O7", 0], ["Na", "ClO", 0], ["Na", "ClO3", 0], ["Na", "ClO4", 0], ["Na", "NO2", 0], ["Na", "NO3", 0], ["Na", "SO3", 0], ["Na", "SO4", 0], ["Na", "CO3", 0], ["Na", "SiO3", 0], ["Na", "BO3", 0], ["Na", "PO4", 0], ["Na", "MnO4", 0], ["Na", "CrO4", 0], ["Na", "Cr2O7", 0], ["K", "ClO", 0], ["K", "ClO3", 0], ["K", "ClO4", 0], ["K", "NO2", 0], ["K", "NO3", 0], ["K", "SO3", 0], ["K", "SO4", 0], ["K", "CO3", 0], ["K", "SiO3", 0], ["K", "BO3", 0], ["K", "PO4", 0], ["K", "MnO4", 0], ["K", "CrO4", 0], ["K", "Cr2O7", 0], ["Mg", "ClO", 0], ["Mg", "ClO3", 0], ["Mg", "ClO4", 0], ["Mg", "NO2", 0], ["Mg", "NO3", 0], ["Mg", "SO3", 0], ["Mg", "SO4", 0], ["Mg", "CO3", 0], ["Mg", "SiO3", 0], ["Mg", "BO3", 0], ["Mg", "PO4", 0], ["Mg", "MnO4", 0], ["Mg", "CrO4", 0], ["Mg", "Cr2O7", 0], ["Ca", "ClO", 0], ["Ca", "ClO3", 0], ["Ca", "ClO4", 0], ["Ca", "NO2", 0], ["Ca", "NO3", 0], ["Ca", "SO3", 0], ["Ca", "SO4", 0], ["Ca", "CO3", 0], ["Ca", "SiO3", 0], ["Ca", "BO3", 0], ["Ca", "PO4", 0], ["Ca", "MnO4", 0], ["Ca", "CrO4", 0], ["Ca", "Cr2O7", 0], ["Ba", "ClO", 0], ["Ba", "ClO3", 0], ["Ba", "ClO4", 0], ["Ba", "NO2", 0], ["Ba", "NO3", 0], ["Ba", "SO3", 0], ["Ba", "SO4", 0], ["Ba", "CO3", 0], ["Ba", "SiO3", 0], ["Ba", "BO3", 0], ["Ba", "PO4", 0], ["Ba", "MnO4", 0], ["Ba", "CrO4", 0], ["Ba", "Cr2O7", 0], ["Ag", "NO3", 0], ["Ag", "NO2", 0], ["Ag", "ClO3", 0], ["Ag", "ClO4", 0], ["Ag", "SO3", 0], ["Ag", "SO4", 0], ["Ag", "CO3", 0], ["Ag", "PO4", 0], ["Ag", "CrO4", 0], ["Ag", "Cr2O7", 0], ["Ag", "MnO4", 0], ["Zn", "NO3", 0], ["Zn", "SO4", 0], ["Zn", "SO3", 0], ["Zn", "CO3", 0], ["Zn", "PO4", 0], ["Zn", "ClO3", 0], ["Zn", "ClO4", 0], ["Zn", "CrO4", 0], ["Al", "NO3", 0], ["Al", "SO4", 0], ["Al", "PO4", 0], ["Al", "ClO4", 0], ["FeII", "SO4", 1], ["FeII", "NO3", 1], ["FeII", "CO3", 1], ["FeII", "PO4", 1], ["FeII", "ClO4", 1], ["FeIII", "SO4", 1], ["FeIII", "NO3", 1], ["FeIII", "PO4", 1], ["FeIII", "ClO4", 1], ["CuII", "SO4", 1], ["CuII", "NO3", 1], ["CuII", "CO3", 1], ["CuII", "PO4", 1], ["CuII", "ClO3", 1], ["CuII", "ClO4", 1], ["Pb", "NO3", 1], ["Pb", "SO4", 1], ["Pb", "CO3", 1], ["Pb", "CrO4", 1], ["Pb", "PO4", 1], ["Pb", "ClO4", 1], ["Cr", "SO4", 1], ["Cr", "NO3", 1], ["Cr", "PO4", 1], ["Cr", "ClO4", 1], ["Mn", "SO4", 1], ["Mn", "NO3", 1], ["Mn", "CO3", 1], ["Mn", "PO4", 1], ["Ni", "SO4", 1], ["Ni", "NO3", 1], ["Ni", "CO3", 1], ["Ni", "PO4", 1], ["Co", "SO4", 1], ["Co", "NO3", 1], ["Co", "CO3", 1], ["Co", "PO4", 1], ["NH4", "ClO3", 1], ["NH4", "ClO4", 1], ["NH4", "NO2", 1], ["NH4", "NO3", 1], ["NH4", "SO3", 1], ["NH4", "SO4", 1], ["NH4", "CO3", 1], ["NH4", "SiO3", 1], ["NH4", "BO3", 1], ["NH4", "PO4", 1], ["NH4", "CrO4", 1], ["NH4", "Cr2O7", 1], ["Li", "HCO3", 1], ["Li", "HSO4", 1], ["Li", "HSO3", 1], ["Li", "H2PO4", 1], ["Li", "HPO4", 1], ["Na", "HCO3", 1], ["Na", "HSO4", 1], ["Na", "HSO3", 1], ["Na", "H2PO4", 1], ["Na", "HPO4", 1], ["K", "HCO3", 1], ["K", "HSO4", 1], ["K", "HSO3", 1], ["K", "H2PO4", 1], ["K", "HPO4", 1], ["NH4", "HCO3", 1], ["NH4", "HSO4", 1], ["NH4", "H2PO4", 1], ["NH4", "HPO4", 1], ["Ca", "HCO3", 1], ["Ca", "H2PO4", 1], ["Ca", "HPO4", 1], ["Mg", "HCO3", 1], ["Mg", "H2PO4", 1], ["Mg", "HPO4", 1], ["Ba", "HCO3", 1], ["Na", "S2O7", 2], ["Na", "P2O7", 2], ["Na", "P3O10", 2], ["Na", "B4O7", 2], ["K", "S2O7", 2], ["K", "P2O7", 2], ["K", "P3O10", 2], ["K", "B4O7", 2], ["NH4", "S2O7", 2], ["NH4", "P2O7", 2], ["NH4", "P3O10", 2], ["NH4", "B4O7", 2], ["Ca", "P2O7", 2], ["Ca", "B4O7", 2], ["Ba", "P2O7", 2], ["Ba", "B4O7", 2], ["Mg", "P2O7", 2], ["Mg", "S2O7", 2], ["Mg", "B4O7", 2], ["Zn", "P2O7", 2], ["Al", "Cr2O7", 2], ["Mg", "SiO4", 2], ["Ca", "SiO4", 2], ["Zn", "SiO4", 2], ["Ba", "SiO4", 2], ["Na", "SiO4", 2], ["Al", "SiO4", 2], ["Na", "IO6", 2], ["K", "IO6", 2], ["Ca", "IO6", 2], ["Ag", "IO6", 2], ["FeIII", "IO6", 2], ["Ba", "IO6", 2], ["Ag", "TeO6", 2], ["Zn", "TeO6", 2], ["Na", "TeO6", 2], ["K", "TeO6", 2], ["Na", "BrO3", 2], ["K", "BrO3", 2], ["Ca", "BrO3", 2], ["Ba", "BrO3", 2], ["Na", "IO3", 2], ["K", "IO3", 2], ["Ca", "IO3", 2], ["Na", "ClO2", 2], ["K", "ClO2", 2], ["Na", "SeO4", 2], ["K", "SeO4", 2], ["Mg", "SeO4", 2], ["Al", "SeO4", 2], ["Ba", "SeO4", 2], ["Na", "AsO4", 2], ["K", "AsO4", 2], ["Ag", "AsO4", 2], ["Ca", "AsO4", 2], ["K", "MnO4b", 2], ["K", "FeO4", 2], ["Na", "MnO4b", 2], ["Na", "FeO4", 2], ["Ba", "MnO4b", 2], ["Ba", "FeO4", 2], ["Na", "MoO4", 2], ["NH4", "MoO4", 2], ["Ca", "MoO4", 2], ["Pb", "MoO4", 2], ["Na", "WO4", 2], ["Ca", "WO4", 2], ["Na", "S2O3", 2], ["K", "S2O3", 2], ["NH4", "S2O3", 2], ["K", "S2O8", 2], ["Na", "S2O8", 2], ["NH4", "S2O8", 2]], "HYDRATY": [["CuSO4·5H2O", "pentahydrát síranu měďnatého", "modrá skalice", "CuII", "SO4", 5], ["FeSO4·7H2O", "heptahydrát síranu železnatého", "zelená skalice", "FeII", "SO4", 7], ["ZnSO4·7H2O", "heptahydrát síranu zinečnatého", "bílá skalice", "Zn", "SO4", 7], ["CaSO4·2H2O", "dihydrát síranu vápenatého", "sádrovec", "Ca", "SO4", 2], ["CaSO4·½H2O", "hemihydrát síranu vápenatého", "sádra (pálená)", "Ca", "SO4", "½"], ["MgSO4·7H2O", "heptahydrát síranu hořečnatého", "hořká (epsomská) sůl", "Mg", "SO4", 7], ["Na2SO4·10H2O", "dekahydrát síranu sodného", "Glauberova sůl", "Na", "SO4", 10], ["Na2CO3·10H2O", "dekahydrát uhličitanu sodného", "krystalová soda", "Na", "CO3", 10], ["KAl(SO4)2·12H2O", "dodekahydrát síranu draselno-hlinitého", "kamenec", "", ""], ["Na2B4O7·10H2O", "dekahydrát tetraboritanu sodného", "borax", "Na", "B4O7", 10], ["CuSO4", "síran měďnatý", "bezvodý síran měďnatý (bílý prášek)", "CuII", "SO4", 0]], "PODV": [["KAl(SO4)2", "síran draselno-hlinitý", "K<sup>+I</sup> + Al<sup>+III</sup> = +4 → 2 SO<sub>4</sub><sup>−II</sup>", "dodekahydrát = kamenec"], ["NaAl(SO4)2", "síran sodno-hlinitý", "Na<sup>+I</sup> + Al<sup>+III</sup> = +4 → 2 SO<sub>4</sub><sup>−II</sup>", ""], ["KCr(SO4)2", "síran draselno-chromitý", "K<sup>+I</sup> + Cr<sup>+III</sup> = +4 → 2 SO<sub>4</sub><sup>−II</sup>", "dodekahydrát = chromový kamenec"], ["NH4Al(SO4)2", "síran amonno-hlinitý", "NH<sub>4</sub><sup>+I</sup> + Al<sup>+III</sup> = +4 → 2 SO<sub>4</sub><sup>−II</sup>", ""], ["NH4Fe(SO4)2", "síran amonno-železitý", "NH<sub>4</sub><sup>+I</sup> + Fe<sup>+III</sup> = +4 → 2 SO<sub>4</sub><sup>−II</sup>", ""], ["KFe(SO4)2", "síran draselno-železitý", "K<sup>+I</sup> + Fe<sup>+III</sup> = +4 → 2 SO<sub>4</sub><sup>−II</sup>", ""], ["(NH4)2Fe(SO4)2", "síran amonno-železnatý", "NH<sub>4</sub><sup>+I</sup> + Fe<sup>+II</sup> = +3 nelze vyrovnat sírany → druhý NH<sub>4</sub>: +4 → 2 SO<sub>4</sub><sup>−II</sup>", "hexahydrát = Mohrova sůl"], ["(NH4)2Ni(SO4)2", "síran amonno-nikelnatý", "NH<sub>4</sub><sup>+I</sup> + Ni<sup>+II</sup> = +3 → druhý NH<sub>4</sub>: +4 → 2 SO<sub>4</sub><sup>−II</sup>", ""], ["K2Mg(SO4)2", "síran draselno-hořečnatý", "K<sup>+I</sup> + Mg<sup>+II</sup> = +3 → druhý K: +4 → 2 SO<sub>4</sub><sup>−II</sup>", ""], ["CaMg(CO3)2", "uhličitan vápenato-hořečnatý", "Ca<sup>+II</sup> + Mg<sup>+II</sup> = +4 → 2 CO<sub>3</sub><sup>−II</sup>", "minerál dolomit"], ["NH4MgPO4", "fosforečnan amonno-hořečnatý", "NH<sub>4</sub><sup>+I</sup> + Mg<sup>+II</sup> = +3 → 1 PO<sub>4</sub><sup>−III</sup>", "hexahydrát = struvit"], ["KNaCO3", "uhličitan draselno-sodný", "K<sup>+I</sup> + Na<sup>+I</sup> = +2 → 1 CO<sub>3</sub><sup>−II</sup>", "K před Na: stejné ox. číslo, abecedně podle značky"]], "CONF": {"SO4": ["SO3", "S2O7"], "SO3": ["SO4"], "NO3": ["NO2"], "NO2": ["NO3"], "ClO3": ["ClO4", "ClO"], "ClO4": ["ClO3"], "ClO": ["ClO3", "ClO2"], "CrO4": ["Cr2O7"], "Cr2O7": ["CrO4"], "CO3": ["HCO3", "SiO3"], "SiO3": ["CO3", "SiO4"], "PO4": ["BO3", "HPO4"], "BO3": ["PO4"], "MnO4": ["MnO4b"], "MnO4b": ["MnO4"], "HCO3": ["CO3"], "HSO4": ["SO4"], "HSO3": ["SO3", "HSO4"], "H2PO4": ["HPO4"], "HPO4": ["H2PO4", "PO4"], "S2O7": ["SO4"], "P2O7": ["PO4", "P3O10"], "P3O10": ["P2O7"], "B4O7": ["BO3"], "SiO4": ["SiO3"], "IO6": ["IO3"], "TeO6": ["SeO4"], "BrO3": ["IO3"], "IO3": ["BrO3"], "ClO2": ["ClO"], "SeO4": ["SO4"], "AsO4": ["PO4"], "FeO4": ["CrO4"], "MoO4": ["WO4"], "WO4": ["MoO4"], "S2O3": ["SO4", "S2O8"], "S2O8": ["S2O7", "S2O3"]}, "OTHER": {"FeII": "FeIII", "FeIII": "FeII", "CuII": "CuI", "Cr": null}};
+const ROM=['','I','II','III','IV','V','VI','VII','VIII'];
+const N=12;
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const part=(s,n,poly)=>n===1?s:(poly?`(${s})${n}`:`${s}${n}`);
+const sub=f=>f.replace(/([A-Za-z\)])(\d+)/g,(m,a,d)=>a+'<sub>'+d+'</sub>');
+const minus=n=>'−'+ROM[n];
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function formula(c,a){const [cs,,cq,cp]=D.CAT[c];const [as,,aq,ap]=D.AN[a];const g=gcd(cq,aq);return part(cs,aq/g,cp)+part(as,cq/g,ap);}
+function hcount(acid){const m=acid.match(/^H(\d*)/);return m?(+m[1]||1):0;}
+function odtrhl(n){return n===1?'odtrhl 1 vodík':(n<5?`odtrhly ${n} vodíky`:`odtrhlo ${n} vodíků`);}
+const VAR=['FeII','FeIII','CuII','CuI','Pb','Cr','Mn','Ni','Co'];
+
+function simple(c,a){
+  const [cs,cn,cq,cp]=D.CAT[c];const [as,an,aq,ap,acid,acidn,grp]=D.AN[a];
+  const g=gcd(cq,aq),nc=aq/g,na=cq/g,f=formula(c,a);
+  let w=`<b>Anion:</b> z ${sub(acid)} (kyselina ${acidn}) se ${odtrhl(aq)} → ${sub(as)} má ${minus(aq)} → <b>${an}</b>.`;
+  if(grp==='h'){const left=hcount(acid)-aq;w+=` V aniontu ${left===1?'zůstal 1 vodík':'zůstaly '+left+' vodíky'} → předpona ${left===1?'hydrogen-':'dihydrogen-'}.`;}
+  if(grp==='i')w+=' Isopolykyselina: n molekul kyseliny − (n − 1) H<sub>2</sub>O.';
+  if(grp==='o')w+=' Počet H = 2 · počet O − oxidační číslo centrálního atomu.';
+  if(a==='MnO4b')w+=' Pozor: manganan (Mn<sup>+VI</sup>, −II) ≠ manganistan (Mn<sup>+VII</sup>, −I).';
+  if(a==='S2O3')w+=' Thio-: jeden kyslík síranu nahrazen sírou.';
+  if(a==='S2O8')w+=' Peroxo-: anion obsahuje skupinu –O–O–.';
+  if(c==='NH4')w+=' <b>Kation:</b> NH<sub>4</sub> počítáme jako celek, +I → <b>amonný</b>.';
+  else if(VAR.includes(c))w+=` <b>Kation:</b> ${nc>1?nc+' · ':''}x + ${na>1?na+' · ':''}(${minus(aq)}) = 0 → x = +${ROM[cq]} → <b>${cn}</b>.`;
+  else w+=` <b>Kation:</b> ${cs} má vždy +${ROM[cq]} → <b>${cn}</b>.`;
+  w+=` <b>Vzorec křížem:</b> ${sub(part(cs,aq,cp)+part(as,cq,ap))}${g>1?' → zkrátíme '+g+' → '+sub(f):''}.`;
+  return {k:c+'|'+a,f,n:an+' '+cn,an,cn,c,a,why:w,kind:'s'};
+}
+function hydrate(h){
+  const [f,n,triv,c,a,cnt]=h;
+  let w=cnt===0?`Bezvodá sůl – bez krystalové vody. Kation Cu má +II → měďnatý.`:
+    `${triv}: ${cnt==='½'?'½ (hemi)':cnt} H<sub>2</sub>O → číslovka + hydrát + název soli ve 2. pádě.`;
+  if(f.startsWith('KAl'))w+=' Kamenec je podvojná sůl: K<sup>+I</sup> + Al<sup>+III</sup> = +4 → 2 SO<sub>4</sub><sup>−II</sup>.';
+  if(f.startsWith('Na2B4O7'))w+=' B<sub>4</sub>O<sub>7</sub> (−II) z kyseliny tetraborité H<sub>2</sub>B<sub>4</sub>O<sub>7</sub>.';
+  return {k:f,f,n,why:w,kind:'h',triv};
+}
+function podv(p){return {k:p[0],f:p[0],n:p[1],why:p[2]+(p[3]?' ('+p[3]+')':'')+'. Kationty podle rostoucího oxidačního čísla, v názvu spojené pomlčkou.',kind:'p'};}
+
+function pool(l){
+  const s=D.PAIRS.filter(p=>p[2]===l).map(p=>simple(p[0],p[1]));
+  if(l===0)return shuffle(s).slice(0,N);
+  if(l===1){const base=shuffle(D.PAIRS.filter(p=>p[2]===0).map(p=>simple(p[0],p[1]))).slice(0,3);
+    const h=shuffle(D.HYDRATY.map(hydrate)).slice(0,3);return shuffle(base.concat(h,shuffle(s).slice(0,N-6)));}
+  const p=shuffle(D.PODV.map(podv)).slice(0,3);return shuffle(p.concat(shuffle(s).slice(0,N-3)));
+}
+
+function distract(x){
+  const out=[];const push=(f,why)=>{if(f&&f!==x.f&&!out.some(o=>o.f===f))out.push({f,why});};
+  if(x.kind==='s'){
+    const [cs,cn,cq,cp]=D.CAT[x.c];const [as,an,aq,ap]=D.AN[x.a];const g=gcd(cq,aq),nc=aq/g,na=cq/g;
+    const c1=[];
+    if(nc!==na)c1.push([part(cs,na,cp)+part(as,nc,ap),'prohozené indexy – oxidační číslo aniontu patří jako index ke kationtu a naopak']);
+    if(g>1)c1.push([part(cs,aq,cp)+part(as,cq,ap),'nezkrácené indexy – mají společného dělitele '+g]);
+    if(na>1)c1.push([part(cs,nc,cp)+as+na,'chybí závorka – index by patřil jen k poslednímu atomu']);
+    if(nc>1||na>1)c1.push([cs+as,'chybí indexy – součet oxidačních čísel není nula']);
+    (D.CONF[x.a]||[]).forEach(b=>{if(D.AN[b])c1.push([formula(x.c,b),'to je '+D.AN[b][1]+' '+cn]);});
+    const o=D.OTHER[x.c];if(o&&D.CAT[o])c1.push([formula(o,x.a),'to je '+an+' '+D.CAT[o][1]]);
+    shuffle(c1).forEach(([f,w])=>push(f,w));
+    shuffle(D.PAIRS.filter(p=>p[0]===x.c)).forEach(p=>{const y=simple(p[0],p[1]);push(y.f,'to je '+y.n);});
+  } else if(x.kind==='h'){
+    const m=x.f.match(/^(.*)·(.*)H2O$/);
+    if(m){shuffle([2,5,7,10].filter(k=>String(k)!==m[2])).slice(0,2).forEach(k=>push(m[1]+'·'+k+'H2O','jiný počet molekul krystalové vody'));}
+    shuffle(D.HYDRATY.map(hydrate)).forEach(y=>push(y.f,'to je '+y.n));
+  } else {
+    const v=[];
+    if(/\(SO4\)2$/.test(x.f))v.push([x.f.replace(/\(SO4\)2$/,'(SO4)3'),'součet oxidačních čísel kationtů neodpovídá třem síranům']);
+    if(/\(CO3\)2$/.test(x.f))v.push([x.f.replace(/\(CO3\)2$/,'CO3'),'jeden uhličitan (−II) nevyrovná +4']);
+    if(x.f.startsWith('(NH4)2'))v.push([x.f.replace('(NH4)2','NH4'),'NH4 + kation +II = +3, sírany to nevyrovnají']);
+    if(/^K[A-Z]/.test(x.f)&&!x.f.startsWith('K2'))v.push(['K2'+x.f.slice(1),'příliš mnoho draslíku – součet nesedí']);
+    shuffle(v).forEach(([f,w])=>push(f,w));
+    shuffle(D.PODV.map(podv)).forEach(y=>push(y.f,'to je '+y.n));
+  }
+  return out.slice(0,3);
+}
+
+const strip=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[‐-―−]/g,'-').trim();
+const normName=s=>strip(s).replace(/[\s\-]+/g,'');
+const normF=s=>s.replace(/[₀-₉]/g,d=>'0123456789'['₀₁₂₃₄₅₆₇₈₉'.indexOf(d)]).replace(/1\/2|0[.,]5/g,'½').replace(/\s+/g,'').replace(/[.*•∙⋅]/g,'·');
+
+function diagName(x,v){
+  if(x.kind!=='s')return 'Zkontroluj číslovku, pořadí slov a koncovky.';
+  const w=strip(v).split(/\s+/);const A=normName(x.an),C=normName(x.cn);
+  const a0=normName(w[0]||''),c0=normName(w.slice(1).join(''));
+  if(a0===C&&c0===A)return 'Pořadí: nejdřív anion (podstatné jméno), pak kation (přídavné jméno).';
+  if(a0===A)return 'Anion máš správně. Zkontroluj kation – oxidační číslo a koncovku přídavného jména.';
+  if(c0===C)return 'Kation máš správně. Zkontroluj anion – z jaké kyseliny pochází a jakou má koncovku.';
+  return 'Zkontroluj anion (kyselina, koncovka) i kation (oxidační číslo).';
+}
+function diagF(x,v){
+  if(v.toLowerCase()===x.f.toLowerCase())return 'Pozor na velká a malá písmena ve značkách prvků.';
+  const np=s=>s.replace(/[()]/g,'');
+  if(np(v)===np(x.f))return 'Zkontroluj závorky – víceatomový iont s indexem větším než 1 patří do závorky.';
+  const sk=s=>s.replace(/[\d()½·]/g,'');
+  if(sk(v)===sk(x.f))return 'Prvky máš správně, zkontroluj indexy (křížové pravidlo, krácení).';
+  return 'Zkontroluj anion (vzorec kyseliny bez vodíků) i počet kationtů a aniontů.';
+}
+
+let acted=false;document.addEventListener('pointerdown',()=>{acted=true;},true);document.addEventListener('keydown',()=>{acted=true;},true);
+let mode='name',lvl=0,order=[],pos=0,ok=0,answered=false;
+function start(){order=pool(lvl);pos=0;ok=0;render();}
+function stat(){document.getElementById('pos').textContent=Math.min(pos+1,order.length);document.getElementById('tot').textContent=order.length;document.getElementById('ok').textContent=ok;}
+const tag=x=>x.kind==='h'&&x.triv&&!x.triv.startsWith('bezvod')?`<span class="tag">${x.triv}</span>`:'';
+function render(){
+  answered=false;stat();const c=document.getElementById('card');
+  if(pos>=order.length){c.innerHTML=`<div class="done"><div class="score">${ok} / ${order.length}</div><p>Hotovo! ${ok===order.length?'Bez jediné chyby.':'Chybné úlohy si projdi ještě jednou.'}</p><button class="btn primary" id="again">Znovu (nové úlohy)</button></div>`;document.getElementById('again').onclick=start;return;}
+  const x=order[pos];
+  if(mode==='name'){
+    c.innerHTML=`<div class="q">Napiš ${x.kind==='h'?'systematický název':'název'}:</div><div class="big">${sub(x.f)}</div>
+    <div class="row"><input type="text" id="ans" autocomplete="off" spellcheck="false" placeholder="např. síran sodný"><button class="btn primary" id="chk">Zkontrolovat</button><button class="btn" id="show">Ukázat řešení</button><button class="btn" id="next" disabled>Další →</button></div>
+    <div class="fb" id="fb"></div>`;
+    const inp=document.getElementById('ans');if(acted)inp.focus({preventScroll:true});
+    const check=()=>{if(answered){next();return;}const v=inp.value;if(!normName(v))return;
+      const good=normName(v)===normName(x.n);inp.classList.toggle('good',good);inp.classList.toggle('wrong',!good);const fb=document.getElementById('fb');
+      if(good){answered=true;ok++;stat();fb.className='fb ok';fb.innerHTML=`<b>Správně: ${x.n}</b>${tag(x)}<div class="why">${x.why}</div>`;document.getElementById('next').disabled=false;}
+      else{fb.className='fb no';fb.innerHTML=diagName(x,v)+' Zkus to znovu, nebo si nech ukázat řešení.';}};
+    document.getElementById('chk').onclick=check;inp.onkeydown=e=>{if(e.key==='Enter')check();};
+    document.getElementById('show').onclick=()=>{if(answered)return;answered=true;const fb=document.getElementById('fb');fb.className='fb no';fb.innerHTML=`Řešení: <b>${x.n}</b>${tag(x)}<div class="why">${x.why}</div>`;inp.value=x.n;document.getElementById('next').disabled=false;};
+    document.getElementById('next').onclick=next;
+  } else if(mode==='type'){
+    c.innerHTML=`<div class="q">Napiš vzorec (čísla piš normálně: Al2(SO4)3, krystalovou vodu odděl tečkou: CuSO4.5H2O):</div><div class="name">${x.n}${tag(x)}</div>
+    <div class="row"><input type="text" id="ans" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="např. Na2SO4"><button class="btn primary" id="chk">Zkontrolovat</button><button class="btn" id="show">Ukázat řešení</button><button class="btn" id="next" disabled>Další →</button></div>
+    <div class="prev" id="prev"></div><div class="fb" id="fb"></div>`;
+    const inp=document.getElementById('ans'),prev=document.getElementById('prev');if(acted)inp.focus({preventScroll:true});
+    inp.oninput=()=>{prev.innerHTML=sub(normF(inp.value).replace(/</g,'&lt;'));};
+    const check=()=>{if(answered){next();return;}const v=normF(inp.value);if(!v)return;
+      const good=v===x.f;inp.classList.toggle('good',good);inp.classList.toggle('wrong',!good);const fb=document.getElementById('fb');
+      if(good){answered=true;ok++;stat();fb.className='fb ok';fb.innerHTML=`<b>Správně: ${sub(x.f)}</b><div class="why">${x.why}</div>`;document.getElementById('next').disabled=false;}
+      else{fb.className='fb no';fb.innerHTML=diagF(x,v)+' Zkus to znovu, nebo si nech ukázat řešení.';}};
+    document.getElementById('chk').onclick=check;inp.onkeydown=e=>{if(e.key==='Enter')check();};
+    document.getElementById('show').onclick=()=>{if(answered)return;answered=true;const fb=document.getElementById('fb');fb.className='fb no';fb.innerHTML=`Řešení: <b>${sub(x.f)}</b><div class="why">${x.why}</div>`;inp.value=x.f;prev.innerHTML=sub(x.f);document.getElementById('next').disabled=false;};
+    document.getElementById('next').onclick=next;
+  } else {
+    const opts=shuffle([{f:x.f,why:''},...distract(x)]);
+    c.innerHTML=`<div class="q">Který vzorec patří k názvu?</div><div class="name">${x.n}${tag(x)}</div><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${sub(o.f)}</button>`).join('')}</div>
+    <div class="fb" id="fb"></div><div class="row" style="margin-top:12px"><button class="btn primary" id="next" disabled>Další →</button></div>`;
+    c.querySelectorAll('.opt').forEach(el=>el.onclick=()=>{if(answered)return;answered=true;const o=opts[+el.dataset.i];const good=o.f===x.f;
+      c.querySelectorAll('.opt').forEach((e2,j)=>{if(opts[j].f===x.f)e2.classList.add('good');});if(!good)el.classList.add('wrong');
+      if(good){ok++;stat();}const fb=document.getElementById('fb');fb.className='fb '+(good?'ok':'no');
+      fb.innerHTML=(good?'<b>Správně!</b>':`<b>Vedle.</b> ${sub(o.f)}: ${o.why}.`)+`<div class="why">${x.why}</div>`;
+      document.getElementById('next').disabled=false;});
+    document.getElementById('next').onclick=next;
+  }
+}
+function next(){pos++;render();}
+document.getElementById('mode').onclick=e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.m;document.querySelectorAll('#mode button').forEach(y=>y.classList.toggle('on',y===b));start();};
+document.getElementById('lvl').onclick=e=>{const b=e.target.closest('button');if(!b)return;lvl=+b.dataset.l;document.querySelectorAll('#lvl button').forEach(y=>y.classList.toggle('on',y===b));start();};
+start();
+</script>
+</body></html>

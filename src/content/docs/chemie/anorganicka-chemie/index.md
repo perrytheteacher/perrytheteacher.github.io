@@ -8,4 +8,10 @@ sidebar:
 
 Prvky a jejich sloučeniny, názvosloví anorganických látek.
 
-Kapitoly této oblasti postupně doplňujeme.
+## Kapitoly
+
+**Názvosloví**
+
+- [Názvosloví solí kyslíkatých kyselin](/chemie/anorganicka-chemie/nazvoslovi/soli-kyslikatych-kyselin/)
+
+Další kapitoly postupně doplňujeme.
