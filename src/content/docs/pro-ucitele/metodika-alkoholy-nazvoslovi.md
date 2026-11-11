@@ -10,6 +10,8 @@ Kapitola [Alkoholy – názvosloví](/chemie/organicka-chemie/01-alkoholy-nazvos
 :::tip[Prezentace na hodinu]
 **[▶ Spustit prezentaci](/prezentace/alkoholy-nazvoslovi/)** (28 snímků) – výklad s podpůrnými otázkami, hlasováním a aktivitami, zadání procvičování a na dalším snímku řešení.
 
+Stáhnout: <a href="/prezentace/alkoholy-nazvoslovi/offline.html" download="alkoholy-nazvoslovi-prezentace.html">⬇ pro offline práci (HTML, i s aplikacemi)</a> · <a href="/prezentace/alkoholy-nazvoslovi/alkoholy-nazvoslovi.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté, aplikace jako odkaz)
+
 Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje i prezentér) · **N** poznámky pro učitele · **T** časovač aktivity · **O** přehled snímků · **B** černá obrazovka · **H** nápověda.
 :::
 

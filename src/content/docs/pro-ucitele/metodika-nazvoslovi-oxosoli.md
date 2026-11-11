@@ -10,6 +10,8 @@ Kapitola [Názvosloví solí kyslíkatých kyselin](/chemie/anorganicka-chemie/n
 :::tip[Prezentace na hodinu]
 **[▶ Spustit prezentaci](/prezentace/nazvoslovi-oxosoli/)** (39 snímků na dvě hodiny) – výklad s podpůrnými otázkami, hlasování, procvičování a na dalším snímku řešení. 1. hodina: snímky 2–25, 2. hodina: snímky 26–39.
 
+Stáhnout: <a href="/prezentace/nazvoslovi-oxosoli/offline.html" download="nazvoslovi-oxosoli-prezentace.html">⬇ pro offline práci (HTML, i s aplikacemi)</a> · <a href="/prezentace/nazvoslovi-oxosoli/nazvoslovi-oxosoli.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté, aplikace jako odkaz)
+
 Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje i prezentér) · **N** poznámky pro učitele · **T** časovač aktivity · **O** přehled snímků · **B** černá obrazovka · **H** nápověda.
 :::
 

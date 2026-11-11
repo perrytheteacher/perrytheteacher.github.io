@@ -10,6 +10,8 @@ Kapitola [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chem
 :::tip[Prezentace na hodinu]
 **[▶ Spustit prezentaci](/prezentace/alkoholy-fyzikalni-vlastnosti/)** (30 snímků) – výklad s podpůrnými otázkami, hlasováním a aktivitami, zadání procvičování a na dalším snímku řešení.
 
+Stáhnout: <a href="/prezentace/alkoholy-fyzikalni-vlastnosti/offline.html" download="alkoholy-fyzikalni-vlastnosti-prezentace.html">⬇ pro offline práci (HTML, i s aplikacemi)</a> · <a href="/prezentace/alkoholy-fyzikalni-vlastnosti/alkoholy-fyzikalni-vlastnosti.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté, aplikace jako odkaz)
+
 Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje i prezentér) · **N** poznámky pro učitele · **T** časovač aktivity · **O** přehled snímků · **B** černá obrazovka · **H** nápověda.
 :::
 

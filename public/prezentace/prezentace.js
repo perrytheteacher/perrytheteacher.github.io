@@ -34,6 +34,14 @@
 	<button data-a="fs" title="Celá obrazovka (F)">⛶ Celá obrazovka</button>
 	<button data-a="nap" title="Nápověda (H)">?</button>`;
 	document.body.append(prubeh, casovac, panel, cerna, prehled, napoveda, lista);
+
+	// --- aplikace v PDF / tisku: pod každé okno aplikace odkaz na online verzi (zobrazí se jen při tisku) ---
+	document.querySelectorAll('iframe.app').forEach((f) => {
+		const url = f.dataset.online || (f.dataset.src ? new URL(f.dataset.src, 'https://perrytheteacher.github.io').href : '');
+		const t = el('div', 'app-tisk');
+		t.innerHTML = `<div>Interaktivní aplikace <b>„${f.title || 'aplikace'}“</b></div>` + (url ? `<a href="${url}">${url}</a>` : '');
+		f.after(t);
+	});
 	function el(tag, cls) { const e = document.createElement(tag); e.className = cls; return e; }
 
 	// --- škálování 16:9 ---

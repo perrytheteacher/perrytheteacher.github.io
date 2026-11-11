@@ -161,3 +161,23 @@ img.vzorec{height:auto;display:block}
 .uloha img{max-width:100%;height:auto;min-width:0}
 .uloha.siroka{grid-column:1/-1}
 .nazvy{font-size:21px;color:#15803d;font-weight:600;margin-top:10px;line-height:1.35}
+
+/* --- aplikace v PDF / tisku: místo okna aplikace odkaz na online verzi --- */
+.app-tisk{display:none}
+
+/* --- PDF a tisk: každý snímek na vlastní stránku 16:9, všechny kroky odkryté, bez ovládání --- */
+@page{size:1280px 720px;margin:0}
+@media print{
+  html,body{height:auto;overflow:visible;background:#fff}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .deck{position:static}
+  .slide,.slide.on{display:flex;position:relative;left:auto;top:auto;margin:0;transform:none!important;break-after:page;page-break-after:always}
+  .slide:last-child{break-after:auto;page-break-after:auto}
+  .f,.f.vid{opacity:1!important;transform:none!important;transition:none}
+  .f.zesedni.vid.minula{opacity:1!important}
+  .lista,.prubeh,.casovac,.panel-poznamky,.cerna,.prehled,.napoveda{display:none!important}
+  .slide iframe.app{display:none}
+  .app-tisk{display:flex;flex:1;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:10px;
+    border:2px dashed #9aa3ad;border-radius:14px;color:#3a3f45;font-size:26px;padding:24px}
+  .app-tisk a{color:#1a6d97;font-size:22px;word-break:break-all}
+}

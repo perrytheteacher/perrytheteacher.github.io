@@ -10,6 +10,8 @@ Kapitola [Alkoholy – chemické vlastnosti](/chemie/organicka-chemie/03-alkohol
 :::tip[Prezentace na hodinu]
 **[▶ Spustit prezentaci](/prezentace/alkoholy-chemicke-vlastnosti/)** – výklad s obecnými schématy, podpůrnými otázkami a hlasováním, zadání procvičování a na dalším snímku řešení s názvy produktů.
 
+Stáhnout: <a href="/prezentace/alkoholy-chemicke-vlastnosti/offline.html" download="alkoholy-chemicke-vlastnosti-prezentace.html">⬇ pro offline práci (HTML, i s aplikacemi)</a> · <a href="/prezentace/alkoholy-chemicke-vlastnosti/alkoholy-chemicke-vlastnosti.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté, aplikace jako odkaz)
+
 Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje i prezentér) · **N** poznámky pro učitele · **T** časovač aktivity · **O** přehled snímků · **B** černá obrazovka · **H** nápověda.
 :::
 

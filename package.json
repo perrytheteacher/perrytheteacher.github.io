@@ -8,11 +8,15 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "pdf": "node scripts/prezentace-pdf.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.42.10",
     "astro": "^7.4.8",
     "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
   }
 }

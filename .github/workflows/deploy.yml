@@ -31,6 +31,10 @@ jobs:
         run: |
           npm install
           npm run build
+      - name: Vytvořit PDF prezentací
+        run: |
+          npx playwright install --with-deps chromium
+          npm run pdf
       - name: Připravit web k publikování
         uses: actions/upload-pages-artifact@v5
         with:
