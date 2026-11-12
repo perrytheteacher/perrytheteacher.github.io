@@ -174,3 +174,8 @@
 		break-inside: avoid;
 	}
 }
+
+/* Prázdné buňky tabulek = místo na odpověď (procvičování, cvičné písemky) – ať se dá psát i na papíře. */
+.sl-markdown-content td:empty {
+	min-width: 11rem;
+}

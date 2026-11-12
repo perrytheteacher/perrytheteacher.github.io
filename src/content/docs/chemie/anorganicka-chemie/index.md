@@ -17,5 +17,7 @@ Prvky a jejich sloučeniny, názvosloví anorganických látek.
 **Názvosloví**
 
 - [Názvosloví solí kyslíkatých kyselin](/chemie/anorganicka-chemie/nazvoslovi/soli-kyslikatych-kyselin/)
+- [Cvičná písemná práce: soli kyslíkatých kyselin](/chemie/anorganicka-chemie/nazvoslovi/cvicna-pisemka-oxosoli/)
+- [Seznam zkoušených látek](/chemie/anorganicka-chemie/nazvoslovi/seznam-zkousenych-latek/) – všechny látky z písemek z názvosloví na jednom místě
 
 Další kapitoly postupně doplňujeme.
