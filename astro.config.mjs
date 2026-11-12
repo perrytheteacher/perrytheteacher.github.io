@@ -12,6 +12,10 @@ const oblast = (label, directory) => ({
 
 export default defineConfig({
 	site: 'https://perrytheteacher.github.io',
+	// Přesunuté stránky – stará adresa přesměruje na novou.
+	redirects: {
+		'/chemie/anorganicka-chemie/stavebnice-iontu/': '/chemie/anorganicka-chemie/nazvoslovi/stavebnice-iontu/',
+	},
 	integrations: [
 		starlight({
 			title: 'Perry the Teacher',
@@ -63,7 +67,6 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ slug: 'chemie/anorganicka-chemie', label: 'Přehled' },
-								{ slug: 'chemie/anorganicka-chemie/stavebnice-iontu', label: 'Stavebnice iontů' },
 								{
 									label: 'Názvosloví',
 									collapsed: true,
