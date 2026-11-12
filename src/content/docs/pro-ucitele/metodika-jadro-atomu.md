@@ -8,7 +8,7 @@ sidebar:
 Kapitola: [Atom – přehled a vstupní sonda](/chemie/obecna-chemie/atom/) → [1. Jádro atomu](/chemie/obecna-chemie/atom/01-jadro-atomu/). Pokrývá celek **Stavba atomu I** tematického plánu 1. ročníku (elementární částice, protonové a nukleonové číslo, nuklid, izotop, radioaktivita, typy přeměn). Navazuje [Metodika: Elektronový obal](/pro-ucitele/metodika-elektronovy-obal/).
 
 :::tip[Prezentace na hodinu]
-**[▶ Spustit prezentaci](/prezentace/jadro-atomu/)** (34 snímků) – vstupní sonda, predikce pokusu se zlatou fólií, měřítko atomu, vlastnosti záření, výklad s podpůrnými otázkami a hlasováním, jaderné rovnice krok za krokem, procvičování s řešením na dalším snímku a výstupní lístek.
+**[▶ Spustit prezentaci](/prezentace/jadro-atomu/)** (36 snímků) – vstupní sonda, predikce pokusu se zlatou fólií, měřítko atomu, vlastnosti záření, výklad s podpůrnými otázkami a hlasováním, jaderné rovnice krok za krokem, procvičování s řešením na dalším snímku a výstupní lístek.
 
 Stáhnout: <a href="/prezentace/jadro-atomu/offline.html" download="jadro-atomu-prezentace.html">⬇ pro offline práci (HTML)</a> · <a href="/prezentace/jadro-atomu/jadro-atomu.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
 

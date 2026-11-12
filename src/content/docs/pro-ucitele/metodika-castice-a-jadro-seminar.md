@@ -8,7 +8,7 @@ sidebar:
 Kapitola: [3. Částice a jádro (seminář)](/chemie/obecna-chemie/atom/03-castice-a-jadro-seminar/). Rozšiřuje kapitoly [Jádro atomu](/chemie/obecna-chemie/atom/01-jadro-atomu/) a [Elektronový obal](/chemie/obecna-chemie/atom/02-elektronovy-obal/) pro seminář 4. ročníku. Aplikace: [Atomové jádro – vazebná energie, nuklidy, reakce](/aplikace/jadro-seminar/) (otevřít na celou obrazovku).
 
 :::tip[Prezentace na hodinu]
-**[▶ Spustit prezentaci](/prezentace/castice-a-jadro-seminar/)** (41 snímků) – částice kolem nás, kvarky a uvěznění, výpočet vazebné energie, aplikace ve snímcích, rozpadové řady, reaktor a SMR, fúze a kritické čtení zpráv, kvark-gluonové plazma a debata o základním výzkumu.
+**[▶ Spustit prezentaci](/prezentace/castice-a-jadro-seminar/)** (48 snímků) – částice kolem nás, kvarky a uvěznění, výpočet vazebné energie, aplikace ve snímcích, rozpadové řady, reaktor a SMR, fúze a kritické čtení zpráv, kvark-gluonové plazma a debata o základním výzkumu.
 
 Stáhnout: <a href="/prezentace/castice-a-jadro-seminar/offline.html" download="castice-a-jadro-seminar-prezentace.html">⬇ pro offline práci (HTML, i s aplikací)</a> · <a href="/prezentace/castice-a-jadro-seminar/castice-a-jadro-seminar.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
 

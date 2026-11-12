@@ -8,7 +8,7 @@ sidebar:
 Kapitola: [2. Elektronový obal](/chemie/obecna-chemie/atom/02-elektronovy-obal/). Pokrývá celek **Stavba atomu II** tematického plánu 1. ročníku (orbital, valenční elektrony, kvantová čísla, elektronová konfigurace atomů a iontů, základní a excitovaný stav). Předchází [Metodika: Jádro atomu](/pro-ucitele/metodika-jadro-atomu/), k aplikaci patří [Metodika: Elektronový obal – aplikace](/pro-ucitele/metodika-elektronovy-obal-aplikace/).
 
 :::tip[Prezentace na hodinu]
-**[▶ Spustit prezentaci](/prezentace/elektronovy-obal/)** (37 snímků) – schodiště × výtah, orbital místo dráhy, kvantová čísla s charakteristikami a tvary orbitalů, pravidla obsazování s hledáním chyb, aplikace v rámci snímku, ionty a excitace, výstupní lístek a návrat ke vstupní sondě.
+**[▶ Spustit prezentaci](/prezentace/elektronovy-obal/)** (38 snímků) – schodiště × výtah, orbital místo dráhy, kvantová čísla s charakteristikami a tvary orbitalů, pravidla obsazování s hledáním chyb, aplikace v rámci snímku, ionty a excitace, výstupní lístek a návrat ke vstupní sondě.
 
 Stáhnout: <a href="/prezentace/elektronovy-obal/offline.html" download="elektronovy-obal-prezentace.html">⬇ pro offline práci (HTML, i s aplikací)</a> · <a href="/prezentace/elektronovy-obal/elektronovy-obal.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
 
