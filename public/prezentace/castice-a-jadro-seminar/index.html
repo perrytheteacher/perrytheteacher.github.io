@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Částice a jádro (seminář) – prezentace | Perry the Teacher</title>
+<link rel="stylesheet" href="/prezentace/prezentace.css">
+</head>
+<body>
+<div class="deck">
+<section class="slide titul" data-titulek="Titul">
+<div class="male" style="color:#cfe3ef;font-size:24px;margin-bottom:14px">Obecná chemie · Atom · chemický seminář 4. ročník</div>
+<h1>Částice a jádro</h1>
+<div class="podtitul">Od kvarků přes hvězdy k reaktorům</div>
+<div class="patka">Perry the Teacher · perrytheteacher.github.io</div>
+<div class="ai-pozn">Tento materiál byl připraven s využitím generativní AI. Odbornou a pedagogickou kontrolu provedl Jaroslav Peřka, který odpovídá za jeho konečnou podobu.</div>
+<aside class="poznamky"><p>Prezentace ke kapitole <b>3. Částice a jádro (seminář)</b>, zhruba 6 hodin. Předěly: po částicích (sn. 7), po kvarcích (sn. 13), po vazebné energii (sn. 19), po nuklidech a přeměnách (sn. 27), po štěpení a SMR (sn. 31).</p>
+<p>Aplikace se načítá ve snímcích 17, 23 a 36 (potřebuje internet, nebo použijte offline verzi prezentace).</p></aside>
+</section>
+
+<section class="slide" data-typ="cile">
+<h2>Na konci celku…</h2>
+<div class="dva">
+<div class="box modry"><h3>Cíl</h3><p>Rozumím tomu, <b>odkud pochází energie hvězd a reaktorů</b>, a umím ji spočítat z hmotností.</p></div>
+<div class="box"><h3>Poznám, že to umím, když…</h3>
+<ul class="kroky" style="font-size:20px">
+<li>určím náboj částice z kvarků,</li>
+<li>spočítám vazebnou energii jádra,</li>
+<li>vysvětlím křivku E<sub>v</sub>/A (fúze × štěpení),</li>
+<li>rozliším izotop, izobar, izoton, izomer,</li>
+<li>počítám s poločasem a aktivitou,</li>
+<li>kriticky posoudím zprávu o „průlomu“ ve fúzi.</li></ul></div>
+</div>
+</section>
+
+<section class="slide" data-typ="hlasovani" data-cas="2">
+<h2>Z čeho jsi?</h2>
+<p>Tvoje hmotnost je skoro celá v protonech a neutronech. Ty se skládají z kvarků.</p>
+<p><b>Kolik procent tvé hmotnosti tvoří klidové hmotnosti kvarků?</b></p>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>asi 99 %</span></div><div class="moznost"><span class="p">B</span><span>asi 50 %</span></div><div class="moznost"><span class="p">C</span><span>asi 1 %</span></div><div class="moznost"><span class="p">D</span><span>0 %</span></div></div>
+<aside class="poznamky"><p>Hádanka na začátek – odpověď se neodkrývá, vrátíme se k ní na sn. 12. Nechte žáky zdůvodnit odhad.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Standardní model částic</h2>
+<table style="font-size:21px">
+<tr><th>skupina</th><th>částice</th><th>úloha</th></tr>
+<tr><td><b>kvarky</b> (6)</td><td>u, d, c, s, t, b</td><td>tvoří hadrony (p, n); běžná hmota jen u, d</td></tr>
+<tr><td><b>leptony</b> (6)</td><td>e, μ, τ + 3 neutrina</td><td>elektron v obalu; neutrina skoro neinteragují</td></tr>
+<tr><td><b>bosony</b></td><td>foton, gluon, W<sup>±</sup>, Z<sup>0</sup></td><td>přenášejí síly: el.-mag., silnou, slabou</td></tr>
+<tr><td><b>Higgsův boson</b></td><td>H (CERN 2012)</td><td>souvisí s hmotností elementárních částic</td></tr>
+</table>
+<ul class="male" style="margin-top:10px">
+<li class="f"><b>elementární</b> = bez vnitřní struktury (elektron) · <b>subatomární</b> = menší než atom (i proton)</li>
+<li class="f">hadrony: <b>baryony</b> (3 kvarky: p, n) · <b>mezony</b> (kvark + antikvark: pion)</li>
+<li class="f">ke každé částici antičástice; gravitace ve standardním modelu chybí</li>
+</ul>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Částice kolem tebe a v tobě</h2>
+<div class="dva">
+<div class="box" style="font-size:21px"><h3>Neutrina ze Slunce</h3><p>každou sekundu asi <b>60 miliard</b> na každý cm<sup>2</sup> tvého těla – a proletí i celou Zemí</p></div>
+<div class="box" style="font-size:21px"><h3>Miony z nebe</h3><p>žijí 2,2 µs → doletěly by jen ~660 m; přesto dopadají na zem (asi 1 na cm<sup>2</sup> za minutu) díky <b>dilataci času</b></p></div>
+<div class="box f" style="font-size:21px"><h3>Antihmota v nemocnici</h3><p>PET: <sup>18</sup>F → e<sup>+</sup>; pozitron + elektron → 2 fotony γ</p></div>
+<div class="box f" style="font-size:21px"><h3>Radioaktivní banán</h3><p><sup>40</sup>K: asi 15 přeměn/s v banánu, 4 000–5 000 v tvém těle</p></div>
+</div>
+<aside class="poznamky"><p>Popularizační vstup. Podpůrná otázka k mionům: <i>Jak je možné, že doletí?</i> (relativita – z jejich pohledu se zkrátí vzdálenost, z našeho se zpomalí jejich čas).</p></aside>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="4">
+<h2>Muon g−2: neúspěch, nebo úspěch?</h2>
+<p>Dlouho to vypadalo, že měření magnetických vlastností mionu nesouhlasí se standardním modelem → „nová fyzika“.</p>
+<p>2025: konečný, velmi přesný výsledek – a nové výpočty ukázaly <b>shodu</b>.</p>
+<div class="box zluty" style="font-size:25px">Je výsledek, který „jen“ potvrdil teorii, neúspěchem? Proč?</div>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Potvrzení je také výsledek</h2>
+<ul style="font-size:25px">
+<li class="f">Věda testuje teorie tím, že se je snaží <b>vyvrátit</b>. Teorie, která obstojí v testu s přesností 127 miliardtin, je silnější.</li>
+<li class="f">Rozpor může vzniknout i chybou nebo nepřesností <b>výpočtu</b>, nejen experimentu – vědci kontrolují obojí.</li>
+</ul>
+<aside class="poznamky"><p>Pojem falzifikace (Popper). Ocenit argumenty, ne „správnou“ odpověď.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Proton a neutron z kvarků</h2>
+<table style="font-size:25px;max-width:640px">
+<tr><th>kvark</th><th class="c">náboj</th><th class="c">hmotnost</th></tr>
+<tr><td>u (up)</td><td class="c">+2/3</td><td class="c">≈ 2,2 MeV/c<sup>2</sup></td></tr>
+<tr><td>d (down)</td><td class="c">−1/3</td><td class="c">≈ 4,7 MeV/c<sup>2</sup></td></tr>
+</table>
+<p class="f" style="font-size:28px;margin-top:16px"><b>proton</b> = u u d: +2/3 + 2/3 − 1/3 = <b>+1</b></p>
+<p class="f" style="font-size:28px"><b>neutron</b> = u d d: +2/3 − 1/3 − 1/3 = <b>0</b></p>
+<p class="male f">Drží je silná interakce, přenašeči jsou <b>gluony</b>; kvarky nesou „barevný náboj“ (jen název).</p>
+</section>
+
+<section class="slide" data-typ="ukol" data-cas="2">
+<h2>Úloha: náboj z kvarků</h2>
+<p>Anti-d má náboj +1/3.</p>
+<ol style="font-size:30px">
+<li>u u u (baryon Δ<sup>++</sup>)</li>
+<li>u d s (baryon Λ; s má −1/3)</li>
+<li>u + anti-d (pion π<sup>+</sup>)</li>
+</ol>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Řešení</h2>
+<ol style="font-size:30px">
+<li>3 · (+2/3) = <b>+2</b></li>
+<li>+2/3 − 1/3 − 1/3 = <b>0</b></li>
+<li>+2/3 + 1/3 = <b>+1</b></li>
+</ol>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Uvěznění kvarků</h2>
+<div class="dva">
+<div><p>Volný kvark nikdo nepozoroval.</p>
+<p class="f">Při oddalování kvarků síla neslábne → energie roste → vznikne nový pár <b>kvark–antikvark</b> → nové hadrony.</p></div>
+<div class="box modry f" style="font-size:23px"><h3>Jako magnet</h3><p>Rozlomíš magnet → nezískáš samotný severní pól, ale dva menší magnety.</p></div>
+</div>
+<p class="male f" style="margin-top:14px">Jak tedy víme, že kvarky existují? Rozptyl elektronů na protonech (SLAC, 60. léta) – jako Rutherfordův pokus o úroveň níž.</p>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Z čeho jsi? Kvarky jsou jen 1 %</h2>
+<div class="moznosti"><div class="moznost" style="font-size:24px"><span class="p">A</span><span>asi 99 %</span></div><div class="moznost" style="font-size:24px"><span class="p">B</span><span>asi 50 %</span></div><div class="moznost spravne" style="font-size:24px"><span class="p">C</span><span>asi 1 %</span></div><div class="moznost" style="font-size:24px"><span class="p">D</span><span>0 %</span></div></div>
+<div class="box zeleny f" style="margin-top:14px;font-size:23px">u + u + d ≈ 9 MeV/c<sup>2</sup> z 938 MeV/c<sup>2</sup>. Zbylých 99 % je <b>energie</b> pohybu kvarků a gluonového pole (E = mc<sup>2</sup>).</div>
+<aside class="poznamky"><p>Návrat k hádance ze sn. 3. Otázka do diskuse: <i>Je správné říct, že většina tvé hmotnosti je energie?</i></p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Jaderná síla = zbytek silné interakce</h2>
+<div class="dva">
+<div class="box" style="font-size:22px"><h3>Jádro</h3><p>nukleony jsou navenek „bezbarvé“, přesto se přitahují</p><p><b>zbytková</b> silná interakce, dosah 1–2 fm</p></div>
+<div class="box" style="font-size:22px"><h3>Chemie</h3><p>molekuly jsou elektricky neutrální, přesto se přitahují</p><p><b>zbytková</b> elektromagnetická interakce: disperzní síly, vodíkové vazby</p></div>
+</div>
+<p class="male f" style="margin-top:12px">Pod 0,5 fm se nukleony silně odpuzují – jádro se nezhroutí.</p>
+<aside class="poznamky"><p>Analogie pro chemiky. Podpůrná otázka: <i>Proč jsou mezimolekulové síly slabší než kovalentní vazba?</i> – stejná logika „zbytku“.</p></aside>
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Vazebná energie <sup>4</sup>He</h2>
+<ol class="kroky" style="font-size:24px">
+<li class="f">2 · <sup>1</sup>H + 2 · n = 2 · 1,007 825 + 2 · 1,008 665 = <b>4,032 980 u</b></li>
+<li class="f">jádro <sup>4</sup>He: <b>4,002 603 u</b> → Δm = <b>0,030 377 u</b> (0,75 %)</li>
+<li class="f">E<sub>v</sub> = Δm · 931,494 MeV/u = <b>28,30 MeV</b></li>
+<li class="f">na nukleon: 28,30 / 4 = <b>7,07 MeV</b></li>
+</ol>
+<p class="male f">V chemii je změna hmotnosti asi milionkrát až desetmilionkrát menší – proto „platí“ zákon zachování hmotnosti.</p>
+<aside class="poznamky"><p>Atomové hmotnosti <sup>1</sup>H místo protonu – elektrony se odečtou. Miskoncepce: vazebná energie je energie, kterou je nutné k rozložení <b>dodat</b>.</p></aside>
+</section>
+
+<section class="slide" data-typ="ukol" data-cas="5">
+<h2>Úloha: vazebná energie <sup>56</sup>Fe</h2>
+<p style="font-size:27px">Z = 26, N = 30</p>
+<p style="font-size:27px"><sup>1</sup>H 1,007 825 u · n 1,008 665 u · <sup>56</sup>Fe 55,934 936 u</p>
+<p style="font-size:27px">Vypočti Δm, E<sub>v</sub> a E<sub>v</sub>/A.</p>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Řešení: <sup>56</sup>Fe</h2>
+<ol class="kroky" style="font-size:25px">
+<li>26 · 1,007 825 + 30 · 1,008 665 = 56,463 400 u</li>
+<li>Δm = 56,463 400 − 55,934 936 = 0,528 464 u</li>
+<li>E<sub>v</sub> = 0,528 464 · 931,494 ≈ <b>492 MeV</b></li>
+<li>E<sub>v</sub>/A ≈ <b>8,79 MeV</b> – skoro nejvíc ze všech jader</li>
+</ol>
+</section>
+
+<section class="slide" data-typ="aplikace" data-cas="10">
+<h2 style="margin-bottom:10px">Křivka vazebné energie na nukleon</h2>
+<iframe class="app" data-src="/aplikace/jadro-seminar/#be" title="Vazebná energie na nukleon"></iframe>
+<aside class="poznamky"><ol><li>Najít maximum (Fe, Ni). Kudy jde fúze, kudy štěpení?</li><li>Vypínat členy kapkového modelu: povrchový (lehká jádra), coulombovský (těžká jádra).</li><li>Body vs. čára: kde model selhává? (He, C, O – magická čísla)</li></ol></aside>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="4">
+<h2>Svět bez elektrického odpuzování protonů</h2>
+<p>Vypni v aplikaci <b>coulombovský člen</b>.</p>
+<ul class="kroky" style="font-size:25px">
+<li>Kde je teď maximum křivky?</li>
+<li>Uvolňovalo by štěpení těžkých jader energii?</li>
+<li>Co by to znamenalo pro existenci těžkých prvků?</li>
+</ul>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Coulombovské odpuzování „láme“ křivku</h2>
+<ul style="font-size:25px">
+<li class="f">bez něj křivka roste a jen se zplošťuje – maximum by bylo u velmi těžkých jader</li>
+<li class="f">štěpení by energii neuvolňovalo, slučování by bylo výhodné stále</li>
+<li class="f">odpuzování protonů je důvod, proč těžká jádra existují jen do určité velikosti</li>
+</ul>
+<div class="box fialovy f" style="font-size:22px"><b>Magická čísla</b> 2, 8, 20, 28, 50, 82, 126 – zaplněné „jaderné slupky“, obdoba vzácných plynů (<sup>4</sup>He, <sup>16</sup>O, <sup>40</sup>Ca, <sup>208</sup>Pb).</div>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Nuklidy: co mají společné</h2>
+<table style="font-size:24px">
+<tr><th>pojem</th><th>společné</th><th>příklad</th></tr>
+<tr><td><b>izotopy</b></td><td>Z</td><td><sup>12</sup>C, <sup>13</sup>C, <sup>14</sup>C</td></tr>
+<tr><td><b>izobary</b></td><td>A</td><td><sup>40</sup>Ar, <sup>40</sup>K, <sup>40</sup>Ca</td></tr>
+<tr><td><b>izotony</b></td><td>N</td><td><sup>14</sup>C, <sup>15</sup>N, <sup>16</sup>O</td></tr>
+<tr><td><b>jaderné izomery</b></td><td>Z i A, jiná energie</td><td><sup>99m</sup>Tc → <sup>99</sup>Tc + γ</td></tr>
+</table>
+<p class="male" style="margin-top:12px">Přes 3 000 známých nuklidů, stabilních asi 250 · Tc, Pm a vše za Pb nemá stabilní izotop</p>
+</section>
+
+<section class="slide" data-typ="hlasovani" data-cas="2">
+<h2>Která dvojice jsou izotony?</h2>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span><sup>3</sup>H a <sup>3</sup>He</span></div><div class="moznost"><span class="p">B</span><span><sup>13</sup>C a <sup>14</sup>N</span></div><div class="moznost"><span class="p">C</span><span><sup>35</sup>Cl a <sup>37</sup>Cl</span></div><div class="moznost"><span class="p">D</span><span><sup>16</sup>O a <sup>17</sup>O</span></div></div>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Izotony: stejné N</h2>
+<div class="moznosti"><div class="moznost" style="font-size:24px"><span class="p">A</span><span><sup>3</sup>H a <sup>3</sup>He</span></div><div class="moznost spravne" style="font-size:24px"><span class="p">B</span><span><sup>13</sup>C a <sup>14</sup>N</span></div><div class="moznost" style="font-size:24px"><span class="p">C</span><span><sup>35</sup>Cl a <sup>37</sup>Cl</span></div><div class="moznost" style="font-size:24px"><span class="p">D</span><span><sup>16</sup>O a <sup>17</sup>O</span></div></div>
+<ul class="male" style="margin-top:12px"><li><sup>13</sup>C: N = 7, <sup>14</sup>N: N = 7</li><li>A: izobary · C, D: izotopy</li></ul>
+</section>
+
+<section class="slide" data-typ="aplikace" data-cas="10">
+<h2 style="margin-bottom:10px">Mapa nuklidů a rozpadové řady</h2>
+<iframe class="app" data-src="/aplikace/jadro-seminar/#map" title="Mapa nuklidů"></iframe>
+<aside class="poznamky"><ol><li>Predikce: kam se v mapě posune nuklid při β<sup>−</sup>, β<sup>+</sup>, α?</li><li>Klikat nad a pod údolím stability.</li><li>Vybrat uranovou řadu: cik-cak cesta, tabulka poločasů, počty přeměn.</li></ol><p>Mapa je předpověď kapkového modelu, ne databáze.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Přeměny a zákon přeměny</h2>
+<table style="font-size:21px">
+<tr><th>přeměna</th><th>děj</th><th>Z, A</th></tr>
+<tr><td>α</td><td>vyletí <span class="nuklid"><sup>4</sup><sub>2</sub></span>He</td><td>Z − 2, A − 4</td></tr>
+<tr><td>β<sup>−</sup> / β<sup>+</sup></td><td>n → p + e<sup>−</sup> / p → n + e<sup>+</sup></td><td>Z ± 1</td></tr>
+<tr><td>záchyt e<sup>−</sup></td><td>p + e<sup>−</sup> (z K-slupky) → n; vzniká rentgenové záření</td><td>Z − 1</td></tr>
+<tr><td>γ (izomerní přechod)</td><td>jádro vyzáří energii</td><td>beze změny</td></tr>
+</table>
+<p class="f" style="font-size:25px;margin-top:12px;text-align:center">N = N<sub>0</sub> · (1/2)<sup>t/T</sup> = N<sub>0</sub> · e<sup>−λt</sup> · λ = ln 2 / T · A = λN (Bq)</p>
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Aktivita 1 g radia-226 (T = 1 600 let)</h2>
+<ol class="kroky" style="font-size:24px">
+<li class="f">N = (1 / 226) · 6,022 · 10<sup>23</sup> = 2,66 · 10<sup>21</sup> jader</li>
+<li class="f">T = 1 600 · 3,156 · 10<sup>7</sup> s = 5,05 · 10<sup>10</sup> s → λ = 0,693 / T = 1,37 · 10<sup>−11</sup> s<sup>−1</sup></li>
+<li class="f">A = λN = <b>3,7 · 10<sup>10</sup> Bq</b> = 1 curie (historická jednotka)</li>
+</ol>
+</section>
+
+<section class="slide" data-typ="ukol" data-cas="6">
+<h2>Úloha: poločas a datování</h2>
+<ol style="font-size:27px">
+<li style="margin-bottom:16px">Dřevo z ohniště má 25 % aktivity <sup>14</sup>C živého dřeva (T = 5 730 let). Jak je staré? A při 70 %?</li>
+<li>8,0 · 10<sup>20</sup> jader <sup>131</sup>I (T = 8,0 dne): kolik zbude za 40 dní? Jaká je počáteční aktivita?</li>
+</ol>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Řešení</h2>
+<ol style="font-size:25px">
+<li style="margin-bottom:14px">25 % = 2 poločasy → <b>11 460 let</b>; 70 %: t = 5 730 · log<sub>2</sub>(1/0,70) ≈ <b>2 950 let</b></li>
+<li>5 poločasů → 8,0 · 10<sup>20</sup> / 32 = <b>2,5 · 10<sup>19</sup></b>; λ = 0,693 / 691 200 s = 1,0 · 10<sup>−6</sup> s<sup>−1</sup> → A ≈ <b>8 · 10<sup>14</sup> Bq</b></li>
+</ol>
+<aside class="poznamky"><p>Karta Poločas v aplikaci ukáže statistickou povahu zákona.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Čtyři rozpadové řady</h2>
+<table style="font-size:23px">
+<tr><th>řada</th><th>začátek (T)</th><th>konec</th><th>A</th></tr>
+<tr><td>thoriová</td><td><sup>232</sup>Th (1,4 · 10<sup>10</sup> let)</td><td><sup>208</sup>Pb</td><td>4n</td></tr>
+<tr><td>neptuniová</td><td><sup>237</sup>Np (2,1 · 10<sup>6</sup> let)</td><td><sup>209</sup>Bi</td><td>4n + 1</td></tr>
+<tr><td>uranová</td><td><sup>238</sup>U (4,5 · 10<sup>9</sup> let)</td><td><sup>206</sup>Pb</td><td>4n + 2</td></tr>
+<tr><td>aktiniová</td><td><sup>235</sup>U (7,0 · 10<sup>8</sup> let)</td><td><sup>207</sup>Pb</td><td>4n + 3</td></tr>
+</table>
+<ul class="male" style="margin-top:10px">
+<li class="f">A mění jen α (o 4) → zbytek po dělení čtyřmi je v řadě stálý</li>
+<li class="f">neptuniová v přírodě „vyhasla“ · uranová řada obsahuje radon-222</li>
+<li class="f">poměr <sup>206</sup>Pb / <sup>238</sup>U → stáří hornin i Země (4,5 miliardy let)</li>
+</ul>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Štěpení a jaderný reaktor</h2>
+<p style="font-size:24px;text-align:center"><span class="nuklid"><sup>235</sup><sub>92</sub></span>U + <span class="nuklid"><sup>1</sup><sub>0</sub></span>n → <span class="nuklid"><sup>141</sup><sub>56</sub></span>Ba + <span class="nuklid"><sup>92</sup><sub>36</sub></span>Kr + 3 <span class="nuklid"><sup>1</sup><sub>0</sub></span>n &nbsp; (≈ 200 MeV celkem)</p>
+<div class="dva">
+<ul style="font-size:21px">
+<li class="f">Hahn a Strassmann 1938, Meitner a Frisch 1939</li>
+<li class="f">k &lt; 1 dohasíná · <b>k = 1 kritický stav</b> · k &gt; 1 rozbíhá se</li>
+<li class="f">zpožděné neutrony (0,65 %) dávají čas na regulaci</li>
+<li class="f">přírodní reaktor <b>Oklo</b> (Gabon, před 2 miliardami let)</li>
+</ul>
+<table style="font-size:19px">
+<tr><td><b>palivo</b></td><td>UO<sub>2</sub>, 3–5 % <sup>235</sup>U</td></tr>
+<tr><td><b>moderátor</b></td><td>voda – zpomaluje neutrony</td></tr>
+<tr><td><b>regulační tyče</b></td><td>B, Cd – pohlcují neutrony</td></tr>
+<tr><td><b>chladivo</b></td><td>voda pod tlakem → pára → turbína</td></tr>
+</table></div>
+<aside class="poznamky"><p>1 g <sup>235</sup>U ≈ 20 000 kWh ≈ 2,5 t uhlí. Úloha D9 v kapitole: kolik uranu spotřebuje blok Temelína za den (asi 3 kg).</p></aside>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="5">
+<h2>Je 470 MW „malý“ reaktor?</h2>
+<table style="font-size:20px">
+<tr><th>projekt</th><th>výkon</th><th>stav (podzim 2026)</th></tr>
+<tr><td>Akademik Lomonosov (Rusko)</td><td>2 × 35 MW</td><td>plovoucí, od 2020</td></tr>
+<tr><td>HTR-PM (Čína)</td><td>210 MW</td><td>v provozu od 2023</td></tr>
+<tr><td>Linglong One (Čína)</td><td>125 MW</td><td>komerční provoz plánován 2026</td></tr>
+<tr><td>BWRX-300 (Kanada)</td><td>300 MW</td><td>ve výstavbě</td></tr>
+<tr><td>Rolls-Royce SMR, Temelín</td><td>470 MW</td><td>příprava, EIA; 2. polovina 30. let</td></tr>
+</table>
+<div class="box zluty" style="margin-top:10px;font-size:22px">Bloky Dukovan mají ~500 MW. Co dělá reaktor „malým“ a „modulárním“?</div>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>„Malý“ je spíš způsob stavby</h2>
+<ul style="font-size:24px">
+<li class="f">běžná definice: do asi <b>300 MW</b> – 470 MW by tam nespadal</li>
+<li class="f"><b>modulární</b> = sériová výroba v továrně, dovoz v modulech → nižší cena a riziko (zatím slib)</li>
+<li class="f"><b>pasivní bezpečnost</b>: chlazení samotížným prouděním; bezpečnost ale plyne z konstrukce a dozoru, ne z velikosti</li>
+</ul>
+<aside class="poznamky"><p>Kritické čtení pojmů: kdo a proč pojem používá. Zdroje: ČEZ, oEnergetice.cz (2026).</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Fúze: Slunce × Země</h2>
+<div class="dva">
+<div class="box" style="font-size:21px"><h3>Slunce</h3><p>4 <span class="nuklid"><sup>1</sup><sub>1</sub></span>H → <span class="nuklid"><sup>4</sup><sub>2</sub></span>He + 2 e<sup>+</sup> + 2 ν (26,7 MeV)</p><p>15 milionů K, tunelový jev, první krok slabou interakcí → proton čeká <b>miliardy let</b></p></div>
+<div class="box modry" style="font-size:21px"><h3>Země</h3><p><span class="nuklid"><sup>2</sup><sub>1</sub></span>H + <span class="nuklid"><sup>3</sup><sub>1</sub></span>H → <span class="nuklid"><sup>4</sup><sub>2</sub></span>He + <span class="nuklid"><sup>1</sup><sub>0</sub></span>n (17,6 MeV)</p><p><b>150 milionů °C</b>; tritium z lithia: <span class="nuklid"><sup>6</sup><sub>3</sub></span>Li + <span class="nuklid"><sup>1</sup><sub>0</sub></span>n → <span class="nuklid"><sup>4</sup><sub>2</sub></span>He + <span class="nuklid"><sup>3</sup><sub>1</sub></span>H</p></div>
+</div>
+<p class="f" style="font-size:22px;margin-top:12px"><b>Lawsonovo kritérium:</b> hustota × teplota × doba udržení energie &gt; mez</p>
+<aside class="poznamky"><p>Podpůrná otázka: <i>Proč potřebujeme vyšší teplotu než Slunce?</i> – nemáme jeho hustotu ani miliardy let.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Tokamaky a lasery: kde jsme</h2>
+<table style="font-size:19px">
+<tr><th>zařízení</th><th>výsledek</th></tr>
+<tr><td>JET (UK, tokamak)</td><td>69 MJ fúzní energie za 5 s (2023), poté uzavřen</td></tr>
+<tr><td>EAST (Čína) · WEST (Francie)</td><td>plazma 1 066 s (leden 2025) · <b>1 337 s</b> (únor 2025)</td></tr>
+<tr><td>NIF (USA, lasery)</td><td>3,15 MJ z 2,05 MJ (2022) · <b>8,6 MJ z 2,08 MJ</b> (duben 2025)</td></tr>
+<tr><td>ITER (Francie)</td><td>cíl 500 MW z 50 MW; výzkum od 2034, D–T od 2039</td></tr>
+<tr><td>COMPASS-U (Praha)</td><td>ve výstavbě, 5 T, stěna 500 °C</td></tr>
+<tr><td>GOLEM (FJFI ČVUT)</td><td>nejstarší provozovaný tokamak, ovladatelný na dálku</td></tr>
+</table>
+<aside class="poznamky"><p>Údaje k podzimu 2026, zdroje v kapitole. Doporučte žákům zkusit vzdálený výboj na tokamaku GOLEM.</p></aside>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="5">
+<h2>Titulek: „Vědci vyrobili víc energie, než spotřebovali – fúzní energie je tady.“</h2>
+<ul class="kroky" style="font-size:25px">
+<li>Co je na titulku pravdivé?</li>
+<li>Co je zavádějící?</li>
+<li>Co chybí k elektrárně?</li>
+</ul>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Terčík ≠ elektrárna</h2>
+<ul style="font-size:24px">
+<li class="f"><b>pravda:</b> fúze uvolnila 8,6 MJ, laser dodal do terčíku 2,08 MJ</li>
+<li class="f"><b>zavádějící:</b> lasery spotřebují ze sítě <b>stovky MJ</b>; celková bilance hluboko pod 1</li>
+<li class="f"><b>chybí:</b> opakovací frekvence, výroba elektřiny, tritium, materiály odolné neutronům</li>
+<li class="f">elektrárny realisticky nejdříve ve 2. polovině století</li>
+</ul>
+</section>
+
+<section class="slide" data-typ="aplikace" data-cas="8">
+<h2 style="margin-bottom:10px">Energie reakcí: štěpení × fúze × přeměna α</h2>
+<iframe class="app" data-src="/aplikace/jadro-seminar/#q" title="Energie jaderných reakcí"></iframe>
+<aside class="poznamky"><ol><li>Porovnat energii na reakci, na nukleon a na gram: štěpení, D–T, přeměna α <sup>238</sup>U.</li><li>Proč je α <sup>238</sup>U pro energetiku nepoužitelná? (poločas)</li><li>Srovnání s hořením vodíku – kolikrát víc?</li></ol></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Kvark-gluonové plazma</h2>
+<ul style="font-size:23px">
+<li>při ~2 · 10<sup>12</sup> K se nukleony „roztaví“ → volné kvarky a gluony</li>
+<li class="f">tak vypadala hmota <b>mikrosekundy po velkém třesku</b></li>
+<li class="f">vzniká při srážkách jader zlata a olova: <b>RHIC</b> (USA, 2000 – únor 2026, přestavba na EIC), <b>LHC</b> (ALICE, CERN)</li>
+<li class="f">chová se jako <b>téměř dokonalá kapalina</b> (nejmenší známá viskozita), existuje ~10<sup>−23</sup> s</li>
+</ul>
+<p class="male f">Pozor: nezaměňovat s plazmatem v tokamaku (volné elektrony a jádra, 10<sup>8</sup> K).</p>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="6">
+<h2>Debata: má stát platit výzkum bez praktického využití?</h2>
+<div class="dva">
+<div class="box zeleny" style="font-size:24px"><h3>2 argumenty pro</h3></div>
+<div class="box" style="font-size:24px"><h3>2 argumenty proti</h3></div>
+</div>
+<p class="male" style="margin-top:12px">Nápověda: k čemu byl „užitečný“ objev elektronu v roce 1897? Kde vznikl web?</p>
+<aside class="poznamky"><p>Pro: nepředvídatelné využití (elektron → elektronika), vedlejší technologie (detektory, urychlovače v medicíně, WWW v CERN 1989), vzdělávání, spolupráce. Proti: omezené peníze, naléhavější potřeby, nejistá návratnost. Hodnoťte práci s příklady.</p></aside>
+</section>
+
+<section class="slide" data-typ="exit" data-cas="4">
+<h2>Výstupní lístek</h2>
+<ol style="font-size:27px">
+<li style="margin-bottom:18px">Proč uvolňuje energii štěpení uranu i fúze vodíku? (jedna věta s pojmem z grafu)</li>
+<li style="margin-bottom:18px">Do které rozpadové řady patří <sup>227</sup>Ac?</li>
+<li>Proč nemůžeme říct, kdy se přemění konkrétní jádro, ale umíme spočítat aktivitu vzorku?</li>
+</ol>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Výstupní lístek · řešení</h2>
+<ol style="font-size:25px">
+<li style="margin-bottom:16px">Produkty mají vyšší <b>vazebnou energii na nukleon</b> (blíž k Fe a Ni), rozdíl se uvolní.</li>
+<li style="margin-bottom:16px">227 = 4 · 56 + 3 → <b>aktiniová</b> (4n + 3)</li>
+<li>Přeměna je náhodný děj; pro velký počet jader platí statistický zákon (A = λN).</li>
+</ol>
+</section>
+
+<section class="slide" data-typ="shrnuti">
+<h2>Shrnutí</h2>
+<div class="dva siroky-levy">
+<ul style="font-size:20px">
+<li>6 kvarků, 6 leptonů, bosony; p = uud, n = udd; kvarky jsou uvězněné</li>
+<li>hmotnost protonu: 99 % energie silné interakce</li>
+<li>Δm → E<sub>v</sub> = Δm c<sup>2</sup>; maximum E<sub>v</sub>/A u Fe a Ni</li>
+<li>izotopy, izobary, izotony, izomery; údolí stability, magická čísla</li>
+<li>N = N<sub>0</sub>(1/2)<sup>t/T</sup>, A = λN; 4 rozpadové řady</li>
+<li>štěpení k = 1; fúze 150 milionů °C, ITER 2039</li>
+<li>kvark-gluonové plazma = hmota raného vesmíru</li>
+</ul>
+<div class="box fialovy"><h3>Jak mi to jde?</h3>
+<ul class="semafor" style="font-size:19px">
+<li>náboj z kvarků</li><li>vazebná energie</li><li>křivka E<sub>v</sub>/A</li><li>izotop × izobar × izoton</li><li>poločas a aktivita</li><li>kritické čtení zpráv</li></ul></div>
+</div>
+</section>
+
+</div>
+<script src="/prezentace/prezentace.js"></script>
+</body>
+</html>

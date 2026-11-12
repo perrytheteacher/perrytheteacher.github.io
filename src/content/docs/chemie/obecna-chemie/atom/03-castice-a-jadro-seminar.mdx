@@ -1,0 +1,612 @@
+---
+title: 3. Částice a jádro (seminář)
+description: Rozšíření pro chemický seminář – elementární a subatomární částice, kvarky a gluony, vazebná energie a stabilita jader, nuklidy, izotopy, izobary, radioaktivita, rozpadové řady, štěpení, fúze, tokamaky, malé modulární reaktory a kvark-gluonové plazma.
+sidebar:
+  order: 3
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import Aplikace from '../../../../../components/Aplikace.astro';
+import Otazka from '../../../../../components/Otazka.astro';
+
+Rozšiřuje kapitoly [1. Jádro atomu](/chemie/obecna-chemie/atom/01-jadro-atomu/) a [2. Elektronový obal](/chemie/obecna-chemie/atom/02-elektronovy-obal/) pro chemický seminář 4. ročníku.
+
+Z čeho je proton? Proč Slunce svítí už čtyři a půl miliardy let a proč my fúzi na Zemi ještě neumíme využít? A proč je železo pro jádra tím, čím je pro chemii vzácný plyn? V této kapitole se podíváš pod úroveň, kterou běžná chemie potřebuje, a zjistíš, že odtud pochází energie hvězd, jaderných elektráren i většina hmotnosti tvého těla.
+
+:::note[Co se v této kapitole naučíte]
+- roztřídit částice na elementární a složené, popsat standardní model a složení protonu a neutronu z kvarků,
+- vypočítat hmotnostní úbytek a vazebnou energii jádra a vysvětlit tvar křivky vazebné energie na nukleon,
+- rozlišit nuklidy, izotopy, izobary, izotony a jaderné izomery a předpovědět typ přeměny podle polohy v mapě nuklidů,
+- počítat s poločasem přeměny a aktivitou, vysvětlit rozpadové řady,
+- porovnat štěpení a fúzi, popsat princip reaktoru, tokamaku a malého modulárního reaktoru a kriticky posoudit zprávy o „průlomech“,
+- vysvětlit, co je kvark-gluonové plazma a proč ho fyzici zkoumají.
+:::
+
+## 1 Elementární a subatomární částice
+
+**Subatomární částice** jsou všechny částice menší než atom: proton, neutron, elektron, ale i stovky dalších, které vznikají v kosmickém záření a v urychlovačích. **Elementární částice** nemají (podle současných znalostí) žádnou vnitřní strukturu. Elektron je elementární, proton a neutron ne – skládají se z kvarků.
+
+### Standardní model
+
+Všechny známé elementární částice shrnuje **standardní model částicové fyziky**:
+
+| Skupina | Částice | Co dělají |
+|---|---|---|
+| **kvarky** (6 „vůní“) | u (up), d (down), c (charm), s (strange), t (top), b (bottom) | skládají se z nich hadrony, např. proton a neutron; běžná hmota obsahuje jen u a d |
+| **leptony** (6) | elektron e, mion μ, tauon τ a ke každému neutrino ν<sub>e</sub>, ν<sub>μ</sub>, ν<sub>τ</sub> | elektron tvoří obaly atomů; neutrina téměř s ničím neinteragují |
+| **intermediální bosony** | foton γ, gluon g, bosony W<sup>+</sup>, W<sup>−</sup>, Z<sup>0</sup> | přenášejí síly: foton elektromagnetickou, gluony silnou, W a Z slabou interakci |
+| **Higgsův boson** | H (objeven v CERN 2012) | souvisí s tím, odkud mají elementární částice hmotnost |
+
+Ke každé částici existuje **antičástice** s opačným nábojem: k elektronu pozitron (objeven 1932 v kosmickém záření), k protonu antiproton. Gravitace ve standardním modelu není – to je jeden z velkých otevřených problémů fyziky.
+
+**Hadrony** jsou částice složené z kvarků:
+- **baryony** ze tří kvarků (proton, neutron),
+- **mezony** z kvarku a antikvarku (např. pion π<sup>+</sup> = u a anti-d).
+
+### Částice kolem tebe a v tobě
+
+- **Neutrina ze Slunce.** Každým centimetrem čtverečním tvého těla proletí každou sekundu asi 60 miliard slunečních neutrin. Skoro všechna proletí celou Zemí, aniž by s čímkoli interagovala.
+- **Miony z nebe.** Kosmické záření vytváří ve výšce kolem 15 km miony, které se rozpadají za pouhé 2,2 µs (střední doba života). I při rychlosti blízké rychlosti světla by za tu dobu urazily jen asi 660 m, a přesto jich na hladinu moře dopadá zhruba jeden na cm<sup>2</sup> za minutu. Pomáhá jim dilatace času z teorie relativity: z našeho pohledu jim čas běží pomaleji.
+- **Antihmota v nemocnici.** Při vyšetření PET dostane pacient látku s nuklidem <sup>18</sup>F, zářičem β<sup>+</sup>. Pozitron se v těle hned srazí s elektronem a oba anihilují na dva fotony γ, které letí opačnými směry. Detektory kolem pacienta z nich určí, kde se látka hromadí.
+- **Radioaktivní banán.** Draslík obsahuje 0,012 % radioaktivního <sup>40</sup>K. V banánu se ho přemění zhruba 15 jader za sekundu, v těle dospělého člověka asi 4 000–5 000.
+
+:::note[Myslím – dvojice – sdílím]
+Fyzikové v roce 2025 zveřejnili konečný, velmi přesný výsledek měření magnetických vlastností mionu (experiment Muon g−2 ve Fermilabu). Dlouho to vypadalo, že se měření od předpovědi standardního modelu liší a že objevíme „novou fyziku“. Nové teoretické výpočty ale ukázaly shodu. Je výsledek, který „jen“ potvrdil existující teorii, neúspěchem? Proč?
+:::
+
+<details>
+<summary>Zobrazit modelovou odpověď</summary>
+
+Není. Věda testuje teorie tím, že se je snaží vyvrátit. Teorie, která přežije test s přesností na desetiny miliontiny procenta, je silnější než před testem. Příběh ukazuje i to, že „rozpor“ může vzniknout chybou nebo nepřesností na straně výpočtu, nejen experimentu – a že vědci obojí kontrolují.
+
+</details>
+
+## 2 Uvnitř protonu a neutronu: kvarky a gluony
+
+| Kvark | Náboj (v násobcích e) | Hmotnost (MeV/c<sup>2</sup>) |
+|---|---|---|
+| u (up) | +2/3 | asi 2,2 |
+| d (down) | −1/3 | asi 4,7 |
+
+- **proton** = u u d: náboj +2/3 + 2/3 − 1/3 = **+1**
+- **neutron** = u d d: náboj +2/3 − 1/3 − 1/3 = **0**
+
+Kvarky drží pohromadě **silná interakce**, kterou zprostředkují **gluony**. Kvarky nesou zvláštní vlastnost, **barevný náboj** (nemá nic společného s barvou, je to jen název). Navenek se kvarky vždy skládají tak, aby byl hadron „bezbarvý“.
+
+### Uvěznění kvarků
+
+Volný kvark nikdy nikdo nepozoroval. Když se snažíme kvarky od sebe oddálit, síla mezi nimi neslábne jako u elektrických nábojů, ale zůstává stejná. Energie potřebná k oddálení rychle roste, až se z ní vytvoří nový pár kvark–antikvark. Místo volného kvarku tak vzniknou nové hadrony. Tomu se říká **uvěznění kvarků** (confinement).
+
+:::tip[Představ si]
+Magnet má severní a jižní pól. Když ho rozlomíš, nezískáš samostatný severní pól, ale dva menší magnety. Kvarky se chovají podobně: „rozlomením“ protonu nezískáš volný kvark, ale nové částice.
+:::
+
+### Odkud má proton hmotnost?
+
+Proton má hmotnost 938 MeV/c<sup>2</sup>. Hmotnosti jeho tří kvarků dají dohromady jen asi 9 MeV/c<sup>2</sup>, tedy zhruba **1 %**. Zbylých 99 % je energie pohybu kvarků a energie gluonového pole uvnitř protonu, převedená na hmotnost podle E = mc<sup>2</sup>.
+
+:::note[Myslím – dvojice – sdílím]
+Většina hmotnosti tvého těla je v protonech a neutronech. Co z toho plyne pro tvrzení „hmotnost je prostě množství látky“? Je správnější říct, že většina tvé hmotnosti je energie?
+:::
+
+<details>
+<summary>Zobrazit modelovou odpověď</summary>
+
+Ano, v jistém smyslu. Hmotnost těla tvoří z 99 % nukleony a jejich hmotnost je z 99 % energie silné interakce uvnitř nich. Pojem „množství látky“ platí v chemii (látkové množství, molární hmotnost), ale na úrovni částic se hmotnost a energie převádějí jedna na druhou. Odpovídá to i tomu, co vidíme u jader: jádro má menší hmotnost než součet jeho nukleonů (oddíl 3).
+
+</details>
+
+### Neutron uvnitř a mimo jádro
+
+Volný neutron není stabilní: s poločasem asi 10 minut se přemění na proton, elektron a antineutrino. Na úrovni kvarků se jeden kvark d změní na u (zprostředkuje to slabá interakce, boson W<sup>−</sup>). Totéž se děje v jádře při **přeměně β<sup>−</sup>**. Uvnitř stabilního jádra je ale neutron stálý, protože by přeměna energii nedodala, ale spotřebovala.
+
+### Jaderná síla jako „zbytek“ silné interakce
+
+Nukleony jsou navenek „bezbarvé“, přesto se v jádře přitahují. Jaderná síla je **zbytková** silná interakce, která „prosakuje“ ven z nukleonů a má dosah jen asi 1–2 fm (velikost nukleonu). Je to podobné jako u molekul: jsou elektricky neutrální, a přesto se přitahují slabými mezimolekulovými silami (disperzními, vodíkovými vazbami), které jsou zbytkem elektromagnetické interakce. Na velmi krátkou vzdálenost (pod asi 0,5 fm) se nukleony naopak silně odpuzují – proto se jádro nezhroutí.
+
+## 3 Vazebná energie a stabilita jádra
+
+Jádro <sup>4</sup>He má **menší hmotnost** než dva protony a dva neutrony zvlášť. Rozdíl se nazývá **hmotnostní úbytek** (hmotnostní defekt) Δm. Odpovídá energii, která se uvolnila při vzniku jádra – a kterou bychom museli dodat, abychom jádro rozložili na nukleony. Tato energie je **vazebná energie jádra**:
+
+<p class="rovnice">E<sub>v</sub> = Δm · c<sup>2</sup>, &nbsp; 1 u odpovídá 931,494 MeV</p>
+
+**Řešený příklad: <sup>4</sup>He**
+
+<Steps>
+
+1. Hmotnosti (atomové, tedy včetně elektronů): <sup>1</sup>H 1,007 825 u; neutron 1,008 665 u; <sup>4</sup>He 4,002 603 u.
+2. Součet „stavebnic“: 2 · 1,007 825 + 2 · 1,008 665 = 4,032 980 u.
+3. Hmotnostní úbytek: Δm = 4,032 980 − 4,002 603 = 0,030 377 u.
+4. Vazebná energie: E<sub>v</sub> = 0,030 377 · 931,494 MeV = 28,30 MeV, tedy 7,07 MeV na nukleon.
+
+</Steps>
+
+(Používáme atomové hmotnosti <sup>1</sup>H místo protonu; elektrony se na obou stranách odečtou.)
+
+:::tip[Představ si]
+Hmotnostní úbytek He-4 je asi 0,75 % hmotnosti. Při chemických reakcích se hmotnost také mění, ale asi milionkrát až desetmilionkrát méně – proto to v chemii zanedbáváme a zákon zachování hmotnosti platí „prakticky přesně“.
+:::
+
+### Křivka vazebné energie na nukleon
+
+Vazebná energie připadající na jeden nukleon (E<sub>v</sub>/A) říká, jak pevně jsou nukleony v jádře vázané. Nejvyšší je u jader kolem **železa a niklu** (<sup>62</sup>Ni 8,79 MeV, <sup>56</sup>Fe 8,79 MeV na nukleon). Z toho plyne nejdůležitější závěr kapitoly:
+
+- **Fúze** lehkých jader (zleva ke středu křivky) uvolňuje energii.
+- **Štěpení** těžkých jader (zprava ke středu) uvolňuje energii.
+- Jádra kolem železa jsou „na dně“ – žádnou z těchto cest z nich energii nezískáme. Proto jaderné reakce ve hvězdách končí u železa a těžší prvky (zlato, uran) vznikají jinak: zachycováním neutronů při výbuchu supernovy nebo při srážce neutronových hvězd.
+
+### Kapkový model jádra
+
+Tvar křivky vysvětluje jednoduchý **kapkový model**: jádro se chová podobně jako kapka nestlačitelné kapaliny. Jeho vazebnou energii skládá Weizsäckerův vzorec z pěti členů:
+
+| Člen | Co vyjadřuje | Vliv na E<sub>v</sub>/A |
+|---|---|---|
+| objemový | každý nukleon se přitahuje se sousedy | stálý příspěvek, asi 16 MeV |
+| povrchový | nukleony na povrchu mají méně sousedů | snižuje E<sub>v</sub>/A hlavně u **malých** jader (velký podíl povrchu) |
+| coulombovský | protony se navzájem odpuzují | snižuje E<sub>v</sub>/A hlavně u **velkých** jader |
+| asymetrický | jádra s velmi nerovným počtem n a p jsou méně stabilní | táhne jádra k poměru N ≈ Z |
+| párový | sudé počty protonů i neutronů jsou výhodnější | sudo-sudá jádra stabilnější, licho-lichá méně |
+
+Kapkový model nevysvětlí všechno. Jádra se **2, 8, 20, 28, 50, 82 a 126** protony nebo neutrony jsou výjimečně stabilní – jsou to **magická čísla**. Vysvětluje je slupkový model jádra: nukleony obsazují energetické hladiny podobně jako elektrony v obalu, a zaplněná „jaderná slupka“ je stabilní stejně jako elektronová konfigurace vzácného plynu. Dvojnásobně magická jádra <sup>4</sup>He, <sup>16</sup>O, <sup>40</sup>Ca a <sup>208</sup>Pb jsou mimořádně stálá.
+
+<Aplikace src="/aplikace/jadro-seminar/" title="Atomové jádro – vazebná energie, nuklidy, reakce" vyska={1050} stahnout="jadro-seminar.html" />
+
+V kartě **Vazebná energie** vypínej členy kapkového modelu a sleduj, který tvaruje kterou část křivky.
+
+:::note[Myslím – dvojice – sdílím]
+Kdyby protony neměly elektrický náboj (vypni v aplikaci coulombovský člen), kde by bylo maximum křivky? Co by to znamenalo pro existenci těžkých prvků a pro štěpení?
+:::
+
+<details>
+<summary>Zobrazit řešení</summary>
+
+Bez coulombovského odpuzování křivka s rostoucím A dál roste a pak se jen zplošťuje – maximum by se posunulo k velmi těžkým jádrům. Štěpení těžkých jader by energii neuvolňovalo, a naopak by bylo výhodné jádra dál slučovat. Coulombovské odpuzování je tedy důvod, proč těžká jádra existují jen do určité velikosti a proč je štěpení zdrojem energie.
+
+</details>
+
+## 4 Atomová čísla, nuklidy, izotopy, izobary
+
+Jádro popisují tři čísla: **protonové číslo Z**, **neutronové číslo N** a **nukleonové číslo A = Z + N**. Podle toho, která z nich mají nuklidy společná, rozlišujeme:
+
+| Pojem | Co mají nuklidy společné | Příklad |
+|---|---|---|
+| **izotopy** | Z (stejný prvek) | <sup>12</sup>C, <sup>13</sup>C, <sup>14</sup>C |
+| **izobary** | A | <sup>40</sup>Ar, <sup>40</sup>K, <sup>40</sup>Ca |
+| **izotony** | N | <sup>14</sup>C, <sup>15</sup>N, <sup>16</sup>O (N = 8) |
+| **jaderné izomery** | Z i A – liší se jen energií jádra | <sup>99m</sup>Tc a <sup>99</sup>Tc |
+
+Jaderný izomer <sup>99m</sup>Tc („m“ = metastabilní) s poločasem 6 hodin vyzáří jen foton γ a přejde na <sup>99</sup>Tc. Je to nejpoužívanější radionuklid v nukleární medicíně: snadno se detekuje a díky krátkému poločasu pacienta zatíží jen krátce.
+
+### Mapa nuklidů a údolí stability
+
+Známe přes 3 000 nuklidů, ale stabilních je jen asi 250. Když je zakreslíme do mapy (N vodorovně, Z svisle), leží stabilní jádra v úzkém pásu – **údolí stability**:
+
+- u lehkých jader je N ≈ Z, u těžkých převažují neutrony (u olova N/Z ≈ 1,5),
+- nuklidy **nad údolím** mají přebytek protonů → přeměna **β<sup>+</sup>** nebo **záchyt elektronu**,
+- nuklidy **pod údolím** mají přebytek neutronů → přeměna **β<sup>−</sup>**,
+- **velmi těžká** jádra (za olovem) → přeměna **α** nebo samovolné štěpení.
+
+Žádný stabilní izotop nemají technecium (Z = 43), promethium (Z = 61) a všechny prvky za olovem. Bismut-209 je sice radioaktivní, ale jeho poločas je asi 2 · 10<sup>19</sup> let, mnohem déle, než je stáří vesmíru.
+
+V kartě **Mapa nuklidů** klikni na libovolný nuklid a zjisti, jakou přeměnu mu předpovídá kapkový model.
+
+## 5 Radioaktivita přirozená a umělá
+
+**Přirozenou radioaktivitu** objevil Henri Becquerel (1896) na uranových solích. Marie Curie-Skłodowská a Pierre Curie z jáchymovského smolince izolovali polonium a radium (1898). **Umělou radioaktivitu** objevili Irène a Frédéric Joliot-Curieovi (1934):
+
+<p class="rovnice"><span class='nuklid'><sup>27</sup><sub>13</sub></span>Al + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He → <span class='nuklid'><sup>30</sup><sub>15</sub></span>P + <span class='nuklid'><sup>1</sup><sub>0</sub></span>n &nbsp;&nbsp;·&nbsp;&nbsp; <span class='nuklid'><sup>30</sup><sub>15</sub></span>P → <span class='nuklid'><sup>30</sup><sub>14</sub></span>Si + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e</p>
+
+Dnes se umělé radionuklidy vyrábějí ozařováním neutrony v reaktorech nebo v urychlovačích (cyklotronech).
+
+### Typy přeměn
+
+| Přeměna | Co se děje | Změna Z, A | Příklad |
+|---|---|---|---|
+| α | jádro vyšle <span class='nuklid'><sup>4</sup><sub>2</sub></span>He | Z − 2, A − 4 | <span class='nuklid'><sup>226</sup><sub>88</sub></span>Ra → <span class='nuklid'><sup>222</sup><sub>86</sub></span>Rn + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He |
+| β<sup>−</sup> | n → p + e<sup>−</sup> + antineutrino | Z + 1 | <span class='nuklid'><sup>14</sup><sub>6</sub></span>C → <span class='nuklid'><sup>14</sup><sub>7</sub></span>N + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e |
+| β<sup>+</sup> | p → n + e<sup>+</sup> + neutrino | Z − 1 | <span class='nuklid'><sup>18</sup><sub>9</sub></span>F → <span class='nuklid'><sup>18</sup><sub>8</sub></span>O + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e |
+| záchyt elektronu | jádro pohltí elektron z obalu (K-slupky): p + e<sup>−</sup> → n | Z − 1 | <sup>40</sup>K → <sup>40</sup>Ar (vedlejší větev) |
+| γ (izomerní přechod) | jádro vyzáří přebytečnou energii | beze změny | <sup>99m</sup>Tc → <sup>99</sup>Tc |
+| samovolné štěpení | jádro se rozpadne na dvě střední | — | <sup>252</sup>Cf |
+
+Při záchytu elektronu zůstane v obalu prázdné místo po elektronu z nejnižší slupky. Zaplní ho elektron z vyšší slupky a rozdíl energie se vyzáří jako **rentgenové záření**. Toto záření tedy vzniká v obalu, ne v jádře.
+
+Vlastnosti záření α, β a γ (pronikavost, ionizační účinky, poškození tkání) najdeš v kapitole [Jádro atomu, oddíl 6](/chemie/obecna-chemie/atom/01-jadro-atomu/#6-radioaktivita-a-vlastnosti-záření).
+
+### Zákon radioaktivní přeměny
+
+Kdy se přemění konkrétní jádro, předpovědět nelze – je to náhoda. Velký soubor jader se ale řídí zákonem:
+
+<p class="rovnice">N = N<sub>0</sub> · (1/2)<sup>t/T</sup> = N<sub>0</sub> · e<sup>−λt</sup>, &nbsp; λ = ln 2 / T</p>
+
+N<sub>0</sub> je počáteční počet jader, T poločas přeměny, λ přeměnová konstanta.
+
+**Aktivita** A je počet přeměn za sekundu, jednotka **becquerel** (1 Bq = 1 přeměna za sekundu). Platí A = λ · N: čím kratší poločas, tím vyšší aktivita stejného počtu jader.
+
+**Řešený příklad: aktivita 1 g radia-226** (T = 1 600 let)
+
+<Steps>
+
+1. Počet jader: N = (1 g / 226 g·mol<sup>−1</sup>) · 6,022 · 10<sup>23</sup> mol<sup>−1</sup> = 2,66 · 10<sup>21</sup>.
+2. Poločas v sekundách: T = 1 600 · 3,156 · 10<sup>7</sup> s = 5,05 · 10<sup>10</sup> s; λ = 0,693 / T = 1,37 · 10<sup>−11</sup> s<sup>−1</sup>.
+3. Aktivita: A = λN = 3,7 · 10<sup>10</sup> Bq. Právě tuto hodnotu si dříve vzali jako jednotku **curie** (Ci).
+
+</Steps>
+
+**Radiouhlíková metoda.** Živé organismy mají v uhlíku stálý podíl <sup>14</sup>C (doplňuje ho výměna s atmosférou). Po smrti už <sup>14</sup>C nepřibývá a jeho podíl klesá s poločasem 5 730 let. Vzorek se 60 % původní aktivity je starý t = T · log<sub>2</sub>(1/0,60) = 5 730 · 0,737 ≈ 4 200 let.
+
+V kartě **Poločas** sleduj, jak se náhodné přeměny 400 jader skládají do pravidelné křivky.
+
+## 6 Rozpadové řady
+
+Těžká jádra se nepřemění na stabilní najednou, ale řadou postupných přeměn α a β<sup>−</sup> – vzniká **rozpadová řada**. Protože nukleonové číslo mění jen přeměna α (o 4), mají všechny členy jedné řady stejný zbytek A po dělení čtyřmi. Existují proto právě **čtyři řady**:
+
+| Řada | Výchozí nuklid (poločas) | Konečný stabilní nuklid | A |
+|---|---|---|---|
+| thoriová | <sup>232</sup>Th (1,4 · 10<sup>10</sup> let) | <sup>208</sup>Pb | 4n |
+| neptuniová | <sup>237</sup>Np (2,1 · 10<sup>6</sup> let) | <sup>209</sup>Bi (prakticky stabilní) | 4n + 1 |
+| uranová | <sup>238</sup>U (4,5 · 10<sup>9</sup> let) | <sup>206</sup>Pb | 4n + 2 |
+| aktiniová | <sup>235</sup>U (7,0 · 10<sup>8</sup> let) | <sup>207</sup>Pb | 4n + 3 |
+
+V přírodě najdeme jen tři řady. Neptuniová za 4,5 miliardy let existence Země „vyhasla“, protože i její nejdéle žijící člen má poločas jen asi 2 miliony let.
+
+Uranová řada obsahuje **radon-222**, plyn, který z hornin uniká do budov. Je hlavním přírodním zdrojem ozáření obyvatel ČR; ve sklepech a přízemí se proto měří a domy se proti němu izolují.
+
+V kartě **Mapa nuklidů** vyber rozpadovou řadu: uvidíš cik-cak cestu přeměn α (o dvě políčka šikmo dolů) a β<sup>−</sup> (o jedno políčko šikmo nahoru) a tabulku poločasů.
+
+:::note[Myslím – dvojice – sdílím]
+Ve vzorku horniny najdeme uran-238 a olovo-206. Jak bychom mohli z jejich poměru určit stáří horniny? Jaký předpoklad musí platit?
+:::
+
+<details>
+<summary>Zobrazit řešení</summary>
+
+Každé jádro <sup>206</sup>Pb vzniklo z jednoho jádra <sup>238</sup>U (mezičlánky řady mají proti uranu zanedbatelně krátké poločasy). Z poměru Pb/U a poločasu uranu lze vypočítat, jak dlouho přeměna probíhá. Předpoklad: hornina při vzniku žádné olovo-206 neobsahovala a od té doby z ní uran ani olovo neunikly ani do ní nepřibyly. Tak se určilo i stáří Země, asi 4,5 miliardy let.
+
+</details>
+
+## 7 Jaderné štěpení
+
+Štěpení objevili Otto Hahn a Fritz Strassmann (1938), když ostřelovali uran neutrony a našli mezi produkty baryum. Vysvětlení podali Lise Meitner a Otto Frisch (1939).
+
+<p class="rovnice"><span class='nuklid'><sup>235</sup><sub>92</sub></span>U + <span class='nuklid'><sup>1</sup><sub>0</sub></span>n → <span class='nuklid'><sup>141</sup><sub>56</sub></span>Ba + <span class='nuklid'><sup>92</sup><sub>36</sub></span>Kr + 3 <span class='nuklid'><sup>1</sup><sub>0</sub></span>n &nbsp;&nbsp; (Q ≈ 173 MeV okamžitě, celkem asi 200 MeV)</p>
+
+Jádro <sup>235</sup>U se po pohlcení pomalého neutronu rozkmitá, protáhne a rozpadne na dva středně těžké fragmenty (jsou desítky možných dvojic). Většinu energie nesou fragmenty jako kinetickou energii, ta se v palivu mění na teplo.
+
+### Řetězová reakce a reaktor
+
+Při štěpení vznikají 2–3 neutrony, které mohou štěpit další jádra. Pro řízení je klíčový **multiplikační koeficient** k, počet neutronů z jednoho štěpení, které vyvolají další štěpení:
+
+- k < 1 – reakce dohasíná,
+- k = 1 – **kritický stav**, reakce běží rovnoměrně (provoz reaktoru),
+- k > 1 – reakce se rozbíhá.
+
+Klíčové části tlakovodního reaktoru (Dukovany, Temelín):
+
+| Část | Úloha |
+|---|---|
+| **palivo** | UO<sub>2</sub> obohacený na 3–5 % <sup>235</sup>U (přírodní uran má 0,72 %) |
+| **moderátor** (voda) | zpomaluje neutrony, protože pomalé neutrony <sup>235</sup>U štěpí mnohem ochotněji |
+| **regulační tyče** (bor, kadmium) | pohlcují neutrony a udržují k = 1 |
+| **chladivo** (voda pod tlakem) | odvádí teplo do parogenerátoru; pára roztáčí turbínu |
+
+Řízení umožňují **zpožděné neutrony**: asi 0,65 % neutronů (u <sup>235</sup>U) nevzniká hned, ale až za sekundy po přeměnách štěpných produktů. Díky nim mají regulační systémy čas reagovat.
+
+:::tip[Představ si]
+Z 1 g uranu-235 získáme štěpením asi 20 000 kWh tepla. Stejné množství tepla dá spálení zhruba 2,5 tuny uhlí.
+:::
+
+**Přírodní reaktor Oklo.** V Gabonu před asi 2 miliardami let samovolně běžela řetězová reakce v ložisku uranu. Tehdy obsahoval přírodní uran asi 3 % <sup>235</sup>U (od té doby se ho víc přeměnilo, protože má kratší poločas než <sup>238</sup>U) a podzemní voda posloužila jako moderátor.
+
+### Malé modulární reaktory (SMR)
+
+Malé modulární reaktory mají menší výkon (podle Mezinárodní agentury pro atomovou energii do asi 300 MW elektrického výkonu) a vyrábějí se z velké části v továrně jako moduly. Spoléhají víc na **pasivní bezpečnost**: chlazení samotížným prouděním bez čerpadel a bez zásahu obsluhy.
+
+| Projekt | Výkon (elektrický) | Stav (podzim 2026) |
+|---|---|---|
+| Akademik Lomonosov (Rusko) | 2 × 35 MW | plovoucí elektrárna, v provozu od roku 2020 |
+| HTR-PM (Čína) | 210 MW | vysokoteplotní reaktor chlazený heliem, v provozu od prosince 2023 |
+| Linglong One / ACP100 (Čína) | 125 MW | komerční provoz plánován na rok 2026 |
+| BWRX-300, Darlington (Kanada) | 300 MW | ve výstavbě, dokončení plánováno do konce dekády |
+| Rolls-Royce SMR, Temelín (ČR) | 470 MW | příprava, ČEZ podal dokumentaci EIA; spuštění ve 2. polovině 30. let |
+
+[Zdroje k tabulce](#zdroje-k-aktuálním-údajům) najdeš na konci kapitoly.
+
+:::note[Myslím – dvojice – sdílím]
+Reaktor Rolls-Royce SMR plánovaný pro Temelín má elektrický výkon 470 MW. Bloky v Dukovanech mají kolem 500 MW. Je to tedy ještě „malý“ reaktor? Co dělá reaktor „modulárním“ a proč na tom výrobcům záleží?
+:::
+
+<details>
+<summary>Zobrazit modelovou odpověď</summary>
+
+Podle běžné definice (do asi 300 MW) by 470 MW malý reaktor nebyl; výrobce ho označuje jako SMR kvůli způsobu výroby a stavby. „Modulární“ znamená, že velká část zařízení se vyrábí sériově v továrně a na místo se dováží v modulech. Výhodou má být nižší cena díky sériové výrobě, kratší výstavba a menší investiční riziko. Zda se to potvrdí, ukáží až první postavené bloky. Je to dobrý příklad toho, že u technických pojmů je potřeba zjistit, jak je kdo používá.
+
+</details>
+
+## 8 Jaderná fúze
+
+### Slunce: pomalá fúze
+
+Ve Slunci se vodík mění na helium **proton-protonovým řetězcem**. Souhrnně:
+
+<p class="rovnice">4 <span class='nuklid'><sup>1</sup><sub>1</sub></span>H → <span class='nuklid'><sup>4</sup><sub>2</sub></span>He + 2 e<sup>+</sup> + 2 neutrina &nbsp;&nbsp; (asi 26,7 MeV včetně anihilace pozitronů)</p>
+
+Ve středu Slunce je asi 15 milionů kelvinů. To je na srážku dvou kladných protonů málo – překonávají elektrické odpuzování jen díky kvantovému **tunelovému jevu** a navíc první krok vyžaduje vzácnou přeměnu protonu na neutron (slabá interakce). Jeden proton tak čeká na fúzi v průměru miliardy let. Proto Slunce „hoří“ pomalu a vydrží 10 miliard let.
+
+### Fúze na Zemi
+
+Na Zemi tolik času ani tak obrovskou hustotu nemáme. Používáme proto nejsnáze zapálitelnou reakci deuteria s tritiem:
+
+<p class="rovnice"><span class='nuklid'><sup>2</sup><sub>1</sub></span>H + <span class='nuklid'><sup>3</sup><sub>1</sub></span>H → <span class='nuklid'><sup>4</sup><sub>2</sub></span>He (3,5 MeV) + <span class='nuklid'><sup>1</sup><sub>0</sub></span>n (14,1 MeV) &nbsp;&nbsp; Q = 17,6 MeV</p>
+
+Potřebná teplota je asi **150 milionů °C**, desetkrát víc než ve středu Slunce. Deuterium se získává z vody. Tritium je radioaktivní (poločas 12,3 roku) a v přírodě ho skoro není; vyrábět se bude přímo v reaktoru z lithia: <span class='nuklid'><sup>6</sup><sub>3</sub></span>Li + <span class='nuklid'><sup>1</sup><sub>0</sub></span>n → <span class='nuklid'><sup>4</sup><sub>2</sub></span>He + <span class='nuklid'><sup>3</sup><sub>1</sub></span>H.
+
+Aby se plazma samo ohřívalo, musí být splněno **Lawsonovo kritérium**: součin hustoty plazmatu, jeho teploty a doby, po kterou udržíme energii, musí překročit určitou mez. Existují dvě cesty:
+
+| | Magnetické udržení | Inerciální udržení |
+|---|---|---|
+| princip | řídké plazma držené magnetickým polem dlouho | malý terčík stlačený a zahřátý lasery na miliardtiny sekundy |
+| zařízení | **tokamak** (sovětský koncept z 50. let), stelarátor | laserové zařízení NIF (USA) |
+| rekordy | JET (Velká Británie): 69 MJ fúzní energie za 5 s (2023, poté uzavřen); WEST (Francie): plazma 1 337 s, tj. přes 22 minut (únor 2025); EAST (Čína): 1 066 s (leden 2025) | NIF: 3,15 MJ z 2,05 MJ laserové energie (prosinec 2022, první „zapálení“); 8,6 MJ z 2,08 MJ (duben 2025) |
+
+**ITER** v Cadarache (Francie) je mezinárodní tokamak, který má poprvé získat desetkrát víc fúzního výkonu, než se do plazmatu dodá (500 MW z 50 MW ohřevu po dobu 400 s). Podle plánu z roku 2024 má výzkumný provoz začít v roce 2034 a provoz se směsí deuteria a tritia v roce 2039. V létě 2026 bylo v jámě tokamaku umístěno šest z devíti sektorů vakuové komory.
+
+**Česká stopa:** V Ústavu fyziky plazmatu AV ČR v Praze se staví tokamak **COMPASS-U** s magnetickým polem 5 T a stěnou zahřátou až na 500 °C, který má testovat podmínky blízké budoucím fúzním elektrárnám. Na FJFI ČVUT pracuje nejstarší provozovaný tokamak na světě **GOLEM**, který mohou studenti ovládat i na dálku přes internet.
+
+:::caution[Pozor na zprávy o „průlomu“]
+Zisk 8,6 MJ z 2,08 MJ v NIF se týká energie **dodané do terčíku**. Lasery přitom spotřebují ze sítě stovky megajoulů. Pro elektrárnu je důležitý celkový zisk včetně účinnosti laserů a přeměny tepla na elektřinu – a ten je zatím hluboko pod jedničkou. Podobně rekordní délka plazmatu ve WEST ještě neznamená, že tokamak vyráběl energii.
+:::
+
+### Štěpení a fúze v přehledu
+
+| | Štěpení | Fúze (D–T) |
+|---|---|---|
+| energie na reakci | asi 200 MeV | 17,6 MeV |
+| energie na nukleon | asi 0,85 MeV | asi 3,5 MeV |
+| energie z 1 g paliva | asi 20 000 kWh | asi 94 000 kWh |
+| palivo | uran (omezené zásoby, těžba) | deuterium z vody, lithium |
+| odpad | vyhořelé palivo s dlouhožijícími radionuklidy | aktivované konstrukční materiály, převážně s kratšími poločasy |
+| riziko nekontrolované reakce | řetězová reakce musí být řízena | plazma bez udržení okamžitě zhasne |
+| stav | komerční elektrárny od 50. let | výzkum; elektrárny nejdříve ve 2. polovině století |
+
+V kartě **Energie reakcí** si spočítej uvolněnou energii a porovnej štěpení, fúzi a přeměny α.
+
+## 9 Kvark-gluonové plazma
+
+Při teplotě kolem 2 · 10<sup>12</sup> K (asi stotisíckrát víc než ve středu Slunce) se protony a neutrony „roztaví“ a kvarky s gluony se mohou volně pohybovat v celém objemu. Vzniká **kvark-gluonové plazma**. Takto vypadala veškerá hmota ve vesmíru několik mikrosekund po velkém třesku, než kvarky „zamrzly“ do protonů a neutronů.
+
+Na Zemi ho fyzici vytvářejí srážkami těžkých jader (zlata, olova) urychlených téměř na rychlost světla. Malá kapka plazmatu existuje jen asi 10<sup>−23</sup> s.
+- **RHIC** v Brookhavenu (USA) srážel jádra zlata od roku 2000. V 25 letech provozu ukázal, že plazma se nechová jako plyn, ale jako téměř **dokonalá kapalina** s nejmenší viskozitou, jakou známe. Poslední srážky proběhly v únoru 2026; urychlovač se přestavuje na **elektron-iontový urychlovač** (EIC), který má zkoumat, jak kvarky a gluony tvoří hmotnost a spin protonu.
+- **LHC** v CERN (experiment ALICE) zkoumá plazma při ještě vyšších energiích.
+
+### K čemu to je?
+
+Kvark-gluonové plazma nemá žádné praktické využití – a nejspíš nikdy mít nebude. Výzkum odpovídá na otázky, jak vznikla hmota ve vesmíru, odkud mají protony hmotnost a jak se chová hmota v neutronových hvězdách. Vedlejší produkty výzkumu ale využití mají: detektory částic se uplatňují v lékařském zobrazování, urychlovače v léčbě nádorů a v CERN vznikl v roce 1989 web (WWW) jako nástroj pro sdílení dat mezi fyziky.
+
+:::note[Myslím – dvojice – sdílím]
+Má stát platit výzkum, který nemá praktické využití? Najděte dva argumenty pro a dva proti. Pomůže vám, když si vzpomenete, k čemu byl „užitečný“ objev elektronu v roce 1897?
+:::
+
+<details>
+<summary>Zobrazit modelovou odpověď</summary>
+
+Pro: základní výzkum rozšiřuje poznání a jeho využití často nelze předem odhadnout (elektron před 130 lety neměl žádné využití, dnes je na něm postavená elektronika); vedlejší technologie (detektory, výpočetní technika, WWW); výchova odborníků; mezinárodní spolupráce. Proti: omezené veřejné peníze a naléhavější potřeby (zdravotnictví, klima); nejistá návratnost; část výzkumu by mohla financovat soukromá sféra. Dobrá odpověď zvažuje obě strany a uvádí konkrétní příklady.
+
+</details>
+
+## Shrnutí
+
+- Elementární částice: 6 kvarků, 6 leptonů, intermediální bosony a Higgsův boson. Proton (uud) a neutron (udd) jsou hadrony z kvarků držených gluony; volný kvark neexistuje.
+- Hmotnost protonu tvoří z 99 % energie silné interakce, ne hmotnost kvarků.
+- Jádro má menší hmotnost než jeho nukleony: hmotnostní úbytek Δm odpovídá vazebné energii E<sub>v</sub> = Δm · c<sup>2</sup>.
+- Vazebná energie na nukleon je nejvyšší u Fe a Ni: fúze lehkých a štěpení těžkých jader uvolňují energii.
+- Izotopy (stejné Z), izobary (stejné A), izotony (stejné N), izomery (stejné Z i A, jiná energie). Stabilní jádra leží v údolí stability; magická čísla 2, 8, 20, 28, 50, 82, 126.
+- N = N<sub>0</sub> · (1/2)<sup>t/T</sup>, aktivita A = λN v becquerelech. Čtyři rozpadové řady 4n až 4n + 3.
+- Štěpení: řetězová reakce řízená moderátorem a regulačními tyčemi, k = 1. Fúze D–T potřebuje 150 milionů °C a udržení plazmatu (tokamak, lasery).
+- Kvark-gluonové plazma je stav hmoty z prvních mikrosekund vesmíru; zkoumá se kvůli poznání, ne kvůli využití.
+
+## Procvičování
+
+### Rychlé otázky
+
+<Otazka
+	zadani="Která částice je elementární?"
+	moznosti={["proton", "neutron", "elektron", "jádro helia"]}
+	spravne={2}
+	vysvetleni="Elektron je lepton bez vnitřní struktury. Proton a neutron jsou složené z kvarků, jádro helia z nukleonů."
+/>
+
+<Otazka
+	zadani="Jaký náboj má částice složená z kvarků u u u (baryon Δ<sup>++</sup>)?"
+	moznosti={["+1", "+2", "+3", "0"]}
+	spravne={1}
+	vysvetleni="3 · (+2/3) = +2."
+/>
+
+<Otazka
+	zadani="Kolik procent hmotnosti protonu tvoří klidové hmotnosti jeho tří kvarků?"
+	moznosti={["asi 1 %", "asi 33 %", "asi 90 %", "100 %"]}
+	spravne={0}
+	vysvetleni="u + u + d ≈ 2,2 + 2,2 + 4,7 ≈ 9 MeV/c<sup>2</sup> z 938 MeV/c<sup>2</sup>. Zbytek je energie silné interakce."
+/>
+
+<Otazka
+	zadani="Nuklidy <sup>40</sup>Ar, <sup>40</sup>K a <sup>40</sup>Ca jsou:"
+	moznosti={["izotopy", "izobary", "izotony", "izomery"]}
+	spravne={1}
+	vysvetleni="Mají stejné nukleonové číslo A = 40, různé Z."
+/>
+
+<Otazka
+	zadani="Nuklid leží v mapě nuklidů pod údolím stability (má přebytek neutronů). Jakou přeměnu očekáváš?"
+	moznosti={["α", "β<sup>−</sup>", "β<sup>+</sup>", "záchyt elektronu"]}
+	spravne={1}
+	vysvetleni="Přeměnou β<sup>−</sup> se neutron mění na proton, jádro se tím posune k údolí stability."
+/>
+
+<Otazka
+	zadani="Proč uvolňuje energii štěpení uranu i fúze vodíku?"
+	moznosti={["obě reakce zvyšují vazebnou energii na nukleon", "obě reakce zvyšují počet nukleonů", "obě reakce ničí protony", "uvolňuje ji jen štěpení, fúze energii spotřebuje"]}
+	spravne={0}
+	vysvetleni="Produkty mají v obou případech vyšší vazebnou energii na nukleon (blíž k Fe a Ni) – nukleony jsou vázané pevněji a rozdíl se uvolní."
+/>
+
+<Otazka
+	zadani="K čemu slouží v tlakovodním reaktoru voda jako moderátor?"
+	moznosti={["pohlcuje neutrony a zastavuje reakci", "zpomaluje neutrony, aby lépe štěpily <sup>235</sup>U", "obohacuje palivo", "mění neutrony na protony"]}
+	spravne={1}
+	vysvetleni="Pomalé (tepelné) neutrony štěpí <sup>235</sup>U mnohem ochotněji. Neutrony pohlcují regulační tyče (bor, kadmium)."
+/>
+
+<Otazka
+	zadani="Proč potřebuje fúze na Zemi vyšší teplotu (150 milionů °C) než ve středu Slunce (15 milionů K)?"
+	moznosti={["protože na Zemi je jiná gravitační konstanta", "protože Slunce má obrovskou hustotu a čas a reakce v něm probíhá velmi pomalu; my potřebujeme rychlou reakci v řídkém plazmatu", "protože deuterium je těžší než vodík", "protože Slunce je z jiného prvku"]}
+	spravne={1}
+	vysvetleni="Ve Slunci čeká proton na fúzi v průměru miliardy let; obrovská hmotnost to vyváží. V reaktoru potřebujeme dostatek reakcí za krátký čas v plazmatu mnohem řidším, než je nitro Slunce."
+/>
+
+### Úlohy
+
+**Úloha D1.** Doplň náboj částic podle složení z kvarků (anti-d má náboj +1/3): a) uud, b) udd, c) uds (baryon Λ), d) u a anti-d (pion π<sup>+</sup>).
+
+<details>
+<summary>Řešení D1</summary>
+
+a) +1 · b) 0 · c) 2/3 − 1/3 − 1/3 = 0 · d) 2/3 + 1/3 = +1
+
+</details>
+
+**Úloha D2.** Vypočti hmotnostní úbytek, vazebnou energii a vazebnou energii na nukleon jádra <sup>56</sup>Fe (Z = 26). Hmotnosti: <sup>1</sup>H 1,007 825 u, n 1,008 665 u, <sup>56</sup>Fe 55,934 936 u.
+
+<details>
+<summary>Řešení D2</summary>
+
+26 · 1,007 825 + 30 · 1,008 665 = 26,203 450 + 30,259 950 = 56,463 400 u. Δm = 56,463 400 − 55,934 936 = 0,528 464 u. E<sub>v</sub> = 0,528 464 · 931,494 ≈ 492,3 MeV, tj. 8,79 MeV na nukleon.
+
+</details>
+
+**Úloha D3.** Vypočti energii uvolněnou fúzí D + T. Hmotnosti: <sup>2</sup>H 2,014 102 u, <sup>3</sup>H 3,016 049 u, <sup>4</sup>He 4,002 603 u, n 1,008 665 u.
+
+<details>
+<summary>Řešení D3</summary>
+
+Vlevo 5,030 151 u, vpravo 5,011 268 u, Δm = 0,018 883 u, Q = 0,018 883 · 931,494 ≈ 17,6 MeV.
+
+</details>
+
+**Úloha D4.** Rozhodni, zda jde o izotopy, izobary, izotony, nebo izomery: a) <sup>3</sup>H a <sup>3</sup>He, b) <sup>13</sup>C a <sup>14</sup>N, c) <sup>235</sup>U a <sup>238</sup>U, d) <sup>99m</sup>Tc a <sup>99</sup>Tc.
+
+<details>
+<summary>Řešení D4</summary>
+
+a) izobary (A = 3) · b) izotony (N = 7) · c) izotopy · d) jaderné izomery
+
+</details>
+
+**Úloha D5.** Do které rozpadové řady (4n, 4n + 1, 4n + 2, 4n + 3) patří: a) <sup>226</sup>Ra, b) <sup>227</sup>Ac, c) <sup>228</sup>Th, d) <sup>225</sup>Ac?
+
+<details>
+<summary>Řešení D5</summary>
+
+a) 226 = 4 · 56 + 2 → uranová · b) 227 = 4 · 56 + 3 → aktiniová · c) 228 = 4 · 57 → thoriová · d) 225 = 4 · 56 + 1 → neptuniová
+
+</details>
+
+**Úloha D6.** Thorium <sup>232</sup>Th se řadou přeměn mění na <sup>208</sup>Pb. Kolik přeměn α a β<sup>−</sup> proběhne?
+
+<details>
+<summary>Řešení D6</summary>
+
+ΔA = 24 → 6 přeměn α, které by snížily Z o 12 na 78. Olovo má Z = 82, proto 4 přeměny β<sup>−</sup>.
+
+</details>
+
+**Úloha D7.** Vzorek obsahuje 8,0 · 10<sup>20</sup> jader jodu-131 (T = 8,0 dne). a) Kolik jader zbude za 40 dní? b) Jaká je počáteční aktivita?
+
+<details>
+<summary>Řešení D7</summary>
+
+a) 40 dní = 5 poločasů, N = 8,0 · 10<sup>20</sup> / 32 = 2,5 · 10<sup>19</sup>. b) λ = 0,693 / (8,0 · 86 400 s) = 1,0 · 10<sup>−6</sup> s<sup>−1</sup>; A = λN ≈ 8,0 · 10<sup>14</sup> Bq.
+
+</details>
+
+**Úloha D8.** Kousek dřeva z pravěkého ohniště má 25 % aktivity <sup>14</sup>C ve srovnání s živým dřevem. Jak je starý? Jak starý by byl při 70 % aktivity?
+
+<details>
+<summary>Řešení D8</summary>
+
+25 % = 2 poločasy, asi 11 460 let. Pro 70 %: t = 5 730 · log<sub>2</sub>(1/0,70) = 5 730 · 0,515 ≈ 2 950 let.
+
+</details>
+
+**Úloha D9 ★.** Elektrárna Temelín má dva bloky o tepelném výkonu asi 3 000 MW každý. Kolik <sup>235</sup>U se v jednom bloku rozštěpí za den, když jedno štěpení uvolní 200 MeV?
+
+<details>
+<summary>Řešení D9</summary>
+
+Energie za den: 3,0 · 10<sup>9</sup> W · 86 400 s = 2,6 · 10<sup>14</sup> J. Jedno štěpení: 200 · 1,602 · 10<sup>−13</sup> J = 3,2 · 10<sup>−11</sup> J. Počet štěpení: 8,1 · 10<sup>24</sup>, tj. 13,4 mol, asi 3,2 kg <sup>235</sup>U za den.
+
+</details>
+
+**Úloha D10 ★.** Proč vede záchyt elektronu ke vzniku rentgenového záření, a ne záření γ?
+
+<details>
+<summary>Řešení D10</summary>
+
+Jádro při záchytu pohltí elektron z nejnižší slupky obalu. Prázdné místo zaplní elektron z vyšší slupky a rozdíl energií (keV) se vyzáří jako rentgenové záření – vzniká v obalu. Záření γ vzniká v jádře při přechodu jádra do nižšího energetického stavu.
+
+</details>
+
+## Kritické myšlení
+
+<details>
+<summary>Novinový titulek: „Vědci vyrobili víc energie, než spotřebovali – fúzní energie je tady.“ Co je na titulku pravdivé a co zavádějící?</summary>
+
+Pravdivé: v NIF fúze uvolnila víc energie (8,6 MJ), než laser dodal do terčíku (2,08 MJ). Zavádějící: lasery spotřebovaly ze sítě stovky megajoulů, zařízení vystřelí jen několik pokusů denně a nevyrábí žádnou elektřinu. K elektrárně chybí opakovací frekvence, celková energetická bilance, výroba tritia i odolné materiály. Fúzní elektrárny se realisticky očekávají nejdříve ve druhé polovině století.
+
+</details>
+
+<details>
+<summary>Proč se ve hvězdách nevyrábí energie fúzí železa na těžší prvky? Odkud se tedy vzalo zlato ve tvém prstenu?</summary>
+
+Železo a nikl mají nejvyšší vazebnou energii na nukleon. Fúze železa by energii spotřebovala, ne uvolnila. Těžší prvky vznikají zachycováním neutronů: pomalu ve starých hvězdách (s-proces) a rychle při výbuchu supernovy nebo srážce neutronových hvězd (r-proces). Zlato v prstenu tedy vzniklo v jedné z nejbouřlivějších událostí ve vesmíru ještě před vznikem Sluneční soustavy.
+
+</details>
+
+<details>
+<summary>Spolužák tvrdí: „Malé modulární reaktory jsou bezpečnější, protože jsou malé.“ Souhlasíš?</summary>
+
+Zčásti. Menší reaktor má menší množství radioaktivních látek a menší zbytkové teplo po odstavení, takže se dá snáze uchladit pasivně (bez čerpadel a obsluhy). Bezpečnost ale neplyne z velikosti samotné, nýbrž z konstrukce (pasivní systémy, ochranné obálky) a z dozoru. Velké moderní reaktory mají také pasivní prvky. Navíc hodně malých reaktorů znamená víc lokalit a víc přeprav paliva. Dobrá odpověď rozliší „menší zdrojový člen“ a „automaticky bezpečnější“.
+
+</details>
+
+<details>
+<summary>Proč měl přírodní reaktor v Oklu před 2 miliardami let palivo „obohacené“ na 3 %, ale dnes by se v podobném ložisku řetězová reakce nerozběhla?</summary>
+
+<sup>235</sup>U má kratší poločas (7,0 · 10<sup>8</sup> let) než <sup>238</sup>U (4,5 · 10<sup>9</sup> let), takže ho ubývá rychleji. Před 2 miliardami let (asi 3 poločasy <sup>235</sup>U) ho bylo relativně víc, kolem 3 % – podobně jako v dnešním obohaceném palivu. Dnes je ho jen 0,72 %, a s obyčejnou vodou jako moderátorem to na kritický stav nestačí.
+
+</details>
+
+<details>
+<summary>Kvarky nikdy nikdo nepozoroval samotné. Jak tedy víme, že existují?</summary>
+
+Z nepřímých důkazů: při rozptylu elektronů na protonech (SLAC, 60. léta) se elektrony odrážely, jako by v protonu byly tři bodové náboje – podobně jako Rutherford „uviděl“ jádro. Kvarkový model navíc správně předpověděl existenci a vlastnosti dalších částic. Ve vědě je běžné, že existenci objektu prokazujeme tím, jak přesně model s ním předpovídá výsledky měření, ne přímým pohledem – stejně jako u atomů nebo orbitalů.
+
+</details>
+
+## Zdroje k aktuálním údajům
+
+Údaje o fúzních zařízeních a reaktorech se rychle mění, stav je k listopadu 2026:
+
+- ITER – harmonogram (2034, 2039) a montáž sektorů: [ANS Nuclear News, září 2026](https://ans.org/news/2026-09-09/article-8375/iter-reports-substantial-progress-in-assembly-and-installation-work)
+- WEST – rekord 1 337 s: [CEA, únor 2025](https://cea.fr/english/Pages/News/nuclear-fusion-west-beats-the-world-record-for-plasma-duration.aspx)
+- NIF – 8,6 MJ z 2,08 MJ: [LLNL Annual Report 2025](https://annual.llnl.gov/sites/annual/files/2026-02/llnlannual25-3-national-ignition-facility.pdf)
+- SMR v Temelíně: [ČEZ, 2026](https://www.cez.cz/udrzitelnost-a-etika/cs/novinky/projekt-maleho-modularniho-reaktoru-v-temeline-postupuje-do-dalsi-faze.-cez-odevzdal-klicovou-dokumentaci-eia-240568), [oEnergetice.cz – výkon 470 MW](https://oenergetice.cz/jaderne-elektrarny/cez-rozjizdi-smr-v-temeline-ministerstvo-zacne-posuzovat-dopady-projektu)
+- BWRX-300 v Darlingtonu: [ANS Nuclear News, červen 2026](https://ans.org/news/2026-06-05/article-8047/north-american-construction-is-back-smaller-and-faster-at-opgs-darlington/)
+- COMPASS-U: [EUROfusion](https://euro-fusion.org/eurofusion-device/compass-u/)
+- RHIC – poslední srážky v únoru 2026: [Brookhaven National Laboratory](https://www.bnl.gov/newsroom/news.php?a=222794)
+- Muon g−2 – konečný výsledek: [Fermilab, červen 2025](https://news.fnal.gov/?p=333767)
+
+<Aside type="tip" title="Pro učitele">
+Postup výuky v semináři, prezentaci na hodinu, práci s aplikací a odborné nuance najdete v oddílu [Pro učitele → Metodika: Částice a jádro (seminář)](/pro-ucitele/metodika-castice-a-jadro-seminar/).
+</Aside>

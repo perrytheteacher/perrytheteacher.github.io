@@ -8,7 +8,7 @@ sidebar:
 Kapitola: [2. Elektronový obal](/chemie/obecna-chemie/atom/02-elektronovy-obal/). Pokrývá celek **Stavba atomu II** tematického plánu 1. ročníku (orbital, valenční elektrony, kvantová čísla, elektronová konfigurace atomů a iontů, základní a excitovaný stav). Předchází [Metodika: Jádro atomu](/pro-ucitele/metodika-jadro-atomu/), k aplikaci patří [Metodika: Elektronový obal – aplikace](/pro-ucitele/metodika-elektronovy-obal-aplikace/).
 
 :::tip[Prezentace na hodinu]
-**[▶ Spustit prezentaci](/prezentace/elektronovy-obal/)** (31 snímků) – schodiště × výtah, orbital místo dráhy, kvantová čísla jako adresa elektronu, pravidla obsazování s hledáním chyb, aplikace v rámci snímku, ionty a excitace, výstupní lístek a návrat ke vstupní sondě.
+**[▶ Spustit prezentaci](/prezentace/elektronovy-obal/)** (37 snímků) – schodiště × výtah, orbital místo dráhy, kvantová čísla s charakteristikami a tvary orbitalů, pravidla obsazování s hledáním chyb, aplikace v rámci snímku, ionty a excitace, výstupní lístek a návrat ke vstupní sondě.
 
 Stáhnout: <a href="/prezentace/elektronovy-obal/offline.html" download="elektronovy-obal-prezentace.html">⬇ pro offline práci (HTML, i s aplikací)</a> · <a href="/prezentace/elektronovy-obal/elektronovy-obal.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
 
@@ -19,12 +19,18 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 
 | Hodina | Oddíl kapitoly | Těžiště |
 |---|---|---|
-| 1 | 1–2 | energie jako schodiště, plamenové zkoušky (pokus), orbital místo dráhy |
-| 2 | 3 | slupky, podslupky, orbitaly; kvantová čísla jako adresa; hotel |
-| 3 | 4 | tři pravidla, diagonální schéma, rámečky; hledání chyb A–D |
-| 4 | 4–5 | zkrácený zápis; aplikace Stavba elektronového obalu (15–20 min) |
-| 5 | 6 | valenční elektrony a tabulka, ionty, izoelektronové částice, excitace uhlíku |
+| 1 | 1–2 | Bohrův model (schodiště), plamenové zkoušky (pokus), kvantově mechanický model, orbital místo dráhy |
+| 2 | 3 | kvantová čísla n, l, m<sub>l</sub>, m<sub>s</sub> a jejich charakteristiky, tvary orbitalů s, p, d, hotel |
+| 3 | 4–5 | znázornění orbitalů, tři pravidla, diagonální schéma; hledání chyb A–D |
+| 4 | 5–6 | aplikace Stavba elektronového obalu (15–20 min); zkrácený zápis, valenční elektrony a tabulka |
+| 5 | 7–9 | excitovaný stav a vaznost, ionizační energie, konfigurace iontů, nepravidelnosti Cr a Cu |
 | 6 | procvičování | úlohy C1–C9, návrat ke vstupní sondě, ověření Stavby atomu II |
+
+Pořadí oddílů odpovídá osnově původní prezentace CH04 (Bohrův model → kvantově mechanický model → orbital → kvantová čísla a tvary orbitalů → znázornění → pravidla zaplňování → periodická tabulka a zkrácený zápis → excitované stavy → ionty → nepravidelnosti).
+
+### Tvary orbitalů (hodina 2)
+
+Obrázky v kapitole jsou hraniční plochy (90 %) v šikmém promítnutí. Žáci mají umět nakreslit orbital s a tři orbitaly p podél os; u orbitalů d stačí vědět, že jich je pět a že mají složitější tvar. Barvy v obrázcích označují znaménko vlnové funkce – pokud se žáci ptají, stačí říct, že to bude důležité u vazeb (překryv orbitalů). Pro představivost pomáhá model z balonků (koule, dva nafouknuté balonky svázané uprostřed).
 
 ### Plamenové zkoušky (hodina 1, 10 min)
 
@@ -47,7 +53,7 @@ Postup s aplikací je popsaný v [metodice aplikace](/pro-ucitele/metodika-elekt
 | Orbital = dráha; elektrony krouží po kružnicích. | *Nakresli, kde je elektron atomu vodíku.* | Tabulka orbita × orbital, mrak teček „z tisíce fotek“. |
 | Elektronový oblak = mnoho elektronů. | *Kolik elektronů tvoří oblak atomu vodíku?* | I jediný elektron má oblak; oblak = pravděpodobnost výskytu. |
 | Orbital má pevnou hranici. | *Může být elektron vně nakresleného orbitalu?* | Hranice je dohoda (90 %). |
-| Elektron „přechází“ mezi laloky orbitalu p. | Otázka z oddílu 2 | Otázka předpokládá dráhu; orbital je stav celého elektronu. |
+| Elektron „přechází“ mezi částmi orbitalu p. | Otázka z oddílu 2 | Otázka předpokládá dráhu; orbital je stav celého elektronu. |
 | Spin = skutečné otáčení elektronu. | *Co znamenají šipky ↑ a ↓?* | Vnitřní magnetický moment; v chemii stačí „dvě hodnoty, v orbitalu opačné“. |
 | Slupka = podslupka = orbital. | *Kolik orbitalů je v podslupce 2p a kolik ve slupce n = 2?* | Hierarchie slupka → podslupka → orbital → elektron, hotel. |
 | 3d se zaplňuje před 4s, „protože slupka M má místo na 18“. | Konfigurace draslíku | Pravidlo n + l, diagonální schéma; kapacita slupky ≠ pořadí. |

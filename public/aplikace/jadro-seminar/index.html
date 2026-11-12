@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atomové jádro – vazebná energie, nuklidy, reakce</title>
+<style>
+:root{--ink:#1f2328;--muted:#5b6370;--line:#e3e6ea;--bg:#f6f7f9;--card:#fff;--accent:#1a6d97;--accent-soft:#e7f3fa;
+--a:#c2410c;--bm:#1d4ed8;--bp:#b91c1c;--st:#111827;--ok:#15803d;--ok-soft:#e8f6ec;--warn:#b45309;--warn-soft:#fff8e6}
+*{box-sizing:border-box}
+body{margin:0 auto;max-width:1180px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;font-size:16px;padding:10px}
+h1{font-size:20px;margin:4px 4px 10px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.tabs button{font:inherit;font-size:14px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 12px;border-radius:10px;cursor:pointer;text-align:left;line-height:1.25}
+.tabs button small{display:block;color:var(--muted);font-size:12px}
+.tabs button.on{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.card h2{font-size:18px;margin:0 0 6px}
+.muted{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:8px 0}
+label{font-size:14px;display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;cursor:pointer;max-width:100%}
+select{min-width:0}
+select,input[type=number]{font:inherit;font-size:15px;padding:5px 8px;border:1px solid #c9ced6;border-radius:8px;background:#fff;max-width:100%}
+button.btn{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+button.btn.sec{background:#fff;color:var(--accent)}
+svg{display:block;width:100%;height:auto;max-height:calc(100vh - 210px);background:#fff;touch-action:manipulation}
+.grid2{display:grid;gap:12px}
+@media(min-width:900px){.grid2{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}}
+.info{background:var(--accent-soft);border-radius:10px;padding:10px 12px;font-size:15px;min-height:60px}
+.info b{font-size:16px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:13px}
+td.r{text-align:right;white-space:nowrap}
+tr.sel td{background:#fff3c4}
+tbody tr{cursor:pointer}
+.eq{font-size:20px;text-align:center;padding:10px 4px;overflow-x:auto;white-space:nowrap}
+.nk{display:inline-flex;flex-direction:column;align-items:flex-end;vertical-align:.55em;font-size:.62em;line-height:1;margin-right:.06em}
+.big{font-size:26px;font-weight:700;color:var(--accent)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:8px}
+.tile{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff}
+.tile .k{font-size:12px;color:var(--muted)}
+.tile .v{font-size:18px;font-weight:700}
+.note{background:var(--warn-soft);border:1px solid #f3dfa6;border-radius:10px;padding:8px 12px;font-size:14px;margin-top:8px}
+.bars{font-size:13px}
+.bars .b{display:grid;grid-template-columns:120px 1fr 64px;align-items:center;gap:6px;margin:3px 0}
+.bars .track{height:14px;background:#f1f3f5;border-radius:4px;position:relative}
+.bars .fill{position:absolute;top:0;bottom:0;border-radius:4px}
+.pane{display:none}.pane.on{display:block}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;max-width:340px}
+.dots span{aspect-ratio:1;border-radius:50%;background:var(--a)}
+.dots span.x{background:#d6dbe1}
+#tip{position:fixed;pointer-events:none;background:#1f2328;color:#fff;font-size:13px;padding:5px 8px;border-radius:6px;display:none;z-index:9;max-width:260px}
+</style>
+</head>
+<body>
+<h1>Atomové jádro – vazebná energie, nuklidy a jaderné reakce</h1>
+<div class="tabs" role="tablist">
+<button class="on" data-t="be">1 · Vazebná energie<small>proč je železo „na dně“</small></button>
+<button data-t="map">2 · Mapa nuklidů<small>údolí stability, rozpadové řady</small></button>
+<button data-t="q">3 · Energie reakcí<small>hmotnostní úbytek → MeV</small></button>
+<button data-t="t">4 · Poločas<small>náhoda a zákon přeměny</small></button>
+</div>
+
+<!-- 1 VAZEBNÁ ENERGIE -->
+<section class="pane on" id="p-be">
+<div class="card">
+<h2>Vazebná energie na nukleon</h2>
+<p class="muted">Body = naměřené hodnoty. Čára = kapkový model jádra (Weizsäckerův vzorec). Vypínej jednotlivé členy vzorce a sleduj, který tvaruje kterou část křivky. Najeď na bod nebo klikni do grafu.</p>
+<div class="row" id="terms"></div>
+<div class="grid2">
+<svg id="beSvg" viewBox="0 0 640 380" role="img" aria-label="Graf vazebné energie na nukleon v závislosti na nukleonovém čísle"></svg>
+<div>
+<div class="info" id="beInfo">Klikni do grafu na nukleonové číslo A. Ukáže se, jak k vazebné energii přispívají jednotlivé členy.</div>
+<div class="bars" id="beBars" style="margin-top:10px"></div>
+</div>
+</div>
+<div class="note">Kde křivka roste, uvolňuje energii <b>slučování</b> lehkých jader (fúze). Kde klesá, uvolňuje energii <b>štěpení</b> těžkých jader. Obojí vede „z kopce“ k jádrům kolem železa a niklu.</div>
+</div>
+</section>
+
+<!-- 2 MAPA NUKLIDŮ -->
+<section class="pane" id="p-map">
+<div class="card">
+<h2>Mapa nuklidů a údolí stability</h2>
+<p class="muted">Každé políčko je jeden nuklid (vodorovně N, svisle Z). Barva = co jádru předpovídá kapkový model. Je to jen přiblížení, skutečné stabilní nuklidy se od předpovědi místy liší. Klikni na políčko.</p>
+<div class="row">
+<label>Rozpadová řada: <select id="chainSel"><option value="">žádná</option><option value="u238">uranová ²³⁸U → ²⁰⁶Pb (4n + 2)</option><option value="u235">aktiniová ²³⁵U → ²⁰⁷Pb (4n + 3)</option><option value="th232">thoriová ²³²Th → ²⁰⁸Pb (4n)</option></select></label>
+<label><input type="checkbox" id="zoom" checked> přiblížit řadu</label>
+<label><input type="checkbox" id="magic"> magická čísla</label>
+<label><input type="checkbox" id="nz" checked> čára N = Z</label>
+</div>
+<div class="legend"><span><i style="background:var(--st)"></i>stabilní (podle modelu)</span><span><i style="background:#93b4f5"></i>β<sup>−</sup> (přebytek neutronů)</span><span><i style="background:#f5a3a3"></i>β<sup>+</sup> / záchyt e<sup>−</sup> (přebytek protonů)</span><span><i style="background:#fdba74"></i>α</span></div>
+<div class="grid2" style="margin-top:8px">
+<svg id="mapSvg" viewBox="0 0 640 420" role="img" aria-label="Mapa nuklidů"></svg>
+<div>
+<div class="info" id="mapInfo">Klikni na nuklid v mapě nebo vyber rozpadovou řadu.</div>
+<div id="chainTab" style="margin-top:10px"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 3 ENERGIE REAKCÍ -->
+<section class="pane" id="p-q">
+<div class="card">
+<h2>Kolik energie uvolní jaderná reakce?</h2>
+<p class="muted">Sečteme hmotnosti výchozích a vzniklých částic (atomové hmotnosti v u). Rozdíl hmotností Δm se uvolní jako energie: E = Δm · c², 1 u odpovídá 931,494 MeV.</p>
+<div class="row"><label>Reakce: <select id="rxSel"></select></label></div>
+<div class="eq" id="rxEq"></div>
+<div class="tiles" id="rxTiles"></div>
+<div class="note" id="rxNote"></div>
+</div>
+</section>
+
+<!-- 4 POLOČAS -->
+<section class="pane" id="p-t">
+<div class="card">
+<h2>Poločas přeměny: náhoda jednotlivce, zákon celku</h2>
+<p class="muted">400 jader téhož radionuklidu. Každé jádro se v každém kroku přemění s pravděpodobností, která odpovídá zvolené délce kroku. Kdy se přemění konkrétní jádro, předpovědět nelze, ale celek se řídí zákonem N = N<sub>0</sub> · (1/2)<sup>t/T</sup>.</p>
+<div class="row">
+<label>Krok: <select id="dtSel"><option value="0.25">1/4 poločasu</option><option value="0.5">1/2 poločasu</option><option value="1" selected>1 poločas</option></select></label>
+<button class="btn" id="stepBtn">Další krok</button>
+<button class="btn sec" id="runBtn">Přehrát 6 poločasů</button>
+<button class="btn sec" id="resetBtn">Znovu</button>
+</div>
+<div class="grid2">
+<div><div class="dots" id="dots"></div><p class="muted" id="tCount"></p></div>
+<svg id="tSvg" viewBox="0 0 420 300" role="img" aria-label="Graf počtu nepřeměněných jader v čase"></svg>
+</div>
+<div class="note">Zkus experiment zopakovat několikrát. Proč je počet jader po jednom poločasu pokaždé trochu jiný, ale téměř vždy blízko 200? A co by se stalo se 4 jádry místo 400?</div>
+</div>
+</section>
+
+<div id="tip"></div>
+
+<script>
+'use strict';
+const SYM=['n','H','He','Li','Be','B','C','N','O','F','Ne','Na','Mg','Al','Si','P','S','Cl','Ar','K','Ca','Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn','Ga','Ge','As','Se','Br','Kr','Rb','Sr','Y','Zr','Nb','Mo','Tc','Ru','Rh','Pd','Ag','Cd','In','Sn','Sb','Te','I','Xe','Cs','Ba','La','Ce','Pr','Nd','Pm','Sm','Eu','Gd','Tb','Dy','Ho','Er','Tm','Yb','Lu','Hf','Ta','W','Re','Os','Ir','Pt','Au','Hg','Tl','Pb','Bi','Po','At','Rn','Fr','Ra','Ac','Th','Pa','U','Np','Pu','Am'];
+const fmt=(x,d=2)=>{if(!isFinite(x))return '–';const [i,f]=Math.abs(x).toFixed(d).split('.');const ii=i.length>4?i.replace(/\B(?=(\d{3})+(?!\d))/g,'\u2009'):i;return (x<0&&Math.abs(x)>=0.5*10**-d?'−':'')+ii+(f?','+f:'')};
+const fmtE=(x,d=2)=>{if(x===0)return '0';const e=Math.floor(Math.log10(Math.abs(x)));if(e>=-2&&e<6)return fmt(x,d);const m=x/10**e;return fmt(m,d)+' · 10<sup>'+(e<0?'−':'')+Math.abs(e)+'</sup>'};
+const nk=(A,Z,s)=>`<span class="nk"><span>${A}</span><span>${Z<0?'−'+(-Z):Z}</span></span>${s}`;
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+const tip=document.getElementById('tip');
+function showTip(ev,html){tip.innerHTML=html;tip.style.display='block';const x=Math.min(ev.clientX+12,innerWidth-270);tip.style.left=x+'px';tip.style.top=(ev.clientY+14)+'px'}
+function hideTip(){tip.style.display='none'}
+
+/* ---------- přepínání karet ---------- */
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.t));
+}));
+
+/* ---------- kapkový model ---------- */
+const C={aV:15.75,aS:17.8,aC:0.711,aA:23.7,aP:11.18};
+const TERMS=[['V','objemový',true,'#15803d'],['S','povrchový',true,'#b45309'],['C','coulombovský',true,'#b91c1c'],['A','asymetrický',true,'#7c3aed'],['P','párový',false,'#0e7490']];
+const on={};TERMS.forEach(t=>on[t[0]]=t[2]);
+function parts(Z,A){const N=A-Z;const p={V:C.aV*A,S:-C.aS*Math.cbrt(A*A),C:-C.aC*Z*(Z-1)/Math.cbrt(A),A:-C.aA*(N-Z)*(N-Z)/A,P:0};
+  if(Z%2===0&&N%2===0)p.P=C.aP/Math.sqrt(A);else if(Z%2===1&&N%2===1)p.P=-C.aP/Math.sqrt(A);return p}
+const ALL={V:1,S:1,C:1,A:1,P:1};
+function Bsemf(Z,A,mask){const p=parts(Z,A);let s=0;for(const k in p)if(!mask||mask[k])s+=p[k];return s}
+function bestZ(A){if(A<3)return 1;let bz=1,bb=-1e9;for(let Z=1;Z<A;Z++){const b=Bsemf(Z,A,ALL);if(b>bb){bb=b;bz=Z}}return bz}
+
+/* naměřené vazebné energie na nukleon (MeV), zaokrouhleno; AME 2020 */
+const MEAS=[['H',2,1,1.112],['H',3,1,2.827],['He',3,2,2.573],['He',4,2,7.074],['Li',6,3,5.332],['Li',7,3,5.606],['Be',9,4,6.463],['C',12,6,7.680],['N',14,7,7.476],['O',16,8,7.976],['Ne',20,10,8.032],['Mg',24,12,8.261],['Si',28,14,8.448],['S',32,16,8.493],['Ca',40,20,8.551],['Fe',56,26,8.790],['Ni',62,28,8.795],['Cu',63,29,8.752],['Kr',84,36,8.717],['Zr',90,40,8.710],['Sn',120,50,8.505],['Xe',132,54,8.428],['Ba',138,56,8.393],['Gd',158,64,8.202],['W',184,74,8.005],['Au',197,79,7.916],['Pb',208,82,7.868],['Th',232,90,7.615],['U',235,92,7.591],['U',238,92,7.570],['Pu',239,94,7.560]];
+
+const termBox=document.getElementById('terms');
+TERMS.forEach(([k,name,def,col])=>{const l=document.createElement('label');l.innerHTML=`<input type="checkbox" ${def?'checked':''} data-k="${k}"><span style="color:${col};font-weight:600">${name}</span>`;termBox.appendChild(l)});
+termBox.addEventListener('change',e=>{on[e.target.dataset.k]=e.target.checked;drawBE()});
+let selA=56;
+const beSvg=document.getElementById('beSvg');
+const BX=a=>50+a*(570/250), BY=v=>330-(v+1)*(300/11);
+function drawBE(){
+  beSvg.innerHTML='';
+  const g=el('g',{},beSvg);
+  for(let v=0;v<=10;v+=2){el('line',{x1:50,x2:620,y1:BY(v),y2:BY(v),stroke:'#eef0f2'},g);el('text',{x:44,y:BY(v)+4,'text-anchor':'end','font-size':11,fill:'#5b6370'},g,String(v))}
+  for(let a=0;a<=250;a+=50){el('line',{x1:BX(a),x2:BX(a),y1:30,y2:330,stroke:'#eef0f2'},g);el('text',{x:BX(a),y:346,'text-anchor':'middle','font-size':11,fill:'#5b6370'},g,String(a))}
+  el('line',{x1:50,x2:620,y1:BY(0),y2:BY(0),stroke:'#9aa1aa'},g);
+  el('text',{x:335,y:370,'text-anchor':'middle','font-size':12,fill:'#1f2328'},g,'nukleonové číslo A');
+  el('text',{x:14,y:180,'text-anchor':'middle','font-size':12,fill:'#1f2328',transform:'rotate(-90 14 180)'},g,'B/A (MeV na nukleon)');
+  // křivka modelu
+  let d='';
+  for(let A=4;A<=250;A++){const Z=bestZ(A);const v=Bsemf(Z,A,on)/A;const y=Math.max(18,Math.min(338,BY(v)));d+=(d?'L':'M')+BX(A).toFixed(1)+' '+y.toFixed(1)}
+  el('path',{d,fill:'none',stroke:'#1a6d97','stroke-width':2},g);
+  // šipky fúze / štěpení
+  el('text',{x:BX(18),y:BY(3.2),'font-size':12,fill:'#15803d'},g,'fúze →');
+  el('text',{x:BX(165),y:BY(6.6),'font-size':12,fill:'#b91c1c'},g,'← štěpení');
+  // body
+  MEAS.forEach(([s,A,Z,v])=>{const c=el('circle',{cx:BX(A),cy:BY(v),r:4.2,fill:(s==='Fe'||s==='Ni')?'#c2410c':'#1f2328',stroke:'#fff','stroke-width':1},g);
+    c.addEventListener('mousemove',ev=>showTip(ev,`<b><sup>${A}</sup>${s}</b>: ${fmt(v,3)} MeV/nukleon<br>model: ${fmt(Bsemf(Z,A,ALL)/A,3)} MeV/nukleon`));c.addEventListener('mouseleave',hideTip);
+    c.addEventListener('click',ev=>{ev.stopPropagation();selA=A;drawBE()})});
+  el('line',{x1:BX(selA),x2:BX(selA),y1:30,y2:330,stroke:'#c2410c','stroke-dasharray':'4 4'},g);
+  beInfoUpd();
+}
+beSvg.addEventListener('click',ev=>{const r=beSvg.getBoundingClientRect();const x=(ev.clientX-r.left)*640/r.width;selA=Math.max(4,Math.min(250,Math.round((x-50)*250/570)));drawBE()});
+function beInfoUpd(){
+  const A=selA,Z=bestZ(A),p=parts(Z,A);let tot=0;for(const k in p)if(on[k])tot+=p[k];
+  const m=MEAS.find(x=>x[1]===A);
+  document.getElementById('beInfo').innerHTML=`<b>A = ${A}</b>, nejstabilnější izobar podle modelu: <b><sup>${A}</sup>${SYM[Z]}</b> (Z = ${Z}, N = ${A-Z})<br>model se zapnutými členy: <b>${fmt(tot/A,2)} MeV/nukleon</b>, celkem ${fmt(tot,0)} MeV${m?`<br>naměřeno pro <sup>${A}</sup>${m[0]}: ${fmt(m[3],3)} MeV/nukleon`:''}`;
+  const bars=document.getElementById('beBars');bars.innerHTML='<div class="muted" style="margin-bottom:4px">Příspěvky členů (MeV na nukleon):</div>';
+  const max=C.aV;
+  TERMS.forEach(([k,name,,col])=>{const v=p[k]/A;const w=Math.abs(v)/max*50;const left=v>=0?50:50-w;
+    bars.insertAdjacentHTML('beforeend',`<div class="b" style="opacity:${on[k]?1:.35}"><span>${name}</span><span class="track"><span class="fill" style="left:${left}%;width:${Math.max(w,.4)}%;background:${col}"></span><span style="position:absolute;left:50%;top:-2px;bottom:-2px;border-left:1px solid #9aa1aa"></span></span><span style="text-align:right">${fmt(v,2)}</span></div>`)});
+}
+drawBE();
+
+/* ---------- mapa nuklidů ---------- */
+const MN=150,MZ=96,mapSvg=document.getElementById('mapSvg');
+const MXp=n=>40+n*(590/MN), MYp=z=>390-z*(375/MZ), CW=590/MN, CH=375/MZ;
+const mH=7.289,mN=8.071; // hmotnostní přebytky (MeV) – pro Q z vazebných energií
+function Bfull(Z,N){if(Z<1||N<0)return -1e9;return Bsemf(Z,Z+N,ALL)}
+function predict(Z,N){const A=Z+N;if(A<5)return null;const B=Bfull(Z,N);if(B/A<4.5)return null;
+  const Qbm=Bfull(Z+1,N-1)-B+(mN-mH), Qec=Bfull(Z-1,N+1)-B-(mN-mH), Qa=Bfull(Z-2,N-2)+28.296-B;
+  if(Qbm>0.05)return ['bm',Qbm];if(Qec>0.05)return ['bp',Qec];if(A>=209&&Qa>0)return ['a',Qa];if(A>=150&&Qa>2.5)return ['a',Qa];return ['st',0]}
+const COL={st:'#111827',bm:'#93b4f5',bp:'#f5a3a3',a:'#fdba74'};
+const CHAINS={
+ u238:[['U',238,'α','4,47 · 10⁹ let'],['Th',234,'β⁻','24,1 dne'],['Pa',234,'β⁻','1,16 min'],['U',234,'α','2,46 · 10⁵ let'],['Th',230,'α','7,54 · 10⁴ let'],['Ra',226,'α','1 600 let'],['Rn',222,'α','3,82 dne'],['Po',218,'α','3,10 min'],['Pb',214,'β⁻','26,8 min'],['Bi',214,'β⁻','19,9 min'],['Po',214,'α','164 µs'],['Pb',210,'β⁻','22,2 roku'],['Bi',210,'β⁻','5,01 dne'],['Po',210,'α','138 dní'],['Pb',206,'','stabilní']],
+ u235:[['U',235,'α','7,04 · 10⁸ let'],['Th',231,'β⁻','25,5 h'],['Pa',231,'α','3,28 · 10⁴ let'],['Ac',227,'β⁻','21,8 roku'],['Th',227,'α','18,7 dne'],['Ra',223,'α','11,4 dne'],['Rn',219,'α','3,96 s'],['Po',215,'α','1,78 ms'],['Pb',211,'β⁻','36,1 min'],['Bi',211,'α','2,14 min'],['Tl',207,'β⁻','4,77 min'],['Pb',207,'','stabilní']],
+ th232:[['Th',232,'α','1,40 · 10¹⁰ let'],['Ra',228,'β⁻','5,75 roku'],['Ac',228,'β⁻','6,15 h'],['Th',228,'α','1,91 roku'],['Ra',224,'α','3,63 dne'],['Rn',220,'α','55,6 s'],['Po',216,'α','0,145 s'],['Pb',212,'β⁻','10,6 h'],['Bi',212,'β⁻ (64 %)','60,6 min'],['Po',212,'α','0,3 µs'],['Pb',208,'','stabilní']]};
+let selNuc=null,chainSel='';
+function drawMap(){
+  mapSvg.innerHTML='';const g=el('g',{},mapSvg);
+  for(let n=0;n<=MN;n+=20){el('text',{x:MXp(n),y:406,'text-anchor':'middle','font-size':10,fill:'#5b6370'},g,String(n));el('line',{x1:MXp(n),x2:MXp(n),y1:15,y2:390,stroke:'#f1f3f5'},g)}
+  for(let z=0;z<=MZ;z+=20){el('text',{x:34,y:MYp(z)+3,'text-anchor':'end','font-size':10,fill:'#5b6370'},g,String(z));el('line',{x1:40,x2:630,y1:MYp(z),y2:MYp(z),stroke:'#f1f3f5'},g)}
+  el('text',{x:335,y:419,'text-anchor':'middle','font-size':11,fill:'#1f2328'},g,'neutronové číslo N');
+  el('text',{x:10,y:200,'text-anchor':'middle','font-size':11,fill:'#1f2328',transform:'rotate(-90 10 200)'},g,'protonové číslo Z');
+  const cells=el('g',{},g);
+  for(let Z=1;Z<=95;Z++){for(let N=0;N<=MN;N++){const A=Z+N;const Z0=bestZ(A);if(Math.abs(Z-Z0)>2+0.06*A)continue;const p=predict(Z,N);if(!p)continue;
+    const r=el('rect',{x:MXp(N),y:MYp(Z+1),width:CW+.15,height:CH+.15,fill:COL[p[0]]},cells);r.dataset.z=Z;r.dataset.n=N}}
+  cells.addEventListener('click',e=>{const t=e.target;if(t.dataset.z){selNuc=[+t.dataset.z,+t.dataset.n];drawMap()}});
+  cells.addEventListener('mousemove',e=>{const t=e.target;if(t.dataset.z){const Z=+t.dataset.z,N=+t.dataset.n;showTip(e,`<sup>${Z+N}</sup>${SYM[Z]} (Z = ${Z}, N = ${N})`)}});
+  cells.addEventListener('mouseleave',hideTip);
+  if(document.getElementById('nz').checked)el('line',{x1:MXp(0),y1:MYp(0),x2:MXp(MZ),y2:MYp(MZ),stroke:'#5b6370','stroke-dasharray':'5 4'},g),el('text',{x:MXp(78),y:MYp(84),'font-size':11,fill:'#5b6370'},g,'N = Z');
+  const fsM=(chainSel&&document.getElementById('zoom').checked)?2.6:9;
+  if(document.getElementById('magic').checked){[2,8,20,28,50,82].forEach(m=>{el('line',{x1:40,x2:630,y1:MYp(m+.5),y2:MYp(m+.5),stroke:'#7c3aed','stroke-width':.8,opacity:.7,'vector-effect':'non-scaling-stroke'},g);el('text',{x:626,y:MYp(m+.5)-2,'text-anchor':'end','font-size':fsM,fill:'#7c3aed'},g,'Z = '+m)});
+    [2,8,20,28,50,82,126].forEach(m=>{el('line',{x1:MXp(m+.5),x2:MXp(m+.5),y1:15,y2:390,stroke:'#7c3aed','stroke-width':.8,opacity:.7,'vector-effect':'non-scaling-stroke'},g);el('text',{x:MXp(m+.5)+.8,y:fsM>3?24:MYp(94),'font-size':fsM,fill:'#7c3aed'},g,'N = '+m)})}
+  if(chainSel){const ch=CHAINS[chainSel];el('defs',{},g).innerHTML='<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>';
+    const zoom=el('g',{},g);
+    for(let i=0;i<ch.length-1;i++){const [s1,A1]=ch[i],[s2,A2]=ch[i+1];const Z1=SYM.indexOf(s1),Z2=SYM.indexOf(s2);
+      el('line',{x1:MXp(A1-Z1)+CW/2,y1:MYp(Z1)-CH/2,x2:MXp(A2-Z2)+CW/2,y2:MYp(Z2)-CH/2,stroke:'#111','stroke-width':1.6,'marker-end':'url(#ar)','vector-effect':'non-scaling-stroke'},zoom)}
+    const zm=document.getElementById('zoom').checked;
+    ch.forEach(([s,A])=>{const Z=SYM.indexOf(s);el('circle',{cx:MXp(A-Z)+CW/2,cy:MYp(Z)-CH/2,r:zm?1.3:2.6,fill:'#facc15',stroke:'#111','stroke-width':.8,'vector-effect':'non-scaling-stroke'},zoom);
+      if(zm)el('text',{x:MXp(A-Z)+CW/2+1.6,y:MYp(Z)-CH/2-1.2,'font-size':2.4,fill:'#111','font-weight':600},zoom,A+s)});
+  }
+  if(chainSel&&document.getElementById('zoom').checked){const ch=CHAINS[chainSel];const ns=ch.map(([s,A])=>A-SYM.indexOf(s)),zs=ch.map(([s])=>SYM.indexOf(s));
+    const x0=MXp(Math.min(...ns)-3),x1=MXp(Math.max(...ns)+5),y0=MYp(Math.max(...zs)+3),y1=MYp(Math.min(...zs)-2);mapSvg.setAttribute('viewBox',`${x0} ${y0} ${x1-x0} ${y1-y0}`);mapSvg.style.maxHeight='calc(100vh - 120px)'}
+  else{mapSvg.setAttribute('viewBox','0 0 640 420');mapSvg.style.maxHeight=''}
+  if(selNuc){const [Z,N]=selNuc;el('rect',{x:MXp(N)-1,y:MYp(Z+1)-1,width:CW+2,height:CH+2,fill:'none',stroke:'#c2410c','stroke-width':2,'vector-effect':'non-scaling-stroke'},g)}
+  mapInfoUpd();
+}
+function mapInfoUpd(){
+  const box=document.getElementById('mapInfo');
+  if(!selNuc){box.innerHTML='Klikni na nuklid v mapě nebo vyber rozpadovou řadu.';return}
+  const [Z,N]=selNuc,A=Z+N,p=predict(Z,N),B=Bfull(Z,N);
+  const txt={st:'Model předpovídá <b>stabilní</b> jádro.',bm:`Přebytek neutronů → <b>přeměna β<sup>−</sup></b> na <sup>${A}</sup>${SYM[Z+1]}: neutron se mění na proton.`,bp:`Přebytek protonů → <b>přeměna β<sup>+</sup> nebo záchyt elektronu</b> na <sup>${A}</sup>${SYM[Z-1]}.`,a:`Těžké jádro → <b>přeměna α</b> na <sup>${A-4}</sup>${SYM[Z-2]}.`};
+  box.innerHTML=`<b><sup>${A}</sup>${SYM[Z]}</b> · Z = ${Z}, N = ${N}, A = ${A}, N/Z = ${fmt(N/Z,2)}<br>vazebná energie (model): ${fmt(B,0)} MeV, tj. ${fmt(B/A,2)} MeV/nukleon<br>${txt[p[0]]}${p[0]!=='st'?` Uvolní se asi ${fmt(p[1],1)} MeV (odhad modelu).`:''}`;
+}
+document.getElementById('chainSel').addEventListener('change',e=>{chainSel=e.target.value;drawChainTab();drawMap()});
+document.getElementById('magic').addEventListener('change',drawMap);
+document.getElementById('zoom').addEventListener('change',drawMap);
+document.getElementById('nz').addEventListener('change',drawMap);
+function drawChainTab(){const box=document.getElementById('chainTab');if(!chainSel){box.innerHTML='';return}
+  const ch=CHAINS[chainSel];let a=0,b=0;ch.forEach(x=>{if(x[2]==='α')a++;else if(x[2].startsWith('β'))b++});
+  box.innerHTML=`<table><thead><tr><th>nuklid</th><th>přeměna</th><th class="r">poločas</th></tr></thead><tbody>${ch.map(([s,A,t,T],i)=>`<tr data-i="${i}"><td><sup>${A}</sup>${s}</td><td>${t||'–'}</td><td class="r">${T}</td></tr>`).join('')}</tbody></table><p class="muted">Přeměn α: ${a}, přeměn β<sup>−</sup>: ${b}${chainSel==='th232'?' (hlavní větev; ²¹²Bi se z 36 % mění přeměnou α přes ²⁰⁸Tl)':''}. Ověř: úbytek A = 4 · počet α.</p>`;
+  box.querySelectorAll('tbody tr').forEach(tr=>tr.addEventListener('click',()=>{const [s,A]=ch[+tr.dataset.i];const Z=SYM.indexOf(s);selNuc=[Z,A-Z];box.querySelectorAll('tr').forEach(x=>x.classList.remove('sel'));tr.classList.add('sel');drawMap()}));
+}
+drawMap();
+
+/* ---------- energie reakcí ---------- */
+const MU={n:1.00866491595,H1:1.00782503223,H2:2.01410177812,H3:3.01604928132,He3:3.01602932197,He4:4.00260325413,Li6:6.0151228874,U235:235.0439301,U238:238.0507884,Ba141:140.9144033,Kr92:91.9261731,Xe140:139.9216458,Sr94:93.9153556,Th234:234.0436014,Ra226:226.0254103,Rn222:222.0175782,Po210:209.9828737,Pb206:205.9744653};
+const LBL={n:[1,0,'n'],H1:[1,1,'H'],H2:[2,1,'H'],H3:[3,1,'H'],He3:[3,2,'He'],He4:[4,2,'He'],Li6:[6,3,'Li'],U235:[235,92,'U'],U238:[238,92,'U'],Ba141:[141,56,'Ba'],Kr92:[92,36,'Kr'],Xe140:[140,54,'Xe'],Sr94:[94,38,'Sr'],Th234:[234,90,'Th'],Ra226:[226,88,'Ra'],Rn222:[222,86,'Rn'],Po210:[210,84,'Po'],Pb206:[206,82,'Pb']};
+const RX=[
+ {n:'Fúze D + T (palivo tokamaků a NIF)',l:[['H2',1],['H3',1]],r:[['He4',1],['n',1]],fuel:['H2','H3'],note:'Nejsnáze zapálitelná fúzní reakce. Z 17,6 MeV odnese 14,1 MeV neutron; helium (3,5 MeV) zůstává v plazmatu a ohřívá ho. Tritium se v přírodě téměř nevyskytuje – bude se vyrábět z lithia.'},
+ {n:'Fúze D + D → ³He + n',l:[['H2',2]],r:[['He3',1],['n',1]],fuel:['H2','H2'],note:'Deuterium je ve vodě (asi 1 atom na 6 400 atomů vodíku), zásoby jsou prakticky nevyčerpatelné. Reakce ale potřebuje vyšší teplotu než D + T.'},
+ {n:'Fúze D + D → T + p',l:[['H2',2]],r:[['H3',1],['H1',1]],fuel:['H2','H2'],note:'Druhá větev reakce D + D, probíhá zhruba stejně často jako první.'},
+ {n:'Fúze D + ³He',l:[['H2',1],['He3',1]],r:[['He4',1],['H1',1]],fuel:['H2','He3'],note:'Reakce bez neutronů (méně aktivace materiálů), ale potřebuje mnohem vyšší teplotu a ³He je na Zemi vzácné.'},
+ {n:'Výroba tritia z lithia: ⁶Li + n',l:[['Li6',1],['n',1]],r:[['He4',1],['H3',1]],fuel:['Li6'],note:'Neutron z fúze D + T zachycený v lithiovém plášti reaktoru vyrobí nové tritium – palivo se „množí“ přímo v reaktoru.'},
+ {n:'Proton-protonový řetězec ve Slunci (souhrnně 4 ¹H → ⁴He)',l:[['H1',4]],r:[['He4',1]],fuel:['H1','H1','H1','H1'],note:'Souhrnná bilance včetně anihilace pozitronů. Ve skutečnosti jde o řetězec několika reakcí; část energie (asi 2 %) odnesou neutrina. Ve Slunci reakce probíhá pomalu – proto Slunce svítí miliardy let.'},
+ {n:'Štěpení ²³⁵U → ¹⁴¹Ba + ⁹²Kr + 3 n',l:[['U235',1],['n',1]],r:[['Ba141',1],['Kr92',1],['n',3]],fuel:['U235'],note:'Okamžitě uvolněná energie. Další asi 20 MeV se uvolní postupně přeměnami β radioaktivních štěpných produktů (a část odnesou antineutrina). Celkem připadá na jedno štěpení asi 200 MeV.'},
+ {n:'Štěpení ²³⁵U → ¹⁴⁰Xe + ⁹⁴Sr + 2 n',l:[['U235',1],['n',1]],r:[['Xe140',1],['Sr94',1],['n',2]],fuel:['U235'],note:'Jiný možný pár štěpných produktů. Jádro se štěpí na desítky různých dvojic, nejčastěji nesymetricky (lehčí kolem A ≈ 95, těžší kolem A ≈ 140).'},
+ {n:'Přeměna α ²³⁸U',l:[['U238',1]],r:[['Th234',1],['He4',1]],fuel:['U238'],note:'Malá uvolněná energie a velmi dlouhý poločas (4,5 miliardy let). Pro výrobu energie nepoužitelné, ale teplo z přeměn uranu, thoria a draslíku ohřívá nitro Země.'},
+ {n:'Přeměna α ²²⁶Ra',l:[['Ra226',1]],r:[['Rn222',1],['He4',1]],fuel:['Ra226'],note:'Radon-222 je plyn, který vzniká v horninách a hromadí se ve sklepech – hlavní zdroj ozáření obyvatel ČR z přírodních zdrojů.'},
+ {n:'Přeměna α ²¹⁰Po',l:[['Po210',1]],r:[['Pb206',1],['He4',1]],fuel:['Po210'],note:'Polonium objevila Marie Curie-Skłodowská (1898). Kvůli krátkému poločasu (138 dní) má obrovskou aktivitu.'}];
+const rxSel=document.getElementById('rxSel');
+RX.forEach((r,i)=>rxSel.insertAdjacentHTML('beforeend',`<option value="${i}">${r.n}</option>`));
+const side=s=>s.map(([k,c])=>(c>1?c+' ':'')+nk(...LBL[k])).join(' + ');
+const sum=s=>s.reduce((a,[k,c])=>a+MU[k]*c,0);
+function drawRx(){const r=RX[+rxSel.value];
+  document.getElementById('rxEq').innerHTML=side(r.l)+' → '+side(r.r);
+  const ml=sum(r.l),mr=sum(r.r),dm=ml-mr,Q=dm*931.49410242;
+  const fuelM=r.fuel.reduce((a,k)=>a+MU[k],0); // g/mol paliva (bez neutronů)
+  const J_g=Q*1.602176634e-13*6.02214076e23/fuelM, kWh_g=J_g/3.6e6, coal=J_g/29e6;
+  const A=r.l.reduce((a,[k,c])=>a+LBL[k][0]*c,0);
+  const chem=572e3/36.03; // J na g směsi 2 H2 + O2
+  document.getElementById('rxTiles').innerHTML=
+   `<div class="tile"><div class="k">hmotnost vlevo</div><div class="v">${fmt(ml,6)} u</div></div>
+    <div class="tile"><div class="k">hmotnost vpravo</div><div class="v">${fmt(mr,6)} u</div></div>
+    <div class="tile"><div class="k">hmotnostní úbytek Δm</div><div class="v">${fmt(dm,6)} u</div><div class="k">${fmt(dm/ml*100,3)} % hmotnosti</div></div>
+    <div class="tile"><div class="k">uvolněná energie Q</div><div class="v big">${fmt(Q,1)} MeV</div><div class="k">${fmt(Q/A,2)} MeV na nukleon</div></div>
+    <div class="tile"><div class="k">z 1 g paliva</div><div class="v">${fmtE(kWh_g,0)} kWh</div><div class="k">= spálení asi ${fmtE(coal/1000,1)} t uhlí</div></div>
+    <div class="tile"><div class="k">ve srovnání s hořením vodíku</div><div class="v">${fmtE(J_g/chem,1)}×</div><div class="k">víc energie na gram</div></div>`;
+  document.getElementById('rxNote').innerHTML=r.note+(r.fuel.includes('U238')||r.fuel.includes('Ra226')||r.fuel.includes('Po210')?' Údaj „z 1 g paliva“ platí, až se přemění všechna jádra – u dlouhých poločasů to trvá miliardy let.':'');
+}
+rxSel.addEventListener('change',drawRx);drawRx();
+
+/* ---------- poločas ---------- */
+const NT=400;let alive,hist,tNow,timer=null;
+const dotsBox=document.getElementById('dots');for(let i=0;i<NT;i++)dotsBox.appendChild(document.createElement('span'));
+const tSvg=document.getElementById('tSvg');
+const TX=t=>45+t*(360/6), TY=n=>260-n*(230/NT);
+function resetT(){alive=new Array(NT).fill(true);tNow=0;hist=[[0,NT]];drawT()}
+function stepT(){const dt=+document.getElementById('dtSel').value;if(tNow>=6-1e-9)return;const p=1-Math.pow(.5,dt);for(let i=0;i<NT;i++)if(alive[i]&&Math.random()<p)alive[i]=false;tNow+=dt;hist.push([tNow,alive.filter(Boolean).length]);drawT()}
+function drawT(){
+  [...dotsBox.children].forEach((s,i)=>s.classList.toggle('x',!alive[i]));
+  const n=hist[hist.length-1][1];
+  document.getElementById('tCount').innerHTML=`čas: ${fmt(tNow,2)} poločasu · nepřeměněných jader: <b>${n}</b> · podle zákona: ${fmt(NT*Math.pow(.5,tNow),0)}`;
+  tSvg.innerHTML='';const g=el('g',{},tSvg);
+  for(let k=0;k<=4;k++){const v=k*100;el('line',{x1:45,x2:405,y1:TY(v),y2:TY(v),stroke:'#eef0f2'},g);el('text',{x:40,y:TY(v)+4,'text-anchor':'end','font-size':11,fill:'#5b6370'},g,String(v))}
+  for(let t=0;t<=6;t++){el('text',{x:TX(t),y:276,'text-anchor':'middle','font-size':11,fill:'#5b6370'},g,String(t))}
+  el('text',{x:225,y:294,'text-anchor':'middle','font-size':12,fill:'#1f2328'},g,'čas (v poločasech T)');
+  let d='';for(let t=0;t<=6.001;t+=.05)d+=(d?'L':'M')+TX(t).toFixed(1)+' '+TY(NT*Math.pow(.5,t)).toFixed(1);
+  el('path',{d,fill:'none',stroke:'#9aa1aa','stroke-width':2,'stroke-dasharray':'5 4'},g);
+  el('polyline',{points:hist.map(([t,n])=>TX(t)+','+TY(n)).join(' '),fill:'none',stroke:'#c2410c','stroke-width':2},g);
+  hist.forEach(([t,n])=>el('circle',{cx:TX(t),cy:TY(n),r:3,fill:'#c2410c'},g));
+  el('text',{x:150,y:40,'font-size':11,fill:'#5b6370'},g,'čárkovaně: zákon N = N₀ · (1/2)^(t/T)');
+}
+document.getElementById('stepBtn').addEventListener('click',stepT);
+document.getElementById('resetBtn').addEventListener('click',()=>{clearInterval(timer);timer=null;resetT()});
+document.getElementById('runBtn').addEventListener('click',()=>{clearInterval(timer);resetT();timer=setInterval(()=>{stepT();if(tNow>=6-1e-9){clearInterval(timer);timer=null}},450)});
+resetT();
+/* karta podle adresy: …/jadro-seminar/#map (be, map, q, t) */
+const karta=location.hash.slice(1);if(['be','map','q','t'].includes(karta))document.querySelector(`.tabs button[data-t=${karta}]`).click();
+</script>
+</body>
+</html>

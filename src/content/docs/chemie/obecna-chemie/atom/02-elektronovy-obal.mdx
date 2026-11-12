@@ -1,6 +1,6 @@
 ---
 title: 2. Elektronový obal
-description: Energie elektronu a orbitaly, slupky, podslupky a kvantová čísla, pravidla obsazování orbitalů, rámečkové diagramy, zápis elektronové konfigurace, valenční elektrony, ionty a excitovaný stav.
+description: Bohrův a kvantově mechanický model, orbital, kvantová čísla a tvary orbitalů, pravidla obsazování, rámečkové diagramy, elektronová konfigurace, valenční elektrony, excitovaný stav, ionty a nepravidelnosti.
 sidebar:
   order: 2
 ---
@@ -15,33 +15,42 @@ Proč sodík barví plamen žlutě? Proč tvoří ion Na<sup>+</sup>, ale nikdy 
 
 :::note[Co se v této kapitole naučíte]
 - vysvětlit, proč dnes nemluvíme o drahách elektronů, ale o orbitalech,
-- popsat stavbu obalu: slupka → podslupka → orbital, a přiřadit k nim kvantová čísla,
+- popsat stavbu obalu: slupka → podslupka → orbital, charakterizovat čtyři kvantová čísla a nakreslit tvary orbitalů s a p,
 - zapsat elektronovou konfiguraci atomů prvních čtyř period a jednoduchých iontů (rámečky, úplný i zkrácený zápis),
 - určit valenční elektrony a propojit je s místem prvku v periodické tabulce,
 - vysvětlit excitovaný stav a jeho souvislost s vazností.
 :::
 
-## 1 Energie elektronu je schodiště, ne výtah
+## 1 Bohrův model: energie elektronu je schodiště, ne výtah
+
+Niels Bohr (1913) vysvětlil, proč atomy vysílají světlo jen určitých barev: elektron v atomu může mít jen určité hodnoty energie.
 
 Kabina výtahu projíždí plynule všemi výškami, na schodišti můžeš stát jen na schodech, nikdy mezi nimi. Energie elektronu v atomu se chová jako schodiště: elektron může mít jen určité hodnoty energie, žádné mezihodnoty. Když pohltí přesně tolik energie, kolik je rozdíl dvou schodů, přeskočí výš; když energie nestačí na celý schod, nepohltí ji vůbec. Při návratu níž vyšle foton s přesně touto energií, tedy světlo určité barvy.
 
 Kde analogie kulhá: elektron „nepřekračuje“ schod krokem, ocitne se rovnou na jiném. A atomové schodiště nemá stejně vysoké schody: směrem nahoru jsou schody stále nižší a hustší, až na vrcholu elektron atom opustí (ionizace).
 
+Bohr si elektrony představoval na kruhových drahách (orbitách). Energetické hladiny z jeho modelu platí dodnes, **dráhy ale ne** – to ukázal až kvantově mechanický model.
+
 :::tip[Představ si]
 Plamenové zkoušky: sodík barví plamen žlutě, lithium karmínově, měď zeleně. Každý prvek má jiné „schody“, a proto vysílá jiné barvy. Podle těchto „otisků prstů“ poznáme složení i vzdálených hvězd.
 :::
 
-## 2 Orbital není dráha
+## 2 Kvantově mechanický model: orbital není dráha
 
-Elektron v atomu nemá dráhu. Má určitou energii a určité prostorové rozložení, kde se může vyskytovat. Tento stav elektronu se nazývá **orbital**.
+Kvantově mechanický model (1925–1926) stojí na dvou objevech:
+
+- **Vlnově-částicová povaha elektronu** (Louis de Broglie, 1924): elektron se chová jako částice i jako vlnění.
+- **Princip neurčitosti** (Werner Heisenberg, 1927): u elektronu nelze zároveň přesně určit polohu i rychlost. Dráhu elektronu proto nelze nakreslit, umíme říct jen, kde se s jakou pravděpodobností vyskytuje.
+
+Stav elektronu popisuje **vlnová funkce** (řešení Schrödingerovy rovnice). Oblast, ve které se elektron vyskytuje s vysokou pravděpodobností, nazýváme **orbital**.
 
 Představ si, že bys uměl elektron „vyfotit“ tisíckrát za sebou a všechny snímky složil do jednoho. Dostal bys mrak teček: hustý tam, kde se elektron vyskytuje často, řídký tam, kde zřídka. Tomuto mraku říkáme elektronový oblak. Protože nemá ostrou hranici, kreslíme orbital jako plochu, uvnitř které je elektron asi s 90% pravděpodobností.
 
-| Orbita (Bohrův model) | Orbital (současný model) |
+| Orbita (Bohrův model) | Orbital (kvantově mechanický model) |
 |---|---|
 | dráha, čára v prostoru | trojrozměrná oblast výskytu |
 | víme, kde elektron v každém okamžiku je | víme jen, jak pravděpodobný je jeho výskyt v daném místě |
-| plochá kružnice | koule (s), „osmička“ (p) nebo složitější tvary (d, f) |
+| plochá kružnice | koule (s), „prostorová osmička“ (p) nebo složitější tvary (d, f) |
 
 :::caution[Pozor, častá chyba]
 Elektronový oblak není mnoho elektronů. I atom vodíku s jediným elektronem má oblak. Oblak popisuje, **kde se může vyskytovat** jeden elektron.
@@ -52,45 +61,93 @@ Orbital není krabička s pevnou stěnou. Hranice na obrázku je dohoda kreslí�
 :::
 
 :::note[Myslím – dvojice – sdílím]
-Orbital p má dva laloky a mezi nimi rovinu, ve které se elektron nevyskytuje. Spolužák se ptá: „Jak se elektron dostane z jednoho laloku do druhého, když nemůže projít středem?“ Co je na té otázce špatně položeného?
+Orbital p má tvar prostorové osmičky: dvě části na opačných stranách jádra a mezi nimi rovinu, ve které se elektron nevyskytuje. Spolužák se ptá: „Jak se elektron dostane z jedné části osmičky do druhé, když nemůže projít středem?“ Co je na té otázce špatně položeného?
 :::
 
 <details>
 <summary>Zobrazit řešení</summary>
 
-Otázka předpokládá, že elektron má dráhu a „cestuje“ z místa na místo. Orbital ale popisuje celý stav elektronu najednou: elektron patří k oběma lalokům současně, jen s nulovou pravděpodobností výskytu v rovině mezi nimi.
+Otázka předpokládá, že elektron má dráhu a „cestuje“ z místa na místo. Orbital ale popisuje celý stav elektronu najednou: elektron patří k oběma částem osmičky současně, jen s nulovou pravděpodobností výskytu v rovině mezi nimi.
 
 </details>
 
-## 3 Slupky, podslupky, orbitaly a kvantová čísla
+## 3 Kvantová čísla
 
-Elektronový obal má čtyři úrovně uspořádání: slupka → podslupka → orbital → elektron. Každou úroveň popisuje jedno kvantové číslo. Kvantová čísla tedy nejsou nic jiného než „adresa“ elektronu v atomu.
+Každý orbital a každý elektron v atomu popisují **čtyři kvantová čísla**. Fungují jako adresa: slupka → podslupka → orbital → elektron.
 
 :::tip[Představ si: atom jako hotel]
-Patro je slupka. Na každém patře jsou křídla s různými typy pokojů (s, p, d, f), to jsou podslupky. Každý pokoj je orbital a má dvě lůžka pro dva elektrony. V prvním patře je jen křídlo s, ve druhém s a p, ve třetím s, p a d. Hosty (elektrony) ubytováváme od nejlevnějších pokojů, tedy od nejnižší energie. Model hotelu kulhá v tom, že „cena“ pokojů neroste přesně po patrech (viz oddíl 4).
+Patro je slupka. Na každém patře jsou křídla s různými typy pokojů (s, p, d, f), to jsou podslupky. Každý pokoj je orbital a má dvě lůžka pro dva elektrony. V prvním patře je jen křídlo s, ve druhém s a p, ve třetím s, p a d. Hosty (elektrony) ubytováváme od nejlevnějších pokojů, tedy od nejnižší energie. Model hotelu kulhá v tom, že „cena“ pokojů neroste přesně po patrech (viz oddíl 5).
 :::
 
-| Kvantové číslo | Značka | Hodnoty | Co určuje |
-|---|---|---|---|
-| hlavní | n | 1, 2, 3, … | slupku: velikost orbitalu a hlavní část energie; číslo slupky odpovídá číslu periody |
-| vedlejší | l | 0 až n − 1 (0 = s, 1 = p, 2 = d, 3 = f) | podslupku a tvar orbitalu; spoluurčuje energii |
-| magnetické | m<sub>l</sub> | od −l přes 0 do +l | orientaci orbitalu v prostoru, a tedy počet orbitalů v podslupce |
-| spinové | m<sub>s</sub> | +½ nebo −½ | spin elektronu; v rámečku šipka ↑ nebo ↓ |
+### Hlavní kvantové číslo n
 
-### Kolik se kam vejde
+- **Hodnoty:** n = 1, 2, 3, … (u známých prvků v základním stavu 1 až 7).
+- **Určuje slupku** (vrstvu). Slupky se označují také písmeny: n = 1 … K, n = 2 … L, n = 3 … M, n = 4 … N, dále O, P, Q.
+- **Určuje hlavní část energie elektronu a velikost orbitalu.** S rostoucím n roste průměrná vzdálenost elektronu od jádra i jeho energie.
+- **Číslo nejvyšší obsazené slupky = číslo periody**, ve které prvek leží.
+- Slupka n obsahuje n<sup>2</sup> orbitalů a nejvýše 2n<sup>2</sup> elektronů.
 
-| Slupka n | Podslupky | Orbitalů ve slupce (n<sup>2</sup>) | Max. elektronů ve slupce (2n<sup>2</sup>) |
-|---|---|---|---|
-| 1 (K) | 1s | 1 | 2 |
-| 2 (L) | 2s, 2p | 1 + 3 = 4 | 8 |
-| 3 (M) | 3s, 3p, 3d | 1 + 3 + 5 = 9 | 18 |
-| 4 (N) | 4s, 4p, 4d, 4f | 1 + 3 + 5 + 7 = 16 | 32 |
+### Vedlejší kvantové číslo l
 
-Podslupka s má 1 orbital (max. 2 e<sup>−</sup>), p má 3 orbitaly (6 e<sup>−</sup>), d 5 orbitalů (10 e<sup>−</sup>), f 7 orbitalů (14 e<sup>−</sup>). Orbitaly téže podslupky mají stejnou energii; říkáme jim **degenerované**.
+- **Hodnoty:** l = 0, 1, …, n − 1. Slupka n má tedy n podslupek.
+- **Určuje podslupku a tvar orbitalu.** Hodnoty se označují písmeny: l = 0 … s, l = 1 … p, l = 2 … d, l = 3 … f.
+- **Spolu s n určuje energii elektronu** v atomech s více elektrony (proto má 2p vyšší energii než 2s).
+
+Písmena pocházejí ze spektroskopie, z popisu spektrálních čar: **s**harp (ostrá), **p**rincipal (hlavní), **d**iffuse (rozmazaná), **f**undamental (základní).
+
+### Magnetické kvantové číslo m<sub>l</sub>
+
+- **Hodnoty:** m<sub>l</sub> = −l, …, 0, …, +l, tedy 2l + 1 hodnot.
+- **Určuje počet orbitalů v podslupce a jejich orientaci v prostoru** (vůči osám x, y, z): s má 1 orbital, p 3, d 5, f 7.
+- Orbitaly téže podslupky mají stejnou energii, říkáme jim **degenerované**.
+
+### Spinové kvantové číslo m<sub>s</sub>
+
+- **Hodnoty:** +½ nebo −½.
+- Popisuje **spin** elektronu, jeho vnitřní magnetický moment. V rámečkovém diagramu ho kreslíme šipkou ↑ nebo ↓.
+- V jednom orbitalu mohou být nejvýše **dva elektrony s opačným spinem**.
 
 :::caution[Pozor, častá chyba]
 „Spin znamená, že se elektron točí kolem osy po směru nebo proti směru hodinových ručiček.“ Spin je vnitřní vlastnost elektronu, díky které se chová jako malý magnet. Nejde o skutečné otáčení. Pro chemii stačí vědět, že má dvě možné hodnoty a že dva elektrony v jednom orbitalu mají opačný spin.
 :::
+
+### Tvary orbitalů
+
+Obrázky ukazují hraniční plochy orbitalů (oblast asi 90% výskytu elektronu) a jejich orientaci vůči osám. Barva rozlišuje části orbitalu, ve kterých má vlnová funkce opačné znaménko. To budeš potřebovat až u chemické vazby.
+
+<figure class="obrazek">
+	<img src="/obrazky/atom/orbital-s.svg" alt="Orbital s má tvar koule se středem v jádře" style="max-width:220px" />
+	<figcaption><b>Orbital s</b> (l = 0, m<sub>l</sub> = 0): koule. S rostoucím n se zvětšuje: 2s je větší než 1s, 3s větší než 2s.</figcaption>
+</figure>
+
+<figure class="obrazek">
+	<img src="/obrazky/atom/orbitaly-p.svg" alt="Tři orbitaly p ve tvaru prostorové osmičky orientované podél os x, y a z" />
+	<figcaption><b>Orbitaly p</b> (l = 1, m<sub>l</sub> = −1, 0, +1): tři „prostorové osmičky“ (dvojkapky) orientované podél os x, y a z. V jádře je rovina, ve které se elektron nevyskytuje.</figcaption>
+</figure>
+
+<figure class="obrazek">
+	<img src="/obrazky/atom/orbitaly-d.svg" alt="Pět orbitalů d: čtyři čtyřlístky a orbital dz² s prstencem" />
+	<figcaption><b>Orbitaly d</b> (l = 2, m<sub>l</sub> = −2 … +2): pět orbitalů složitějších tvarů. Čtyři mají tvar „čtyřlístku“ (dvojité prostorové osmičky), pátý (d<sub>z²</sub>) je osmička na ose z s prstencem kolem jádra.</figcaption>
+</figure>
+
+Orbitaly **f** (l = 3) jsou sedm a mají ještě složitější tvary; v 1. ročníku je kreslit nebudeme.
+
+### Přehled: slupky, podslupky a orbitaly
+
+| n | slupka | l | podslupka | m<sub>l</sub> | počet orbitalů | max. elektronů v podslupce |
+|---|---|---|---|---|---|---|
+| 1 | K | 0 | 1s | 0 | 1 | 2 |
+| 2 | L | 0 | 2s | 0 | 1 | 2 |
+| | | 1 | 2p | −1, 0, +1 | 3 | 6 |
+| 3 | M | 0 | 3s | 0 | 1 | 2 |
+| | | 1 | 3p | −1, 0, +1 | 3 | 6 |
+| | | 2 | 3d | −2, −1, 0, +1, +2 | 5 | 10 |
+| 4 | N | 0 | 4s | 0 | 1 | 2 |
+| | | 1 | 4p | −1, 0, +1 | 3 | 6 |
+| | | 2 | 4d | −2 … +2 | 5 | 10 |
+| | | 3 | 4f | −3 … +3 | 7 | 14 |
+
+Slupka K tedy pojme 2 elektrony, L 8, M 18 a N 32 (pravidlo 2n<sup>2</sup>).
 
 :::caution[Pozor, častá chyba]
 Slupka (n = 2) obsahuje podslupky (2s, 2p), podslupka 2p obsahuje tři orbitaly (2p<sub>x</sub>, 2p<sub>y</sub>, 2p<sub>z</sub>) a orbital obsahuje nejvýš dva elektrony. „Orbital 2p“ v jednotném čísle je nepřesné vyjádření pro podslupku.
@@ -107,15 +164,26 @@ Pro n = 3 může l nabývat hodnot 0, 1, 2: podslupky 3s, 3p, 3d. Orbitalů je 1
 
 </details>
 
-## 4 Obsazování orbitalů elektrony
+## 4 Znázornění orbitalů a elektronů
+
+Obsazení orbitalů zapisujeme dvěma způsoby:
+
+- **Zápis podslupky:** číslo slupky, písmeno podslupky a horní index s počtem elektronů. Například **2p<sup>3</sup>** = tři elektrony v podslupce p druhé slupky.
+- **Rámečkový diagram:** každý čtvereček je jeden orbital, každá šipka je elektron (↑ nebo ↓ podle spinu). Orbitaly jedné podslupky kreslíme vedle sebe.
+
+<span class='orbitaly'><span class='ps'><span><i>↑↓</i></span><b>1s</b></span><span class='ps'><span><i>↑↓</i></span><b>2s</b></span><span class='ps'><span><i>↑</i><i>↑</i><i>↑</i></span><b>2p</b></span><span class='ps'><span><i>↑↓</i><i>↑</i><i>↑</i><i></i><i></i></span><b>3d</b></span></span>
+
+Diagram ukazuje 1s<sup>2</sup>, 2s<sup>2</sup>, 2p<sup>3</sup> a 3d<sup>4</sup>: podslupka p má tři čtverečky, podslupka d pět.
+
+## 5 Pravidla obsazování orbitalů
 
 Elektronová konfigurace udává, jak jsou elektrony atomu rozdělené do orbitalů v **základním stavu**, tedy ve stavu s nejnižší energií. Řídí se třemi pravidly.
 
 <Steps>
 
-1. **Výstavbový princip.** Elektrony obsazují orbitaly od nejnižší energie. Energii podslupky odhadneme součtem n + l: nižší součet znamená nižší energii. Při stejném součtu má nižší energii podslupka s menším n. Proto se 4s (4 + 0 = 4) zaplňuje dřív než 3d (3 + 2 = 5).
-2. **Pauliho princip.** V jednom orbitalu mohou být nejvýše dva elektrony a musí mít opačný spin (↑↓). Jinak řečeno: v atomu nemohou mít dva elektrony všechna čtyři kvantová čísla stejná.
-3. **Hundovo pravidlo.** V orbitalech téže podslupky se elektrony nejdřív rozmístí po jednom se stejným spinem a teprve potom se párují. Jako cestující v autobuse: dokud jsou volná dvojsedadla, každý si sedne sám.
+1. **Pauliho princip** (W. Pauli, 1925). V atomu nemohou mít dva elektrony všechna čtyři kvantová čísla stejná. Proto jsou v jednom orbitalu nejvýše dva elektrony a mají opačný spin (↑↓).
+2. **Hundovo pravidlo.** V orbitalech téže podslupky se elektrony nejdřív rozmístí po jednom se stejným spinem a teprve potom se párují. Jako cestující v autobuse: dokud jsou volná dvojsedadla, každý si sedne sám.
+3. **Výstavbový princip.** Elektrony obsazují orbitaly od nejnižší energie. Energii podslupky odhadneme součtem **n + l**: nižší součet znamená nižší energii. Při stejném součtu má nižší energii podslupka s menším n. Proto se 4s (4 + 0 = 4) zaplňuje dřív než 3d (3 + 2 = 5) a 2p (2 + 1 = 3) dřív než 3s (3 + 0 = 3).
 
 </Steps>
 
@@ -126,18 +194,9 @@ Pořadí podle rostoucí energie: **1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p
 	<figcaption>Každá šipka spojuje podslupky se stejným součtem n + l. Šipky procházíš shora dolů, po každé šipce od vyššího l k nižšímu. Malé číslo = pořadí zaplňování.</figcaption>
 </figure>
 
-### Zápis konfigurace: tři podoby téhož
-
-Příklad: dusík <sub>7</sub>N má 7 elektronů.
-
-- **Úplný zápis:** <sub>7</sub>N: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup> (horní index = počet elektronů v podslupce).
-- **Rámečkový diagram:** každý čtvereček je jeden orbital, šipka je elektron.
+**Příklad: dusík <sub>7</sub>N** (7 elektronů): 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup>
 
 <span class='orbitaly'><span class='ps'><span><i>↑↓</i></span><b>1s</b></span><span class='ps'><span><i>↑↓</i></span><b>2s</b></span><span class='ps'><span><i>↑</i><i>↑</i><i>↑</i></span><b>2p</b></span></span>
-
-- **Zkrácený zápis:** vnitřní elektrony nahradíme značkou předchozího vzácného plynu: <sub>7</sub>N: [He] 2s<sup>2</sup> 2p<sup>3</sup>. Další příklady: <sub>11</sub>Na: [Ne] 3s<sup>1</sup>, <sub>17</sub>Cl: [Ne] 3s<sup>2</sup> 3p<sup>5</sup>, <sub>20</sub>Ca: [Ar] 4s<sup>2</sup>, <sub>26</sub>Fe: [Ar] 4s<sup>2</sup> 3d<sup>6</sup>.
-
-Konfiguraci píšeme v pořadí zaplňování. Zkrácený zápis není jen úspora místa: **to, co zůstane za závorkou, jsou elektrony důležité pro chemii.**
 
 :::tip[Představ si]
 Dusík má v podslupce 2p tři elektrony. Hundovo pravidlo říká, že budou ve třech různých orbitalech: jeden ve směru osy x, jeden y, jeden z. Elektrony se tak odpuzují co nejméně. Kyslík má o jeden elektron víc a ten už musí do orbitalu, kde někdo je. První dvojice v podslupce p proto vzniká až u kyslíku.
@@ -163,23 +222,26 @@ A) Hundovo pravidlo – elektrony v 2p mají být v různých orbitalech. B) Vý
 „Konfiguraci draslíku píšu 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 3d<sup>1</sup>, protože slupka M má místo na 18 elektronů.“ Slupka sice má kapacitu 18, ale 4s má nižší energii než 3d. Správně: <sub>19</sub>K: [Ar] 4s<sup>1</sup>.
 :::
 
-<Aside type="note" title="Pro zájemce">
-U některých d-prvků se konfigurace od pravidla n + l odchyluje, například <sub>24</sub>Cr: [Ar] 4s<sup>1</sup> 3d<sup>5</sup> a <sub>29</sub>Cu: [Ar] 4s<sup>1</sup> 3d<sup>10</sup>. Pravidlo n + l je odhad, ne přírodní zákon. Podrobnosti v chemickém semináři.
-</Aside>
-
-## 5 Aplikace: postav elektronový obal
+### Vyzkoušej v aplikaci
 
 V aplikaci rozmísťuješ elektrony do orbitalů sám. Aplikace ti nedovolí tah, který porušuje pravidla, a napíše, proč nejde. Návod k ovládání je na stránce [Aplikace: Stavba elektronového obalu](/chemie/obecna-chemie/atom/elektronovy-obal/aplikace/).
 
 <Aplikace src="/aplikace/elektronovy-obal/" title="Stavba elektronového obalu" vyska={1720} stahnout="elektronovy-obal.html" />
 
-## 6 Valenční elektrony, ionty a excitovaný stav
+## 6 Konfigurace a periodická tabulka
 
-Chemie se odehrává hlavně ve vnější vrstvě atomu. Elektrony, které se účastní vazeb, nazýváme **valenční**.
+### Zkrácený zápis
 
-### Valenční elektrony a periodická tabulka
+Vnitřní elektrony nahradíme značkou předchozího vzácného plynu v hranaté závorce:
 
-U prvků hlavních skupin jsou valenční elektrony ty v nejvyšší slupce (podslupky ns a np). Jejich počet poznáš z periodické tabulky.
+- <sub>7</sub>N: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup> = [He] 2s<sup>2</sup> 2p<sup>3</sup>
+- <sub>11</sub>Na: [Ne] 3s<sup>1</sup> · <sub>17</sub>Cl: [Ne] 3s<sup>2</sup> 3p<sup>5</sup> · <sub>20</sub>Ca: [Ar] 4s<sup>2</sup> · <sub>26</sub>Fe: [Ar] 4s<sup>2</sup> 3d<sup>6</sup>
+
+Konfiguraci píšeme v pořadí zaplňování. Zkrácený zápis není jen úspora místa: **to, co zůstane za závorkou, jsou elektrony důležité pro chemii.**
+
+### Valenční elektrony
+
+Elektrony, které se účastní vazeb, nazýváme **valenční**. U prvků hlavních skupin jsou to elektrony v nejvyšší slupce (podslupky ns a np). Jejich počet poznáš z periodické tabulky.
 
 | Skupina | 1 | 2 | 13 | 14 | 15 | 16 | 17 | 18 |
 |---|---|---|---|---|---|---|---|---|
@@ -188,23 +250,7 @@ U prvků hlavních skupin jsou valenční elektrony ty v nejvyšší slupce (pod
 
 Číslo periody = hlavní kvantové číslo valenční slupky. Prvky v jednom sloupci mají stejný typ valenční konfigurace, a proto podobné chemické vlastnosti. To je jádro periodického zákona.
 
-### Konfigurace iontů
-
-- **Kation:** elektrony odeber z podslupky s nejvyšším n. <sub>11</sub>Na<sup>+</sup>: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> = [Ne]; <sub>12</sub>Mg<sup>2+</sup>: [Ne].
-- **Anion:** elektrony přidej do dalšího volného orbitalu. <sub>17</sub>Cl<sup>−</sup>: [Ne] 3s<sup>2</sup> 3p<sup>6</sup> = [Ar]; <sub>8</sub>O<sup>2−</sup>: [Ne].
-- **d-prvky:** při vzniku kationtu odcházejí nejdřív elektrony 4s, i když se zaplňovaly dřív než 3d. <sub>26</sub>Fe<sup>2+</sup>: [Ar] 3d<sup>6</sup>.
-
-Na<sup>+</sup>, Mg<sup>2+</sup>, O<sup>2−</sup> a Ne mají stejnou elektronovou konfiguraci. Říkáme, že jsou **izoelektronové**.
-
-:::caution[Pozor, častá chyba]
-„Sodík chce odevzdat elektron, aby měl oktet.“ Atomy nic nechtějí. Odtržení elektronu od sodíku dokonce energii **spotřebuje** (ionizační energie). Sloučeniny jako NaCl vznikají proto, že se energie uvolní až v dalších krocích, při přitahování opačně nabitých iontů v krystalu. Konfigurace vzácného plynu je užitečná pomůcka k předpovědi náboje iontu, ne důvod, proč reakce probíhá.
-:::
-
-:::caution[Pozor, častá chyba]
-„Na<sup>+</sup> má stejnou konfiguraci jako neon, takže se chová jako neon.“ Na<sup>+</sup> má v jádře 11 protonů, neon 10. Je to nabitá částice s úplně jinými vlastnostmi; zůstává sodíkem.
-:::
-
-### Excitovaný stav
+## 7 Excitovaný stav
 
 Když atom pohltí energii, může se elektron přesunout do orbitalu s vyšší energií. Atom je pak v **excitovaném stavu** (značíme hvězdičkou). Excitovaný stav je nestálý: elektron se vrací zpět a energii vyzáří, například jako světlo v plamenové zkoušce.
 
@@ -228,10 +274,45 @@ Excitace by musela rozpárovat elektrony 2s do volného orbitalu. Ve druhé slup
 
 </details>
 
+## 8 Vznik iontů
+
+### Ionizační energie a elektronová afinita
+
+- **Ionizační energie** je energie potřebná k odtržení elektronu od atomu (v plynném stavu). První ionizační energie odtrhne první elektron, druhá další z již vzniklého kationtu a je vždy vyšší. Ionizace energii **vždy spotřebuje**.
+- **Elektronová afinita** je energie, která se uvolní, když atom přijme elektron. Nejvíc energie se uvolní u halogenů, které snadno tvoří anionty.
+
+Jak se ionizační energie mění v periodické tabulce, probereme v kapitole o periodické soustavě.
+
+### Konfigurace iontů
+
+- **Kation:** elektrony odeber z podslupky s nejvyšším n. <sub>11</sub>Na<sup>+</sup>: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> = [Ne]; <sub>12</sub>Mg<sup>2+</sup>: [Ne].
+- **Anion:** elektrony přidej do dalšího volného orbitalu. <sub>17</sub>Cl<sup>−</sup>: [Ne] 3s<sup>2</sup> 3p<sup>6</sup> = [Ar]; <sub>8</sub>O<sup>2−</sup>: [Ne].
+- **d-prvky:** při vzniku kationtu odcházejí nejdřív elektrony 4s, i když se zaplňovaly dřív než 3d. <sub>26</sub>Fe<sup>2+</sup>: [Ar] 3d<sup>6</sup>.
+
+Na<sup>+</sup>, Mg<sup>2+</sup>, O<sup>2−</sup> a Ne mají stejnou elektronovou konfiguraci. Říkáme, že jsou **izoelektronové**.
+
+:::caution[Pozor, častá chyba]
+„Sodík chce odevzdat elektron, aby měl oktet.“ Atomy nic nechtějí. Odtržení elektronu od sodíku dokonce energii **spotřebuje** (ionizační energie). Sloučeniny jako NaCl vznikají proto, že se energie uvolní až v dalších krocích, při přitahování opačně nabitých iontů v krystalu. Konfigurace vzácného plynu je užitečná pomůcka k předpovědi náboje iontu, ne důvod, proč reakce probíhá.
+:::
+
+:::caution[Pozor, častá chyba]
+„Na<sup>+</sup> má stejnou konfiguraci jako neon, takže se chová jako neon.“ Na<sup>+</sup> má v jádře 11 protonů, neon 10. Je to nabitá částice s úplně jinými vlastnostmi; zůstává sodíkem.
+:::
+
+## 9 Nepravidelnosti konfigurací
+
+U některých d-prvků se skutečná konfigurace od pravidla n + l odchyluje. Nejznámější jsou chrom a měď:
+
+- <sub>24</sub>Cr: podle pravidla [Ar] 4s<sup>2</sup> 3d<sup>4</sup>, skutečně **[Ar] 4s<sup>1</sup> 3d<sup>5</sup>**
+- <sub>29</sub>Cu: podle pravidla [Ar] 4s<sup>2</sup> 3d<sup>9</sup>, skutečně **[Ar] 4s<sup>1</sup> 3d<sup>10</sup>**
+
+Napůl zaplněná (d<sup>5</sup>) a zcela zaplněná (d<sup>10</sup>) podslupka d jsou energeticky výhodné. Podobné výjimky mají prvky pod nimi (Mo, Ag, Au) a několik dalších. Pravidlo n + l je odhad, ne přírodní zákon; podrobnosti v chemickém semináři.
+
 ## Shrnutí
 
 - Energie elektronu nabývá jen určitých hodnot. Přechody mezi nimi vysvětlují barvy plamenových zkoušek a čárová spektra.
 - Elektron nemá dráhu. Orbital popisuje jeho energii a oblast pravděpodobného výskytu.
+- Kvantová čísla: n (slupka, energie, velikost), l (podslupka, tvar), m<sub>l</sub> (počet a orientace orbitalů), m<sub>s</sub> (spin). Orbital s je koule, p prostorová osmička.
 - Slupka (n) → podslupka (s, p, d, f) → orbital → nejvýš dva elektrony s opačným spinem.
 - Orbitaly se zaplňují podle energie (n + l), Pauliho principu a Hundova pravidla.
 - Valenční elektrony určují chemické vlastnosti a místo prvku v periodické tabulce.

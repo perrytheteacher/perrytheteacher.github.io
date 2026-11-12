@@ -49,13 +49,14 @@ export default defineConfig({
 							items: [
 								{ slug: 'chemie/obecna-chemie', label: 'Přehled' },
 								{
-									// Atom: přehled (vstupní sonda) → 1. Jádro atomu → 2. Elektronový obal → aplikace.
+									// Atom: přehled (vstupní sonda) → 1. Jádro atomu → 2. Elektronový obal → 3. Částice a jádro (seminář) → aplikace.
 									label: 'Atom',
 									collapsed: true,
 									items: [
 										{ slug: 'chemie/obecna-chemie/atom', label: 'Přehled' },
 										{ slug: 'chemie/obecna-chemie/atom/01-jadro-atomu' },
 										{ slug: 'chemie/obecna-chemie/atom/02-elektronovy-obal' },
+										{ slug: 'chemie/obecna-chemie/atom/03-castice-a-jadro-seminar' },
 										{ slug: 'chemie/obecna-chemie/atom/elektronovy-obal/aplikace', label: 'Aplikace: elektronový obal' },
 									],
 								},
