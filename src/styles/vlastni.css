@@ -179,3 +179,82 @@
 .sl-markdown-content td:empty {
 	min-width: 11rem;
 }
+
+/* Zápis nuklidu s nukleonovým a protonovým číslem nad sebou:
+   <span class='nuklid'><sup>238</sup><sub>92</sub></span>U */
+.sl-markdown-content .nuklid,
+.otazka .nuklid {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-end;
+	vertical-align: 0.62em;
+	font-size: 0.66em;
+	line-height: 1;
+	margin-right: 0.06em;
+}
+.sl-markdown-content .nuklid sup,
+.sl-markdown-content .nuklid sub,
+.otazka .nuklid sup,
+.otazka .nuklid sub {
+	vertical-align: baseline;
+	font-size: inherit;
+	line-height: 1;
+	position: static;
+}
+
+/* Rámečkový diagram orbitalů – čtverečky, šipky jako elektrony, pod podslupkou její název:
+   <span class='orbitaly'><span class='ps'><span><i>↑↓</i></span><b>1s</b></span>…</span> */
+.orbitaly {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	align-items: flex-start;
+	vertical-align: middle;
+	margin: 0.15rem 0;
+}
+.orbitaly .ps {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+}
+.orbitaly .ps > span {
+	display: inline-flex;
+}
+.orbitaly i {
+	font-style: normal;
+	width: 1.9rem;
+	height: 1.9rem;
+	border: 1.5px solid currentColor;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.05rem;
+	letter-spacing: -0.12em;
+	line-height: 1;
+}
+.orbitaly i + i {
+	border-left: none;
+}
+.orbitaly b {
+	font-size: 0.8rem;
+	font-weight: 600;
+	margin-top: 0.15rem;
+	line-height: 1;
+}
+@media print {
+	.orbitaly {
+		break-inside: avoid;
+	}
+}
+/* Starlight odsazuje sousední prvky v obsahu – uvnitř nuklidu a rámečků okraje nechceme. */
+.sl-markdown-content .nuklid > *,
+.sl-markdown-content .orbitaly *,
+.otazka .nuklid > *,
+.otazka .orbitaly * {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.sl-markdown-content .orbitaly b,
+.otazka .orbitaly b {
+	margin-top: 0.15rem;
+}

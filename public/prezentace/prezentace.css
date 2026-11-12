@@ -181,3 +181,13 @@ img.vzorec{height:auto;display:block}
     border:2px dashed #9aa3ad;border-radius:14px;color:#3a3f45;font-size:26px;padding:24px}
   .app-tisk a{color:#1a6d97;font-size:22px;word-break:break-all}
 }
+
+/* Zápis nuklidu (A nad Z) a rámečkové diagramy orbitalů – kapitoly Atom */
+.slide .nuklid{display:inline-flex;flex-direction:column;align-items:flex-end;vertical-align:.62em;font-size:.62em;line-height:1;margin-right:.08em}
+.slide .nuklid sup,.slide .nuklid sub{position:static;top:auto;bottom:auto;vertical-align:baseline;font-size:inherit;line-height:1}
+.orbitaly{display:inline-flex;flex-wrap:wrap;gap:16px;align-items:flex-start;vertical-align:middle}
+.orbitaly .ps{display:inline-flex;flex-direction:column;align-items:center}
+.orbitaly .ps>span{display:inline-flex}
+.orbitaly i{font-style:normal;width:52px;height:52px;border:2.5px solid #1f2328;display:inline-flex;align-items:center;justify-content:center;font-size:30px;letter-spacing:-.12em;line-height:1;background:#fff}
+.orbitaly i+i{border-left:none}
+.orbitaly b{font-size:20px;margin-top:4px}

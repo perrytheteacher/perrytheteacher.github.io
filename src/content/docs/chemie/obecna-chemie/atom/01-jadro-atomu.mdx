@@ -1,0 +1,561 @@
+---
+title: 1. Jádro atomu
+description: Jak malý je atom, jak jsme poznali jeho stavbu, protony, neutrony a elektrony, protonové a nukleonové číslo, izotopy, ionty a přeměny jader alfa a beta.
+sidebar:
+  order: 1
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import Otazka from '../../../../../components/Otazka.astro';
+
+Navazuje na [vstupní sondu v přehledu kapitoly Atom](/chemie/obecna-chemie/atom/).
+
+Atom je skoro celý „prázdný“: téměř celá jeho hmotnost je soustředěná v jádře, které je desetitisíckrát menší než atom. Proč tedy nemůžeš projít zdí? A co dělá z atomu uhlíku právě uhlík? V této kapitole si postavíš představu atomu ve správném měřítku a naučíš se číst, z čeho se skládá jeho jádro.
+
+:::note[Co se v této kapitole naučíte]
+- odhadnout, jak malý je atom a jak malé je jeho jádro ve srovnání s celým atomem,
+- popsat stavbu atomu (proton, neutron, elektron) a vysvětlit, co drží atom pohromadě,
+- z protonového a nukleonového čísla určit počet částic v atomu i v iontu a zapsat nuklid značkou,
+- vysvětlit rozdíl mezi izotopy téhož prvku a mezi atomem a iontem,
+- doplnit rovnici přeměny alfa a beta.
+:::
+
+## 1 Jak malý je atom
+
+Atom má průměr zhruba 10<sup>−10</sup> m, jeho jádro je asi 10 000–100 000krát menší. Taková čísla si mozek sám nepředstaví. Proto je převedeme na věci, které znáš.
+
+<Otazka
+	zadani="Tipni si dřív, než budeš číst dál: kdyby byl atom vodíku velký jako fotbalový stadion, jak velké by bylo jeho jádro?"
+	moznosti={["jako auto", "jako fotbalový míč", "jako zrnko máku", "nebylo by vůbec vidět"]}
+	spravne={2}
+	vysvetleni="Atom vodíku má průměr asi 1 · 10<sup>−10</sup> m, proton asi 1,7 · 10<sup>−15</sup> m. Poměr je zhruba 60 000 : 1, takže ve stadionu o průměru 100 m by jádro měřilo asi 1,6 mm."
+/>
+
+### Atom zvětšený na velikost, kterou znáš
+
+| Kdyby byl atom vodíku velký jako… | …bylo by jádro velké jako… | A elektron? |
+|---|---|---|
+| fotbalový stadion (průměr 100 m) | zrnko máku uprostřed hřiště (asi 1,6 mm) | nemá „velikost“, kterou by šlo nakreslit; jeho výskyt je rozprostřený po celém stadionu |
+| planeta Země (průměr 12 742 km) | fotbalový stadion ve středu Země (asi 200 m) | rozprostřený v celém objemu Země |
+
+U těžších atomů je jádro větší, ale atom také. U zlata je jádro asi 20 000krát menší než atom. Závěr je stejný: **jádro zabírá nepatrný zlomek objemu atomu, ale nese skoro celou jeho hmotnost** (více než 99,9 %).
+
+### Kolik atomů je kolem tebe
+
+- **Vlas.** Přes tloušťku lidského vlasu (asi 70 µm) by se vešlo za sebou zhruba 250 000–450 000 atomů uhlíku.
+- **Kapka vody.** Jedna kapka (asi 0,05 ml) obsahuje přibližně 5 · 10<sup>21</sup> atomů. Kdybys je chtěl spočítat rychlostí miliardu za sekundu, trvalo by ti to přes 150 000 let.
+- **Hustota jádra.** Čajová lžička „jaderné hmoty“ (jádra natlačená těsně na sebe bez prázdného prostoru) by vážila asi miliardu tun. To je zhruba dvakrát víc než všichni lidé na Zemi dohromady.
+
+:::tip[Představ si]
+Na školním hřišti vyznač provazem kruh o průměru 100 m a do středu polož zrnko máku. To je model atomu vodíku ve správném měřítku. Kde bys v tomto modelu hledal elektron?
+:::
+
+:::note[Myslím – dvojice – sdílím]
+Na obrázcích v učebnicích a v logu „atomové energie“ je jádro velké skoro jako celý atom. Proč to kreslíři dělají? Co nás takový obrázek učí špatně? Navrhněte popisek, který by pod takový obrázek patřil.
+:::
+
+:::caution[Pozor, častá chyba]
+„Mezi jádrem a elektrony je vzduch.“ Vzduch je směs molekul, které jsou samy složené z atomů. Uvnitř atomu žádný vzduch být nemůže. Prostor atomu „vyplňuje“ jen elektronový obal, tedy oblast, kde se může vyskytovat elektron.
+:::
+
+<details>
+<summary>Zkontroluj se: Atom má 60 000krát větší průměr než jádro. Kolikrát je větší jeho objem?</summary>
+
+Objem koule roste se třetí mocninou průměru: 60 000<sup>3</sup> ≈ 2 · 10<sup>14</sup>. Jádro tedy zabírá asi dvě stobiliontiny objemu atomu.
+
+</details>
+
+## 2 Jak jsme poznali, co je uvnitř
+
+Atom nikdo neviděl tak, jak vidíš jablko. Všechno, co o něm víme, vychází z pokusů a z modelů, které výsledky pokusů vysvětlují. **Model není fotografie, je to nástroj.** Každý model něco vysvětlí a něco už ne. Když narazíme na pokus, který model vysvětlit neumí, model upravíme nebo nahradíme.
+
+| Model a rok | Na jakém pozorování stojí | Co vysvětlí | Co už nevysvětlí |
+|---|---|---|---|
+| Daltonův model (kolem 1805) | Prvky se slučují ve stálých hmotnostních poměrech. | Každý prvek tvoří jeden druh atomů; při reakci se atomy jen přeskupují. | Elektrické jevy, existenci menších částic. |
+| Thomsonův „pudinkový“ model (1904) | Objev elektronu v katodovém záření (1897). | Atom obsahuje záporné elektrony, a proto musí obsahovat i kladný náboj. | Výsledek pokusu se zlatou fólií. |
+| Rutherfordův jádrový model (1911) | Rozptyl částic alfa na tenké zlaté fólii. | Kladný náboj a skoro celou hmotnost nese malé jádro; zbytek atomu je obal. | Proč atom vysílá jen světlo určitých barev (čárová spektra) a proč je stálý. |
+| Bohrův model (1913) | Čárové spektrum vodíku. | Elektron může mít jen určité hodnoty energie; při přechodu mezi nimi pohltí nebo vyšle foton. | Spektra atomů s více elektrony, tvary molekul. |
+| Kvantově mechanický model (1926) | Elektron se chová jako částice i jako vlnění. | Energii i prostorové rozložení elektronů v atomech a molekulách. Dnes se používá v celé chemii. | Pro školní chemii nic podstatného. |
+
+Neutron objevil James Chadwick až v roce 1932. Do té doby nikdo nedokázal vysvětlit, proč je jádro helia čtyřikrát těžší než jádro vodíku, ač má jen dvojnásobný náboj.
+
+### Pokus se zlatou fólií: předpověz výsledek
+
+Rutherfordovi spolupracovníci Geiger a Marsden ostřelovali fólii ze zlata, tlustou jen několik set atomů, kladnými částicemi alfa. Za fólií sledovali, kam částice dopadají.
+
+:::note[Myslím – dvojice – sdílím]
+1. Představ si, že platí Thomsonův model: kladný náboj je rozlitý rovnoměrně po celém atomu jako řídký pudink. Co se stane s rychlou těžkou částicí alfa, která jím prolétá?
+2. Skutečný výsledek: většina částic prošla rovně, některé se mírně odchýlily a zhruba jedna z osmi tisíc se odrazila zpět. Rutherford řekl, že je to, jako by vystřelil dělovou kouli na kapesník a ona se vrátila. Co z toho musí plynout pro stavbu atomu?
+3. Proč se odrazila jen tak malá část částic? Propoj odpověď s oddílem 1.
+:::
+
+<details>
+<summary>Zobrazit řešení</summary>
+
+1. Podle Thomsonova modelu je kladný náboj „rozředěný“ a nikde není dost silné pole, aby těžkou rychlou částici obrátilo. Všechny částice by prošly téměř rovně.
+2. Odraz zpět vyžaduje velmi silné odpuzování na malém prostoru. Kladný náboj i hmotnost musí být soustředěné v **malém jádře**.
+3. Jádro je tak malé, že se do něj (nebo těsně kolem něj) trefí jen nepatrný zlomek částic. Většina proletí prostorem obalu.
+
+</details>
+
+:::caution[Pozor, častá chyba]
+„Staré modely byly špatně, nový model je pravda.“ Každý model je zjednodušení. Bohrův model s kružnicemi je dodnes užitečný, když chceš rychle spočítat elektrony ve vrstvách. Jen si musíš pamatovat, že elektrony **nekrouží po drahách** jako planety.
+:::
+
+## 3 Stavební částice atomu
+
+Atom tvoří tři druhy částic: protony a neutrony v jádře, elektrony v obalu. Pro chemii stačí znát jejich relativní náboj a relativní hmotnost.
+
+| Částice | Značka | Kde je | Relativní náboj | Relativní hmotnost |
+|---|---|---|---|---|
+| proton | p<sup>+</sup> | jádro | +1 | 1 |
+| neutron | n<sup>0</sup> | jádro | 0 | 1 (nepatrně víc než proton) |
+| elektron | e<sup>−</sup> | elektronový obal | −1 | 1/1836 |
+
+Protony a neutrony mají společný název **nukleony**. Náboj protonu a elektronu je stejně velký, liší se jen znaménkem (1,602 · 10<sup>−19</sup> C). Proton a neutron se dále skládají z kvarků; elektron podle současných znalostí dále dělitelný není. Pro chemii ale kvarky nepotřebujeme.
+
+:::tip[Představ si]
+Proton je 1836krát těžší než elektron. Kdyby elektron vážil jako kancelářská sponka (asi 1 g), proton by vážil skoro dvě kila, jako velká láhev limonády. Proto při výpočtu hmotnosti atomu elektrony skoro nemusíme počítat.
+:::
+
+### Co drží atom pohromadě
+
+- **Elektrostatické přitahování** mezi kladným jádrem a zápornými elektrony drží elektrony u jádra. Síla působí mezi jádrem a každým elektronem; neplatí, že každý proton „drží“ svůj jeden elektron.
+- **Elektrony se navzájem odpuzují.** Proto vnější elektrony cítí přitahování jádra slabší, než by odpovídalo celému náboji jádra; vnitřní elektrony ho „stíní“. Tuto myšlenku budeš potřebovat u periodické tabulky.
+- **Protony v jádře se odpuzují**, a přesto jádro drží pohromadě. Mezi nukleony totiž působí **jaderná síla**: na velmi krátkou vzdálenost (velikost jádra) je mnohem silnější než elektrostatické odpuzování, na větší vzdálenost prakticky nepůsobí. Neutrony přispívají k přitahování, aniž by přidávaly odpuzování.
+
+<details>
+<summary>Proč elektrony nespadnou do jádra, když je jádro přitahuje?</summary>
+
+Odpověď „protože rychle krouží“ patří k planetárnímu modelu, a ten právě tady selhal: kroužící náboj by podle klasické fyziky vyzařoval energii a za zlomek sekundy by na jádro spadl.
+
+Kvantová mechanika říká, že elektron nemá dráhu a nemůže být zavřený v libovolně malém prostoru, aniž by jeho energie prudce vzrostla. Stav s nejnižší možnou energií proto není „elektron na jádře“, ale elektron rozprostřený kolem jádra v orbitalu. Nižší energii už elektron mít nemůže, a tak nemá „kam spadnout“. Víc v kapitole [Elektronový obal](/chemie/obecna-chemie/atom/02-elektronovy-obal/).
+
+</details>
+
+:::caution[Pozor, častá chyba]
+„Atom je elektricky nabitý, protože obsahuje nabité částice.“ Atom obsahuje stejně protonů jako elektronů, proto je jako celek **elektroneutrální**. Nabitý je až ion.
+:::
+
+## 4 Zápis jádra: Z, A, N
+
+Druh atomu určuje jediné číslo: počet protonů v jádře. Změníš počet neutronů a dostaneš jiný izotop téhož prvku. Změníš počet elektronů a dostaneš ion. Změníš počet protonů a dostaneš jiný prvek.
+
+| Číslo | Značka | Co udává | Kde ho najdeš |
+|---|---|---|---|
+| protonové (atomové) číslo | Z | počet protonů v jádře | v periodické tabulce, určuje prvek |
+| nukleonové číslo | A | počet protonů + neutronů | v zadání nebo v zápisu nuklidu |
+| neutronové číslo | N | počet neutronů, N = A − Z | dopočítáš |
+
+Zápis nuklidu: nukleonové číslo vlevo nahoře, protonové vlevo dole, např. <span class='nuklid'><sup>12</sup><sub>6</sub></span>C, <span class='nuklid'><sup>14</sup><sub>6</sub></span>C, <span class='nuklid'><sup>23</sup><sub>11</sub></span>Na, <span class='nuklid'><sup>235</sup><sub>92</sub></span>U. Protonové číslo se často vynechává (<sup>14</sup>C), protože značka prvku ho už jednoznačně určuje.
+
+<Steps>
+
+1. Z periodické tabulky nebo z dolního indexu zjisti **Z** = počet protonů.
+2. Z horního indexu přečti **A** a dopočítej neutrony: **N = A − Z**.
+3. Elektrony: v atomu jich je stejně jako protonů. U iontu odečti kladný náboj, nebo přičti záporný.
+
+</Steps>
+
+**Řešený příklad.** Kolik částic obsahuje ion <sup>32</sup>S<sup>2−</sup>? Síra má Z = 16, tedy 16 protonů. Neutronů je 32 − 16 = 16. Náboj 2− znamená o dva elektrony víc než protonů: 18 elektronů.
+
+### Prvek, nuklid, izotop
+
+- **Chemický prvek** je druh atomů se stejným protonovým číslem. Slovo „prvek“ používáme i pro látku složenou z atomů jednoho prvku (grafit je látka, uhlík je prvek).
+- **Nuklid** je druh atomů se stejným Z i A, např. <sup>12</sup>C.
+- **Izotopy** jsou nuklidy téhož prvku s různým počtem neutronů. Vodík má tři: <sup>1</sup>H (protium), <sup>2</sup>H (deuterium, D) a <sup>3</sup>H (tritium, T).
+
+Izotopy téhož prvku mají **prakticky stejné chemické vlastnosti**, protože mají stejný elektronový obal. Liší se hmotností a stabilitou jádra. Nejvýraznější rozdíly jsou u vodíku: deuterium má dvojnásobnou hmotnost než protium.
+
+:::note[Myslím – dvojice – sdílím]
+Chlor má v přírodě dva izotopy: <sup>35</sup>Cl (asi 76 % atomů) a <sup>37</sup>Cl (asi 24 % atomů). V periodické tabulce najdeš u chloru relativní atomovou hmotnost 35,45. Vysvětlete, odkud se vzalo číslo, které není celé. Odhadněte bez kalkulačky, jestli bude blíž 35, nebo 37.
+:::
+
+<details>
+<summary>Zobrazit řešení</summary>
+
+Relativní atomová hmotnost je vážený průměr hmotností izotopů podle jejich zastoupení: 0,76 · 35 + 0,24 · 37 ≈ 35,5. Je blíž 35, protože lehčího izotopu je víc.
+
+</details>
+
+### Ionty
+
+**Ion** vznikne, když atom elektrony ztratí nebo přijme. Jádro se přitom nemění.
+
+- **Kation** má méně elektronů než protonů, je kladný: Na<sup>+</sup> má 11 protonů a 10 elektronů.
+- **Anion** má více elektronů než protonů, je záporný: Cl<sup>−</sup> má 17 protonů a 18 elektronů.
+
+:::caution[Pozor, častá chyba]
+„Na<sup>+</sup> vznikl tak, že atom sodíku získal proton.“ Proton nemůže při chemické reakci do jádra přibýt ani z něj ubýt; změnil by se tím prvek. Kladný náboj znamená, že **elektron chybí**.
+:::
+
+## 5 Stabilita jádra a přeměny alfa a beta
+
+Některá jádra jsou nestabilní a samovolně se přemění na jiná. Tomu říkáme **radioaktivita**. Při přeměně se mění složení jádra, tedy často i prvek. Podrobnosti o záření, dávkách a jaderné energetice probíráte ve fyzice; v chemii nás zajímá, jak se při přeměně mění Z a A.
+
+### Která jádra jsou stálá
+
+- U lehkých prvků (zhruba do Z = 20) jsou stálá jádra s přibližně stejným počtem neutronů a protonů, např. <sup>4</sup>He, <sup>12</sup>C, <sup>16</sup>O.
+- Čím těžší jádro, tím víc neutronů potřebuje (u olova zhruba 1,5 neutronu na proton). Neutrony „lepí“ jádro jadernou silou a nepřidávají elektrostatické odpuzování.
+- Jádro s příliš mnoha neutrony nebo příliš mnoha protony je nestabilní. Všechna jádra s Z větším než 82 (olovo) jsou nestabilní.
+
+### Hlavní typy přeměn
+
+| Přeměna | Co se děje v jádře | Co odchází | Změna A | Změna Z |
+|---|---|---|---|---|
+| alfa (α) | jádro vyšle shluk 2 protonů a 2 neutronů | jádro helia <span class='nuklid'><sup>4</sup><sub>2</sub></span>He | − 4 | − 2 |
+| beta minus (β<sup>−</sup>) | neutron se změní na proton | elektron <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e (a antineutrino) | 0 | + 1 |
+| beta plus (β<sup>+</sup>) | proton se změní na neutron | pozitron <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e (a neutrino) | 0 | − 1 |
+| gama (γ) | jádro se zbaví přebytečné energie | foton (elektromagnetické záření) | 0 | 0 |
+
+<p class="rovnice">α: <span class='nuklid'><sup>238</sup><sub>92</sub></span>U → <span class='nuklid'><sup>234</sup><sub>90</sub></span>Th + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He</p>
+<p class="rovnice">β<sup>−</sup>: <span class='nuklid'><sup>14</sup><sub>6</sub></span>C → <span class='nuklid'><sup>14</sup><sub>7</sub></span>N + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e</p>
+<p class="rovnice">β<sup>+</sup>: <span class='nuklid'><sup>11</sup><sub>6</sub></span>C → <span class='nuklid'><sup>11</sup><sub>5</sub></span>B + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e</p>
+
+Při zápisu jaderné rovnice platí jednoduchá kontrola: **součet horních indexů vlevo = součet vpravo a součet dolních indexů vlevo = součet vpravo.** Záření γ často doprovází přeměny α a β.
+
+<Steps>
+
+1. Napiš výchozí nuklid s A a Z.
+2. Napiš částici, která odchází: <span class='nuklid'><sup>4</sup><sub>2</sub></span>He, <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e nebo <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e.
+3. Dopočítej A a Z produktu, aby součty vlevo a vpravo souhlasily.
+4. Podle Z najdi v periodické tabulce značku nového prvku.
+
+</Steps>
+
+:::caution[Pozor, častá chyba]
+„Při přeměně β<sup>−</sup> odchází elektron z obalu.“ Elektron vzniká v jádře přeměnou neutronu na proton a hned jádro opouští. Proto se zvýší Z.
+:::
+
+### Poločas přeměny
+
+**Poločas přeměny** je doba, za kterou se přemění polovina jader radioaktivního nuklidu. Po jednom poločasu zbude 1/2, po dvou 1/4, po třech 1/8 původního množství. Vzorek tedy „nezmizí“ za dva poločasy.
+
+:::note[Myslím – dvojice – sdílím]
+1. Uhlík <sup>14</sup>C má poločas přeměny 5730 let. Kolik z původních 1000 atomů <sup>14</sup>C zbude po 11 460 letech? Častá odpověď „nula“ je špatně. Proč?
+2. Potraviny se někdy ošetřují zářením gama, aby se zničily bakterie. Je pak jablko radioaktivní? Rozlište pojmy „ozářený“ a „obsahuje radioaktivní látku“.
+:::
+
+<details>
+<summary>Zobrazit řešení</summary>
+
+1. 11 460 let jsou dva poločasy: 1000 → 500 → 250 atomů. Každý poločas ubere polovinu toho, co zbylo, ne polovinu původního množství.
+2. Není. Záření gama jablkem projde a zničí bakterie, ale nevnese do něj žádný radioaktivní nuklid. Radioaktivní by bylo jen tehdy, kdyby radioaktivní látku obsahovalo.
+
+</details>
+
+## Shrnutí
+
+- Atom má průměr asi 10<sup>−10</sup> m, jádro je 10 000 až 100 000krát menší a nese více než 99,9 % hmotnosti.
+- Atom tvoří protony (+1) a neutrony (0) v jádře a elektrony (−1) v obalu. Atom je elektroneutrální.
+- Protonové číslo Z určuje prvek. Nukleonové číslo A = Z + N.
+- Izotopy mají stejné Z, různý počet neutronů a prakticky stejné chemické vlastnosti.
+- Ion vzniká změnou počtu elektronů, nikdy protonů. Kation elektrony ztratil, anion přijal.
+- Při přeměně α klesá A o 4 a Z o 2; při β<sup>−</sup> roste Z o 1, při β<sup>+</sup> klesá Z o 1.
+
+## Procvičování
+
+### Rychlé otázky
+
+<Otazka
+	zadani="Většinu hmotnosti atomu nese:"
+	moznosti={["elektronový obal", "jádro", "celý atom rovnoměrně", "elektrony a protony stejným dílem"]}
+	spravne={1}
+	vysvetleni="Jádro nese více než 99,9 % hmotnosti; elektron je 1836krát lehčí než proton."
+/>
+
+<Otazka
+	zadani="Kdyby měl atom průměr 100 m, mělo by jeho jádro průměr zhruba:"
+	moznosti={["10 m", "1 m", "několik milimetrů", "skoro 100 m"]}
+	spravne={2}
+	vysvetleni="Jádro je 20 000–60 000krát menší než atom: ve 100m atomu by mělo asi 2–5 mm."
+/>
+
+<Otazka
+	zadani="Druh prvku jednoznačně určuje:"
+	moznosti={["nukleonové číslo", "počet neutronů", "protonové číslo", "počet elektronů"]}
+	spravne={2}
+	vysvetleni="Prvek je druh atomů se stejným protonovým číslem. Počet elektronů se mění při vzniku iontu, počet neutronů u izotopů."
+/>
+
+<Otazka
+	zadani="Ion <sup>37</sup>Cl<sup>−</sup> obsahuje:"
+	moznosti={["17 p, 20 n, 18 e", "17 p, 20 n, 16 e", "18 p, 19 n, 18 e", "17 p, 37 n, 18 e"]}
+	spravne={0}
+	vysvetleni="Z = 17, N = 37 − 17 = 20, náboj 1− znamená o elektron víc: 18."
+/>
+
+<Otazka
+	zadani="Izotopy téhož prvku se liší:"
+	moznosti={["protonovým číslem", "počtem neutronů", "počtem elektronů v neutrálním atomu", "značkou prvku"]}
+	spravne={1}
+	vysvetleni="Izotopy mají stejné Z, a tedy i stejný počet elektronů v neutrálním atomu; liší se počtem neutronů."
+/>
+
+<Otazka
+	zadani="Kation Mg<sup>2+</sup> vznikl z atomu hořčíku tak, že atom:"
+	moznosti={["přijal dva protony", "ztratil dva elektrony", "přijal dva elektrony", "ztratil dva neutrony"]}
+	spravne={1}
+	vysvetleni="Při vzniku iontu se mění jen počet elektronů. Kladný náboj = elektrony chybí."
+/>
+
+<Otazka
+	zadani="Při přeměně β<sup>−</sup> se:"
+	moznosti={["A nemění a Z vzroste o 1", "A sníží o 4 a Z o 2", "A nemění a Z klesne o 1", "nemění A ani Z"]}
+	spravne={0}
+	vysvetleni="Neutron se v jádře změní na proton a elektron jádro opustí: počet nukleonů zůstane, protonů přibude."
+/>
+
+<Otazka
+	zadani="Přeměnou α nuklidu <span class='nuklid'><sup>226</sup><sub>88</sub></span>Ra vznikne:"
+	moznosti={["<span class='nuklid'><sup>222</sup><sub>86</sub></span>Rn", "<span class='nuklid'><sup>222</sup><sub>88</sub></span>Ra", "<span class='nuklid'><sup>226</sup><sub>89</sub></span>Ac", "<span class='nuklid'><sup>222</sup><sub>84</sub></span>Po"]}
+	spravne={0}
+	vysvetleni="A: 226 − 4 = 222, Z: 88 − 2 = 86, což je radon."
+/>
+
+<Otazka
+	zadani="Po třech poločasech přeměny zbude z původního množství radionuklidu:"
+	moznosti={["1/3", "1/6", "1/8", "nic"]}
+	spravne={2}
+	vysvetleni="1/2 · 1/2 · 1/2 = 1/8."
+/>
+
+### Úlohy: částice, izotopy a ionty
+
+**Úloha A1.** Doplň tabulku.
+
+| Zápis | Protony | Neutrony | Elektrony |
+|---|---|---|---|
+| <sup>35</sup>Cl | | | |
+| <sup>56</sup>Fe<sup>3+</sup> | | | |
+| <sup>32</sup>S<sup>2−</sup> | | | |
+| <sup>27</sup>Al<sup>3+</sup> | | | |
+| <sup>137</sup>Ba<sup>2+</sup> | | | |
+| | 20 | 20 | 18 |
+| | 8 | 10 | 10 |
+| | 35 | 44 | 36 |
+
+<details>
+<summary>Řešení A1</summary>
+
+<sup>35</sup>Cl 17, 18, 17 · <sup>56</sup>Fe<sup>3+</sup> 26, 30, 23 · <sup>32</sup>S<sup>2−</sup> 16, 16, 18 · <sup>27</sup>Al<sup>3+</sup> 13, 14, 10 · <sup>137</sup>Ba<sup>2+</sup> 56, 81, 54 · <sup>40</sup>Ca<sup>2+</sup> · <sup>18</sup>O<sup>2−</sup> · <sup>79</sup>Br<sup>−</sup>
+
+</details>
+
+**Úloha A2.** Které dvojice jsou izotopy? Zdůvodni. a) <sup>12</sup>C a <sup>14</sup>C, b) <sup>40</sup>Ar a <sup>40</sup>Ca, c) <sup>1</sup>H a <sup>2</sup>H, d) <sup>3</sup>He a <sup>3</sup>H.
+
+<details>
+<summary>Řešení A2</summary>
+
+Izotopy jsou a) a c), mají stejné Z. Dvojice b) a d) mají stejné A, ale různé Z, jsou to různé prvky.
+
+</details>
+
+**Úloha A3.** Urči prvek, který má: a) 26 elektronů v neutrálním atomu, b) 10 elektronů v iontu s nábojem 2+, c) 18 elektronů v iontu s nábojem 1−.
+
+<details>
+<summary>Řešení A3</summary>
+
+a) Fe · b) Mg (12 protonů) · c) Cl (17 protonů)
+
+</details>
+
+**Úloha A4.** Bor má v přírodě dva izotopy: <sup>10</sup>B (20 %) a <sup>11</sup>B (80 %). Vypočti přibližnou relativní atomovou hmotnost boru a porovnej ji s hodnotou v periodické tabulce.
+
+<details>
+<summary>Řešení A4</summary>
+
+0,20 · 10 + 0,80 · 11 = 10,8; v tabulce je 10,81.
+
+</details>
+
+**Úloha A5 ★.** Galium má izotopy <sup>69</sup>Ga (relativní hmotnost 68,93) a <sup>71</sup>Ga (70,92). Relativní atomová hmotnost galia je 69,72. Jaké je zastoupení izotopu <sup>69</sup>Ga?
+
+<details>
+<summary>Řešení A5</summary>
+
+68,93x + 70,92(1 − x) = 69,72, odtud x ≈ 0,60. Izotopu <sup>69</sup>Ga je asi 60 %.
+
+</details>
+
+**Úloha A6.** Spolužák napsal: „Ion Ca<sup>2+</sup> má 22 protonů, protože má náboj 2+.“ Najdi chybu a oprav ji.
+
+<details>
+<summary>Řešení A6</summary>
+
+Počet protonů se při vzniku iontu nemění. Ca<sup>2+</sup> má 20 protonů a 18 elektronů.
+
+</details>
+
+### Úlohy: jaderné přeměny
+
+Částici α zapisuj jako <span class='nuklid'><sup>4</sup><sub>2</sub></span>He, elektron jako <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e, pozitron jako <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e a neutron jako <span class='nuklid'><sup>1</sup><sub>0</sub></span>n.
+
+**Úloha B1.** Doplň produkt přeměny α.
+
+1. <span class='nuklid'><sup>238</sup><sub>92</sub></span>U → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He
+2. <span class='nuklid'><sup>226</sup><sub>88</sub></span>Ra → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He
+3. <span class='nuklid'><sup>222</sup><sub>86</sub></span>Rn → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He
+4. <span class='nuklid'><sup>210</sup><sub>84</sub></span>Po → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He
+5. <span class='nuklid'><sup>241</sup><sub>95</sub></span>Am → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He
+6. <span class='nuklid'><sup>239</sup><sub>94</sub></span>Pu → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He
+
+<details>
+<summary>Řešení B1</summary>
+
+1) <span class='nuklid'><sup>234</sup><sub>90</sub></span>Th · 2) <span class='nuklid'><sup>222</sup><sub>86</sub></span>Rn · 3) <span class='nuklid'><sup>218</sup><sub>84</sub></span>Po · 4) <span class='nuklid'><sup>206</sup><sub>82</sub></span>Pb · 5) <span class='nuklid'><sup>237</sup><sub>93</sub></span>Np · 6) <span class='nuklid'><sup>235</sup><sub>92</sub></span>U
+
+</details>
+
+**Úloha B2.** Doplň produkt přeměny β<sup>−</sup>.
+
+1. <span class='nuklid'><sup>14</sup><sub>6</sub></span>C → ? + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e
+2. <span class='nuklid'><sup>3</sup><sub>1</sub></span>H → ? + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e
+3. <span class='nuklid'><sup>131</sup><sub>53</sub></span>I → ? + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e
+4. <span class='nuklid'><sup>90</sup><sub>38</sub></span>Sr → ? + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e
+5. <span class='nuklid'><sup>137</sup><sub>55</sub></span>Cs → ? + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e
+6. <span class='nuklid'><sup>60</sup><sub>27</sub></span>Co → ? + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e
+
+<details>
+<summary>Řešení B2</summary>
+
+1) <span class='nuklid'><sup>14</sup><sub>7</sub></span>N · 2) <span class='nuklid'><sup>3</sup><sub>2</sub></span>He · 3) <span class='nuklid'><sup>131</sup><sub>54</sub></span>Xe · 4) <span class='nuklid'><sup>90</sup><sub>39</sub></span>Y · 5) <span class='nuklid'><sup>137</sup><sub>56</sub></span>Ba · 6) <span class='nuklid'><sup>60</sup><sub>28</sub></span>Ni
+
+</details>
+
+**Úloha B3.** Doplň produkt přeměny β<sup>+</sup>.
+
+1. <span class='nuklid'><sup>11</sup><sub>6</sub></span>C → ? + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e
+2. <span class='nuklid'><sup>18</sup><sub>9</sub></span>F → ? + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e
+3. <span class='nuklid'><sup>22</sup><sub>11</sub></span>Na → ? + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e
+4. <span class='nuklid'><sup>15</sup><sub>8</sub></span>O → ? + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e
+
+<details>
+<summary>Řešení B3</summary>
+
+1) <span class='nuklid'><sup>11</sup><sub>5</sub></span>B · 2) <span class='nuklid'><sup>18</sup><sub>8</sub></span>O · 3) <span class='nuklid'><sup>22</sup><sub>10</sub></span>Ne · 4) <span class='nuklid'><sup>15</sup><sub>7</sub></span>N
+
+</details>
+
+**Úloha B4.** Urči, jaká částice při přeměně vznikla, a pojmenuj typ přeměny.
+
+1. <span class='nuklid'><sup>234</sup><sub>90</sub></span>Th → <span class='nuklid'><sup>234</sup><sub>91</sub></span>Pa + ?
+2. <span class='nuklid'><sup>230</sup><sub>90</sub></span>Th → <span class='nuklid'><sup>226</sup><sub>88</sub></span>Ra + ?
+3. <span class='nuklid'><sup>40</sup><sub>19</sub></span>K → <span class='nuklid'><sup>40</sup><sub>20</sub></span>Ca + ?
+4. <span class='nuklid'><sup>32</sup><sub>15</sub></span>P → <span class='nuklid'><sup>32</sup><sub>16</sub></span>S + ?
+
+<details>
+<summary>Řešení B4</summary>
+
+1) <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e, β<sup>−</sup> · 2) <span class='nuklid'><sup>4</sup><sub>2</sub></span>He, α · 3) <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e, β<sup>−</sup> · 4) <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e, β<sup>−</sup>
+
+</details>
+
+**Úloha B5.** Urči výchozí nuklid.
+
+1. ? → <span class='nuklid'><sup>234</sup><sub>90</sub></span>Th + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He
+2. ? → <span class='nuklid'><sup>228</sup><sub>89</sub></span>Ac + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e
+3. ? → <span class='nuklid'><sup>18</sup><sub>8</sub></span>O + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e
+
+<details>
+<summary>Řešení B5</summary>
+
+1) <span class='nuklid'><sup>238</sup><sub>92</sub></span>U · 2) <span class='nuklid'><sup>228</sup><sub>88</sub></span>Ra · 3) <span class='nuklid'><sup>18</sup><sub>9</sub></span>F
+
+</details>
+
+**Úloha B6.** Doplň chybějící člen historických jaderných reakcí.
+
+1. Rutherford 1919, první umělá přeměna jádra: <span class='nuklid'><sup>14</sup><sub>7</sub></span>N + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He → ? + <span class='nuklid'><sup>1</sup><sub>1</sub></span>H
+2. Chadwick 1932, objev neutronu: <span class='nuklid'><sup>9</sup><sub>4</sub></span>Be + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He → <span class='nuklid'><sup>12</sup><sub>6</sub></span>C + ?
+
+<details>
+<summary>Řešení B6</summary>
+
+1) <span class='nuklid'><sup>17</sup><sub>8</sub></span>O · 2) <span class='nuklid'><sup>1</sup><sub>0</sub></span>n
+
+</details>
+
+**Úloha B7.** Část rozpadové řady uranu. Doplň chybějící nuklidy a typ každé přeměny.
+
+<p class="rovnice"><span class='nuklid'><sup>238</sup><sub>92</sub></span>U → (α) → ? → (β<sup>−</sup>) → ? → (β<sup>−</sup>) → <span class='nuklid'><sup>234</sup><sub>92</sub></span>U → (?) → <span class='nuklid'><sup>230</sup><sub>90</sub></span>Th → (α) → ?</p>
+
+<details>
+<summary>Řešení B7</summary>
+
+<span class='nuklid'><sup>238</sup><sub>92</sub></span>U → (α) → <span class='nuklid'><sup>234</sup><sub>90</sub></span>Th → (β<sup>−</sup>) → <span class='nuklid'><sup>234</sup><sub>91</sub></span>Pa → (β<sup>−</sup>) → <span class='nuklid'><sup>234</sup><sub>92</sub></span>U → (α) → <span class='nuklid'><sup>230</sup><sub>90</sub></span>Th → (α) → <span class='nuklid'><sup>226</sup><sub>88</sub></span>Ra
+
+</details>
+
+**Úloha B8 ★.** Uran <sup>238</sup>U se řadou přeměn α a β<sup>−</sup> mění až na stabilní olovo <sup>206</sup>Pb. Kolik přeměn α a kolik přeměn β<sup>−</sup> přitom proběhne? (Nápověda: nukleonové číslo mění jen přeměna α.) Stejně urči počet přeměn pro řadu thoria <sup>232</sup>Th → <sup>208</sup>Pb.
+
+<details>
+<summary>Řešení B8</summary>
+
+Úbytek A = 238 − 206 = 32, tedy 32 : 4 = 8 přeměn α. Ty by snížily Z o 16 na 76; olovo má Z = 82, proto proběhlo 6 přeměn β<sup>−</sup>. Pro thorium: 24 : 4 = 6 přeměn α, Z by kleslo na 78, proto 4 přeměny β<sup>−</sup>.
+
+</details>
+
+**Úloha B9.** Poločas přeměny.
+
+1. Jod <sup>131</sup>I, používaný v nukleární medicíně, má poločas asi 8 dní. Kolik procent původního množství zbude po 24 dnech?
+2. Vzorek dřeva z archeologického naleziště obsahuje 25 % původního množství <sup>14</sup>C (poločas 5730 let). Jak je dřevo staré?
+3. Cesium <sup>137</sup>Cs z havárie v Černobylu (1986) má poločas asi 30 let. Ve kterém roce zbude polovina a ve kterém čtvrtina původního množství?
+4. ★ Radiofarmakum s <sup>18</sup>F (poločas asi 110 minut) se vyrobí v 7.00 a pacientovi se podá v 10.40. Jaký podíl účinné látky zbyl?
+
+<details>
+<summary>Řešení B9</summary>
+
+1) 24 dní = 3 poločasy, zbude 1/8, tj. 12,5 % · 2) 25 % = 1/4 = 2 poločasy, asi 11 460 let · 3) polovina kolem roku 2016, čtvrtina kolem roku 2046 · 4) 3 h 40 min = 220 min = 2 poločasy, zbude asi 1/4.
+
+</details>
+
+**Úloha B10.** Pravda, nebo nepravda? Nepravdivá tvrzení oprav.
+
+1. Při přeměně β<sup>−</sup> odchází z atomu jeden elektron z elektronového obalu.
+2. Při přeměně α vzniká prvek, který je v periodické tabulce o dvě místa vlevo.
+3. Při přeměně γ se mění protonové číslo.
+4. Po dvou poločasech přeměny je vzorek bez radioaktivního nuklidu.
+5. Jablko ozářené zářením gama se stane radioaktivním.
+6. Nuklid vzniklý přeměnou β<sup>+</sup> má o jeden proton méně než výchozí jádro.
+
+<details>
+<summary>Řešení B10</summary>
+
+1) Nepravda, elektron vzniká v jádře přeměnou neutronu na proton. 2) Pravda (Z klesá o 2). 3) Nepravda, mění se jen energie jádra. 4) Nepravda, zbude 1/4. 5) Nepravda, ozáření do potraviny žádnou radioaktivní látku nevnese. 6) Pravda.
+
+</details>
+
+## Kritické myšlení
+
+<details>
+<summary>Když je atom skoro celý prázdný, proč nemůžeš projít zdí?</summary>
+
+„Prázdno“ v atomu není prázdné místo, kam by se vešly jiné atomy. Celý prostor atomu vyplňuje elektronový obal. Obaly atomů tvé ruky a atomů zdi se navzájem odpuzují a nemohou se prolínat. Proto zeď cítíš jako pevnou.
+
+</details>
+
+<details>
+<summary>Proč mají <sup>35</sup>Cl a <sup>37</sup>Cl prakticky stejné chemické vlastnosti, ale <sup>1</sup>H a <sup>2</sup>H se liší například rychlostí reakcí znatelně víc?</summary>
+
+Chemické vlastnosti určuje elektronový obal, a ten je u izotopů stejný. Rozdíl hmotnosti se ale projeví v rychlosti pohybu atomů, a tím i v rychlosti reakcí. U chloru je to rozdíl asi 6 %, u vodíku 100 % (deuterium je dvakrát těžší). Proto má „těžká voda“ D<sub>2</sub>O měřitelně jiné vlastnosti než H<sub>2</sub>O (teplota varu 101,4 °C).
+
+</details>
+
+<details>
+<summary>Spolužák tvrdí: „Rutherford dokázal, že Thomson se mýlil, a Bohr dokázal, že se mýlil Rutherford. Takže i dnešní model je nejspíš špatně a nemá cenu se ho učit.“ Co mu odpovíš?</summary>
+
+Každý model vysvětlil víc pozorování než ten předchozí a nový model ty starší neruší úplně: jádro z Rutherfordova modelu v dnešním modelu zůstalo. Model se posuzuje podle toho, co dokáže vysvětlit a předpovědět, ne podle toho, jestli je „definitivní pravda“. Dnešní kvantově mechanický model předpovídá vlastnosti atomů a molekul s velkou přesností, a proto ho používá celá chemie.
+
+</details>
+
+<details>
+<summary>Detektory kouře v domácnostech obsahují nepatrné množství <sup>241</sup>Am, zářiče α. Proč nepředstavují nebezpečí, dokud je nikdo nerozebírá?</summary>
+
+Záření α má velmi malou pronikavost: zastaví ho list papíru, vrstva vzduchu o tloušťce několika centimetrů nebo kryt detektoru. Nebezpečný by byl zářič α až uvnitř těla (při vdechnutí nebo spolknutí), kde silně ionizuje okolní tkáň.
+
+</details>
+
+<Aside type="tip" title="Pro učitele">
+Postup výuky, prezentaci na hodinu, typické miskoncepce a opravy starších materiálů najdete v oddílu [Pro učitele → Metodika: Jádro atomu](/pro-ucitele/metodika-jadro-atomu/).
+</Aside>
