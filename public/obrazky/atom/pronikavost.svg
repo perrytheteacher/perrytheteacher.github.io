@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" width="980" height="420" role="img" aria-label="Pronikavost záření: alfa zastaví list papíru, beta minus milimetry plastu nebo hliníku, gama silná vrstva olova nebo betonu jen zeslabí; pozitron anihiluje s elektronem na dva fotony" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="context-stroke"/></marker><radialGradient id="gp" cx="35%" cy="35%"><stop offset="0" stop-color="#f3a09c"/><stop offset="1" stop-color="#c0392b"/></radialGradient><radialGradient id="gn" cx="35%" cy="35%"><stop offset="0" stop-color="#d5dbe1"/><stop offset="1" stop-color="#76838f"/></radialGradient><radialGradient id="ge" cx="35%" cy="35%"><stop offset="0" stop-color="#9cc3ee"/><stop offset="1" stop-color="#1f5f9e"/></radialGradient><radialGradient id="mrak"><stop offset="0" stop-color="#2b6cb0" stop-opacity=".55"/><stop offset=".45" stop-color="#2b6cb0" stop-opacity=".22"/><stop offset="1" stop-color="#2b6cb0" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="420" fill="#fff"/>
+<text x="490.0" y="30.0" font-size="20" text-anchor="middle" fill="#1f2328" font-weight="bold" >Co záření zastaví – typické chování</text>
+<rect x="300.0" y="70.0" width="8.0" height="250.0" rx="0" fill="#f5f0e1" stroke="#444" stroke-width="1.2" />
+<text x="304.0" y="350.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="bold" >list papíru</text>
+<text x="304.0" y="368.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >(i povrch kůže)</text>
+<rect x="520.0" y="70.0" width="22.0" height="250.0" rx="0" fill="#cbd5e1" stroke="#444" stroke-width="1.2" />
+<text x="531.0" y="350.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="bold" >milimetry</text>
+<text x="531.0" y="368.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >plastu či hliníku</text>
+<rect x="740.0" y="70.0" width="70.0" height="250.0" rx="0" fill="#6b7280" stroke="#444" stroke-width="1.2" />
+<text x="775.0" y="350.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="bold" >silná vrstva</text>
+<text x="775.0" y="368.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >olova či betonu</text>
+<text x="60.0" y="121.0" font-size="26" text-anchor="start" fill="#c2410c" font-weight="bold" >α</text>
+<text x="60.0" y="143.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >jádra ⁴He, +2e</text>
+<text x="60.0" y="201.0" font-size="26" text-anchor="start" fill="#1d4ed8" font-weight="bold" >β⁻</text>
+<text x="60.0" y="223.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >elektrony, −e</text>
+<text x="60.0" y="281.0" font-size="26" text-anchor="start" fill="#7c3aed" font-weight="bold" >γ</text>
+<text x="60.0" y="303.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >fotony, bez náboje</text>
+<line x1="235.0" y1="115.0" x2="298.0" y2="115.0" stroke="#c2410c" stroke-width="5" marker-end="url(#ar)" />
+<line x1="235.0" y1="195.0" x2="518.0" y2="195.0" stroke="#1d4ed8" stroke-width="5" marker-end="url(#ar)" />
+<line x1="235.0" y1="275.0" x2="740.0" y2="275.0" stroke="#7c3aed" stroke-width="5" />
+<line x1="810.0" y1="275.0" x2="930.0" y2="275.0" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#ar)" />
+<text x="870.0" y="263.0" font-size="13" text-anchor="middle" fill="#7c3aed" font-weight="normal" >zeslabené</text>
+<text x="490.0" y="400.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >Kvalitativní schéma, ne dosahy v měřítku. Dosah závisí na energii záření a na materiálu. β⁺ se v látce zpomalí a anihiluje – vzniknou fotony γ (511 keV).</text>
+</svg>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rutherfordův pokus – simulace rozptylu částic alfa</title>
+<style>
+:root{--ink:#1f2328;--muted:#5b6370;--line:#e3e6ea;--bg:#f6f7f9;--card:#fff;--accent:#1a6d97;--accent-soft:#e7f3fa;
+--a:#c0392b;--ok:#15803d;--warn:#b45309;--warn-soft:#fff8e6}
+*{box-sizing:border-box}
+body{margin:0 auto;max-width:1180px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;font-size:16px;padding:10px}
+h1{font-size:20px;margin:4px 4px 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.muted{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.btn{font:inherit;font-size:15px;border:1px solid #cfd4da;background:#fff;color:var(--ink);padding:7px 12px;border-radius:9px;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary{background:var(--a);border-color:var(--a);color:#fff}
+.grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:860px){.grid{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}}
+canvas{width:100%;height:auto;display:block;border-radius:10px;background:#0d1b2a;max-height:calc(100vh - 210px);object-fit:contain}
+.stat{display:grid;grid-template-columns:auto 1fr auto;gap:4px 8px;align-items:center;font-size:15px}
+.bar{height:16px;border-radius:4px;background:#eef1f4;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--a)}
+.num{font-variant-numeric:tabular-nums;text-align:right;min-width:3.5em}
+.pred{background:var(--warn-soft);border-left:4px solid var(--warn);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:6px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px;background:var(--c)}
+</style>
+</head>
+<body>
+<h1>Rutherfordův pokus – simulace rozptylu částic alfa</h1>
+<div class="card">
+  <div class="row"><b>Model atomu:</b>
+    <button class="btn on" id="mJ" type="button">jaderný (Rutherford)</button>
+    <button class="btn" id="mT" type="button">rozptýlený náboj (Thomson)</button>
+  </div>
+  <div class="row">
+    <button class="btn primary" id="b1" type="button">▶ vystřelit 1 částici</button>
+    <button class="btn" id="b20" type="button">vystřelit 20</button>
+    <button class="btn" id="b2000" type="button">rychle 2000 (jen spočítat)</button>
+    <button class="btn" id="bR" type="button">↺ vynulovat</button>
+  </div>
+  <div class="pred" id="pred"><b>Předpověz:</b> kolik z 2000 částic se v tomto modelu odchýlí o víc než 90° (zpět)? Žádná, několik, nebo většina?</div>
+</div>
+<div class="grid">
+  <div class="card">
+    <canvas id="cv" width="760" height="540" aria-label="Výřez jednoho atomu fólie a dráhy částic alfa"></canvas>
+    <div class="legend"><span style="--c:#ff6b5b">dráha částice α</span><span style="--c:#f1c40f">kladný náboj atomu</span><span style="--c:#7fb3ff">hranice atomu (obal)</span></div>
+  </div>
+  <div class="card">
+    <h2 style="font-size:17px;margin:0 0 8px">Kam částice letí</h2>
+    <div class="stat">
+      <span>téměř přímo (&lt; 10°)</span><div class="bar"><i id="g1" style="width:0"></i></div><span class="num" id="n1">0</span>
+      <span>odchýlené (10°–90°)</span><div class="bar"><i id="g2" style="width:0"></i></div><span class="num" id="n2">0</span>
+      <span>zpět (&gt; 90°)</span><div class="bar"><i id="g3" style="width:0"></i></div><span class="num" id="n3">0</span>
+    </div>
+    <p class="muted" id="tot">Vystřeleno: 0 částic.</p>
+    <p class="muted" id="last"></p>
+    <p class="muted"><b>Jak simulace funguje:</b> částice alfa (kladná) letí ze strany na jeden atom fólie v náhodné vzdálenosti od středu. Odpuzuje ji kladný náboj atomu. V jaderném modelu je soustředěný v malém jádře, v Thomsonově modelu rozprostřený po celém atomu.</p>
+    <p class="muted"><b>Pozor na měřítko:</b> jádro i jeho vliv jsou zde kvůli názornosti mnohem větší než ve skutečnosti (skutečné jádro je asi 100 000× menší než atom). Ve skutečném pokusu se proto zpět vrátí ještě mnohem méně částic – řádově jedna z několika tisíc, i když každá prolétá mnoha vrstvami atomů.</p>
+  </div>
+</div>
+<script>
+const cv=document.getElementById('cv'),cx=cv.getContext('2d');
+const W=760,H=540,R=210,OX=W/2,OY=H/2; // atom poloměr R px
+const D=0.03*R; // vzdálenost největšího přiblížení při čelní srážce (zvětšeno)
+let model='J',traces=[],cnt=[0,0,0],anim=[];
+function force(x,y){const r=Math.hypot(x,y)+1e-9;let f;
+  if(model==='J'){f=(D/2)/(r*r);}else{f=r<R?(D/2)*r/(R*R*R):0;}
+  return [f*x/r,f*y/r];}
+function trajectory(b,keep){ // v0=1, m=1, start x=-W/2-20
+  let x=-OX-30,y=b,vx=1,vy=0,pts=keep?[[x,y]]:null,t=0;
+  while(Math.abs(x)<OX+40&&Math.abs(y)<OY+40&&t<6000){
+    const r=Math.hypot(x,y);const dt=Math.max(0.02,Math.min(2,0.02*r));
+    const [ax,ay]=force(x,y);vx+=ax*dt;vy+=ay*dt;x+=vx*dt;y+=vy*dt;t+=dt;
+    if(keep&&pts.length<4000)pts.push([x,y]);}
+  const ang=Math.abs(Math.atan2(vy,vx))*180/Math.PI;return {pts,ang};}
+function classify(a){return a<10?0:(a<=90?1:2);}
+function randB(){return (Math.random()*2-1)*R;}
+function drawAtom(){cx.fillStyle='#0d1b2a';cx.fillRect(0,0,W,H);
+  cx.strokeStyle='rgba(127,179,255,.55)';cx.setLineDash([6,5]);cx.lineWidth=1.5;cx.beginPath();cx.arc(OX,OY,R,0,7);cx.stroke();cx.setLineDash([]);
+  if(model==='J'){const g=cx.createRadialGradient(OX,OY,0,OX,OY,R);g.addColorStop(0,'rgba(127,179,255,.22)');g.addColorStop(1,'rgba(127,179,255,.02)');cx.fillStyle=g;cx.beginPath();cx.arc(OX,OY,R,0,7);cx.fill();
+    cx.fillStyle='#f1c40f';cx.beginPath();cx.arc(OX,OY,3.5,0,7);cx.fill();cx.fillStyle='#cfd8e3';cx.font='13px system-ui';cx.fillText('jádro (zvětšené)',OX+10,OY-8);}
+  else{cx.fillStyle='rgba(241,196,15,.18)';cx.beginPath();cx.arc(OX,OY,R,0,7);cx.fill();
+    cx.fillStyle='#7fb3ff';for(let k=0;k<12;k++){const a=k*2.4,rr=R*(0.25+0.6*((k*37)%10)/10);cx.beginPath();cx.arc(OX+rr*Math.cos(a),OY+rr*Math.sin(a),3,0,7);cx.fill();}
+    cx.fillStyle='#cfd8e3';cx.font='13px system-ui';cx.fillText('kladný náboj rozprostřený, v něm elektrony',OX-R+20,OY-R-10);}
+  cx.fillStyle='#cfd8e3';cx.font='13px system-ui';cx.fillText('částice α přilétají zleva →',12,22);
+}
+function drawTraces(){for(const t of traces){cx.strokeStyle=t.c;cx.lineWidth=t.w;cx.beginPath();t.pts.forEach(([x,y],i)=>i?cx.lineTo(OX+x,OY+y):cx.moveTo(OX+x,OY+y));cx.stroke();}}
+function redraw(){drawAtom();drawTraces();for(const a of anim){cx.strokeStyle='#ff6b5b';cx.lineWidth=2.2;cx.beginPath();for(let i=0;i<=a.i&&i<a.pts.length;i++){const [x,y]=a.pts[i];i?cx.lineTo(OX+x,OY+y):cx.moveTo(OX+x,OY+y);}cx.stroke();
+  const p=a.pts[Math.min(a.i,a.pts.length-1)];cx.fillStyle='#ff6b5b';cx.beginPath();cx.arc(OX+p[0],OY+p[1],4,0,7);cx.fill();}}
+function stats(){const s=cnt[0]+cnt[1]+cnt[2]||1;['1','2','3'].forEach((k,i)=>{document.getElementById('n'+k).textContent=cnt[i];document.getElementById('g'+k).style.width=(100*cnt[i]/s)+'%';});
+  document.getElementById('tot').textContent='Vystřeleno: '+(cnt[0]+cnt[1]+cnt[2])+' částic.';}
+function record(ang){cnt[classify(ang)]++;stats();document.getElementById('last').textContent='Poslední částice: odchylka '+ang.toFixed(1).replace('.',',')+' °';}
+function shoot(n){for(let k=0;k<n;k++){let b=randB();if(n===1&&Math.random()<0.25)b=(Math.random()*2-1)*D*1.5; // občas blízký průlet, ať je co vidět
+  const tr=trajectory(b,true);anim.push({pts:tr.pts,i:0,ang:tr.ang,step:Math.max(3,Math.round(tr.pts.length/90))});}
+  if(!running){running=true;requestAnimationFrame(loop);}}
+let running=false;
+function loop(){let alive=[];for(const a of anim){a.i+=a.step;if(a.i>=a.pts.length){traces.push({pts:a.pts,c:a.ang>10?'rgba(255,107,91,.85)':'rgba(255,107,91,.35)',w:a.ang>10?1.8:1});if(traces.length>60)traces.shift();record(a.ang);}else alive.push(a);}
+  anim=alive;redraw();if(anim.length)requestAnimationFrame(loop);else running=false;}
+function fast(n){for(let k=0;k<n;k++){const tr=trajectory(randB(),false);cnt[classify(tr.ang)]++;}stats();
+  document.getElementById('last').textContent='Rychlý režim: '+n+' částic spočítáno bez animace.';}
+function setModel(m){model=m;document.getElementById('mJ').classList.toggle('on',m==='J');document.getElementById('mT').classList.toggle('on',m==='T');reset();}
+function reset(){traces=[];anim=[];cnt=[0,0,0];stats();document.getElementById('last').textContent='';redraw();}
+document.getElementById('mJ').onclick=()=>setModel('J');document.getElementById('mT').onclick=()=>setModel('T');
+document.getElementById('b1').onclick=()=>shoot(1);document.getElementById('b20').onclick=()=>shoot(20);
+document.getElementById('b2000').onclick=()=>fast(2000);document.getElementById('bR').onclick=reset;
+redraw();
+</script>
+</body>
+</html>

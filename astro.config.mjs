@@ -40,8 +40,8 @@ export default defineConfig({
 					items: [
 						{ label: 'Přehled', slug: 'chemie' },
 						{
-							// Obecná chemie má podskupinu Atom (složka atom/). Kapitoly o atomu jsou zatím archivované ve složce archiv/atom/
-							// (nejsou na webu); veřejná je jen aplikace k elektronovému obalu.
+							// Obecná chemie má podskupinu Atom (složka atom/): 1. Úvod, 2. Atomové jádro a aplikace k elektronovému obalu.
+							// Starší verze kapitol o atomu jsou archivované ve složce archiv/atom/ (nejsou na webu).
 							// Další kapitoly přidejte do items jako { slug: 'chemie/obecna-chemie/…' }.
 							label: 'Obecná chemie',
 							collapsed: true,
@@ -52,6 +52,8 @@ export default defineConfig({
 									label: 'Atom',
 									collapsed: true,
 									items: [
+										{ slug: 'chemie/obecna-chemie/atom/01-uvod', label: '1. Úvod: od atomu k částicím' },
+										{ slug: 'chemie/obecna-chemie/atom/02-jadro', label: '2. Atomové jádro' },
 										{ slug: 'chemie/obecna-chemie/atom/elektronovy-obal/aplikace', label: 'Aplikace: elektronový obal' },
 									],
 								},

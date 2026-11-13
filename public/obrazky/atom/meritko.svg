@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" width="980" height="420" role="img" aria-label="Modelové zvětšení atomu a jádra při poměru průměrů 100 000 : 1 – učebna 10 m s jádrem 0,1 mm, hřiště 100 m s jádrem 1 mm, Země s jádrem 127 m; dole logaritmická osa velikostí" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="context-stroke"/></marker><radialGradient id="gp" cx="35%" cy="35%"><stop offset="0" stop-color="#f3a09c"/><stop offset="1" stop-color="#c0392b"/></radialGradient><radialGradient id="gn" cx="35%" cy="35%"><stop offset="0" stop-color="#d5dbe1"/><stop offset="1" stop-color="#76838f"/></radialGradient><radialGradient id="ge" cx="35%" cy="35%"><stop offset="0" stop-color="#9cc3ee"/><stop offset="1" stop-color="#1f5f9e"/></radialGradient><radialGradient id="mrak"><stop offset="0" stop-color="#2b6cb0" stop-opacity=".55"/><stop offset=".45" stop-color="#2b6cb0" stop-opacity=".22"/><stop offset="1" stop-color="#2b6cb0" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="420" fill="#fff"/>
+<text x="490.0" y="30.0" font-size="20" text-anchor="middle" fill="#1f2328" font-weight="bold" >Kdyby byl atom velký jako…</text>
+<text x="170.0" y="66.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >učebna</text>
+<text x="170.0" y="85.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >průměr 10 m</text>
+<circle cx="170.0" cy="162.0" r="62.0" fill="url(#mrak)" stroke="#2b6cb0" stroke-width="1" stroke-dasharray="4 3" />
+<circle cx="170.0" cy="162.0" r="1.6" fill="#c0392b" stroke="none" stroke-width="0" />
+<line x1="176.0" y1="158.0" x2="210.0" y2="128.0" stroke="#5b6370" stroke-width="1" />
+<text x="213.0" y="126.0" font-size="12" text-anchor="start" fill="#5b6370" font-weight="normal" >jádro</text>
+<text x="170.0" y="250.0" font-size="16" text-anchor="middle" fill="#9b2c22" font-weight="bold" >jádro 0,1 mm</text>
+<text x="490.0" y="66.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >fotbalové hřiště</text>
+<text x="490.0" y="85.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >průměr 100 m</text>
+<circle cx="490.0" cy="162.0" r="62.0" fill="url(#mrak)" stroke="#2b6cb0" stroke-width="1" stroke-dasharray="4 3" />
+<circle cx="490.0" cy="162.0" r="1.6" fill="#c0392b" stroke="none" stroke-width="0" />
+<line x1="496.0" y1="158.0" x2="530.0" y2="128.0" stroke="#5b6370" stroke-width="1" />
+<text x="533.0" y="126.0" font-size="12" text-anchor="start" fill="#5b6370" font-weight="normal" >jádro</text>
+<text x="490.0" y="250.0" font-size="16" text-anchor="middle" fill="#9b2c22" font-weight="bold" >jádro 1 mm</text>
+<text x="810.0" y="66.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >Země</text>
+<text x="810.0" y="85.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >průměr 12 742 km</text>
+<circle cx="810.0" cy="162.0" r="62.0" fill="url(#mrak)" stroke="#2b6cb0" stroke-width="1" stroke-dasharray="4 3" />
+<circle cx="810.0" cy="162.0" r="1.6" fill="#c0392b" stroke="none" stroke-width="0" />
+<line x1="816.0" y1="158.0" x2="850.0" y2="128.0" stroke="#5b6370" stroke-width="1" />
+<text x="853.0" y="126.0" font-size="12" text-anchor="start" fill="#5b6370" font-weight="normal" >jádro</text>
+<text x="810.0" y="250.0" font-size="16" text-anchor="middle" fill="#9b2c22" font-weight="bold" >jádro asi 127 m</text>
+<text x="490.0" y="272.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >Ve všech třech případech je poměr průměrů atom : jádro = 100 000 : 1 (modelový řádový odhad). Tečka je kvůli viditelnosti zvětšená.</text>
+<line x1="110.0" y1="345.0" x2="870.0" y2="345.0" stroke="#1f2328" stroke-width="1.5" marker-end="url(#ar)" />
+<line x1="110.0" y1="340.0" x2="110.0" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="110.0" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="119.0" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−16</text>
+<line x1="202.5" y1="340.0" x2="202.5" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="202.5" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="211.5" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−15</text>
+<line x1="295.0" y1="340.0" x2="295.0" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="295.0" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="304.0" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−14</text>
+<line x1="387.5" y1="340.0" x2="387.5" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="387.5" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="396.5" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−13</text>
+<line x1="480.0" y1="340.0" x2="480.0" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="480.0" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="489.0" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−12</text>
+<line x1="572.5" y1="340.0" x2="572.5" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="572.5" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="581.5" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−11</text>
+<line x1="665.0" y1="340.0" x2="665.0" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="665.0" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="674.0" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−10</text>
+<line x1="757.5" y1="340.0" x2="757.5" y2="350.0" stroke="#1f2328" stroke-width="1.2" />
+<text x="757.5" y="367.0" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="normal" >10</text>
+<text x="766.5" y="360.0" font-size="9" text-anchor="start" fill="#1f2328" font-weight="normal" >−9</text>
+<rect x="202.5" y="331.0" width="92.5" height="28.0" rx="3" fill="#c0392b" stroke="none" stroke-width="0" opacity=".25"/>
+<text x="248.8" y="325.0" font-size="13" text-anchor="middle" fill="#9b2c22" font-weight="bold" >průměr jádra</text>
+<circle cx="665.0" cy="345.0" r="6.0" fill="#2b6cb0" stroke="none" stroke-width="0" opacity=".6"/>
+<text x="665.0" y="325.0" font-size="13" text-anchor="middle" fill="#1f4f80" font-weight="bold" >průměr atomu</text>
+<text x="874.0" y="367.0" font-size="13" text-anchor="start" fill="#1f2328" font-weight="normal" >m</text>
+<text x="490.0" y="405.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >Logaritmická osa: každý dílek je desetkrát větší než předchozí. Mezi jádrem a atomem je 4–5 řádů.</text>
+</svg>

@@ -191,3 +191,9 @@ img.vzorec{height:auto;display:block}
 .orbitaly i{font-style:normal;width:52px;height:52px;border:2.5px solid #1f2328;display:inline-flex;align-items:center;justify-content:center;font-size:30px;letter-spacing:-.12em;line-height:1;background:#fff}
 .orbitaly i+i{border-left:none}
 .orbitaly b{font-size:20px;margin-top:4px}
+
+/* zápis nuklidu: <span class='nuklid'><sup>238</sup><sub>92</sub></span>U */
+.slide .nuklid{display:inline-flex;flex-direction:column;align-items:flex-end;vertical-align:.62em;font-size:.66em;line-height:1;margin-right:.06em}
+.slide .nuklid sup,.slide .nuklid sub{vertical-align:baseline;font-size:inherit;line-height:1;position:static}
+/* obrázek přes celý snímek s tmavým pozadím (ilustrace) */
+.slide img.obr{display:block;margin:0 auto;max-width:100%;height:auto;border-radius:10px}

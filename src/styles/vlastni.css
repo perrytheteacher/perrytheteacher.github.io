@@ -258,3 +258,27 @@
 .otazka .orbitaly b {
 	margin-top: 0.15rem;
 }
+
+/* Rozšíření pro seminář (kapitoly o atomu):
+   <div class="seminar"> **SEMINÁŘ – rozšíření** … </div> */
+.sl-markdown-content .seminar {
+	border: 1px solid #a78bfa;
+	border-left: 5px solid #7c3aed;
+	background: color-mix(in srgb, #7c3aed 7%, transparent);
+	border-radius: 0 0.5rem 0.5rem 0;
+	padding: 0.6rem 1rem 0.8rem;
+	margin: 1.2rem 0;
+}
+.sl-markdown-content .seminar > p:first-child strong {
+	color: #6d28d9;
+	letter-spacing: 0.02em;
+}
+:root[data-theme='dark'] .sl-markdown-content .seminar > p:first-child strong {
+	color: #c4b5fd;
+}
+@media print {
+	.sl-markdown-content .seminar {
+		break-inside: avoid-page;
+		background: none;
+	}
+}

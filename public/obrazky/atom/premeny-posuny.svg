@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" width="980" height="470" role="img" aria-label="Změny jádra při přeměnách v mapě nuklidů: alfa posune jádro o dva protony a dva neutrony dolů vlevo, beta minus o jedno políčko nahoru vlevo, beta plus a elektronový záchyt dolů vpravo, gama jádro nemění" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="context-stroke"/></marker><radialGradient id="gp" cx="35%" cy="35%"><stop offset="0" stop-color="#f3a09c"/><stop offset="1" stop-color="#c0392b"/></radialGradient><radialGradient id="gn" cx="35%" cy="35%"><stop offset="0" stop-color="#d5dbe1"/><stop offset="1" stop-color="#76838f"/></radialGradient><radialGradient id="ge" cx="35%" cy="35%"><stop offset="0" stop-color="#9cc3ee"/><stop offset="1" stop-color="#1f5f9e"/></radialGradient><radialGradient id="mrak"><stop offset="0" stop-color="#2b6cb0" stop-opacity=".55"/><stop offset=".45" stop-color="#2b6cb0" stop-opacity=".22"/><stop offset="1" stop-color="#2b6cb0" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="470" fill="#fff"/>
+<text x="490.0" y="30.0" font-size="20" text-anchor="middle" fill="#1f2328" font-weight="bold" >Kam se jádro posune v mapě nuklidů</text>
+<rect x="120.0" y="70.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="120.0" y="132.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="120.0" y="194.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="120.0" y="256.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="120.0" y="318.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="182.0" y="70.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="182.0" y="132.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="182.0" y="194.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="182.0" y="256.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="182.0" y="318.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="244.0" y="70.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="244.0" y="132.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="244.0" y="194.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="244.0" y="256.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="244.0" y="318.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="306.0" y="70.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="306.0" y="132.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="306.0" y="194.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="306.0" y="256.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="306.0" y="318.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="368.0" y="70.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="368.0" y="132.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="368.0" y="194.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="368.0" y="256.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="368.0" y="318.0" width="62.0" height="62.0" rx="0" fill="#fff" stroke="#ddd" stroke-width="1" />
+<rect x="244.0" y="194.0" width="62.0" height="62.0" rx="0" fill="#fde68a" stroke="#b45309" stroke-width="2" />
+<text x="275.0" y="231.0" font-size="16" text-anchor="middle" fill="#1f2328" font-weight="bold" >Z, N</text>
+<text x="151.0" y="402.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >N−2</text>
+<text x="213.0" y="402.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >N−1</text>
+<text x="275.0" y="402.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >N</text>
+<text x="337.0" y="402.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >N+1</text>
+<text x="399.0" y="402.0" font-size="14" text-anchor="middle" fill="#5b6370" font-weight="normal" >N+2</text>
+<text x="110.0" y="106.0" font-size="14" text-anchor="end" fill="#5b6370" font-weight="normal" >Z+2</text>
+<text x="110.0" y="168.0" font-size="14" text-anchor="end" fill="#5b6370" font-weight="normal" >Z+1</text>
+<text x="110.0" y="230.0" font-size="14" text-anchor="end" fill="#5b6370" font-weight="normal" >Z</text>
+<text x="110.0" y="292.0" font-size="14" text-anchor="end" fill="#5b6370" font-weight="normal" >Z−1</text>
+<text x="110.0" y="354.0" font-size="14" text-anchor="end" fill="#5b6370" font-weight="normal" >Z−2</text>
+<text x="275.0" y="426.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="normal" >neutronové číslo N →</text>
+<text transform="translate(62,225.0) rotate(-90)" font-size="14" text-anchor="middle">protonové číslo Z →</text>
+<rect x="123.0" y="321.0" width="56.0" height="56.0" rx="4" fill="#c2410c" stroke="none" stroke-width="0" opacity=".12"/>
+<line x1="251.0" y1="249.0" x2="167.0" y2="333.0" stroke="#c2410c" stroke-width="3" marker-end="url(#ar)" />
+<text x="145.0" y="375.0" font-size="17" text-anchor="middle" fill="#c2410c" font-weight="bold" >α</text>
+<rect x="185.0" y="135.0" width="56.0" height="56.0" rx="4" fill="#1d4ed8" stroke="none" stroke-width="0" opacity=".12"/>
+<line x1="263.0" y1="213.0" x2="221.0" y2="171.0" stroke="#1d4ed8" stroke-width="3" marker-end="url(#ar)" />
+<text x="207.0" y="149.0" font-size="17" text-anchor="middle" fill="#1d4ed8" font-weight="bold" >β⁻</text>
+<rect x="309.0" y="259.0" width="56.0" height="56.0" rx="4" fill="#b91c1c" stroke="none" stroke-width="0" opacity=".12"/>
+<line x1="287.0" y1="237.0" x2="329.0" y2="279.0" stroke="#b91c1c" stroke-width="3" marker-end="url(#ar)" />
+<text x="345.0" y="317.0" font-size="17" text-anchor="middle" fill="#b91c1c" font-weight="bold" >β⁺ / EZ</text>
+<path d="M 293.0 203.0 a 14 14 0 1 1 6 6" stroke="#15803d" stroke-width="2.5" fill="none" marker-end="url(#ar)" />
+<text x="319.0" y="195.0" font-size="18" text-anchor="start" fill="#15803d" font-weight="bold" >γ</text>
+<text x="520.0" y="92.0" font-size="14" text-anchor="start" fill="#1f2328" font-weight="bold" >přeměna</text>
+<text x="600.0" y="92.0" font-size="14" text-anchor="start" fill="#1f2328" font-weight="bold" >Z, N</text>
+<text x="730.0" y="92.0" font-size="14" text-anchor="start" fill="#1f2328" font-weight="bold" >A</text>
+<text x="520.0" y="128.0" font-size="18" text-anchor="start" fill="#c2410c" font-weight="bold" >α</text>
+<text x="600.0" y="128.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >Z − 2, N − 2</text>
+<text x="730.0" y="128.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >A − 4</text>
+<text x="600.0" y="148.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >odletí jádro ⁴₂He</text>
+<text x="520.0" y="184.0" font-size="18" text-anchor="start" fill="#1d4ed8" font-weight="bold" >β⁻</text>
+<text x="600.0" y="184.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >Z + 1, N − 1</text>
+<text x="730.0" y="184.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >A stejné</text>
+<text x="600.0" y="204.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >n → p⁺ + e⁻ + ν̄ₑ</text>
+<text x="520.0" y="240.0" font-size="18" text-anchor="start" fill="#b91c1c" font-weight="bold" >β⁺</text>
+<text x="600.0" y="240.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >Z − 1, N + 1</text>
+<text x="730.0" y="240.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >A stejné</text>
+<text x="600.0" y="260.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >p⁺ → n + e⁺ + νₑ</text>
+<text x="520.0" y="296.0" font-size="18" text-anchor="start" fill="#b91c1c" font-weight="bold" >EZ</text>
+<text x="600.0" y="296.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >Z − 1, N + 1</text>
+<text x="730.0" y="296.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >A stejné</text>
+<text x="600.0" y="316.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >p⁺ + e⁻ → n + νₑ (seminář)</text>
+<text x="520.0" y="352.0" font-size="18" text-anchor="start" fill="#15803d" font-weight="bold" >γ</text>
+<text x="600.0" y="352.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >beze změny</text>
+<text x="730.0" y="352.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >A stejné</text>
+<text x="600.0" y="372.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >excitované jádro vyzáří foton</text>
+<text x="490.0" y="455.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >EZ = elektronový záchyt. Šipky ukazují změnu Z a N dceřiného jádra; zda přeměna skutečně nastane, rozhoduje energie.</text>
+</svg>

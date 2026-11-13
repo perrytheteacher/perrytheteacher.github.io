@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" width="980" height="300" role="img" aria-label="Zápis nuklidu: nukleonové číslo A vlevo nahoře, protonové číslo Z vlevo dole, chemická značka X; u iontu náboj vpravo nahoře; příklad sodík 23 a chloridový anion 35" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="context-stroke"/></marker><radialGradient id="gp" cx="35%" cy="35%"><stop offset="0" stop-color="#f3a09c"/><stop offset="1" stop-color="#c0392b"/></radialGradient><radialGradient id="gn" cx="35%" cy="35%"><stop offset="0" stop-color="#d5dbe1"/><stop offset="1" stop-color="#76838f"/></radialGradient><radialGradient id="ge" cx="35%" cy="35%"><stop offset="0" stop-color="#9cc3ee"/><stop offset="1" stop-color="#1f5f9e"/></radialGradient><radialGradient id="mrak"><stop offset="0" stop-color="#2b6cb0" stop-opacity=".55"/><stop offset=".45" stop-color="#2b6cb0" stop-opacity=".22"/><stop offset="1" stop-color="#2b6cb0" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="300" fill="#fff"/>
+<text x="490.0" y="30.0" font-size="20" text-anchor="middle" fill="#1f2328" font-weight="bold" >Jak číst zápis nuklidu</text>
+<text x="329.0" y="136.4" font-size="49.6" text-anchor="end" fill="#1f2328">23</text>
+<text x="329.0" y="187.6" font-size="49.6" text-anchor="end" fill="#1f2328">11</text>
+<text x="330.0" y="170.0" font-size="80" fill="#1f2328" font-weight="bold">Na</text>
+<line x1="270.0" y1="100.0" x2="215.0" y2="78.0" stroke="#5b6370" stroke-width="1.5" marker-end="url(#ar)" />
+<text x="208.0" y="74.0" font-size="16" text-anchor="end" fill="#1f2328" font-weight="bold" >A = 23</text>
+<text x="208.0" y="93.0" font-size="13" text-anchor="end" fill="#5b6370" font-weight="normal" >nukleonové číslo (p + n)</text>
+<line x1="270.0" y1="190.0" x2="215.0" y2="222.0" stroke="#5b6370" stroke-width="1.5" marker-end="url(#ar)" />
+<text x="208.0" y="226.0" font-size="16" text-anchor="end" fill="#1f2328" font-weight="bold" >Z = 11</text>
+<text x="208.0" y="245.0" font-size="13" text-anchor="end" fill="#5b6370" font-weight="normal" >protonové číslo, určuje prvek</text>
+<line x1="380.0" y1="190.0" x2="410.0" y2="226.0" stroke="#5b6370" stroke-width="1.5" marker-end="url(#ar)" />
+<text x="414.0" y="240.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >X – značka prvku</text>
+<text x="260.0" y="285.0" font-size="16" text-anchor="start" fill="#9b2c22" font-weight="bold" >N = A − Z = 12 neutronů</text>
+<line x1="560.0" y1="50.0" x2="560.0" y2="280.0" stroke="#ddd" stroke-width="1" />
+<text x="689.0" y="136.4" font-size="49.6" text-anchor="end" fill="#1f2328">35</text>
+<text x="689.0" y="187.6" font-size="49.6" text-anchor="end" fill="#1f2328">17</text>
+<text x="690.0" y="170.0" font-size="80" fill="#1f2328" font-weight="bold">Cl</text>
+<text x="772.0" y="136.4" font-size="49.6" fill="#1f2328">−</text>
+<line x1="815.0" y1="108.0" x2="850.0" y2="84.0" stroke="#5b6370" stroke-width="1.5" marker-end="url(#ar)" />
+<text x="855.0" y="78.0" font-size="15" text-anchor="start" fill="#1f2328" font-weight="normal" >náboj iontu</text>
+<text x="855.0" y="96.0" font-size="13" text-anchor="start" fill="#5b6370" font-weight="normal" >(e⁻ navíc)</text>
+<text x="730.0" y="250.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >17 p⁺, 18 n, 18 e⁻</text>
+<text x="730.0" y="276.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >přijetím elektronu se jádro ani prvek nemění</text>
+</svg>

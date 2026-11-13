@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" width="980" height="300" role="img" aria-label="Jaderná elektrárna: štěpení v reaktoru uvolní teplo, voda se mění na páru, pára roztáčí turbínu spojenou s generátorem, který vyrábí elektřinu; pára se v kondenzátoru ochladí" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="context-stroke"/></marker><radialGradient id="gp" cx="35%" cy="35%"><stop offset="0" stop-color="#f3a09c"/><stop offset="1" stop-color="#c0392b"/></radialGradient><radialGradient id="gn" cx="35%" cy="35%"><stop offset="0" stop-color="#d5dbe1"/><stop offset="1" stop-color="#76838f"/></radialGradient><radialGradient id="ge" cx="35%" cy="35%"><stop offset="0" stop-color="#9cc3ee"/><stop offset="1" stop-color="#1f5f9e"/></radialGradient><radialGradient id="mrak"><stop offset="0" stop-color="#2b6cb0" stop-opacity=".55"/><stop offset=".45" stop-color="#2b6cb0" stop-opacity=".22"/><stop offset="1" stop-color="#2b6cb0" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="300" fill="#fff"/>
+<text x="490.0" y="30.0" font-size="20" text-anchor="middle" fill="#1f2328" font-weight="bold" >Od štěpení k elektřině</text>
+<rect x="30.0" y="80.0" width="170.0" height="90.0" rx="10" fill="#fde68a" stroke="#b45309" stroke-width="2" />
+<text x="115.0" y="118.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >reaktor</text>
+<text x="115.0" y="142.0" font-size="13" text-anchor="middle" fill="#1f2328" font-weight="normal" >štěpení → teplo</text>
+<rect x="230.0" y="80.0" width="170.0" height="90.0" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="2" />
+<text x="315.0" y="118.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >výměník / pára</text>
+<text x="315.0" y="142.0" font-size="13" text-anchor="middle" fill="#1f2328" font-weight="normal" >teplo ohřeje vodu</text>
+<rect x="430.0" y="80.0" width="170.0" height="90.0" rx="10" fill="#e0e7ff" stroke="#4338ca" stroke-width="2" />
+<text x="515.0" y="118.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >turbína</text>
+<text x="515.0" y="142.0" font-size="13" text-anchor="middle" fill="#1f2328" font-weight="normal" >pára ji roztáčí</text>
+<rect x="630.0" y="80.0" width="170.0" height="90.0" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2" />
+<text x="715.0" y="118.0" font-size="17" text-anchor="middle" fill="#1f2328" font-weight="bold" >generátor</text>
+<text x="715.0" y="142.0" font-size="13" text-anchor="middle" fill="#1f2328" font-weight="normal" >pohyb → elektřina</text>
+<line x1="202.0" y1="125.0" x2="228.0" y2="125.0" stroke="#1f2328" stroke-width="2" marker-end="url(#ar)" />
+<line x1="402.0" y1="125.0" x2="428.0" y2="125.0" stroke="#1f2328" stroke-width="2" marker-end="url(#ar)" />
+<line x1="602.0" y1="125.0" x2="628.0" y2="125.0" stroke="#1f2328" stroke-width="2" marker-end="url(#ar)" />
+<line x1="800.0" y1="125.0" x2="860.0" y2="125.0" stroke="#15803d" stroke-width="3" marker-end="url(#ar)" />
+<text x="905.0" y="131.0" font-size="17" text-anchor="middle" fill="#15803d" font-weight="bold" >⚡ síť</text>
+<path d="M 515 170 L 515 220 L 315 220 L 315 172" stroke="#2b6cb0" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#ar)" />
+<text x="415.0" y="240.0" font-size="13" text-anchor="middle" fill="#2b6cb0" font-weight="normal" >kondenzátor: pára se ochladí na vodu</text>
+<text x="115.0" y="200.0" font-size="13" text-anchor="middle" fill="#b45309" font-weight="normal" >regulační prvky</text>
+<text x="115.0" y="216.0" font-size="13" text-anchor="middle" fill="#b45309" font-weight="normal" >pohlcují neutrony</text>
+<text x="490.0" y="282.0" font-size="13" text-anchor="middle" fill="#5b6370" font-weight="normal" >Elektrárna nepřevádí záření rovnou na elektřinu – jako tepelná elektrárna vyrábí páru. Palivo i po zastavení reakce hřeje (zbytkové teplo).</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 400" width="980" height="400" role="img" aria-label="Ozáření a kontaminace: při ozáření působí záření z vnějšího zdroje a po odchodu od zdroje končí; při kontaminaci je radioaktivní látka na povrchu nebo uvnitř těla a může dál ozařovat tkáně" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="context-stroke"/></marker><radialGradient id="gp" cx="35%" cy="35%"><stop offset="0" stop-color="#f3a09c"/><stop offset="1" stop-color="#c0392b"/></radialGradient><radialGradient id="gn" cx="35%" cy="35%"><stop offset="0" stop-color="#d5dbe1"/><stop offset="1" stop-color="#76838f"/></radialGradient><radialGradient id="ge" cx="35%" cy="35%"><stop offset="0" stop-color="#9cc3ee"/><stop offset="1" stop-color="#1f5f9e"/></radialGradient><radialGradient id="mrak"><stop offset="0" stop-color="#2b6cb0" stop-opacity=".55"/><stop offset=".45" stop-color="#2b6cb0" stop-opacity=".22"/><stop offset="1" stop-color="#2b6cb0" stop-opacity="0"/></radialGradient></defs>
+<rect width="980" height="400" fill="#fff"/>
+<text x="245.0" y="32.0" font-size="20" text-anchor="middle" fill="#1f2328" font-weight="bold" >Ozáření</text>
+<text x="735.0" y="32.0" font-size="20" text-anchor="middle" fill="#1f2328" font-weight="bold" >Kontaminace</text>
+<circle cx="320.0" cy="130.0" r="26.0" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<rect x="284.0" y="160.0" width="72.0" height="110.0" rx="22" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<rect x="290.0" y="266.0" width="24.0" height="70.0" rx="8" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<rect x="326.0" y="266.0" width="24.0" height="70.0" rx="8" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<rect x="60.0" y="170.0" width="60.0" height="50.0" rx="6" fill="#facc15" stroke="#333" stroke-width="1.5" />
+<text x="90.0" y="201.0" font-size="22" text-anchor="middle" fill="#1f2328" font-weight="normal" >☢</text>
+<text x="90.0" y="240.0" font-size="13" text-anchor="middle" fill="#1f2328" font-weight="normal" >vnější zdroj</text>
+<path d="M 125 169 L 137 175 L 149 163 L 161 175 L 173 163 L 185 175 L 197 163 L 209 175 L 221 163 L 233 175 L 245 163 L 257 175 L 269 163 L 281 175" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#ar)" />
+<path d="M 125 195 L 137 201 L 149 189 L 161 201 L 173 189 L 185 201 L 197 189 L 209 201 L 221 189 L 233 201 L 245 189 L 257 201 L 269 189 L 281 201" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#ar)" />
+<path d="M 125 221 L 137 227 L 149 215 L 161 227 L 173 215 L 185 227 L 197 215 L 209 227 L 221 215 L 233 227 L 245 215 L 257 227 L 269 215 L 281 227" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#ar)" />
+<text x="245.0" y="360.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="normal" >záření působí zvenku;</text>
+<text x="245.0" y="380.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="bold" >po odchodu od zdroje ozáření končí</text>
+<line x1="490.0" y1="50.0" x2="490.0" y2="380.0" stroke="#ddd" stroke-width="1" />
+<circle cx="735.0" cy="130.0" r="26.0" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<rect x="699.0" y="160.0" width="72.0" height="110.0" rx="22" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<rect x="705.0" y="266.0" width="24.0" height="70.0" rx="8" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<rect x="741.0" y="266.0" width="24.0" height="70.0" rx="8" fill="#e5e7eb" stroke="#555" stroke-width="1.5" />
+<circle cx="742.4" cy="236.8" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="752.7" cy="254.8" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="749.4" cy="253.0" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="706.7" cy="211.9" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="761.6" cy="228.4" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="759.1" cy="180.2" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="733.1" cy="192.2" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="737.6" cy="221.7" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="705.8" cy="189.5" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="756.0" cy="118.0" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<circle cx="712.0" cy="300.0" r="5.0" fill="#facc15" stroke="#a16207" stroke-width="1.2" />
+<text x="810.0" y="140.0" font-size="13" text-anchor="start" fill="#a16207" font-weight="normal" >na povrchu</text>
+<text x="810.0" y="200.0" font-size="13" text-anchor="start" fill="#a16207" font-weight="normal" >uvnitř těla</text>
+<text x="810.0" y="216.0" font-size="12" text-anchor="start" fill="#5b6370" font-weight="normal" >(vdechnutí, požití, rána)</text>
+<text x="735.0" y="360.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="normal" >radioaktivní látka je na těle nebo v něm;</text>
+<text x="735.0" y="380.0" font-size="14" text-anchor="middle" fill="#1f2328" font-weight="bold" >může zůstat a dál ozařovat tkáně</text>
+</svg>

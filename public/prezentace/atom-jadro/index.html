@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atomové jádro – prezentace | Perry the Teacher</title>
+<link rel="stylesheet" href="/prezentace/prezentace.css">
+</head>
+<body>
+<div class="deck">
+<section class="slide titul" data-titulek="Titul">
+<div class="male" style="color:#cfe3ef;font-size:24px;margin-bottom:14px">Obecná chemie · Atom</div>
+<h1>Atomové jádro</h1>
+<div class="podtitul">Složení, nuklidy a izotopy, stabilita, radioaktivita, záření, poločas, jaderné rovnice, štěpení a fúze</div>
+<div class="patka">Perry the Teacher · perrytheteacher.github.io</div>
+<div class="ai-pozn">Tento materiál byl připraven s využitím generativní AI. Odbornou a pedagogickou kontrolu provedl Jaroslav Peřka, který odpovídá za jeho konečnou podobu.</div>
+<aside class="poznamky"><p>Prezentace na 4–5 vyučovacích hodin podle kapitoly <b>2. Atomové jádro</b>. Doporučené předěly: 1. hodina končí řešením procvičení A (sn. 17), 2. hodina myšlenkovým problémem se třemi předměty (sn. 29), 3. hodina poločasem a procvičením B (sn. 34), 4. hodina jadernými rovnicemi a procvičením C (sn. 44), 5. hodina štěpení, fúze a využití.</p><p>Barevné ilustrace jsou generované obrázky – u tří z nich je úkolem právě kritické čtení.</p></aside>
+</section>
+<section class="slide" data-typ="cile">
+<h2>Na konci tématu…</h2>
+<div class="dva">
+<div class="box modry"><h3>Cíl</h3><p>Vysvětlím, z čeho je jádro, jak se přeměňuje a k čemu je to dobré – a poznám zavádějící obrázek či poučku.</p></div>
+<div class="box"><h3>Poznám, že to umím, když…</h3><ul class="kroky" style="font-size:21px">
+<li>z <span class='nuklid'><sup>A</sup><sub>Z</sub></span>X určím p, n, e i u iontu,</li><li>rozliším prvek, nuklid a izotop,</li>
+<li>porovnám α, β, γ a ozáření × kontaminaci,</li><li>spočítám, kolik zbude po n poločasech,</li><li>doplním jadernou rovnici a vysvětlím štěpení a fúzi.</li></ul></div></div>
+</section>
+
+<section class="slide" data-typ="evokace" data-cas="3">
+<h2>Co je na tomto obrázku špatně?</h2>
+<div class="dva siroky-levy"><div class="stred"><img class="obr" src="/obrazky/atom/puvodni-model.png" alt="" style="width:440px;"></div><div style="font-size:25px">
+<p>Vzpomeň si na svou kresbu atomu z minulé hodiny.</p>
+<ul><li class="f">jádro je vůči atomu <b>obrovsky zvětšené</b></li><li class="f">elektrony nemají <b>klasické dráhy</b> – čára není kolejnice</li><li class="f">atom nemá <b>ostrý povrch</b></li></ul></div></div>
+<aside class="poznamky"><p>Myslím – dvojice – sdílím (2 min). Obrázek je ze snímku 7 výchozí prezentace. Lepší představa: rozložení pravděpodobnosti výskytu elektronu; ani „mrak“ není rozdrobený elektron.</p></aside>
+</section>
+
+<section class="slide" data-typ="predikce" data-cas="2">
+<h2>Atom velký jako fotbalové hřiště</h2>
+<p>Atom zvětšíme na průměr <b>100 m</b>. Poměr průměrů atom : jádro zvolíme <b>100 000 : 1</b>. Jak velké bude jádro?</p>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>asi 10 m – jako autobus</span></div><div class="moznost"><span class="p">B</span><span>asi 1 m – jako míč</span></div><div class="moznost"><span class="p">C</span><span>asi 1 mm – jako zrnko písku</span></div><div class="moznost"><span class="p">D</span><span>asi 1 µm – neviditelné</span></div></div>
+<p class="f" style="margin-top:14px;font-size:25px">100 m ÷ 100 000 = 0,001 m = <b>1 mm</b> – zrnko písku uprostřed hřiště.</p>
+<aside class="poznamky"><p>Většina žáků tipuje A nebo B (vliv školních obrázků). Poměr 100 000 : 1 je modelový řádový odhad, ne konstanta – při 10 000 : 1 by bylo jádro 10× větší.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Modelové zvětšení</h2>
+<img class="obr" src="/obrazky/atom/meritko.svg" alt="" style="width:1000px;"><p class="f male stred">Průměr atomu řádově 10<sup>−10</sup> m, jádra 10<sup>−15</sup> až 10<sup>−14</sup> m. „Skoro prázdný“ = jádro zabírá nepatrnou část objemu – ne že tam „nic není“.</p>
+<aside class="poznamky"><p>Seminář: R ≈ r₀ A<sup>1/3</sup>, r₀ ≈ 1,2 fm. Poměr průměrů 10<sup>5</sup> = poměr objemů 10<sup>15</sup>.</p></aside>
+</section>
+
+<section class="slide" data-typ="otazka">
+<h2>Lžička jaderné hmoty?</h2>
+<img class="obr" src="/obrazky/atom/barevne/hustota-jadra.jpg" alt="" style="width:800px;"><p class="f" style="font-size:23px;margin-top:8px">Řádově ano: jaderná hmota má hustotu asi 2 × 10<sup>17</sup> kg/m³ → čajová lžička ≈ 1 miliarda tun. Ale „odstranit prázdný prostor“ z atomů běžně nejde.</p>
+<aside class="poznamky"><p>Ilustrace je generovaná. Výpočet (seminář): ρ ≈ u / (4/3 π r₀³) = 1,66 × 10<sup>−27</sup> / 7,24 × 10<sup>−45</sup> ≈ 2,3 × 10<sup>17</sup> kg/m³; 5 ml → 1,1 × 10<sup>12</sup> kg ≈ 1,1 mld. t; 15 ml → 3,4 mld. t (obrázek uvádí 4 mld. t – řádově souhlasí). Lidstvo (8 × 10<sup>9</sup> × 60 kg) → asi 2 cm³ – kostka cukru sedí. Diskuse: velikost atomů určují elektrony a elektromagnetické interakce; takovou hustotu mají jen neutronové hvězdy.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Z čeho je jádro</h2>
+<table style="font-size:23px"><tr><th>částice</th><th>značka</th><th class="c">náboj (e)</th><th class="r">hmotnost (u)</th></tr>
+<tr><td>proton</td><td>p<sup>+</sup></td><td class="c">+1</td><td class="r">1,0073</td></tr>
+<tr><td>neutron</td><td>n</td><td class="c">0</td><td class="r">1,0087</td></tr>
+<tr><td>elektron</td><td>e<sup>−</sup></td><td class="c">−1</td><td class="r">0,000 548 6</td></tr></table>
+<ul style="font-size:24px;margin-top:14px"><li class="f">protony + neutrony = <b>nukleony</b>; jádro <sup>1</sup>H = jediný proton</li>
+<li class="f">v jádře je přes <b>99,9 %</b> hmotnosti atomu; proton je asi <b>1836×</b> těžší než elektron</li>
+<li class="f">neutron: nulový náboj, a přesto nenulová hmotnost</li></ul>
+<aside class="poznamky"><p>Hodnoty CODATA 2022 (zaokrouhlené). Elementární náboj je v SI přesně definován.</p></aside>
+</section>
+
+<section class="slide" data-typ="otazka">
+<h2>Proč se jádro nerozletí?</h2>
+<img class="obr" src="/obrazky/atom/barevne/sily-v-jadre.jpg" alt="" style="width:820px;"><p class="f" style="font-size:23px;margin-top:6px">Na velmi malé vzdálenosti působí <b>jaderná interakce</b>. Neutrony pomáhají vázat bez dalšího odpuzování – ale ne v libovolném počtu.</p>
+<aside class="poznamky"><p>Ilustrace je generovaná; nukleony nejsou ostré kuličky, „jaderné lepidlo“ je přirovnání. Seminář: síla mezi nukleony je zbytkový projev silné interakce, krátkého dosahu, na velmi malých vzdálenostech výrazně odpudivá – výrok „jaderné síly jsou jen přitažlivé“ je nepřesný.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Seminář: z čeho je proton a neutron</h2>
+<img class="obr" src="/obrazky/atom/kvarky.svg" alt="" style="width:980px;"><p class="male stred">Gluony nesou barevný náboj (ne optickou barvu). Většina hmotnosti nukleonu = energie polí a pohybu, ne součet hmotností tří kvarků.</p>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Jak číst zápis nuklidu</h2>
+<img class="obr" src="/obrazky/atom/zapis-nuklidu.svg" alt="" style="width:1000px;"><p class="f" style="font-size:24px">Z určuje prvek · N = A − Z · u neutrálního atomu e<sup>−</sup> = Z · desetinné číslo v tabulce = relativní atomová hmotnost, ne A</p>
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Řešený příklad 1: <span class='nuklid'><sup>23</sup><sub>11</sub></span>Na</h2>
+<ol class="kroky" style="font-size:27px">
+<li class="f">Z = 11 → <b>11 protonů</b></li><li class="f">A = 23 → 23 protonů a neutronů dohromady</li>
+<li class="f">N = 23 − 11 = <b>12 neutronů</b></li><li class="f">neutrální atom → <b>11 elektronů</b></li></ol>
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Řešený příklad 2: 17 p, 18 n, 18 e<sup>−</sup></h2>
+<ol class="kroky" style="font-size:27px">
+<li class="f">Z = 17 → <b>chlor</b></li><li class="f">A = 17 + 18 = <b>35</b></li><li class="f">o jeden elektron víc → náboj <b>−1</b></li>
+<li class="f">zápis <b><span class='nuklid'><sup>35</sup><sub>17</sub></span>Cl<sup>−</sup></b> – chloridový anion; jádro ani prvek se nezměnily</li></ol>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Prvek, nuklid, izotop</h2>
+<img class="obr" src="/obrazky/atom/barevne/izotopy-vodiku.jpg" alt="" style="width:780px;"><p class="f" style="font-size:23px;margin-top:6px"><b>prvek</b> = stejné Z · <b>nuklid</b> = dané Z a A · <b>izotopy</b> = stejné Z, různé N. Chemicky velmi podobné, jaderně se liší (<sup>1</sup>H stabilní, <sup>3</sup>H radioaktivní).</p>
+<aside class="poznamky"><p>Ilustrace je generovaná – oběžné dráhy elektronu jsou jen grafický prvek (srovnej s evokací). Údaj 99,98 % pro <sup>1</sup>H odpovídá přírodnímu zastoupení. Seminář: izobary (stejné A), izotony (stejné N), jaderné izomery (<sup>99m</sup>Tc).</p></aside>
+</section>
+
+<section class="slide" data-typ="hlasovani">
+<h2>Z atomu hliníku vznikl Al<sup>3+</sup>. Co se změnilo?</h2>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>počet protonů</span></div><div class="moznost"><span class="p">B</span><span>počet neutronů</span></div><div class="moznost"><span class="p">C</span><span>počet elektronů</span></div><div class="moznost"><span class="p">D</span><span>nukleonové číslo</span></div></div>
+<aside class="poznamky"><p>Distraktor A: záměna náboje iontu s protonovým číslem.</p></aside>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Změnil se jen počet elektronů</h2>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>počet protonů</span></div><div class="moznost"><span class="p">B</span><span>počet neutronů</span></div><div class="moznost spravne"><span class="p">C</span><span>počet elektronů</span></div><div class="moznost"><span class="p">D</span><span>nukleonové číslo</span></div></div><p style="margin-top:18px"><span class='nuklid'><sup>27</sup><sub>13</sub></span>Al<sup>3+</sup>: 13 p, 14 n, <b>10 e<sup>−</sup></b>. Jádro, a tedy i prvek, zůstávají stejné.</p>
+</section>
+
+<section class="slide" data-typ="ukol" data-cas="7">
+<h2>Procvičení A</h2>
+<ol style="font-size:25px">
+<li>Doplň Z, A, N, p a e: <span class='nuklid'><sup>16</sup><sub>8</sub></span>O · <span class='nuklid'><sup>40</sup><sub>20</sub></span>Ca · <span class='nuklid'><sup>235</sup><sub>92</sub></span>U · <span class='nuklid'><sup>27</sup><sub>13</sub></span>Al<sup>3+</sup></li>
+<li>Zapiš neutrální atomy: 6 p a 7 n · 11 p a 12 n · 20 p a 22 n</li>
+<li>Vyber dvojici izotopů: <span class='nuklid'><sup>14</sup><sub>6</sub></span>C, <span class='nuklid'><sup>14</sup><sub>7</sub></span>N, <span class='nuklid'><sup>12</sup><sub>6</sub></span>C</li>
+<li>Změní se prvek při a) odebrání elektronu, b) přidání neutronu, c) změně počtu protonů?</li>
+<li><b>S:</b> Najdi izobary, izotony a izotopy mezi <span class='nuklid'><sup>14</sup><sub>6</sub></span>C, <span class='nuklid'><sup>14</sup><sub>7</sub></span>N, <span class='nuklid'><sup>15</sup><sub>7</sub></span>N.</li></ol>
+<aside class="poznamky"><p>Samostatně, pak kontrola ve dvojicích.</p></aside>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Procvičení A – řešení</h2>
+<div class="dva" style="font-size:22px;gap:24px"><table style="font-size:21px"><tr><th></th><th>Z</th><th>A</th><th>N</th><th>p</th><th>e</th></tr>
+<tr><td><span class='nuklid'><sup>16</sup><sub>8</sub></span>O</td><td>8</td><td>16</td><td>8</td><td>8</td><td>8</td></tr><tr><td><span class='nuklid'><sup>40</sup><sub>20</sub></span>Ca</td><td>20</td><td>40</td><td>20</td><td>20</td><td>20</td></tr>
+<tr><td><span class='nuklid'><sup>235</sup><sub>92</sub></span>U</td><td>92</td><td>235</td><td>143</td><td>92</td><td>92</td></tr><tr><td><span class='nuklid'><sup>27</sup><sub>13</sub></span>Al<sup>3+</sup></td><td>13</td><td>27</td><td>14</td><td>13</td><td>10</td></tr></table>
+<ul><li><span class='nuklid'><sup>13</sup><sub>6</sub></span>C · <span class='nuklid'><sup>23</sup><sub>11</sub></span>Na · <span class='nuklid'><sup>42</sup><sub>20</sub></span>Ca</li><li>izotopy <span class='nuklid'><sup>14</sup><sub>6</sub></span>C a <span class='nuklid'><sup>12</sup><sub>6</sub></span>C (Z = 6)</li><li>a) ne, kation · b) ne, jiný izotop · c) ano</li><li>izobary <sup>14</sup>C, <sup>14</sup>N; izotony <sup>14</sup>C, <sup>15</sup>N; izotopy <sup>14</sup>N, <sup>15</sup>N</li></ul></div>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Kde leží stabilní nuklidy</h2>
+<img class="obr" src="/obrazky/atom/mapa-stability.svg" alt="" style="width:780px;max-height:520px;width:auto">
+<aside class="poznamky"><p>Skutečná data (252 stabilních nuklidů). Podpůrné otázky: Kde leží lehká stabilní jádra? (N ≈ Z) Co se děje s rostoucím Z? (převaha neutronů) Proč nad Z = 82 nic? (odpuzování protonů). Pozor: <sup>3</sup>H má víc neutronů než protonů, a přesto je nestabilní – pravidlo je vodítko, ne test. Stabilní lehké jádro (<sup>4</sup>He, <sup>12</sup>C) může při fúzi uvolnit energii, a přesto není radioaktivní.</p></aside>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="4">
+<h2>Co je na této ilustraci zavádějící?</h2>
+<img class="obr" src="/obrazky/atom/barevne/udoli-stability-ilustrace.jpg" alt="" style="width:960px;">
+<aside class="poznamky"><p>Myslím – dvojice – sdílím (3 min). Srovnejte s předchozím grafem ze skutečných dat.</p></aside>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Ilustrace „údolí stability“ – kritické čtení</h2>
+<div class="dva" style="font-size:23px"><div class="box zeleny"><h3>V pořádku</h3><p>Stabilní nuklidy tvoří úzký pás; nestabilní jádra se přeměnami k pásu přibližují.</p></div>
+<div class="box zluty"><h3>Zavádějící</h3><ul style="font-size:21px"><li>osa Z skáče 40 → 150, osa N končí u 40</li><li>β⁺ na obou stranách; β⁻ patří k přebytku neutronů, β⁺ k přebytku protonů</li><li>γ není přeměna na jiný nuklid</li><li>„rozpadají se, <i>aby</i> získala stabilitu“ – jádra nemají záměr</li></ul></div></div>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Seminář: vazebná energie na nukleon</h2>
+<img class="obr" src="/obrazky/atom/vazebna-energie.svg" alt="" style="width:900px;max-height:520px;width:auto">
+<aside class="poznamky"><p>Eᵦ = energie k úplnému rozdělení jádra na volné nukleony. Maximum Eᵦ/A u <sup>62</sup>Ni (8,79 MeV); „železo má největší celkovou vazebnou energii“ je nesprávné. Hmotnostní úbytek Δm, Eᵦ = Δm c².</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Radioaktivita</h2>
+<p><b>Radioaktivita</b> = samovolná přeměna nestabilních jader spojená s emisí částic nebo elektromagnetického záření.</p>
+<ul style="font-size:24px"><li class="f">1896 <b>Becquerel</b> – záření uranových solí; 1898 <b>M. a P. Curie</b> – polonium a radium; Nobelovy ceny 1903 (fyzika) a 1911 (chemie)</li>
+<li class="f"><b>přirozená</b>: <sup>238</sup>U, <sup>222</sup>Rn, <sup>40</sup>K, <sup>14</sup>C · <b>umělá</b>: <sup>60</sup>Co, <sup>18</sup>F, historicky <sup>30</sup>P (Joliot-Curie 1934)</li>
+<li class="f">mechanismus je stejný – tentýž nuklid se chová stejně, ať vznikl kdekoli; přeměna probíhá samovolně</li></ul>
+<aside class="poznamky"><p>Seminář: <span class='nuklid'><sup>27</sup><sub>13</sub></span>Al + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He → <span class='nuklid'><sup>30</sup><sub>15</sub></span>P + <span class='nuklid'><sup>1</sup><sub>0</sub></span>n (vyvolaná reakce), <span class='nuklid'><sup>30</sup><sub>15</sub></span>P → <span class='nuklid'><sup>30</sup><sub>14</sub></span>Si + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e + νₑ (přeměna). Radioaktivitu obvykle nevypneme teplotou ani reakcí; výjimkou je mírný vliv elektronového prostředí na elektronový záchyt.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Záření α, β, γ</h2>
+<table style="font-size:21px"><tr><th>záření</th><th>co to je</th><th>náboj</th><th>co ho zastaví</th></tr>
+<tr><td><b>α</b></td><td>jádra <span class='nuklid'><sup>4</sup><sub>2</sub></span>He (2 p + 2 n)</td><td>+2e</td><td>list papíru, povrch kůže</td></tr>
+<tr class="f"><td><b>β⁻</b></td><td>elektrony vzniklé při přeměně</td><td>−e</td><td>milimetry plastu či hliníku</td></tr>
+<tr class="f"><td><b>β⁺</b></td><td>pozitrony</td><td>+e</td><td>anihilují → fotony potřebují další stínění</td></tr>
+<tr class="f"><td><b>γ</b></td><td>fotony jaderného původu</td><td>0</td><td>olovo, beton jen <b>zeslabí</b></td></tr></table>
+<aside class="poznamky"><p>Ionizující záření uvolňuje elektrony z atomů; v tkáni poškozuje molekuly přímo i přes reaktivní produkty z vody, cílem je i DNA. V poli se α a β vychylují (e<sup>−</sup> a e<sup>+</sup> opačně), γ ne.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Pronikavost</h2>
+<img class="obr" src="/obrazky/atom/pronikavost.svg" alt="" style="width:1060px;">
+</section>
+
+<section class="slide" data-typ="hlasovani">
+<h2>„Gama je nejpronikavější, proto je vždy nejnebezpečnější.“</h2>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>ano, platí vždy</span></div><div class="moznost"><span class="p">B</span><span>ne – nejnebezpečnější je vždy alfa</span></div><div class="moznost"><span class="p">C</span><span>ne – záleží na okolnostech</span></div><div class="moznost"><span class="p">D</span><span>ano, ale jen pro rostliny</span></div></div>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Pronikavost ≠ hustota ionizace</h2>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>ano, platí vždy</span></div><div class="moznost"><span class="p">B</span><span>ne – nejnebezpečnější je vždy alfa</span></div><div class="moznost spravne"><span class="p">C</span><span>ne – záleží na okolnostech</span></div><div class="moznost"><span class="p">D</span><span>ano, ale jen pro rostliny</span></div></div><p style="margin-top:14px;font-size:24px">α ionizuje hustě na krátké dráze – mimo tělo ji zastaví kůže, <b>uvnitř těla</b> je velmi riziková. γ může tělem projít bez interakce. Rozhoduje aktivita, energie, vzdálenost, doba, stínění.</p>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Ozáření × kontaminace</h2>
+<img class="obr" src="/obrazky/atom/ozareni-kontaminace.svg" alt="" style="width:900px;"><p class="f" style="font-size:23px">Rentgenový snímek z člověka zdroj neudělá. Radiofarmakum = záměrná, kontrolovaná přítomnost radionuklidu v těle.</p>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="5">
+<h2>Myšlenkový problém: tři předměty</h2>
+<p>Tři radioaktivní předměty: jeden emituje <b>α</b>, druhý <b>β</b>, třetí <b>γ</b>. Jeden máš spolknout, jeden dát do kapsy a jeden držet v ruce.</p>
+<ol style="font-size:25px"><li>Jak je rozdělíš? Napiš zdůvodnění.</li><li>Jaké informace v zadání chybějí?</li></ol>
+<p class="male">Jde jen o myšlenkový problém, ne o pokus.</p>
+<aside class="poznamky"><p>Cílem není „správné“ rozdělení. Nechte zaznít populární odpověď (α do kapsy, β do ruky, γ spolknout) a pak ji zpochybněte otázkou 2.</p></aside>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Bez dalších údajů bezpečné rozdělení určit nelze</h2>
+<ul style="font-size:24px"><li>chybí: <b>aktivita, energie, obal zdroje, vzdálenost, doba</b>, zda se látka vstřebá a hromadí v orgánu</li>
+<li class="f">neuzavřený α zářič: zásadní je zabránit vstupu do těla</li><li class="f">kapsa = blízko trupu; ruka = vysoká místní dávka</li>
+<li class="f">požitý γ zářič ozařuje tělo a je vnitřní kontaminací – „proletí tělem, takže neškodí“ neplatí</li></ul>
+<div class="box zeleny f" style="font-size:23px">Dobré řešení = rozlišit vnější a vnitřní ozáření a pojmenovat chybějící předpoklady.</div>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Poločas přeměny</h2>
+<img class="obr" src="/obrazky/atom/polocas.svg" alt="" style="width:900px;max-height:440px;width:auto"><p class="f" style="font-size:23px">T₁/₂ = doba, za kterou se přemění asi polovina velkého počtu jader. Ne doba, po které radioaktivita zmizí.</p>
+<aside class="poznamky"><p>U jednoho jádra okamžik přeměny určit nelze, u velkého souboru ano. Aktivita (Bq) = počet přeměn za sekundu; není to dávka.</p></aside>
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Řešený příklad: T₁/₂ = 6 h, uplyne 18 h</h2>
+<ol class="kroky" style="font-size:28px"><li class="f">18 h ÷ 6 h = <b>3 poločasy</b></li><li class="f">100 % → 50 % → 25 % → <b>12,5 %</b></li>
+<li class="f">pozor: dceřiné produkty mohou být také radioaktivní – nepopisujeme tím celkovou aktivitu směsi</li></ol>
+</section>
+
+<section class="slide" data-typ="aplikace" data-cas="5">
+<h2>Simulace: náhoda jednotlivce, zákon celku</h2>
+<iframe class="app" data-src="/aplikace/atomove-jadro/#polocas" title="Poločas přeměny – simulace"></iframe>
+<aside class="poznamky"><p>Predikce: Označte jedno jádro – kdy se přemění? Pak „+1 poločas“ několikrát a srovnejte tabulku předpověď × simulace. Se 100 jádry jsou odchylky větší než s 1600.</p></aside>
+</section>
+
+<section class="slide" data-typ="ukol" data-cas="5">
+<h2>Procvičení B</h2>
+<ol style="font-size:27px"><li style="margin-bottom:16px">Poločas 8 dní. Jaký podíl jader zbývá po 24 dnech?</li>
+<li style="margin-bottom:16px">Ze 160 milionů jader zbývá po 12 h 20 milionů. Urči poločas.</li>
+<li><b>S:</b> Čistý zdroj 800 Bq, poločas 10 min. Aktivita po 30 min? (dceřiné produkty nepřispívají)</li></ol>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Procvičení B – řešení</h2>
+<ol style="font-size:27px"><li style="margin-bottom:16px">24/8 = 3 poločasy → (½)³ = <b>12,5 %</b></li>
+<li style="margin-bottom:16px">160 → 80 → 40 → 20: tři poločasy za 12 h → <b>T₁/₂ = 4 h</b></li><li>3 poločasy → 800/2<sup>3</sup> = <b>100 Bq</b></li></ol>
+<aside class="poznamky"><p>Seminář: N(t) = N₀ e<sup>−λt</sup>, λ = ln 2 / T₁/₂, 𝒜 = λN; Gy × Sv; efektivní poločas 1/Tef = 1/Tfyz + 1/Tbio.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Jak zapisovat jaderné přeměny</h2>
+<ul style="font-size:25px"><li>kontrolujeme součty <b>A</b> i <b>Z</b> na obou stranách</li>
+<li class="f">elektron <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e · pozitron <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e · neutron <span class='nuklid'><sup>1</sup><sub>0</sub></span>n · částice α <span class='nuklid'><sup>4</sup><sub>2</sub></span>He</li>
+<li class="f">nula nahoře u elektronu = není nukleon, <b>ne nulová hmotnost</b>; dole je nábojové číslo</li>
+<li class="f">vyrovnaná rovnice ještě nedokazuje, že děj probíhá – musí být energeticky možný</li></ul>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Kam se jádro posune</h2>
+<img class="obr" src="/obrazky/atom/premeny-posuny.svg" alt="" style="width:1060px;">
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Alfa přeměna: A − 4, Z − 2</h2>
+<div class="rov"><span class='nuklid'><sup>238</sup><sub>92</sub></span>U → <span class="f"><span class='nuklid'><sup>234</sup><sub>90</sub></span>Th</span> + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He</div>
+<ol class="kroky" style="font-size:26px"><li class="f">A: 238 − 4 = 234</li><li class="f">Z: 92 − 2 = 90 → thorium</li><li class="f">kontrola: 238 = 234 + 4; 92 = 90 + 2</li></ol>
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Beta minus: n → p<sup>+</sup> + e<sup>−</sup> + ν̅ₑ</h2>
+<div class="rov"><span class='nuklid'><sup>14</sup><sub>6</sub></span>C → <span class="f"><span class='nuklid'><sup>14</sup><sub>7</sub></span>N</span> + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e + ν̅ₑ</div>
+<ul style="font-size:25px"><li class="f">A se nemění, <b>Z + 1</b>; kontrola 14 = 14 + 0; 6 = 7 − 1</li><li class="f">C: 6 p, 8 n → N: 7 p, 7 n</li>
+<li class="f"><span class="zvyraz">elektron nevylétá z obalu ani nebyl „schovaný v neutronu“ – <b>vzniká při přeměně</b></span></li></ul>
+</section>
+
+<section class="slide" data-typ="priklad">
+<h2>Beta plus a gama</h2>
+<div class="rov"><span class='nuklid'><sup>18</sup><sub>9</sub></span>F → <span class='nuklid'><sup>18</sup><sub>8</sub></span>O + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e + νₑ</div><p style="font-size:24px">p<sup>+</sup> → n + e<sup>+</sup> + νₑ · A stejné, <b>Z − 1</b> · jen u vhodného jádra, volný proton se takto nepřeměňuje</p>
+<div class="rov f"><span class='nuklid'><sup>99m</sup><sub>43</sub></span>Tc → <span class='nuklid'><sup>99</sup><sub>43</sub></span>Tc + γ</div><p class="f" style="font-size:24px">excitované jádro vyzáří foton · <b>A ani Z se nemění</b> · γ nemusí vždy doprovázet α či β</p>
+<aside class="poznamky"><p>Seminář: elektronový záchyt <span class='nuklid'><sup>7</sup><sub>4</sub></span>Be + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e → <span class='nuklid'><sup>7</sup><sub>3</sub></span>Li + νₑ; β⁺ a EZ se týkají jader bohatých na protony vzhledem k oblasti stability, nemusí platit Z > N.</p></aside>
+</section>
+
+<section class="slide" data-typ="hlasovani">
+<h2>Odkud pochází elektron záření β⁻?</h2>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>z elektronového obalu</span></div><div class="moznost"><span class="p">B</span><span>byl uložený v neutronu</span></div><div class="moznost"><span class="p">C</span><span>vzniká při přeměně neutronu na proton</span></div><div class="moznost"><span class="p">D</span><span>z okolního vzduchu</span></div></div>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Elektron β⁻ vzniká v jádře při přeměně</h2>
+<div class="moznosti"><div class="moznost"><span class="p">A</span><span>z elektronového obalu</span></div><div class="moznost"><span class="p">B</span><span>byl uložený v neutronu</span></div><div class="moznost spravne"><span class="p">C</span><span>vzniká při přeměně neutronu na proton</span></div><div class="moznost"><span class="p">D</span><span>z okolního vzduchu</span></div></div><p style="margin-top:14px">Neutron není „proton + elektron“. Seminář: v kvarkovém popisu se d mění na u (slabá interakce).</p>
+</section>
+
+<section class="slide" data-typ="aplikace" data-cas="4">
+<h2>Přeměny v mapě nuklidů</h2>
+<iframe class="app" data-src="/aplikace/atomove-jadro/#premeny" title="Jaderné přeměny"></iframe>
+<aside class="poznamky"><p>U-238: α, β⁻, β⁻ (= úloha C7) a sledujte cestu v mapě. Karta 3 „Doplň rovnici“ nabízí skutečné přeměny k procvičení.</p></aside>
+</section>
+
+<section class="slide" data-typ="ukol" data-cas="8">
+<h2>Procvičení C – doplň a zkontroluj A i Z</h2>
+<div class="dva" style="font-size:25px;gap:20px"><ol>
+<li><span class='nuklid'><sup>226</sup><sub>88</sub></span>Ra → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He</li><li><span class='nuklid'><sup>210</sup><sub>84</sub></span>Po → <span class='nuklid'><sup>206</sup><sub>82</sub></span>Pb + ?</li><li><span class='nuklid'><sup>3</sup><sub>1</sub></span>H → ? + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e + ν̅ₑ</li><li><span class='nuklid'><sup>32</sup><sub>15</sub></span>P → <span class='nuklid'><sup>32</sup><sub>16</sub></span>S + ? + ν̅ₑ</li><li><span class='nuklid'><sup>11</sup><sub>6</sub></span>C → ? + <span class='nuklid'><sup>0</sup><sub>+1</sub></span>e + νₑ</li></ol>
+<ol start="6"><li><span class='nuklid'><sup>22</sup><sub>11</sub></span>Na → <span class='nuklid'><sup>22</sup><sub>10</sub></span>Ne* + ? + νₑ</li><li><sup>238</sup>U: jedna α, pak dvě β⁻ → ?</li><li><b>S:</b> <span class='nuklid'><sup>40</sup><sub>19</sub></span>K + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e → ? + νₑ</li><li><b>S:</b> „<span class='nuklid'><sup>14</sup><sub>6</sub></span>C → <span class='nuklid'><sup>14</sup><sub>5</sub></span>B + <span class='nuklid'><sup>0</sup><sub>−1</sub></span>e je β⁻.“ Chyba?</li></ol></div>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Procvičení C – řešení</h2>
+<div class="dva" style="font-size:23px;gap:20px"><ol>
+<li><span class='nuklid'><sup>222</sup><sub>86</sub></span>Rn</li><li><span class='nuklid'><sup>4</sup><sub>2</sub></span>He</li><li><span class='nuklid'><sup>3</sup><sub>2</sub></span>He</li><li><span class='nuklid'><sup>0</sup><sub>−1</sub></span>e</li><li><span class='nuklid'><sup>11</sup><sub>5</sub></span>B</li></ol><ol start="6"><li><span class='nuklid'><sup>0</sup><sub>+1</sub></span>e (pak γ: A ani Z se nemění)</li>
+<li><sup>238</sup>U → <sup>234</sup>Th → <sup>234</sup>Pa → <b><span class='nuklid'><sup>234</sup><sub>92</sub></span>U</b></li><li><span class='nuklid'><sup>40</sup><sub>18</sub></span>Ar</li><li>nesedí náboj: 6 ≠ 5 − 1; správně <span class='nuklid'><sup>14</sup><sub>7</sub></span>N</li></ol></div>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Štěpení</h2>
+<img class="obr" src="/obrazky/atom/stepeni.svg" alt="" style="width:1000px;"><p class="f" style="font-size:23px">Kontrola: A: 235 + 1 = 141 + 92 + 3; Z: 92 = 56 + 36. Jedna z mnoha možných větví; produkty jsou často radioaktivní.</p>
+</section>
+
+<section class="slide" data-typ="otazka">
+<h2>Řetězová reakce</h2>
+<img class="obr" src="/obrazky/atom/retezova-reakce.svg" alt="" style="width:900px;max-height:440px;width:auto"><p class="f" style="font-size:23px">V reaktoru při ustáleném výkonu: <b>v průměru 1 další štěpení na 1 předchozí</b> – ne „každé štěpení vyrobí jeden neutron“.</p>
+<aside class="poznamky"><p>Podpůrná otázka: Kam mizí ostatní neutrony? (únik, pohlcení – regulační prvky). Moderátor zpomaluje neutrony. Seminář: k<sub>eff</sub>, zpožděné neutrony; nárůst štěpení ≠ automaticky výbuch.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Jaderná elektrárna</h2>
+<img class="obr" src="/obrazky/atom/elektrarna.svg" alt="" style="width:1060px;"><ul style="font-size:23px"><li class="f">nepřevádí „záření rovnou na elektřinu“ – teplo → pára → turbína → generátor</li>
+<li class="f">havárie reaktoru (přehřátí, poškození paliva, únik radionuklidů) <b>není výbuch jaderné zbraně</b></li><li class="f">i po zastavení reakce palivo hřeje – <b>zbytkové teplo</b></li></ul>
+<aside class="poznamky"><p>Historie: 1942 první řízená řetězová reakce (Fermi), 1945 Hirošima a Nagasaki. Při jednom štěpení <sup>235</sup>U asi 200 MeV × chemické děje řádově eV.</p></aside>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Fúze</h2>
+<img class="obr" src="/obrazky/atom/fuze-dt.svg" alt="" style="width:1000px;max-height:340px;width:auto"><ul style="font-size:22px"><li class="f">jádra se odpuzují → vysoká teplota, hustota a doba udržení; pomáhá kvantové tunelování</li>
+<li class="f">ve <b>Slunci</b> řetězec reakcí H → He, ne převážně D–T</li><li class="f">fúze ≠ „žádná radioaktivita“: tritium je radioaktivní, neutrony aktivují materiály</li></ul>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Štěpení × fúze</h2>
+<table style="font-size:23px"><tr><th></th><th>štěpení</th><th>fúze lehkých jader</th></tr>
+<tr><td>změna jader</td><td>těžké jádro se rozdělí</td><td>lehčí jádra → těžší produkty</td></tr>
+<tr><td>školní příklad</td><td><sup>235</sup>U + neutron</td><td><sup>2</sup>H + <sup>3</sup>H</td></tr>
+<tr><td>hlavní problém</td><td>řízení, odvod tepla, radioaktivní materiály</td><td>dosažení a udržení podmínek, materiály, energetická bilance</td></tr>
+<tr><td>výskyt, využití</td><td>energetika, výzkum, zbraně</td><td>hvězdy, výzkum energetiky, zbraně</td></tr></table>
+<aside class="poznamky"><p>Seminář: oba děje typicky vedou k pevněji vázaným středně těžkým jádrům (graf Eᵦ/A); neplatí, že libovolné slučování energii uvolní.</p></aside>
+</section>
+
+<section class="slide" data-typ="ukol" data-cas="6">
+<h2>Procvičení D</h2>
+<ol style="font-size:27px"><li style="margin-bottom:14px"><span class='nuklid'><sup>2</sup><sub>1</sub></span>H + <span class='nuklid'><sup>3</sup><sub>1</sub></span>H → ? + <span class='nuklid'><sup>1</sup><sub>0</sub></span>n</li><li style="margin-bottom:14px"><span class='nuklid'><sup>235</sup><sub>92</sub></span>U + <span class='nuklid'><sup>1</sup><sub>0</sub></span>n → <span class='nuklid'><sup>144</sup><sub>56</sub></span>Ba + <span class='nuklid'><sup>89</sup><sub>36</sub></span>Kr + ? <span class='nuklid'><sup>1</sup><sub>0</sub></span>n</li>
+<li style="margin-bottom:14px">Proč musí mít reaktor odvod tepla i po zastavení řetězové reakce?</li><li><b>S:</b> 17,6 MeV v joulech? Kolik reakcí ideálně odpovídá 1 J?</li></ol>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Procvičení D – řešení</h2>
+<ol style="font-size:25px"><li style="margin-bottom:12px"><span class='nuklid'><sup>4</sup><sub>2</sub></span>He (A: 2 + 3 = 4 + 1; Z: 1 + 1 = 2)</li><li style="margin-bottom:12px"><b>3 neutrony</b> (235 + 1 − 144 − 89 = 3)</li>
+<li style="margin-bottom:12px">štěpné produkty se dál přeměňují a uvolňují <b>zbytkové teplo</b></li><li>17,6 × 10<sup>6</sup> × 1,602 × 10<sup>−19</sup> ≈ <b>2,82 × 10<sup>−12</sup> J</b>; 1 J ≈ <b>3,55 × 10<sup>11</sup> reakcí</b> (uvolněná, ne elektrická energie)</li></ol>
+</section>
+
+<section class="slide" data-typ="vyklad">
+<h2>Kde ionizující záření využíváme</h2>
+<div class="tri" style="font-size:21px">
+<div class="box modry"><h3>medicína</h3><p>PET (<sup>18</sup>F), scintigrafie (<sup>99m</sup>Tc), léčba – ozařování, <sup>131</sup>I ve štítné žláze</p></div>
+<div class="box zeleny"><h3>sterilizace a potraviny</h3><p>méně mikroorganismů a škůdců; potravina za schválených podmínek <b>nezíská radioaktivitu</b></p></div>
+<div class="box zluty"><h3>technika</h3><p>radiografie svarů, měření tloušťky a hladiny bez dotyku</p></div>
+<div class="box fialovy"><h3>chemie, biologie</h3><p>radioaktivní značka sleduje atomy v reakci či metabolismu</p></div>
+<div class="box"><h3>archeologie</h3><p><sup>14</sup>C pro organické materiály do asi 50 000 let</p></div>
+<div class="box"><h3>zemědělství</h3><p>mutace pro šlechtění, sterilizace hmyzích škůdců</p></div></div>
+<aside class="poznamky"><p>Ne všechny zdroje jsou radionuklidy – rentgenka a urychlovač jsou elektrická zařízení. Mnoho vnějších ozařovačů v onkologii používá urychlovač.</p></aside>
+</section>
+
+<section class="slide" data-typ="dvojice" data-cas="4">
+<h2>Ilustrace „Jádro v medicíně“: co je třeba upřesnit?</h2>
+<img class="obr" src="/obrazky/atom/barevne/jadro-v-medicine.jpg" alt="" style="width:940px;">
+<aside class="poznamky"><p>Dvojice 3 min, pak sdílení. Ilustrace je generovaná (opraveny jen překlepy).</p></aside>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Kritické čtení ilustrace</h2>
+<ul style="font-size:23px"><li><b>„bezpečně“</b> – krátký poločas a malá aktivita snižují dávku, nulové riziko to není; roli hraje i biologické vylučování</li>
+<li class="f"><b>PET</b> zachytí dvojici anihilačních fotonů (511 keV) z pozitronu, např. z <sup>18</sup>F</li>
+<li class="f"><b><sup>99m</sup>Tc</b> slouží scintigrafii a SPECT, ne PET; <b><sup>131</sup>I</b> hlavně léčbě štítné žlázy (β⁻)</li>
+<li class="f">„detekce nádorů“ – výsledek závisí na chování radiofarmaka a funkci tkání, není to „fotografie nádoru“</li></ul>
+</section>
+
+<section class="slide" data-typ="otazka">
+<h2>Uhlíkové datování a radioaktivní značka</h2>
+<ul style="font-size:24px"><li>živé organismy přijímají <sup>14</sup>C; po odumření ubývá β⁻ přeměnou, T₁/₂ ≈ <b>5730 let</b></li>
+<li class="f">potřebná kalibrace – počáteční zastoupení <sup>14</sup>C není v čase stejné; ne pro horniny ani miliony let staré fosilie</li></ul>
+<p class="f"><b>Otázka pro chemika:</b> Proč lze radioaktivní izotop použít jako značku? Co zůstává stejné a co umožní detekci?</p>
+<div class="box zeleny f" style="font-size:23px">Stejné Z → stejný prvek, velmi podobné chemické chování. Radioaktivní přeměna → detekce záření. (Izotopové efekty mohou být měřitelné.)</div>
+</section>
+
+<section class="slide" data-typ="exit" data-cas="5">
+<h2>Výstupní lístek</h2>
+<ol style="font-size:26px"><li style="margin-bottom:14px">Kolik p, n a e má <span class='nuklid'><sup>32</sup><sub>16</sub></span>S<sup>2−</sup>?</li>
+<li style="margin-bottom:14px">Doplň: <span class='nuklid'><sup>210</sup><sub>84</sub></span>Po → ? + <span class='nuklid'><sup>4</sup><sub>2</sub></span>He</li><li style="margin-bottom:14px">Po kolika poločasech zbývá 6,25 % jader?</li>
+<li>Jaký je rozdíl mezi ozářením a kontaminací? (1 věta)</li></ol>
+</section>
+
+<section class="slide" data-typ="reseni">
+<h2>Výstupní lístek – řešení</h2>
+<ol style="font-size:25px"><li style="margin-bottom:14px">16 p, 16 n, <b>18 e<sup>−</sup></b></li><li style="margin-bottom:14px"><span class='nuklid'><sup>206</sup><sub>82</sub></span>Pb</li>
+<li style="margin-bottom:14px">po <b>4</b> poločasech</li><li>ozáření = záření působí (zvenku), končí odchodem od zdroje; kontaminace = radioaktivní látka na těle nebo v něm</li></ol>
+</section>
+
+<section class="slide" data-typ="shrnuti">
+<h2>Shrnutí</h2>
+<ul style="font-size:22px"><li>jádro: 10<sup>−15</sup>–10<sup>−14</sup> m, &gt; 99,9 % hmotnosti; nukleony drží jaderná interakce</li>
+<li><span class='nuklid'><sup>A</sup><sub>Z</sub></span>X: Z určuje prvek, A = Z + N; izotopy = stejné Z, různé N</li>
+<li>α: A − 4, Z − 2 · β⁻: Z + 1 · β⁺: Z − 1 · γ: beze změny</li>
+<li>pronikavost ≠ nebezpečnost; ozáření × kontaminace; po každém T₁/₂ zbývá polovina</li>
+<li>štěpení a fúze uvolňují energii; reaktor: v průměru 1 další štěpení na 1 předchozí</li></ul>
+<div class="box fialovy"><ul class="semafor" style="font-size:20px;columns:3;margin:0">
+<li>zápis nuklidu</li><li>izotopy, ionty</li><li>stabilita</li><li>záření α, β, γ</li><li>poločas</li><li>jaderné rovnice</li><li>štěpení, fúze</li><li>využití</li><li>kritické čtení obrázků</li></ul></div>
+</section>
+
+</div>
+<script src="/prezentace/prezentace.js"></script>
+</body>
+</html>

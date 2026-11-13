@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atomové jádro – stavebnice nuklidu, přeměny a poločas</title>
+<style>
+:root{--ink:#1f2328;--muted:#5b6370;--line:#e3e6ea;--bg:#f6f7f9;--card:#fff;--accent:#1a6d97;--accent-soft:#e7f3fa;
+--p:#d64541;--n:#8d99a6;--e:#2b6cb0;--a:#c2410c;--bm:#1d4ed8;--bp:#b91c1c;--g:#15803d;--ok:#15803d;--ok-soft:#e8f6ec;--bad:#b91c1c;--bad-soft:#fdecec;--warn:#b45309;--warn-soft:#fff8e6}
+*{box-sizing:border-box}
+body{margin:0 auto;max-width:1180px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;font-size:16px;padding:10px}
+h1{font-size:20px;margin:4px 4px 10px}
+h2{font-size:17px;margin:0 0 8px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.tabs button{font:inherit;font-size:15px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 12px;border-radius:10px;cursor:pointer;text-align:left;line-height:1.25}
+.tabs button small{display:block;color:var(--muted);font-size:12px}
+.tabs button.on{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.muted{color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.btn{font:inherit;font-size:15px;border:1px solid #cfd4da;background:#fff;color:var(--ink);padding:6px 12px;border-radius:9px;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.on,.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.big{font-size:18px;padding:8px 16px;font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:560px){.grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.pane{display:none}.pane.on{display:block}
+.counter{display:grid;grid-template-columns:7.5em auto 3em auto;gap:6px;align-items:center;margin:4px 0}
+.counter b{font-size:20px;text-align:center;font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.nk{display:inline-flex;flex-direction:column;align-items:flex-end;vertical-align:.55em;font-size:.6em;line-height:1;margin-right:.05em}
+.zapis{font-size:56px;font-weight:700;line-height:1.1;text-align:center;margin:6px 0}
+.zapis sup.ch{font-size:.45em;vertical-align:1.1em;margin-left:.05em}
+.info{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:15px}
+.info span:nth-child(odd){color:var(--muted)}
+.stav{border-radius:10px;padding:8px 12px;font-size:15px;margin-top:8px}
+.stav.ok{background:var(--ok-soft);border-left:4px solid var(--ok)}
+.stav.rad{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.stav.x{background:var(--bad-soft);border-left:4px solid var(--bad)}
+svg{display:block;width:100%;height:auto}
+.mapa{max-height:calc(100vh - 160px)}
+.rov{font-size:21px;padding:6px 10px;border-left:3px solid var(--accent);background:#f3f6f9;border-radius:0 8px 8px 0;margin:6px 0}
+.rov .chk{font-size:14px;color:var(--ok);display:block}
+.rov .warn{font-size:14px;color:var(--warn);display:block}
+.log{max-height:330px;overflow:auto}
+input[type=number],input[type=text]{font:inherit;font-size:18px;width:4.2em;padding:4px 6px;border:1px solid #cfd4da;border-radius:8px}
+input[type=text]{width:3.4em}
+.fb{border-radius:10px;padding:8px 12px;margin-top:8px;font-size:15px}
+.fb.ok{background:var(--ok-soft);color:#14532d}.fb.bad{background:var(--bad-soft);color:#7f1d1d}
+.dbtn{min-width:5.2em}
+.dbtn.a{border-color:var(--a);color:var(--a)}.dbtn.bm{border-color:var(--bm);color:var(--bm)}.dbtn.bp{border-color:var(--bp);color:var(--bp)}.dbtn.g{border-color:var(--g);color:var(--g)}
+canvas{display:block;width:100%;height:auto;max-height:calc(100vh - 230px);object-fit:contain;border-radius:8px}
+table{border-collapse:collapse;font-size:14px;width:100%}
+td,th{border-bottom:1px solid var(--line);padding:3px 6px;text-align:right}
+th{color:var(--muted);font-weight:600}
+label.sw{font-size:14px;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+</style>
+</head>
+<body>
+<h1>Atomové jádro</h1>
+<div class="tabs" role="tablist">
+  <button class="on" data-t="t1" type="button">1 · Stavebnice nuklidu<small>protony, neutrony, elektrony</small></button>
+  <button data-t="t2" type="button">2 · Jaderné přeměny<small>α, β⁻, β⁺, γ a bilance A, Z</small></button>
+  <button data-t="t3" type="button">3 · Doplň rovnici<small>procvičování se skutečnými přeměnami</small></button>
+  <button data-t="t4" type="button">4 · Poločas přeměny<small>náhoda jednotlivce, zákon celku</small></button>
+</div>
+
+<!-- 1 STAVEBNICE -->
+<section class="pane on" id="t1">
+ <div class="grid2">
+  <div class="card">
+   <h2>Poskládej částici</h2>
+   <div class="counter"><span><i class="dot" style="background:var(--p)"></i>protony</span><button class="btn" data-c="p" data-d="-1" type="button">−</button><b id="vp">6</b><button class="btn" data-c="p" data-d="1" type="button">+</button></div>
+   <div class="counter"><span><i class="dot" style="background:var(--n)"></i>neutrony</span><button class="btn" data-c="n" data-d="-1" type="button">−</button><b id="vn">6</b><button class="btn" data-c="n" data-d="1" type="button">+</button></div>
+   <div class="counter"><span><i class="dot" style="background:var(--e)"></i>elektrony</span><button class="btn" data-c="e" data-d="-1" type="button">−</button><b id="ve">6</b><button class="btn" data-c="e" data-d="1" type="button">+</button></div>
+   <div class="row"><button class="btn" id="neutr" type="button">elektronů jako protonů (neutrální atom)</button></div>
+   <div class="row"><button class="btn" id="cil" type="button">🎯 dej mi úkol</button><span id="cilT" class="muted"></span></div>
+   <div id="cilFb"></div>
+   <svg id="jadroSvg" viewBox="0 0 300 200" aria-label="Schéma jádra z protonů a neutronů" style="max-width:420px;margin:6px auto 0"></svg>
+   <p class="muted" style="text-align:center;margin:0">Schéma složení jádra – kuličky nejsou skutečné tvary ani velikosti.</p>
+  </div>
+  <div class="card">
+   <div class="zapis" id="zapis"></div>
+   <div class="info" id="info"></div>
+   <div id="stav"></div>
+  </div>
+ </div>
+ <div class="card">
+  <h2>Kde leží v mapě nuklidů</h2>
+  <svg id="mapa1" class="mapa" viewBox="0 0 760 470" aria-label="Mapa stabilních nuklidů s vyznačenou polohou poskládaného jádra"></svg>
+  <p class="muted">Černě stabilní nuklidy, fialově radioaktivní nuklidy s přirozeným výskytem (data IUPAC, NUBASE 2020). Červený kroužek = tvoje jádro.</p>
+ </div>
+</section>
+
+<!-- 2 PREMENY -->
+<section class="pane" id="t2">
+ <div class="grid2">
+  <div class="card">
+   <h2>Výchozí jádro</h2>
+   <div class="row"><select id="preset" class="btn"></select><button class="btn" id="zeStav" type="button">převzít ze stavebnice</button></div>
+   <div class="zapis" id="zapis2"></div>
+   <div id="stav2"></div>
+   <h2 style="margin-top:12px">Proveď přeměnu</h2>
+   <div class="row">
+    <button class="btn dbtn a big" data-m="a" type="button">α</button>
+    <button class="btn dbtn bm big" data-m="bm" type="button">β⁻</button>
+    <button class="btn dbtn bp big" data-m="bp" type="button">β⁺</button>
+    <button class="btn dbtn g big" data-m="g" type="button">γ</button>
+    <button class="btn dbtn bp" data-m="ez" type="button">EZ (seminář)</button>
+    <button class="btn" id="zpet" type="button">↺ znovu</button>
+   </div>
+   <p class="muted">Aplikace rovnici vždy vyrovná. Zda daná přeměna u tohoto jádra skutečně probíhá, z bilance nepoznáš – rozhoduje energie. Skutečné přeměny procvičíš na kartě 3.</p>
+  </div>
+  <div class="card">
+   <h2>Rovnice a kontrola bilance</h2>
+   <div class="log" id="log"></div>
+  </div>
+ </div>
+ <div class="card">
+  <h2>Cesta v mapě nuklidů</h2>
+  <svg id="mapa2" class="mapa" viewBox="0 0 760 470" aria-label="Mapa nuklidů s vyznačenou cestou přeměn"></svg>
+  <p class="muted">Osa N vodorovně, Z svisle. α posune jádro o 2 dolů a 2 vlevo, β⁻ o 1 nahoru a 1 vlevo, β⁺ a elektronový záchyt o 1 dolů a 1 vpravo.</p>
+ </div>
+</section>
+
+<!-- 3 PROCVICOVANI -->
+<section class="pane" id="t3">
+ <div class="card">
+  <div class="row"><h2 style="margin:0">Doplň chybějící nuklid nebo částici</h2><label class="sw" style="margin-left:auto"><input type="checkbox" id="sem"> i elektronový záchyt (seminář)</label></div>
+  <div class="rov" id="ulohaRov" style="font-size:26px"></div>
+  <div id="ulohaVstup"></div>
+  <div id="ulohaFb"></div>
+  <div class="row"><button class="btn primary" id="zkontroluj" type="button">Zkontrolovat</button><button class="btn" id="dalsi" type="button">Další úloha →</button><span class="muted" id="skore"></span></div>
+  <p class="muted">Všechny úlohy jsou skutečné přeměny (neutrina jsou uvedena kvůli úplnosti; mají A i Z nulové). Nejdřív spočítej A, pak Z – teprve Z určí značku prvku.</p>
+ </div>
+</section>
+
+<!-- 4 POLOCAS -->
+<section class="pane" id="t4">
+ <div class="grid2">
+  <div class="card">
+   <div class="row"><button class="btn primary" id="hraj" type="button">▶ spustit</button><button class="btn" id="krok" type="button">+1 poločas</button><button class="btn" id="znovu" type="button">↺ znovu</button>
+     <select id="pocet" class="btn"><option value="400">400 jader</option><option value="1600">1600 jader</option><option value="100">100 jader</option></select></div>
+   <canvas id="mrizka" width="520" height="520" aria-label="Mřížka jader; přeměněná jádra zšednou"></canvas>
+   <p class="muted">Klepni na jedno jádro – označí se. Zkus předpovědět, kdy se přemění.</p>
+   <p id="jedno" class="muted"></p>
+  </div>
+  <div class="card">
+   <h2>Kolik jader zbývá</h2>
+   <svg id="graf" viewBox="0 0 460 300" aria-label="Graf počtu nepřeměněných jader v čase"></svg>
+   <p class="muted"><span style="color:#1d4ed8">●</span> simulace &nbsp; <span style="color:#c2410c">—</span> předpověď N₀ · (½)<sup>t/T</sup></p>
+   <table><thead><tr><th>čas</th><th>předpověď</th><th>simulace</th></tr></thead><tbody id="tab"></tbody></table>
+   <p class="muted">Každé jádro má v každém okamžiku stejnou šanci přeměnit se, bez ohledu na to, jak dlouho už „čeká“. Proto u jednoho jádra okamžik přeměny předpovědět nelze, ale u velkého souboru vychází pokles velmi pravidelně.</p>
+  </div>
+ </div>
+</section>
+
+<script>
+const SYM=['n','H','He','Li','Be','B','C','N','O','F','Ne','Na','Mg','Al','Si','P','S','Cl','Ar','K','Ca','Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn','Ga','Ge','As','Se','Br','Kr','Rb','Sr','Y','Zr','Nb','Mo','Tc','Ru','Rh','Pd','Ag','Cd','In','Sn','Sb','Te','I','Xe','Cs','Ba','La','Ce','Pr','Nd','Pm','Sm','Eu','Gd','Tb','Dy','Ho','Er','Tm','Yb','Lu','Hf','Ta','W','Re','Os','Ir','Pt','Au','Hg','Tl','Pb','Bi','Po','At','Rn','Fr','Ra','Ac','Th','Pa','U','Np','Pu','Am','Cm','Bk','Cf','Es','Fm','Md','No','Lr','Rf','Db','Sg','Bh','Hs','Mt','Ds','Rg','Cn','Nh','Fl','Mc','Lv','Ts','Og'];
+const NAZ=['neutron','vodík','helium','lithium','beryllium','bor','uhlík','dusík','kyslík','fluor','neon','sodík','hořčík','hliník','křemík','fosfor','síra','chlor','argon','draslík','vápník','skandium','titan','vanad','chrom','mangan','železo','kobalt','nikl','měď','zinek','gallium','germanium','arsen','selen','brom','krypton','rubidium','stroncium','yttrium','zirkonium','niob','molybden','technecium','ruthenium','rhodium','palladium','stříbro','kadmium','indium','cín','antimon','tellur','jod','xenon','cesium','baryum','lanthan','cer','praseodym','neodym','promethium','samarium','europium','gadolinium','terbium','dysprosium','holmium','erbium','thulium','ytterbium','lutecium','hafnium','tantal','wolfram','rhenium','osmium','iridium','platina','zlato','rtuť','thallium','olovo','bismut','polonium','astat','radon','francium','radium','aktinium','thorium','protaktinium','uran','neptunium','plutonium','americium','curium','berkelium','kalifornium','einsteinium','fermium','mendelevium','nobelium','lawrencium','rutherfordium','dubnium','seaborgium','bohrium','hassium','meitnerium','darmstadtium','roentgenium','kopernicium','nihonium','flerovium','moscovium','livermorium','tennessin','oganesson'];
+const STAB='1:1,2;2:3,4;3:6,7;4:9;5:10,11;6:12,13;7:14,15;8:16,17,18;9:19;10:20,21,22;11:23;12:24,25,26;13:27;14:28,29,30;15:31;16:32,33,34,36;17:35,37;18:36,38,40;19:39,41;20:40,42,43,44,46;21:45;22:46,47,48,49,50;23:51;24:50,52,53,54;25:55;26:54,56,57,58;27:59;28:58,60,61,62,64;29:63,65;30:64,66,67,68,70;31:69,71;32:70,72,73,74;33:75;34:74,76,77,78,80;35:79,81;36:80,82,83,84,86;37:85;38:84,86,87,88;39:89;40:90,91,92,94;41:93;42:92,94,95,96,97,98;44:96,98,99,100,101,102,104;45:103;46:102,104,105,106,108,110;47:107,109;48:106,108,110,111,112,114;49:113;50:112,114,115,116,117,118,119,120,122,124;51:121,123;52:120,122,123,124,125,126;53:127;54:126,128,129,130,131,132,134;55:133;56:132,134,135,136,137,138;57:139;58:136,138,140,142;59:141;60:142,143,145,146,148;62:144,149,150,152,154;63:153;64:154,155,156,157,158,160;65:159;66:156,158,160,161,162,163,164;67:165;68:162,164,166,167,168,170;69:169;70:168,170,171,172,173,174,176;71:175;72:176,177,178,179,180;73:180,181;74:182,183,184,186;75:185;76:184,187,188,189,190,192;77:191,193;78:192,194,195,196,198;79:197;80:196,198,199,200,201,202,204;81:203,205;82:204,206,207,208',RAD='19:40;20:48;23:50;32:76;34:82;36:78;37:87;40:96;42:100;48:113,116;49:115;52:128,130;54:124,136;56:130;57:138;60:144,150;62:147,148;63:151;64:152;71:176;72:174;74:180;75:187;76:186;78:190;83:209;90:230,232;91:231;92:234,235,238';
+function parse(s){const m=new Set();s.split(';').forEach(x=>{const [z,as]=x.split(':');as.split(',').forEach(a=>m.add(z+'-'+a));});return m;}
+const ST=parse(STAB),RA=parse(RAD);
+const M='−';
+const fmt=n=>String(n).replace('-',M);
+const nk=(A,Z,s,m='')=>`<span class="nk"><span>${A}${m}</span><span>${fmt(Z)}</span></span>${s}`;
+const sym=Z=>Z>=0&&Z<SYM.length?SYM[Z]:'?';
+function status(Z,A){if(ST.has(Z+'-'+A))return['ok','stabilní nuklid – samovolná přeměna nebyla pozorována'];
+  if(RA.has(Z+'-'+A))return['rad','radioaktivní nuklid; v přírodě se vyskytuje díky velmi dlouhému poločasu'];
+  return['x','není mezi stabilními ani přírodními nuklidy – pokud takové jádro existuje, je radioaktivní'];}
+/* ---------- mapa ---------- */
+function mapa(svg,path,zoom){const W=760,H=470,x0=48,y0=432,x1=748,y1=12;let n0=0,n1=152,z0=0,z1=96;
+ if(zoom&&path&&path.length){const ns=path.map(p=>p[1]),zs=path.map(p=>p[0]);let a=Math.min(...ns)-6,b=Math.max(...ns)+6,c=Math.min(...zs)-5,d=Math.max(...zs)+5;
+  const sp=Math.max(b-a,(d-c)*1.6,26);const mn=(a+b)/2,mz=(c+d)/2;n0=Math.max(-1,Math.round(mn-sp/2));n1=n0+Math.round(sp);z0=Math.max(-1,Math.round(mz-sp/3.2));z1=z0+Math.round(sp/1.6);}
+ const NX=n=>x0+(n-n0)*(x1-x0)/(n1-n0),ZY=z=>y0-(z-z0)*(y0-y1)/(z1-z0),cw=(x1-x0)/(n1-n0),ch=(y0-y1)/(z1-z0);
+ const st=(n1-n0)>60?10:((n1-n0)>30?5:2);
+ const vis=(z,n)=>n>=n0&&n<=n1&&z>=z0&&z<=z1;
+ let o=`<rect width="${W}" height="${H}" fill="#fff"/>`;
+ for(let n=Math.ceil(Math.max(0,n0)/st)*st;n<=n1;n+=st)o+=`<line x1="${NX(n)}" y1="${y0}" x2="${NX(n)}" y2="${y1}" stroke="#f0f0f0"/><text x="${NX(n)}" y="${y0+16}" font-size="11" text-anchor="middle" fill="#5b6370">${n}</text>`;
+ for(let z=Math.ceil(Math.max(0,z0)/st)*st;z<=z1;z+=st)o+=`<line x1="${x0}" y1="${ZY(z)}" x2="${x1}" y2="${ZY(z)}" stroke="#f0f0f0"/><text x="${x0-6}" y="${ZY(z)+4}" font-size="11" text-anchor="end" fill="#5b6370">${z}</text>`;
+ o+=`<text x="${(x0+x1)/2}" y="${H-4}" font-size="12" text-anchor="middle" fill="#1f2328">neutronové číslo N</text><text transform="translate(12,${(y0+y1)/2}) rotate(-90)" font-size="12" text-anchor="middle" fill="#1f2328">protonové číslo Z</text>`;
+ o+=`<clipPath id="cp${svg.id}"><rect x="${x0}" y="${y1}" width="${x1-x0}" height="${y0-y1}"/></clipPath><g clip-path="url(#cp${svg.id})">`;o+=`<line x1="${NX(0)}" y1="${ZY(0)}" x2="${NX(120)}" y2="${ZY(120)}" stroke="#bbb" stroke-dasharray="5 4"/>`;
+ RA.forEach(k=>{const [z,a]=k.split('-').map(Number);if(vis(z,a-z))o+=`<rect x="${NX(a-z)-cw/2}" y="${ZY(z)-ch/2}" width="${cw}" height="${ch}" fill="#fff" stroke="#7c3aed" stroke-width=".8"/>`});
+ ST.forEach(k=>{const [z,a]=k.split('-').map(Number);if(vis(z,a-z))o+=`<rect x="${NX(a-z)-cw/2}" y="${ZY(z)-ch/2}" width="${cw}" height="${ch}" fill="#1f2328"/>`});o+='</g>';
+ if(path&&path.length){let d='';path.forEach(([Z,N],i)=>d+=(i?'L':'M')+NX(N)+' '+ZY(Z));o+=`<path d="${d}" stroke="#d64541" stroke-width="2" fill="none"/>`;
+  path.forEach(([Z,N],i)=>{o+=`<circle cx="${NX(N)}" cy="${ZY(Z)}" r="${i==path.length-1?7:3.5}" fill="${i==path.length-1?'none':'#d64541'}" stroke="#d64541" stroke-width="2.5"/>`});
+  const [Z,N]=path[path.length-1];const right=NX(N)>x1-80,tx=NX(N)+(right?-12:12),an=right?'end':'start';o+=`<text x="${tx}" y="${ZY(Z)+(ZY(Z)<y1+20?20:-10)}" font-size="13" font-weight="700" fill="#d64541" text-anchor="${an}">${Z+N}${sym(Z)}</text>`;}
+ svg.innerHTML=o;}
+/* ---------- 1 stavebnice ---------- */
+let P=6,Nn=6,E=6;
+const lim={p:[1,118],n:[0,180],e:[0,121]};
+function jadroSvg(){const s=document.getElementById('jadroSvg'),A=P+Nn;let o='<rect width="300" height="200" fill="#fff"/>';
+ const r=Math.max(2.2,Math.min(13,60/Math.sqrt(A)));const kinds=[];for(let i=0;i<A;i++)kinds.push(i);
+ // rovnoměrné promíchání p a n
+ const arr=[];let pi=0,ni=0;for(let i=0;i<A;i++){if(pi/P<=ni/Math.max(Nn,1)&&pi<P){arr.push('p');pi++}else if(ni<Nn){arr.push('n');ni++}else{arr.push('p');pi++}}
+ for(let i=0;i<A;i++){const rr=r*1.05*Math.sqrt(i),a=i*2.39996;const x=150+rr*Math.cos(a),y=100+rr*Math.sin(a);o+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${arr[i]=='p'?'#d64541':'#8d99a6'}" stroke="#333" stroke-width=".5"/>`}
+ s.innerHTML=o;}
+function upd1(){document.getElementById('vp').textContent=P;document.getElementById('vn').textContent=Nn;document.getElementById('ve').textContent=E;
+ const A=P+Nn,q=P-E,ch=q==0?'':(Math.abs(q)==1?'':Math.abs(q))+(q>0?'+':M);
+ document.getElementById('zapis').innerHTML=nk(A,P,sym(P))+(ch?`<sup class="ch">${ch}</sup>`:'');
+ const typ=q==0?'neutrální atom':(q>0?'kation (elektronů je méně než protonů)':'anion (elektronů je více než protonů)');
+ document.getElementById('info').innerHTML=`<span>prvek</span><span><b>${NAZ[P]}</b> (Z = ${P} určuje prvek)</span><span>nukleonové číslo</span><span>A = Z + N = ${P} + ${Nn} = <b>${A}</b></span><span>náboj</span><span>${P} − ${E} = <b>${fmt(q)}</b> → ${typ}</span>`+(Math.abs(q)>3?`<span></span><span class="muted">Tak vysoký náboj je u běžných iontů neobvyklý.</span>`:'');
+ const [c,t]=status(P,A);const izo=[...ST].filter(k=>k.startsWith(P+'-')).map(k=>k.split('-')[1]);
+ document.getElementById('stav').innerHTML=`<div class="stav ${c}"><b>Jádro:</b> ${t}.</div><p class="muted">Stabilní izotopy prvku ${NAZ[P]}: ${izo.length?izo.map(a=>'<sup>'+a+'</sup>'+sym(P)).join(', '):'žádné – všechny izotopy jsou radioaktivní'}.</p>`;
+ jadroSvg();mapa(document.getElementById('mapa1'),[[P,Nn]]);checkCil();}
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{const c=b.dataset.c,d=+b.dataset.d;if(c=='p')P=Math.min(lim.p[1],Math.max(lim.p[0],P+d));if(c=='n')Nn=Math.min(lim.n[1],Math.max(0,Nn+d));if(c=='e')E=Math.min(P+3,Math.max(0,E+d));upd1();});
+document.getElementById('neutr').onclick=()=>{E=P;upd1()};
+const CILE=[[8,8,8],[20,20,20],[11,12,11],[17,18,18],[13,14,10],[6,8,6],[1,2,1],[1,0,0],[26,30,24],[16,16,18],[12,12,10],[92,143,92],[2,2,0],[19,21,19],[3,4,2]];
+let cil=null;
+function cilText(c){const [p,n,e]=c,q=p-e,ch=q==0?'':(Math.abs(q)==1?'':Math.abs(q))+(q>0?'+':M);return nk(p+n,p,sym(p))+(ch?`<sup>${ch}</sup>`:'');}
+document.getElementById('cil').onclick=()=>{let c;do{c=CILE[Math.floor(Math.random()*CILE.length)]}while(cil&&c===cil);cil=c;document.getElementById('cilT').innerHTML='Sestav: <b style="font-size:22px;color:#1f2328">'+cilText(c)+'</b>';document.getElementById('cilFb').innerHTML='';};
+function checkCil(){if(!cil)return;const ok=P==cil[0]&&Nn==cil[1]&&E==cil[2];document.getElementById('cilFb').innerHTML=ok?'<div class="fb ok">✓ Hotovo! Klepni na „dej mi úkol“ pro další.</div>':'';}
+/* ---------- 2 premeny ---------- */
+const PRE=[['U-238',92,238,''],['Ra-226',88,226,''],['Th-232',90,232,''],['C-14',6,14,''],['H-3',1,3,''],['P-32',15,32,''],['Co-60',27,60,''],['F-18',9,18,''],['C-11',6,11,''],['Na-22',11,22,''],['K-40',19,40,''],['Be-7',4,7,''],['Tc-99m',43,99,'m']];
+const sel=document.getElementById('preset');PRE.forEach((p,i)=>{const o=document.createElement('option');o.value=i;o.textContent=p[0].replace('-',' ');sel.appendChild(o)});
+let cur,path,logH,exc;
+function start(Z,A,m){cur=[Z,A];exc=m?'m':'base';path=[[Z,A-Z]];logH=[];draw2();}
+function draw2(){const [Z,A]=cur;document.getElementById('zapis2').innerHTML=nk(A,Z,sym(Z),exc=='m'?'m':'');
+ const [c,t]=status(Z,A);document.getElementById('stav2').innerHTML=`<div class="stav ${c}">${NAZ[Z]||''} ${A}${exc=='m'?'m (metastabilní, excitovaný stav)':''}: ${t}.</div>`;
+ document.getElementById('log').innerHTML=logH.length?logH.slice().reverse().join(''):'<p class="muted">Zatím žádná přeměna. Zvol tlačítko α, β⁻, β⁺ nebo γ.</p>';
+ mapa(document.getElementById('mapa2'),path,true);}
+sel.onchange=()=>{const p=PRE[sel.value];start(p[1],p[2],p[3]);};
+document.getElementById('zeStav').onclick=()=>{start(P,P+Nn,'');};
+document.getElementById('zpet').onclick=()=>sel.onchange();
+const PART={a:['4','2','He'],bm:['0','−1','e'],bp:['0','+1','e'],ez:['0','−1','e']};
+document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{const m=b.dataset.m;let [Z,A]=cur;let rov,chk='',warn='';
+ const L=nk(A,Z,sym(Z),exc=='m'?'m':'');
+ if(m=='g'){if(exc=='base'){logH.push(`<div class="rov">${L} → ? <span class="warn">Jádro je v základním stavu – gama přechod by nenastal. Gama vyzařuje jen excitované jádro (často dceřiné jádro po α či β přeměně).</span></div>`);draw2();return;}
+  rov=`${L} → ${nk(A,Z,sym(Z))} + γ`;chk=`A: ${A} = ${A} ✓ &nbsp; Z: ${Z} = ${Z} ✓ (γ má A i Z nulové)`;exc='base';logH.push(`<div class="rov">${rov}<span class="chk">${chk}</span></div>`);draw2();return;}
+ let Z2=Z,A2=A;if(m=='a'){Z2=Z-2;A2=A-4}if(m=='bm')Z2=Z+1;if(m=='bp'||m=='ez')Z2=Z-1;
+ if(Z2<1||A2-Z2<0||A2<1){logH.push(`<div class="rov">${L} → ? <span class="warn">Takovou přeměnu toto jádro prodělat nemůže (vyšlo by Z &lt; 1 nebo záporný počet neutronů).</span></div>`);draw2();return;}
+ const [pa,pz,ps]=PART[m];const nu=m=='bm'?' + ν̅<sub>e</sub>':(m=='bp'||m=='ez'?' + ν<sub>e</sub>':'');
+ if(m=='ez'){rov=`${L} + ${nk(pa,pz,ps)} → ${nk(A2,Z2,sym(Z2))}${nu}`;chk=`A: ${A} + 0 = ${A2} ✓ &nbsp; Z: ${Z} + (−1) = ${Z2} ✓`;}
+ else{rov=`${L} → ${nk(A2,Z2,sym(Z2))} + ${nk(pa,pz,ps)}${nu}`;const zr=m=='a'?`${Z2} + 2`:(m=='bm'?`${Z2} + (−1)`:`${Z2} + 1`);chk=`A: ${A} = ${A2} + ${pa} ✓ &nbsp; Z: ${Z} = ${zr} ✓`;}
+ const st=status(Z2,A2);warn=st[0]=='ok'?'Dceřiné jádro je stabilní.':(st[0]=='rad'?'Dceřiné jádro je radioaktivní (s přirozeným výskytem).':'Dceřiné jádro není stabilní – mohou následovat další přeměny.');
+ logH.push(`<div class="rov">${rov}<span class="chk">${chk}</span><span class="muted" style="font-size:13px;display:block">${warn}</span></div>`);
+ cur=[Z2,A2];exc='maybe';path.push([Z2,A2-Z2]);draw2();});
+/* ---------- 3 doplň rovnici ---------- */
+const UL=[['U',92,238,'a'],['Ra',88,226,'a'],['Po',84,210,'a'],['Rn',86,222,'a'],['Th',90,232,'a'],['Am',95,241,'a'],['Pu',94,239,'a'],
+['C',6,14,'bm'],['H',1,3,'bm'],['P',15,32,'bm'],['Co',27,60,'bm'],['Sr',38,90,'bm'],['I',53,131,'bm'],['Cs',55,137,'bm'],['K',19,40,'bm'],['Th',90,234,'bm'],['Pb',82,214,'bm'],
+['F',9,18,'bp'],['C',6,11,'bp'],['N',7,13,'bp'],['O',8,15,'bp'],['Na',11,22,'bp'],['Tc',43,99,'g'],['Be',4,7,'ez'],['K',19,40,'ez']];
+let U,typU,ok=0,celk=0;
+function nova(){const pool=UL.filter(u=>u[3]!='ez'||document.getElementById('sem').checked);U=pool[Math.floor(Math.random()*pool.length)];
+ typU=(U[3]=='g'||Math.random()<.4)?'castice':'jadro';const [s,Z,A,m]=U;let Z2=Z,A2=A;if(m=='a'){Z2-=2;A2-=4}if(m=='bm')Z2++;if(m=='bp'||m=='ez')Z2--;U.d=[Z2,A2];
+ const L=nk(A,Z,s,m=='g'?'m':''),D=nk(A2,Z2,sym(Z2)),[pa,pz,ps]=m=='g'?['','','γ']:PART[m],Pt=m=='g'?'γ':nk(pa,pz,ps),nu=m=='bm'?' + ν̅<sub>e</sub>':((m=='bp'||m=='ez')?' + ν<sub>e</sub>':'');
+ const box='<b style="color:#1a6d97">?</b>';
+ let r;if(m=='ez')r=typU=='jadro'?`${L} + ${Pt} → ${box}${nu}`:`${L} + ${box} → ${D}${nu}`;else r=typU=='jadro'?`${L} → ${box} + ${Pt}${nu}`:`${L} → ${D} + ${box}${nu}`;
+ document.getElementById('ulohaRov').innerHTML=r;document.getElementById('ulohaFb').innerHTML='';
+ document.getElementById('ulohaVstup').innerHTML=typU=='jadro'?`<div class="row">A = <input type="number" id="iA"> Z = <input type="number" id="iZ"> značka <input type="text" id="iS" autocomplete="off"></div>`:
+ `<div class="row">${[['a','α: '+nk(4,2,'He')],['bm','β⁻: '+nk(0,'−1','e')],['bp','β⁺: '+nk(0,'+1','e')],['g','γ']].map(([k,t])=>`<label class="btn"><input type="radio" name="vol" value="${k}"> ${t}</label>`).join('')}</div>`;}
+document.getElementById('dalsi').onclick=nova;document.getElementById('sem').onchange=nova;
+document.getElementById('zkontroluj').onclick=()=>{const [s,Z,A,m]=U,[Z2,A2]=U.d;let good,msg;
+ if(typU=='jadro'){const a=+document.getElementById('iA').value,z=+document.getElementById('iZ').value,ss=document.getElementById('iS').value.trim();
+  good=a==A2&&z==Z2&&ss.toLowerCase()==sym(Z2).toLowerCase();
+  msg=good?`Správně: ${nk(A2,Z2,sym(Z2))} (${NAZ[Z2]}).`:`Správně je ${nk(A2,Z2,sym(Z2))} (${NAZ[Z2]}). `+(a!=A2?`Zkontroluj A: ${m=='ez'?A+' + 0 = '+A2:A+' = '+A2+' + '+(m=='a'?4:0)}. `:'')+(z!=Z2?`Zkontroluj Z: ${m=='a'?Z+' = '+Z2+' + 2':(m=='bm'?Z+' = '+Z2+' + (−1)':(m=='ez'?Z+' + (−1) = '+Z2:Z+' = '+Z2+' + 1'))}. `:'')+((a==A2&&z==Z2)?'Značku urči podle Z.':'');}
+ else{const v=(document.querySelector('input[name=vol]:checked')||{}).value;const want=m=='ez'?'bm':m;good=v==want;
+  msg=good?'Správně – obě bilance (A i Z) souhlasí.':`Chybějící částice je ${m=='a'?'α ('+nk(4,2,'He')+')':(m=='bm'?'elektron '+nk(0,'−1','e'):(m=='bp'?'pozitron '+nk(0,'+1','e'):(m=='ez'?'elektron '+nk(0,'−1','e')+' (zachycený z obalu)':'foton γ – A ani Z se nemění')))}.`;}
+ celk++;if(good)ok++;document.getElementById('skore').textContent=`správně ${ok} z ${celk}`;
+ document.getElementById('ulohaFb').innerHTML=`<div class="fb ${good?'ok':'bad'}">${good?'✓ ':'✗ '}${msg}</div>`;};
+/* ---------- 4 polocas ---------- */
+const cvs=document.getElementById('mrizka'),c4=cvs.getContext('2d');let N0,alive,decT,t,hist,timer=null,sel1=-1,side;
+function init4(){N0=+document.getElementById('pocet').value;side=Math.round(Math.sqrt(N0));alive=new Uint8Array(N0).fill(1);decT=new Float32Array(N0).fill(-1);t=0;hist=[[0,N0]];sel1=-1;document.getElementById('jedno').textContent='';stop();draw4();}
+function draw4(){const W=520,c=W/side;c4.fillStyle='#fff';c4.fillRect(0,0,W,W);
+ for(let i=0;i<N0;i++){const x=(i%side)*c,y=Math.floor(i/side)*c;c4.fillStyle=alive[i]?'#d64541':'#d9dde2';c4.beginPath();c4.arc(x+c/2,y+c/2,c*0.38,0,7);c4.fill();
+  if(i==sel1){c4.strokeStyle='#1a6d97';c4.lineWidth=3;c4.beginPath();c4.arc(x+c/2,y+c/2,c*0.48,0,7);c4.stroke();}}
+ const g=document.getElementById('graf'),X=v=>40+v*(410/6),Y=v=>260-v*(240/N0);let o='<rect width="460" height="300" fill="#fff"/>';
+ for(let k=0;k<=6;k++)o+=`<line x1="${X(k)}" y1="20" x2="${X(k)}" y2="260" stroke="#eee"/><text x="${X(k)}" y="278" font-size="12" text-anchor="middle" fill="#5b6370">${k==0?'0':k+' T'}</text>`;
+ for(let k=0;k<=4;k++){const v=N0*k/4;o+=`<line x1="40" y1="${Y(v)}" x2="450" y2="${Y(v)}" stroke="#eee"/><text x="34" y="${Y(v)+4}" font-size="11" text-anchor="end" fill="#5b6370">${v}</text>`}
+ let d='';for(let k=0;k<=120;k++){const tt=k/20;d+=(k?'L':'M')+X(tt).toFixed(1)+' '+Y(N0*Math.pow(.5,tt)).toFixed(1)}o+=`<path d="${d}" stroke="#c2410c" stroke-width="2" fill="none"/>`;
+ let dp='';hist.forEach(([tt,n],i)=>{if(tt<=6)dp+=(i?'L':'M')+X(tt).toFixed(1)+' '+Y(n).toFixed(1)});o+=`<path d="${dp}" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>`;
+ const last=hist[hist.length-1];if(last[0]<=6)o+=`<circle cx="${X(last[0])}" cy="${Y(last[1])}" r="5" fill="#1d4ed8"/>`;
+ o+=`<text x="450" y="16" font-size="13" text-anchor="end" fill="#1f2328">čas ${t.toFixed(2).replace('.',',')} T, zbývá ${last[1]} jader</text>`;g.innerHTML=o;
+ let rows='';for(let k=0;k<=6;k++){if(k>t+1e-9)break;const h=hist.filter(x=>x[0]<=k+1e-9).pop();rows+=`<tr><td>${k==0?'0':k+' T<sub>1/2</sub>'}</td><td>${(N0*Math.pow(.5,k)).toFixed(k>3?1:0).replace('.',',')}</td><td>${h[1]}</td></tr>`;}
+ document.getElementById('tab').innerHTML=rows;}
+function stepT(dt){const p=1-Math.pow(.5,dt);let n=0;for(let i=0;i<N0;i++){if(alive[i]&&Math.random()<p){alive[i]=0;decT[i]=t+dt*Math.random();if(i==sel1)document.getElementById('jedno').innerHTML=`Označené jádro se přeměnilo v čase asi <b>${decT[i].toFixed(2).replace('.',',')} T<sub>1/2</sub></b>. Jiné jádro by se přeměnilo jindy.`;}if(alive[i])n++;}t+=dt;hist.push([t,n]);}
+function stop(){if(timer){clearInterval(timer);timer=null}document.getElementById('hraj').textContent='▶ spustit';}
+document.getElementById('hraj').onclick=()=>{if(timer){stop();return}document.getElementById('hraj').textContent='⏸ pauza';timer=setInterval(()=>{if(t>=6-1e-9){stop();return}stepT(0.05);draw4();},60);};
+document.getElementById('krok').onclick=()=>{stop();if(t>=6-1e-9)return;const target=Math.floor(t+1e-9)+1;while(t<target-1e-9)stepT(Math.min(0.05,target-t));draw4();};
+document.getElementById('znovu').onclick=init4;document.getElementById('pocet').onchange=init4;
+cvs.onclick=e=>{const r=cvs.getBoundingClientRect(),c=r.width/side,i=Math.floor((e.clientY-r.top)/c)*side+Math.floor((e.clientX-r.left)/c);if(i>=0&&i<N0){sel1=i;document.getElementById('jedno').innerHTML=alive[i]?'Jádro označeno. Kdy se přemění? Spusť simulaci a sleduj.':`Toto jádro už se přeměnilo (asi v čase ${decT[i].toFixed(2).replace('.',',')} T<sub>1/2</sub>).`;draw4();}};
+/* ---------- záložky ---------- */
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x==b));document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('on',p.id==b.dataset.t));if(b.dataset.t!='t4')stop();});
+upd1();sel.value=0;sel.onchange();nova();init4();
+{const H={'#stavebnice':'t1','#premeny':'t2','#rovnice':'t3','#polocas':'t4'}[location.hash];if(H)document.querySelector(`.tabs button[data-t=${H}]`).click();}
+</script>
+</body>
+</html>
