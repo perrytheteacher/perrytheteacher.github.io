@@ -15,8 +15,6 @@ export default defineConfig({
 	// Přesunuté stránky – stará adresa přesměruje na novou.
 	redirects: {
 		'/chemie/anorganicka-chemie/stavebnice-iontu/': '/chemie/anorganicka-chemie/nazvoslovi/stavebnice-iontu/',
-		'/chemie/obecna-chemie/01-stavba-atomu/': '/chemie/obecna-chemie/atom/01-jadro-atomu/',
-		'/pro-ucitele/metodika-stavba-atomu/': '/pro-ucitele/metodika-jadro-atomu/',
 	},
 	integrations: [
 		starlight({
@@ -42,21 +40,18 @@ export default defineConfig({
 					items: [
 						{ label: 'Přehled', slug: 'chemie' },
 						{
-							// Obecná chemie má podskupinu Atom (složka atom/): přehled, kapitoly 1–2 a aplikace k elektronovému obalu.
+							// Obecná chemie má podskupinu Atom (složka atom/). Kapitoly o atomu jsou zatím archivované ve složce archiv/atom/
+							// (nejsou na webu); veřejná je jen aplikace k elektronovému obalu.
 							// Další kapitoly přidejte do items jako { slug: 'chemie/obecna-chemie/…' }.
 							label: 'Obecná chemie',
 							collapsed: true,
 							items: [
 								{ slug: 'chemie/obecna-chemie', label: 'Přehled' },
 								{
-									// Atom: přehled (vstupní sonda) → 1. Jádro atomu → 2. Elektronový obal → 3. Částice a jádro (seminář) → aplikace.
+									// Nové kapitoly o atomu přidejte sem jako { slug: 'chemie/obecna-chemie/atom/…' }.
 									label: 'Atom',
 									collapsed: true,
 									items: [
-										{ slug: 'chemie/obecna-chemie/atom', label: 'Přehled' },
-										{ slug: 'chemie/obecna-chemie/atom/01-jadro-atomu' },
-										{ slug: 'chemie/obecna-chemie/atom/02-elektronovy-obal' },
-										{ slug: 'chemie/obecna-chemie/atom/03-castice-a-jadro-seminar' },
 										{ slug: 'chemie/obecna-chemie/atom/elektronovy-obal/aplikace', label: 'Aplikace: elektronový obal' },
 									],
 								},

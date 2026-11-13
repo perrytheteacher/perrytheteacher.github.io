@@ -12,10 +12,6 @@ Stavba atomu, periodická soustava, chemická vazba, chemické reakce a výpočt
 
 ### Atom
 
-- [Přehled a vstupní sonda](/chemie/obecna-chemie/atom/)
-- [1. Jádro atomu](/chemie/obecna-chemie/atom/01-jadro-atomu/) – velikost atomu, modely, částice, Z, A, N, izotopy, ionty, přeměny alfa a beta
-- [2. Elektronový obal](/chemie/obecna-chemie/atom/02-elektronovy-obal/) – orbitaly, kvantová čísla, elektronová konfigurace, valenční elektrony, ionty
-- [3. Částice a jádro (seminář)](/chemie/obecna-chemie/atom/03-castice-a-jadro-seminar/) – kvarky, vazebná energie, izobary, radioaktivita, rozpadové řady, štěpení, fúze, kvark-gluonové plazma
 - [Aplikace: Stavba elektronového obalu](/chemie/obecna-chemie/atom/elektronovy-obal/aplikace/) – slupkový model, energetický diagram a zápis konfigurace
 
 Další kapitoly postupně doplňujeme.
