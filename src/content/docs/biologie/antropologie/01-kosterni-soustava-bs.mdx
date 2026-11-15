@@ -1,0 +1,580 @@
+---
+title: Kosterní soustava – BS
+description: Biologický seminář – studijní text k laboratorní práci Kosterní soustava. Kostní tkáň, antropometrie, korelace a kauzalita, člověk a lidoopi, věkové a pohlavní rozdíly na kostře, rentgenové snímky a AI.
+sidebar:
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import Otazka from '../../../../components/Otazka.astro';
+
+Studijní text k laboratorní práci **Kosterní soustava** pro biologický seminář. Kostra o svém majiteli prozradí víc, než by se zdálo: kolik mu bylo let, jakého byl pohlaví, jak se pohyboval a někdy i to, jak se jmenoval. V laboratoři si vyzkoušíš práci antropologa a forenzního experta. Tady najdeš všechno, co k tomu potřebuješ vědět.
+
+:::note[Nosná otázka]
+Co všechno se dá vyčíst z kostí a z tělesných rozměrů – a jak moc si takovým závěrem můžeme být jistí?
+:::
+
+**Na konci kapitoly dokážeš:**
+
+- popsat, které buňky kost staví, udržují a odbourávají, a rozlišit dva typy osifikace,
+- správně změřit základní tělesné rozměry, vypočítat poměr rozpětí paží a výšky a intermembrální index,
+- popsat vztah dvou veličin z bodového grafu a vysvětlit, proč korelace neznamená příčinu,
+- vyjmenovat rozdíly mezi kostrou člověka a lidoopa a přiřadit je k chůzi po dvou, potravě nebo velikosti mozku,
+- odhadnout podle kostry věk (dítě × dospělý) a pohlaví a říct, jak spolehlivý takový odhad je,
+- popsat rentgenový snímek a kriticky zhodnotit odpověď umělé inteligence.
+
+## Jak text použít k protokolu
+
+| Úkol v protokolu | Kde hledat |
+|---|---|
+| 1 – Rychlá aktivace | [1 Kost je živá tkáň](#1-kost-je-živá-tkáň) |
+| 2 – Antropometrie | [2 Antropometrie](#2-antropometrie-měříme-člověka) |
+| 3 – Data celé skupiny | [3 Korelace není příčina](#3-korelace-není-příčina) |
+| 4 – Člověk a lidoop | [4 Člověk a lidoopi](#4-člověk-a-lidoopi) |
+| 5 – Věkové rozdíly | [5 Kolik bylo kostře let](#5-kolik-bylo-kostře-let) |
+| 6 – Forenzní určení pohlaví | [6 Muž, nebo žena](#6-muž-nebo-žena) |
+| 7 – Rentgenové snímky: člověk a AI | [7 Rentgenové snímky a AI](#7-rentgenové-snímky-a-ai) |
+
+Celou laboratoří se táhne jedno pravidlo: **nejdřív popiš, co vidíš nebo co jsi naměřil. Teprve potom vysvětluj a vyvozuj závěr.** A ke každému závěru připoj, jak moc si jím jsi jistý.
+
+## 1 Kost je živá tkáň
+
+Kost vypadá jako neměnný kus „kamene“, ve skutečnosti se ale celý život přestavuje. Pracují na ní tři typy buněk:
+
+| Buňka | Co dělá | Jak si ji zapamatovat |
+|---|---|---|
+| **osteoblast** | tvoří novou mezibuněčnou hmotu kosti | *blast* = staví |
+| **osteocyt** | zralá buňka uzavřená v mezibuněčné hmotě; kost udržuje a vnímá její zatížení | *cyt* = buňka, která už „bydlí“ |
+| **osteoklast** | velká mnohojaderná buňka, která kostní hmotu odbourává | *klast* = láme |
+
+Mezibuněčná hmota má dvě složky a každá dává kosti jinou vlastnost:
+
+- **ossein** je organická složka, hlavně bílkovina kolagen. Dává kosti **pružnost**.
+- **minerální složka** (hlavně fosforečnan vápenatý ve formě hydroxyapatitu) dává kosti **tvrdost**.
+
+:::caution[Častá záměna]
+Ossein **není** minerální složka. Pomůcka: ossein je „to měkké“, co v kosti zbude, když minerály odstraníš.
+:::
+
+:::tip[Pokus na doma]
+Vyvařenou kuřecí kost nech několik dní v octě. Kyselina rozpustí minerální složku a zůstane ossein: kost půjde ohnout, někdy i zavázat na uzel. Opačný pokus dělají archeologové nechtěně: spálená kost přijde o ossein, zůstane jen minerál a kost je křehká a drolí se.
+:::
+
+### Osteon
+
+Hutná (kompaktní) kost je složená z válcovitých jednotek, **osteonů**. Středem osteonu vede Haversův kanálek s cévami a nervy, kolem něj jsou soustředné lamely a mezi nimi leží v malých dutinkách osteocyty. Osteony jsou orientované ve směru, kterým je kost nejvíc zatěžovaná.
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/osteon.jpg" alt="Řez hutnou kostí s osteony, cévami a soustřednými lamelami, dole mikrofotografie osteonu" style="max-width:620px;margin:0 auto" />
+	<figcaption>Stavba hutné kosti. Najdi osteon (osteon), středový kanálek s cévami (central canal) a soustředné lamely (concentric lamellae). Popisky jsou anglicky. OpenStax College, CC BY 3.0, Wikimedia Commons.</figcaption>
+</figure>
+
+### Jak kost vzniká: osifikace
+
+| Typ | Z čeho kost vzniká | Příklad |
+|---|---|---|
+| **desmogenní** | přímo z vaziva | ploché kosti lebeční klenby, část klíční kosti |
+| **enchondrální** | na místě chrupavčitého modelu, který je postupně nahrazen kostí | dlouhé kosti končetin |
+
+U dlouhých kostí zůstává mezi koncem kosti a jejím tělem až do konce dospívání proužek chrupavky, **růstová chrupavka** (růstová ploténka). Díky ní kost roste do délky. Tuhle informaci budeš potřebovat u odhadu věku.
+
+:::tip[Čísla, která stojí za zapamatování]
+- Novorozenec má kolem 300 kostních a chrupavčitých základů, dospělý jen **206 kostí**. Kosti se neztrácejí, srůstají.
+- Dospělý člověk přestaví ročně zhruba desetinu své kostní hmoty. Kostru, se kterou jsi nastoupil do první třídy, už dnes nemáš.
+- Kost se řídí zátěží. Astronauti ve stavu beztíže ztrácejí v nosných kostech asi 1–1,5 % kostní hmoty za měsíc, i když denně cvičí. Tenistům naopak zesílí kost paže, kterou hrají.
+- Nejmenší kost těla je třmínek ve středním uchu (asi 3 mm), nejdelší a nejpevnější je kost stehenní.
+:::
+
+## 2 Antropometrie: měříme člověka
+
+**Antropometrie** je soubor metod, kterými se měří lidské tělo. Používá ji lékař (růst dítěte), sportovní trenér, návrhář sedaček do auta i forenzní antropolog, který z nalezených kostí odhaduje výšku člověka.
+
+### Aby měření mělo cenu
+
+Měření je k něčemu, jen když ho může kdokoli zopakovat a dostane skoro stejné číslo. Proto:
+
+- **stejná poloha:** bez bot, rovně, paty u sebe, u zdi,
+- **přesné body:** neměří se „od ramene k lokti“, ale mezi hmatnými body na kostře (tabulka níže),
+- **třikrát a průměr:** každé měření má náhodnou chybu, průměr ze tří měření ji zmenší. Když se jedno měření od ostatních výrazně liší, změř znovu.
+
+Největší chyby nevznikají špatným odečtením z metru. Vznikají tím, že měřič pokaždé nahmatá jiný bod nebo že měřený změní postoj.
+
+| Rozměr | Odkud kam | Jak bod najdeš |
+|---|---|---|
+| výška | podlaha – temeno | hlava rovně, pohled vodorovně |
+| rozpětí paží | koneček prostředníku – koneček prostředníku | zády ke zdi, paže ve výšce ramen |
+| paže | nadpažek – hlavička vřetenní kosti | nadpažek je tvrdý „roh“ na vrcholu ramene; hlavičku vřetenní kosti nahmatáš na zevní straně lokte, při otáčení předloktí se pod prstem protáčí |
+| předloktí | hlavička vřetenní kosti – bodcovitý výběžek vřetenní kosti | výběžek je hrbolek na zápěstí na straně palce |
+| stehno | velký chocholík – zevní štěrbina kolenního kloubu | chocholík je vyčnívající kost na boku pod pasem; hýbe se, když otáčíš nohou |
+| bérec | vnitřní štěrbina kolenního kloubu – vnitřní kotník | štěrbinu najdeš jako měkký žlábek po straně čéšky při mírně pokrčeném koleni |
+
+### Dva poměry
+
+Samotné centimetry se mezi lidmi špatně porovnávají, vyšší člověk má větší skoro všechno. Proto se počítají **poměry**, které nemají jednotku:
+
+**Rozpětí paží / výška.** Hodnota blízká 1 znamená, že rozpětí je přibližně stejné jako výška. Že to tak u člověka bývá, věděl už římský architekt Vitruvius a Leonardo da Vinci to kolem roku 1490 nakreslil jako slavného muže v kruhu a čtverci.
+
+**Intermembrální index** porovnává délku horní a dolní končetiny:
+
+<p style="text-align:center"><strong>intermembrální index = (paže + předloktí) / (stehno + bérec) × 100</strong></p>
+
+<details>
+<summary>Řešený příklad</summary>
+
+Paže 32 cm, předloktí 26 cm, stehno 45 cm, bérec 39 cm.
+
+1. Horní končetina: 32 + 26 = 58 cm.
+2. Dolní končetina: 45 + 39 = 84 cm.
+3. Index: 58 / 84 × 100 = **69,0**.
+
+Index menší než 100 znamená, že dolní končetiny jsou delší než horní. Pozor na závorky: nejdřív sečti, potom děl.
+
+</details>
+
+Neexistuje „správná“ hodnota, kterou máš mít. Lidé se liší a tvé měření přes kůži a svaly není totéž co měření na kostech. Zajímavé je až srovnání s lidoopy v [oddílu 4](#4-člověk-a-lidoopi).
+
+:::tip[Plavec, kterému nesedí Leonardo]
+Americký plavec Michael Phelps měří 193 cm, ale rozpětí paží má asi 201 cm. Poměr vychází kolem 1,04. V bazénu jsou delší „pádla“ výhoda. Kde by ležel jeho bod v grafu vaší třídy?
+:::
+
+### Alphonse Bertillon: zločinci pod metrem
+
+V 70. letech 19. století měla pařížská policie kartotéku s desítkami tisíc záznamů o zločincích a téměř žádný způsob, jak v ní někoho najít. Recidivista prostě uvedl jiné jméno. Mladý písař prefektury **Alphonse Bertillon** (1853–1914), syn lékaře a statistika, přišel s nápadem z antropologie: kostra dospělého člověka se už nemění a je nepravděpodobné, že by dva lidé měli shodných mnoho rozměrů najednou.
+
+Jeho systém, **bertillonáž**, zaznamenával jedenáct tělesných rozměrů:
+
+- výšku, **rozpětí paží** a výšku vsedě,
+- délku a šířku hlavy, délku pravého ucha a šířku obličeje,
+- délku levého chodidla, levého prostředníku, levého malíku a levého předloktí.
+
+Dva z těchto rozměrů měříš v laboratoři i ty. Kartotéka byla podle rozměrů roztříděná do zásuvek, takže se v ní dalo hledat podle těla, ne podle jména. Roku 1883 takto Bertillon poprvé usvědčil recidivistu, který se vydával za někoho jiného, a metoda se během několika let rozšířila do celého světa. Bertillon také zavedl policejní fotografii, jak ji známe dodnes: zepředu a z profilu, ve stejném měřítku.
+
+Slabiny se ukázaly brzy. Měření bylo zdlouhavé, různí měřiči měřili trochu jinak (znáš z vlastní zkušenosti), u dospívajících se rozměry mění a na místě činu po sobě pachatel rozměry nezanechá. Otisk prstu ano. Na začátku 20. století proto bertillonáž nahradila **daktyloskopie**. Často se vypráví příběh z americké věznice Leavenworth, kam roku 1903 nastoupil vězeň Will West a úředník zjistil, že muže téměř stejných měr a stejného jména už v kartotéce má. Rozlišily je až otisky prstů.
+
+:::note[Podívej se]
+Bertillonův příběh zpracoval seriál České televize *Dobrodružství kriminalistiky* v dílu **[3/26 Bertillonáž](https://www.ceskatelevize.cz/porady/898901-dobrodruzstvi-kriminalistiky/289310910380003/)** (1989, režie Antonín Moskalyk, 50 minut, Bertillona hraje Ondřej Havelka). Najdeš ho v iVysílání ČT na [stránce seriálu](https://www.ceskatelevize.cz/porady/898901-dobrodruzstvi-kriminalistiky/). Na daktyloskopii navazuje hned další díl *4/26 Otisk*.
+
+Při sledování si všímej: Podle čeho Bertillon vybral rozměry, které měří? Co mu na metodě vyčítali nadřízení?
+:::
+
+## 3 Korelace není příčina
+
+Když do grafu vyneseš za každého spolužáka jeden bod (vodorovně výška, svisle rozpětí paží), dostaneš **bodový graf**. Z něj se dá vyčíst, jestli spolu dvě veličiny souvisejí.
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/korelace-rozpeti-vyska.svg" alt="Bodový graf rozpětí paží proti výšce pro 26 modelových osob. Body leží těsně kolem rostoucí přímky, korelační koeficient 0,95." style="max-width:760px" />
+	<figcaption>Modelová data 26 osob (nejsou to skutečná měření). Každý bod je jeden člověk. Červená přímka ukazuje trend, čárkovaná místa, kde by se rozpětí přesně rovnalo výšce. Všimni si bodu vlevo nahoře od přímky: člověk vysoký 160 cm s rozpětím 171 cm.</figcaption>
+</figure>
+
+### Jak graf popsat
+
+1. **Směr:** s rostoucí výškou rozpětí roste (kladná korelace), klesá (záporná), nebo se nemění?
+2. **Těsnost:** leží body těsně u přímky, nebo tvoří široký mrak? Těsnost vyjadřuje **korelační koeficient r**. Nabývá hodnot od −1 do +1: hodnoty blízké +1 nebo −1 znamenají těsný vztah, hodnoty kolem 0 žádný.
+3. **Odlehlé body:** vyčnívá někdo? Je to zajímavý člověk, nebo chyba měření? Odlehlý bod nejdřív přeměř, teprve potom o něm přemýšlej.
+
+V protokolu porovnáváš dva grafy. Těsnější vztah ukazuje ten, kde jsou body blíž přímce.
+
+### Jak z grafu odhadovat
+
+Trend dovoluje odhad: podle modelových dat v grafu odpovídá rozpětí 180 cm výška asi 177–178 cm. Body ale neleží přesně na přímce, proto poctivý odhad vypadá takto: **„asi 177 cm, plus minus několik centimetrů“**. Odhad bez nejistoty je jen půl odpovědi. Pro svůj protokol použij data vaší skupiny, ne tento graf.
+
+Stejným způsobem pracují forenzní antropologové. Z délky stehenní kosti odhadují výšku člověka pomocí rovnic, které vznikly proměřením stovek koster. Jedna z nejznámějších (Trotterová a Gleser, 1952, pro muže) zní: výška = 2,38 × délka stehenní kosti + 61,4 cm, s nejistotou asi ± 3 cm. Stehenní kost dlouhá 48 cm tedy patřila muži vysokému asi 176 cm.
+
+### Proč korelace není příčina
+
+Vysoká korelace mezi výškou a rozpětím neznamená, že dlouhé paže *způsobují* vysokou postavu, ani naopak. Obě veličiny mají **společnou příčinu**: růst celého těla.
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/spolecna-pricina.svg" alt="Schéma: růst těla jako společná příčina ovlivňuje výšku i rozpětí paží, mezi nimiž je proto korelace" style="max-width:700px;margin:0 auto" />
+	<figcaption>Společná příčina (třetí proměnná). Šipky znamenají „způsobuje“, čárkovaná čára jen „vyskytuje se spolu“.</figcaption>
+</figure>
+
+Když najdeš korelaci mezi A a B, polož si vždy čtyři otázky:
+
+1. Způsobuje A → B?
+2. Nebo naopak B → A?
+3. Nezpůsobuje obojí něco třetího?
+4. Není to náhoda (málo dat)?
+
+:::tip[Korelace, které pobaví]
+- Děti s větší nohou čtou lépe. Velikost boty za to nemůže: starší děti mají větší nohu a zároveň chodí déle do školy. Společná příčina je věk.
+- Ve dnech, kdy se prodá hodně zmrzliny, se utopí víc lidí. Společná příčina je horké počasí.
+:::
+
+A ještě jednou Bertillon. Jeho metoda počítala s tím, že jednotlivé rozměry jsou na sobě nezávislé. Ty už z vlastního grafu víš, že nejsou: kdo je vysoký, má obvykle i dlouhé paže, chodidla a prsty. Jedenáct rozměrů proto nese méně informace, než kolik by neslo jedenáct opravdu nezávislých údajů, a shoda dvou lidí je pravděpodobnější, než Bertillon předpokládal.
+
+## 4 Člověk a lidoopi
+
+Člověk patří mezi lidoopy stejně jako gibon, orangutan, gorila a šimpanz. Naše kostra se od ostatních neliší tím, že by byla „dokonalejší“. Liší se tím, že je přizpůsobená jinému způsobu pohybu, jiné potravě a většímu mozku.
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/kostry-huxley.jpg" alt="Kostry gibona, orangutana, šimpanze, gorily a člověka z boku" />
+	<figcaption>Kostry gibona, orangutana, šimpanze, gorily a člověka (gibon je nakreslen dvakrát zvětšený). Porovnej délku paží vůči nohám, tvar páteře a pánve. T. H. Huxley, 1863, kresba B. W. Hawkins, veřejné vlastnictví, Wikimedia Commons.</figcaption>
+</figure>
+
+Pozor na jednu věc: obrázek svádí k představě, že se šimpanz „narovnal“ a stal se z něj člověk. Tak to nebylo. Dnešní lidoopi jsou naši příbuzní, ne předci. Se šimpanzem máme společného předka, který žil asi před 6–7 miliony let, a od té doby se vyvíjely obě větve.
+
+### Proporce končetin a pohyb
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/intermembralni-index.svg" alt="Sloupcový graf intermembrálního indexu: člověk asi 70, šimpanz 106, gorila 116, gibon asi 130, orangutan 139" style="max-width:760px" />
+	<figcaption>Intermembrální index. Hodnoty nad 100 znamenají, že horní končetiny jsou delší než dolní. Člověk je jediný hluboko pod stovkou.</figcaption>
+</figure>
+
+Čím víc se druh pohybuje zavěšený za ruce, tím delší má paže vůči nohám:
+
+- **gibon** ručkuje ve větvích (brachiace), **orangutan** šplhá a zavěšuje se v korunách a na zem slézá málokdy,
+- **šimpanz a gorila** šplhají, ale po zemi chodí po čtyřech s oporou o klouby prstů ruky,
+- **člověk** chodí jen po dvou. Dlouhé nohy znamenají dlouhý krok a úspornou chůzi, ruce se uvolnily pro nošení a práci.
+
+Tvůj vlastní index vyjde pravděpodobně někde kolem 70. Hodnoty lidoopů jsou z literatury a počítají se z délek kostí, tvoje jsi měřil na živém těle, proto ber srovnání jako orientační.
+
+### Co se změnilo a proč
+
+U každého rozdílu se ptej, s čím souvisí: s chůzí po dvou (**bipedií**), s **potravou** a žvýkáním, nebo s velikostí **mozku**?
+
+| Znak | Člověk | Lidoop | Souvisí hlavně s |
+|---|---|---|---|
+| poloha týlního otvoru | vespod lebky, směřuje dolů | posunutý dozadu, směřuje šikmo vzad | bipedií |
+| vystupování obličeje (prognatie) | obličej plochý, pod mozkovnou | čelisti vystupují dopředu | potravou |
+| nadočnicový val | chybí nebo slabé oblouky | mohutný souvislý val | potravou |
+| mozkovna vůči obličeji | velká, klenutá, s čelem | malá, obličej převažuje | mozkem |
+| tvar zubního oblouku | parabola, rozbíhá se dozadu | tvar U, řady stoliček rovnoběžné | potravou |
+| špičáky a mezera (diastema) | malé, bez mezery | velké, vedle nich mezera pro špičák z protější čelisti | potravou |
+| zakřivení páteře | dvojitě esovité (krční a bederní lordóza) | jednoduchý oblouk | bipedií |
+| tvar pánve | krátká, široká, mísovitá | vysoká a úzká | bipedií |
+| sklon stehenní kosti | šikmo dovnitř ke koleni | téměř svisle | bipedií |
+| palec nohy a klenba | palec v řadě s prsty, noha klenutá | palec odtažený, noha plochá a chápavá | bipedií |
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/lebky-gorila-simpanz-clovek.jpg" alt="Lebky gorily, šimpanze a člověka z boku" />
+	<figcaption>Lebky gorily, šimpanze a člověka. Porovnej čelo, nadočnicový val, vystupování čelistí a špičáky. Kaiwei Zhang, CC BY-SA 3.0, Wikimedia Commons.</figcaption>
+</figure>
+
+Proč to tak je:
+
+- **Týlní otvor** je místo, kudy mícha vstupuje do lebky a kde lebka sedí na páteři. U člověka je hlava vyvážená nahoře na svislé páteři, proto je otvor vespod. U čtyřnožce je páteř za hlavou, proto je otvor vzadu.
+- **Esovitá páteř** pruží a drží těžiště nad pánví. **Mísovitá pánev** nese vnitřní orgány a upínají se na ni svaly, které udržují rovnováhu při stoji na jedné noze, tedy při každém kroku.
+- **Šikmá stehenní kost** přivádí kolena a chodidla pod těžiště. Šimpanz, který jde po dvou, se proto kolébá ze strany na stranu.
+- **Noha** člověka je pružná páka s klenbou, noha lidoopa je druhá ruka.
+- **Žvýkací aparát:** velké čelisti a zuby potřebují velké žvýkací svaly. Samci goril pro ně mají na temeni lebky kostěný hřeben. Menší zuby člověka souvisejí se změnou potravy, nástroji a později s tepelnou úpravou jídla.
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/orangutan-clovek.jpg" alt="Infografika: srovnání kostry orangutana a člověka – lebka, pánev, končetiny, páteř, noha a způsob pohybu" />
+	<figcaption>Souhrn rozdílů na příkladu orangutana a člověka. Schematická ilustrace vytvořená pomocí generativní AI (J. Peřka); postoj a velikosti jsou upravené pro srovnání.</figcaption>
+</figure>
+
+### Pánev: kompromis mezi chůzí a porodem
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/panev-porodni-kanal.png" alt="Pánevní vchod a hlava novorozence u šimpanze, australopitéka Lucy a člověka" />
+	<figcaption>Pánevní vchod (bíle) a hlava novorozence (černě): šimpanz, <em>Australopithecus afarensis</em> „Lucy“, člověk. U šimpanze má hlava kolem sebe místo, u člověka projde jen těsně. ArchaeoMouse, CC BY-SA 4.0, Wikimedia Commons.</figcaption>
+</figure>
+
+Úzká pánev je výhodná pro chůzi, velká hlava novorozence potřebuje široký porodní kanál. Lidský porod je proto těžší a delší než u ostatních lidoopů a dítě se při něm musí otáčet. S tím souvisí i pohlavní rozdíly na pánvi v [oddílu 6](#6-muž-nebo-žena). Vědci se dnes přou, jak velkou roli tento „porodnický kompromis“ opravdu hrál, ale jako vysvětlení tvaru ženské pánve se uvádí stále.
+
+:::tip[Tři nálezy, které změnily učebnice]
+- **Dítě z Taungu** (Jižní Afrika, 1924). Anatom Raymond Dart dostal jen dětskou lebku. Podle polohy týlního otvoru usoudil, že její majitel chodil vzpřímeně, ačkoli měl mozek velký jako lidoop. Dlouho mu nikdo nevěřil.
+- **Lucy** (Etiopie, 1974). Kostra samice australopitéka stará 3,2 milionu let: mozek jako šimpanz, ale pánev a stehenní kost dvounohého tvora. Vzpřímená chůze tedy přišla dávno před velkým mozkem. Jméno dostala podle písně Beatles, která ten večer hrála v táboře.
+- **Stopy z Laetoli** (Tanzanie, 1978). V sopečném popelu starém asi 3,7 milionu let zůstaly otisky nohou s palcem v řadě a s klenbou. Chůze po dvou „zkameněla“ přímo při činu.
+:::
+
+## 5 Kolik bylo kostře let
+
+Dítě není zmenšený dospělý. Jeho kostra obsahuje hodně chrupavky, která postupně kostnatí, a jednotlivé části spolu srůstají v pořadí, které je u všech lidí podobné. Kostra tak funguje jako kalendář.
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/kalendar-kostry.svg" alt="Časová osa věkových znaků na kostře: lupínky, mléčný a trvalý chrup, zápěstní kůstky, růstové chrupavky, klíční kost, lebeční švy" style="max-width:760px" />
+	<figcaption>Kalendář kostry. Pro děti a dospívající je odhad věku poměrně přesný, protože se toho děje hodně. U dospělých je mnohem hrubší.</figcaption>
+</figure>
+
+### Rentgen ruky
+
+<div class="galerie" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:560px">
+<figure><img src="/obrazky/antropologie/kostra/rtg-ruka-dite.jpg" alt="Rentgenový snímek ruky tříletého dítěte" /><figcaption>Ruka tříletého chlapce. UC San Diego Health, veřejné vlastnictví.</figcaption></figure>
+<figure><img src="/obrazky/antropologie/kostra/rtg-ruka-dospely.jpg" alt="Rentgenový snímek ruky dospělého člověka" /><figcaption>Ruka dospělého. Mikael Häggström, CC0.</figcaption></figure>
+</div>
+
+Na snímku ruky hledej dvě věci:
+
+- **Zápěstí.** Dospělý má osm zápěstních kůstek. U malého dítěte jsou na snímku vidět jen dvě nebo tři, zbytek zápěstí vypadá prázdný.
+- **Konce dlouhých kostí.** U dítěte je mezi koncem kosti a jejím tělem tmavá štěrbina, jako by byl konec „odlomený“. U dospělého kost plynule pokračuje.
+
+Rentgenové záření zachytí kost, protože obsahuje vápník. **Chrupavku nezachytí.** Prázdná místa na snímku dítěte proto nejsou prázdná: je tam chrupavčitý základ, který ještě nezkostnatěl. Stejně tak tmavá štěrbina u konce kosti je růstová chrupavka. Lékaři podle snímku ruky určují takzvaný kostní věk, porovnáním s atlasem snímků dětí známého věku.
+
+### Lebka novorozence
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/lebka-novorozenec.png" alt="Lebka novorozence z boku s vyznačenými lupínky" style="max-width:520px;margin:0 auto" />
+	<figcaption>Lebka novorozence. Frontal fontanel = velký (čelní) lupínek, sphenoidal a mastoid fontanel = boční lupínky. Všimni si, jak malý je obličej vůči mozkovně. Gray's Anatomy (1918), veřejné vlastnictví.</figcaption>
+</figure>
+
+Kosti lebeční klenby novorozence nejsou srostlé. Spojují je vazivové **švy** a v místech, kde se stýká víc kostí, zůstávají měkká vazivová okna, **lupínky** (fontanely). Mají dvojí význam: při porodu se kosti mohou přes sebe mírně přesunout a hlava projde porodním kanálem, a po narození má lebka kam růst, když se mozek během prvního roku zhruba zdvojnásobí.
+
+### Přehled věkových znaků
+
+| Znak | Dítě | Dospělý |
+|---|---|---|
+| zápěstní kůstky na RTG | podle věku jen některé | všech osm |
+| růstové chrupavky | přítomné (tmavé štěrbiny) | zmizelé, konce kostí přirostlé |
+| lupínky a švy | lupínky otevřené do 2 let, švy volné | lupínky zarostlé, švy zubaté a ve vyšším věku postupně srůstají |
+| mozkovna a obličej | velká mozkovna, malý obličej, velké očnice | obličej a čelisti výrazně větší |
+| chrup | mléčný (20 zubů) nebo smíšený | trvalý (až 32 zubů) |
+
+Jak rozlišit kostru 15letého a 30letého člověka? Podle růstových chrupavek: v 15 letech jsou u většiny dlouhých kostí ještě otevřené, ve 30 letech jsou dávno pryč a přirostlý je i vnitřní konec klíční kosti, který srůstá jako poslední. Pomůžou i třetí stoličky.
+
+:::tip[Proč dospělí už nerostou]
+Na konci dospívání pohlavní hormony růstovou chrupavku „zavřou“: zkostnatí a kost už se nemůže prodlužovat. Dívky dospívají dříve, proto se jim růstové chrupavky uzavírají v průměru o dva roky dřív než chlapcům. I to je jeden z důvodů, proč jsou muži v průměru vyšší.
+:::
+
+## 6 Muž, nebo žena
+
+Forenzní antropolog z kostry **odhaduje biologické pohlaví**. Je to pravděpodobnostní odhad: mužské a ženské kostry se liší v průměru, ale jednotlivé znaky se překrývají. Existují drobní muži s jemnou lebkou i robustní ženy. Proto se nikdy nerozhoduje podle jediného znaku.
+
+Rozdíly mají dvě příčiny. Muži mají v průměru větší tělo a silnější svaly, proto jsou jejich kosti robustnější a místa svalových úponů výraznější (to je vidět hlavně na lebce). Ženská pánev je navíc přizpůsobená porodu.
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/pohlavni-rozdily.jpg" alt="Infografika: typické pohlavní rozdíly na lebce a pánvi dospělého muže a ženy" />
+	<figcaption>Typické rozdíly na lebce a pánvi. Podstydký úhel je totéž co podsponkový úhel v protokolu. Schematická ilustrace vytvořená pomocí generativní AI (J. Peřka).</figcaption>
+</figure>
+
+### Lebka: pět znaků na stupnici 1–5
+
+<figure class="obrazek">
+	<img src="/obrazky/antropologie/kostra/lebka-znaky-pohlavi.jpg" alt="Lebka z boku s vyznačenými pěti znaky pro odhad pohlaví" style="max-width:520px;margin:0 auto" />
+	<figcaption>Kde hledat hodnocené znaky. Podklad: Patrick J. Lynch, CC BY 2.5, Wikimedia Commons; popisky doplněny.</figcaption>
+</figure>
+
+| Znak | Blíž k 1 (ženský) | Blíž k 5 (mužský) |
+|---|---|---|
+| týlní hrbol a šíjová čára | týl hladký, zaoblený | výrazný hrbol až hák, drsná čára pro úpon šíjových svalů |
+| bradavkový výběžek (za uchem) | malý, krátký | velký, široký, sahá hluboko dolů |
+| horní okraj očnice | ostrý, tenký jako hrana | tupý, zaoblený, tlustý |
+| glabela a nadočnicové oblouky | čelo svislé, hladké | vystouplá glabela a oblouky, čelo ubíhá dozadu |
+| bradový výstupek | brada malá, zašpičatělá | brada široká, hranatá, vystupující |
+
+Trojka znamená „nedokážu rozhodnout“ a je to poctivá odpověď. Tuto pětistupňovou stupnici používají forenzní antropologové i ve skutečné praxi.
+
+### Pánev
+
+<div class="galerie" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+<figure><img src="/obrazky/antropologie/kostra/panev-muz.png" alt="Mužská pánev zepředu" style="aspect-ratio:4/3;object-fit:contain;background:#fff" /><figcaption>Mužská pánev. Gray's Anatomy (1918), veřejné vlastnictví.</figcaption></figure>
+<figure><img src="/obrazky/antropologie/kostra/panev-zena.png" alt="Ženská pánev zepředu" style="aspect-ratio:4/3;object-fit:contain;background:#fff" /><figcaption>Ženská pánev. Gray's Anatomy (1918), veřejné vlastnictví.</figcaption></figure>
+</div>
+
+| Znak | Žena | Muž |
+|---|---|---|
+| podsponkový (podstydký) úhel | široký, kolem pravého úhlu a víc, tvar U | ostrý, zhruba 60–70°, tvar V |
+| velký sedací zářez | široký a mělký | úzký a hluboký |
+| tvar vchodu do pánve | příčně oválný až kruhový, prostorný | srdčitý, užší |
+| ucpaný otvor | menší, spíš trojúhelníkovitý | větší, spíš oválný |
+| celkový tvar | nižší a širší | vyšší a užší |
+
+:::tip[Úhloměr máš na ruce]
+Roztáhni ukazovák a prostředník do písmene V: to je přibližně mužský podsponkový úhel. Roztáhni palec a ukazovák: to je přibližně ženský.
+:::
+
+Podsponkový úhel změříš úhloměrem tak, že jeho střed přiložíš pod sponu stydkou a ramena úhlu vedeš podél dolních okrajů stydkých kostí.
+
+### Proč je pánev spolehlivější
+
+Rozdíly na lebce jsou jen otázkou velikosti a robusticity, a ty závisejí i na věku, populaci, výživě a práci svalů. Rozdíly na pánvi mají **funkční důvod**: pánví ženy musí projít hlava dítěte. Zkušený antropolog určí pohlaví z dobře zachované pánve správně asi v 95 % případů, ze samotné lebky zhruba v 80–90 %.
+
+Tři omezení, která je dobré znát:
+
+- **U dětí odhad nefunguje.** Pohlavní rozdíly na kostře se vytvářejí až v pubertě.
+- **Populace se liší.** Co je „robustní“ v jedné populaci, může být průměr v jiné.
+- **Fotografie není kost.** Z jediného snímku z jednoho úhlu znaky špatně vidíš.
+
+### Jak napsat obhajitelný závěr
+
+Odděluj tři věci:
+
+| Krok | Příklad |
+|---|---|
+| pozorování | „Podsponkový úhel je asi 95°, velký sedací zářez je široký.“ |
+| interpretace | „Oba znaky podporují ženské pohlaví.“ |
+| jistota | „Střední, protože ucpaný otvor není na snímku dobře vidět.“ |
+
+Větu „je to určitě muž“ na základě jediného znaku nebo jediné fotografie forenzní expert nenapíše.
+
+:::tip[Král pod parkovištěm]
+V roce 2012 našli archeologové pod parkovištěm v anglickém Leicesteru kostru muže. Antropologové z ní vyčetli: muž, 30–34 let, výrazná skolióza (vybočení páteře do strany), smrtelná zranění lebky sečnou zbraní. Všechno sedělo na krále Richarda III., který padl roku 1485 v bitvě u Bosworthu. Jistotu ale přinesla až DNA porovnaná s žijícími potomky jeho sestry. Dobrý příklad toho, jak se skládá víc nezávislých důkazů.
+:::
+
+## 7 Rentgenové snímky a AI
+
+Wilhelm Conrad Röntgen objevil neznámé pronikavé záření 8. listopadu 1895 a nazval ho paprsky X. O šest týdnů později pořídil snímek ruky své ženy Anny Berthy i se snubním prstenem. Za objev dostal roku 1901 vůbec první Nobelovu cenu za fyziku. Odmítl si ho nechat patentovat, aby mohl sloužit všem.
+
+### Jak číst rentgenový snímek
+
+Snímek je stínohra. Čím víc záření tkáň pohltí, tím je na snímku světlejší:
+
+| Na snímku | Co to je |
+|---|---|
+| zářivě bílé, s ostrými okraji | kov (šrouby, dlahy, kloubní náhrada, šperk) |
+| světlé | kost |
+| šedé | svaly, tuk, orgány |
+| černé | vzduch (plíce, okolí těla) |
+
+Popisuj snímek vždy ve stejném pořadí:
+
+1. **Co je na snímku:** která část těla, z jakého směru (zepředu, z boku).
+2. **Které kosti a klouby** vidíš. Pojmenuj je odborně.
+3. **Dítě, nebo dospělý?** Hledej růstové chrupavky a chybějící zápěstní či zánártní kůstky ([oddíl 5](#5-kolik-bylo-kostře-let)).
+4. **Něco neobvyklého?** Sleduj obrys každé kosti dokola. Zlomenina se projeví jako tmavá linie, schod nebo posun obrysu. Hledej také kov, vybočení páteře a nestejnou šířku kloubní štěrbiny.
+
+Dvě pasti. Růstová chrupavka u dítěte vypadá jako zlomenina, ale je na obou stranách těla stejná a má hladké okraje. A ne každý černobílý snímek těla je rentgen: na magnetické rezonanci jsou dobře vidět měkké tkáně (ploténky, mícha) a kost může být tmavá.
+
+### Proč nejdřív ty a teprve potom AI
+
+Když si odpověď AI přečteš předem, uvidíš na snímku to, co ti řekla (**efekt ukotvení**). Proto má protokol pevné pořadí: vlastní popis, potom AI, potom řešení od učitele.
+
+Jazykové modely dnes obrázky popisují dobře, ale mají typické slabiny:
+
+- **Jistý tón není důkaz.** Model odpovídá stejně plynule, když má pravdu, i když se mýlí. Proto po něm prompt v protokolu chce u každého bodu míru jistoty. Sleduj, jestli deklarovaná jistota odpovídá tomu, jak to dopadlo.
+- **Vymyšlené nálezy.** Model může „vidět“ zlomeninu, která na snímku není, nebo přehlédnout drobnou, která tam je.
+- **Strany a detaily.** Záměna pravé a levé strany, špatně určený prst nebo obratel.
+- **Obecné bývá správně, konkrétní méně.** „Je to koleno dospělého“ model obvykle trefí. Jemný nález už tolik ne.
+
+:::caution[Soukromí]
+Do AI vkládej jen výukové snímky bez jména a štítků, jak říká protokol. Vlastní lékařské snímky ani snímky jiných lidí do veřejných AI nástrojů nepatří. A žádná AI v telefonu nenahrazuje lékaře.
+:::
+
+## Shrnutí
+
+- Kost staví osteoblasty, udržují osteocyty a odbourávají osteoklasty. Ossein dává pružnost, minerály tvrdost. Kost vzniká z vaziva (desmogenně), nebo z chrupavky (enchondrálně).
+- Dobré měření je opakovatelné: stejná poloha, přesné body na kostře, tři měření a průměr.
+- Bodový graf ukáže směr a těsnost vztahu a dovolí odhad s nejistotou. Korelace sama neříká nic o příčině. Výška i rozpětí paží mají společnou příčinu, růst těla.
+- Alphonse Bertillon postavil na tělesných rozměrech první vědeckou identifikaci osob. Nahradily ji otisky prstů.
+- Člověk má intermembrální index kolem 70, lidoopi nad 100. Bipedii prozradí týlní otvor vespod lebky, esovitá páteř, mísovitá pánev, šikmá stehenní kost a klenutá noha s palcem v řadě.
+- Věk se pozná podle chrupavky, která ještě nezkostnatěla: zápěstní kůstky, růstové chrupavky, lupínky, a podle chrupu.
+- Pohlaví se odhaduje ze souboru znaků. Pánev je spolehlivější než lebka, protože její tvar souvisí s porodem. U dětí odhad nefunguje.
+- Závěr má tři části: pozorování, interpretace, jistota. Platí to pro tebe i pro AI.
+
+## Procvičování
+
+<Otazka
+	zadani="Která buňka odbourává kostní hmotu?"
+	moznosti={["osteoblast", "osteocyt", "osteoklast", "chondrocyt"]}
+	spravne={2}
+	vysvetleni="Osteoklast je velká mnohojaderná buňka, která kost rozpouští. Osteoblast staví, osteocyt udržuje."
+/>
+
+<Otazka
+	zadani="Kost ležela týden v octě a dá se ohnout. Která složka v ní zůstala?"
+	moznosti={["minerální složka", "ossein (kolagen)", "kostní dřeň", "růstová chrupavka"]}
+	spravne={1}
+	vysvetleni="Kyselina rozpustila minerální složku. Zůstal ossein, který dává pružnost, ale ne tvrdost."
+/>
+
+<Otazka
+	zadani="Paže 30 cm, předloktí 25 cm, stehno 44 cm, bérec 36 cm. Jaký je intermembrální index?"
+	moznosti={["145,5", "68,8", "0,69", "55"]}
+	spravne={1}
+	vysvetleni="(30 + 25) / (44 + 36) × 100 = 55 / 80 × 100 = 68,8. Nezapomeň násobit stem a nejdřív sečíst."
+/>
+
+<Otazka
+	zadani="Ve třídě vyšla mezi výškou a rozpětím paží korelace r = 0,9. Co z toho plyne?"
+	moznosti={["dlouhé paže způsobují vysokou postavu", "vyšší spolužáci mají většinou i větší rozpětí", "90 % spolužáků má rozpětí stejné jako výšku", "rozpětí je vždy o 10 % menší než výška"]}
+	spravne={1}
+	vysvetleni="Korelační koeficient popisuje těsnost vztahu, ne příčinu ani procento lidí. Obě veličiny mají společnou příčinu, růst těla."
+/>
+
+<Otazka
+	zadani="Z fosilie se zachovala jen spodina lebky. Který znak nejlépe doloží vzpřímenou chůzi?"
+	moznosti={["velikost špičáků", "nadočnicový val", "poloha týlního otvoru", "tvar zubního oblouku"]}
+	spravne={2}
+	vysvetleni="Týlní otvor vespod lebky znamená, že hlava seděla na svislé páteři. Takto uvažoval Raymond Dart u dítěte z Taungu."
+/>
+
+<Otazka
+	zadani="Orangutan má intermembrální index 139. Co to znamená?"
+	moznosti={["má delší dolní končetiny než horní", "má horní končetiny výrazně delší než dolní", "je o 39 % vyšší než člověk", "chodí vzpřímeně"]}
+	spravne={1}
+	vysvetleni="Index nad 100 znamená delší horní končetiny. Souvisí to se šplháním a zavěšováním v korunách stromů."
+/>
+
+<Otazka
+	zadani="Na RTG ruky tříletého dítěte jsou vidět jen tři zápěstní kůstky. Proč?"
+	moznosti={["dítě má méně zápěstních kostí", "ostatní kůstky jsou zatím chrupavčité a RTG je nezobrazí", "kůstky zakrývá sval", "snímek je špatně exponovaný"]}
+	spravne={1}
+	vysvetleni="Základy všech osmi kůstek už existují, ale jsou z chrupavky. Rentgen zobrazí až zkostnatělou tkáň."
+/>
+
+<Otazka
+	zadani="Podle kterého znaku nejlépe odlišíš kostru 15letého a 30letého člověka?"
+	moznosti={["podle počtu žeber", "podle růstových chrupavek dlouhých kostí", "podle velikosti lebky", "podle velkého lupínku"]}
+	spravne={1}
+	vysvetleni="V 15 letech jsou růstové chrupavky většinou ještě otevřené, ve 30 dávno zaniklé. Velký lupínek zarůstá už do 2 let."
+/>
+
+<Otazka
+	zadani="Podsponkový úhel 100°, široký a mělký velký sedací zářez, příčně oválný pánevní vchod. Nejpravděpodobněji jde o…"
+	moznosti={["muže", "ženu", "dítě", "nelze nic říct"]}
+	spravne={1}
+	vysvetleni="Všechny tři znaky odpovídají ženské pánvi. Shoda více znaků zvyšuje jistotu odhadu."
+/>
+
+<Otazka
+	zadani="Proč je pánev pro odhad pohlaví spolehlivější než lebka?"
+	moznosti={["je větší", "lépe se zachovává v půdě", "její tvar souvisí s porodem, ne jen s robusticitou", "u dětí se liší víc než u dospělých"]}
+	spravne={2}
+	vysvetleni="Rozdíly na lebce jsou jen otázkou velikosti a svalových úponů a silně se překrývají. Pánev ženy má funkční důvod být jiná."
+/>
+
+<Otazka
+	zadani="Co na Bertillonově metodě nejvíc přispělo k jejímu nahrazení daktyloskopií?"
+	moznosti={["rozměry kostry se v dospělosti rychle mění", "měření bylo pracné, záviselo na měřiči a pachatel rozměry na místě činu nezanechá", "nedala se použít u mužů", "vyžadovala rentgen"]}
+	spravne={1}
+	vysvetleni="Otisky prstů jsou rychlejší, jednoznačnější a zůstávají na místě činu."
+/>
+
+## Kritické myšlení
+
+<details>
+<summary>Spolužák tvrdí: „Mám rozpětí 180 cm, takže měřím přesně 180 cm, tak to vychází z grafu.“ Co mu odpovíš?</summary>
+
+Graf ukazuje trend pro skupinu, ne pravidlo pro jednotlivce. Body kolem přímky kolísají o několik centimetrů oběma směry, takže poctivý odhad je interval, například 175–181 cm. Navíc přímka trendu nemusí být přesně „rozpětí = výška“. Přesnou výšku zjistí jen měření.
+
+</details>
+
+<details>
+<summary>Kdybys měřil žáky od 1. do 9. třídy, vyšla by silná korelace mezi délkou chodidla a počtem slov, která znají. Navrhni vysvětlení a způsob, jak ho ověřit.</summary>
+
+Společnou příčinou je věk: starší děti mají větší nohu a zároveň větší slovní zásobu. Ověření: porovnat jen děti stejného věku (jedné třídy). Pokud tam vztah zmizí nebo výrazně zeslábne, velikost chodidla se slovní zásobou přímo nesouvisí.
+
+</details>
+
+<details>
+<summary>Bertillon předpokládal, že shoda všech jedenácti rozměrů u dvou lidí je prakticky vyloučená. Kde je v jeho úvaze slabé místo?</summary>
+
+Počítal s rozměry, jako by byly nezávislé. Tělesné rozměry spolu ale korelují (vysoký člověk má dlouhé paže, chodidla i prsty), takže jedenáct rozměrů nese méně informace, než se zdá. K tomu se přidává chyba měření: dva měřiči naměří u stejného člověka trochu jiné hodnoty, takže se shoda musí posuzovat s tolerancí, a ta šanci na záměnu dál zvyšuje.
+
+</details>
+
+<details>
+<summary>Antropolog dostane lebku se znaky 2, 3, 3, 4, 2 a pánev se nedochovala. Co má napsat do posudku?</summary>
+
+Popsat jednotlivé znaky, uvést, že převažují hodnoty na ženské straně stupnice, ale dva znaky jsou neurčité a jeden spíš mužský. Závěr: „pravděpodobně žena, jistota nízká až střední“. Zmínit, že chybí pánev, a tedy nejspolehlivější část kostry. Kategorický závěr by byl chybou.
+
+</details>
+
+<details>
+<summary>AI napsala: „Na snímku je s jistotou 95 % zlomenina vřetenní kosti u dítěte.“ Učitel řekne, že jde o zdravou ruku desetiletého dítěte. Co se asi stalo a co si z toho odnést?</summary>
+
+AI si nejspíš spletla růstovou chrupavku se zlomeninou: obojí je tmavá linie napříč kostí. Vysoké procento jistoty bylo jen součástí textu odpovědi, ne výsledek měření. Poučení: výsledku AI lze věřit víc u obecných otázek (část těla, dítě × dospělý) a tam, kde ho lze ověřit jinak. U nálezů, na kterých záleží, rozhoduje odborník.
+
+</details>
+
+<details>
+<summary>Proč nelze odhadovat pohlaví z kostry šestiletého dítěte stejně jako u dospělého?</summary>
+
+Pohlavní rozdíly na lebce i pánvi vznikají působením pohlavních hormonů až v pubertě. U dětí jsou kostry obou pohlaví velmi podobné a odhad podle tvaru kostí by se blížil hádání. V praxi se u dětských koster používá analýza DNA.
+
+</details>
+
+<Aside type="tip" title="Pro učitele">
+Řešení úkolů protokolu, typické chyby a poznámky k laboratoři najdete v oddílu [Pro učitele → Metodika: Kosterní soustava – BS](/pro-ucitele/metodika-kosterni-soustava-bs/).
+</Aside>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" role="img" aria-label="Bodový graf: rozpětí paží proti výšce, modelová data 26 osob, r = 0,95" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif"><rect width="760" height="470" fill="#fff"/>
+<line x1="80.0" y1="400" x2="80.0" y2="40" stroke="#e3e6ea"/><line x1="80" y1="400.0" x2="720" y2="400.0" stroke="#e3e6ea"/>
+<text x="80.0" y="420" text-anchor="middle" font-size="14" fill="#333">150</text><text x="70" y="405.0" text-anchor="end" font-size="14" fill="#333">150</text>
+<line x1="208.0" y1="400" x2="208.0" y2="40" stroke="#e3e6ea"/><line x1="80" y1="328.0" x2="720" y2="328.0" stroke="#e3e6ea"/>
+<text x="208.0" y="420" text-anchor="middle" font-size="14" fill="#333">160</text><text x="70" y="333.0" text-anchor="end" font-size="14" fill="#333">160</text>
+<line x1="336.0" y1="400" x2="336.0" y2="40" stroke="#e3e6ea"/><line x1="80" y1="256.0" x2="720" y2="256.0" stroke="#e3e6ea"/>
+<text x="336.0" y="420" text-anchor="middle" font-size="14" fill="#333">170</text><text x="70" y="261.0" text-anchor="end" font-size="14" fill="#333">170</text>
+<line x1="464.0" y1="400" x2="464.0" y2="40" stroke="#e3e6ea"/><line x1="80" y1="184.0" x2="720" y2="184.0" stroke="#e3e6ea"/>
+<text x="464.0" y="420" text-anchor="middle" font-size="14" fill="#333">180</text><text x="70" y="189.0" text-anchor="end" font-size="14" fill="#333">180</text>
+<line x1="592.0" y1="400" x2="592.0" y2="40" stroke="#e3e6ea"/><line x1="80" y1="112.0" x2="720" y2="112.0" stroke="#e3e6ea"/>
+<text x="592.0" y="420" text-anchor="middle" font-size="14" fill="#333">190</text><text x="70" y="117.0" text-anchor="end" font-size="14" fill="#333">190</text>
+<line x1="720.0" y1="400" x2="720.0" y2="40" stroke="#e3e6ea"/><line x1="80" y1="40.0" x2="720" y2="40.0" stroke="#e3e6ea"/>
+<text x="720.0" y="420" text-anchor="middle" font-size="14" fill="#333">200</text><text x="70" y="45.0" text-anchor="end" font-size="14" fill="#333">200</text>
+<line x1="80" y1="400" x2="720" y2="400" stroke="#333"/><line x1="80" y1="400" x2="80" y2="40" stroke="#333"/>
+<line x1="80.0" y1="400.0" x2="720.0" y2="40.0" stroke="#999" stroke-dasharray="5 5"/><text x="713.6" y="104.80000000000001" font-size="13" fill="#777" text-anchor="end">rozpětí = výška</text>
+<line x1="118.4" y1="370.99690907890505" x2="681.5999999999999" y2="43.7681084552695" stroke="#c0392b" stroke-width="2.5"/>
+<circle cx="310.4" cy="242.3" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="191.4" cy="301.4" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="410.2" cy="213.5" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="397.4" cy="208.5" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="174.7" cy="350.3" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="200.3" cy="323.0" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="357.8" cy="231.5" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="263.0" cy="303.5" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="453.8" cy="150.9" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="345.0" cy="256.0" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="618.9" cy="40.7" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="293.8" cy="258.9" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="224.6" cy="296.3" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="543.4" cy="117.8" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="242.6" cy="335.2" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="333.4" cy="269.7" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="416.6" cy="196.2" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="254.1" cy="292.7" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="479.4" cy="189.0" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="434.6" cy="184.7" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="371.8" cy="243.8" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="488.3" cy="119.9" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="272.0" cy="314.3" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="571.5" cy="131.4" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="502.4" cy="173.2" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<circle cx="213.1" cy="248.8" r="5.5" fill="#1a6d97" fill-opacity=".8"/>
+<text x="400.0" y="452" text-anchor="middle" font-size="16" fill="#111">výška (cm)</text><text transform="translate(24 220.0) rotate(-90)" text-anchor="middle" font-size="16" fill="#111">rozpětí paží (cm)</text>
+<rect x="96" y="50" width="262" height="92" rx="8" fill="#fff" stroke="#bbb"/><text x="110" y="74" font-size="15" fill="#111" font-weight="600">Modelová data, n = 26</text><text x="110" y="97" font-size="15" fill="#c0392b">trend: rozpětí ≈ 1,03 · výška − 4</text><text x="110" y="120" font-size="15" fill="#111">korelační koeficient r = 0,95</text><text x="110" y="136" font-size="12" fill="#666">nejde o měření skutečné třídy</text>
+</svg>
