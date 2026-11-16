@@ -5,7 +5,7 @@ sidebar:
   order: 4
 ---
 
-Kapitola [Alkoholy – názvosloví](/chemie/organicka-chemie/01-alkoholy-nazvoslovi/) odpovídá slidům **Alkoholy**, **tvorba názvů**, **tvorba vzorců** a **Názvy solí alkoholů** v prezentaci *Kyslíkaté deriváty – hydroxysloučeniny*. Úlohy A a B jsou převzaté ze slidů tvorba názvů a tvorba vzorců, řešení je na webu skryté pod rozbalovacím odkazem.
+Kapitola [Alkoholy – názvosloví](/chemie/organicka-chemie/hydroxysloucheniny/01-alkoholy-nazvoslovi/) odpovídá slidům **Alkoholy**, **tvorba názvů**, **tvorba vzorců** a **Názvy solí alkoholů** v prezentaci *Kyslíkaté deriváty – hydroxysloučeniny*. Úlohy A a B jsou převzaté ze slidů tvorba názvů a tvorba vzorců, řešení je na webu skryté pod rozbalovacím odkazem.
 
 :::tip[Prezentace na hodinu]
 **[▶ Spustit prezentaci](/prezentace/alkoholy-nazvoslovi/)** (28 snímků) – výklad s podpůrnými otázkami, hlasováním a aktivitami, zadání procvičování a na dalším snímku řešení.

@@ -5,7 +5,7 @@ sidebar:
   order: 12
 ---
 
-Kapitola [Alkoholy – významní zástupci](/chemie/organicka-chemie/04-alkoholy-vyznamni-zastupci/) shrnuje deset témat (methanol až mastné alkoholy) se stejnou strukturou: vlastnosti, výskyt, výroba s reakčními schématy, použití, zdraví. Je stavěná jako **studijní podklad k žákovským prezentacím** – každé téma kapitoly odpovídá jedné prezentaci a schémata označená ★ jsou povinným minimem, které musí v prezentaci zaznít.
+Kapitola [Alkoholy – významní zástupci](/chemie/organicka-chemie/hydroxysloucheniny/04-alkoholy-vyznamni-zastupci/) shrnuje deset témat (methanol až mastné alkoholy) se stejnou strukturou: vlastnosti, výskyt, výroba s reakčními schématy, použití, zdraví. Je stavěná jako **studijní podklad k žákovským prezentacím** – každé téma kapitoly odpovídá jedné prezentaci a schémata označená ★ jsou povinným minimem, které musí v prezentaci zaznít.
 
 :::tip[Prezentace na hodinu]
 Látku prezentují žáci. Učitelská HTML prezentace k této kapitole zatím není; jako vzor pro žáky slouží vzorová prezentace o mentholu (látka mimo seznam témat, aby ji žáci nekopírovali).

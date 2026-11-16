@@ -5,7 +5,7 @@ sidebar:
   order: 5
 ---
 
-Kapitola [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/02-alkoholy-fyzikalni-vlastnosti/) navazuje na prezentaci **Kyslíkaté deriváty – hydroxysloučeniny** (slidy Dělení alkoholů, FVL, vodíkové vazby, azeotrop, Doplň).
+Kapitola [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/hydroxysloucheniny/02-alkoholy-fyzikalni-vlastnosti/) navazuje na prezentaci **Kyslíkaté deriváty – hydroxysloučeniny** (slidy Dělení alkoholů, FVL, vodíkové vazby, azeotrop, Doplň).
 
 :::tip[Prezentace na hodinu]
 **[▶ Spustit prezentaci](/prezentace/alkoholy-fyzikalni-vlastnosti/)** (30 snímků) – výklad s podpůrnými otázkami, hlasováním a aktivitami, zadání procvičování a na dalším snímku řešení.

@@ -5,7 +5,7 @@ sidebar:
   order: 6
 ---
 
-Kapitola [Alkoholy – chemické vlastnosti](/chemie/organicka-chemie/03-alkoholy-chemicke-vlastnosti/) navazuje na prezentaci **Kyslíkaté deriváty – hydroxysloučeniny** (slide Názvy solí alkoholů – alkoholáty/alkoxidy + fenoláty) a rozšiřuje ji o esterifikaci, substituci, eliminaci a oxidaci.
+Kapitola [Alkoholy – chemické vlastnosti](/chemie/organicka-chemie/hydroxysloucheniny/03-alkoholy-chemicke-vlastnosti/) navazuje na prezentaci **Kyslíkaté deriváty – hydroxysloučeniny** (slide Názvy solí alkoholů – alkoholáty/alkoxidy + fenoláty) a rozšiřuje ji o esterifikaci, substituci, eliminaci a oxidaci.
 
 :::tip[Prezentace na hodinu]
 **[▶ Spustit prezentaci](/prezentace/alkoholy-chemicke-vlastnosti/)** – výklad s obecnými schématy, podpůrnými otázkami a hlasováním, zadání procvičování a na dalším snímku řešení s názvy produktů.

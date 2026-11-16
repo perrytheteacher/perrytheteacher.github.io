@@ -15,6 +15,10 @@ export default defineConfig({
 	// Přesunuté stránky – stará adresa přesměruje na novou.
 	redirects: {
 		'/chemie/anorganicka-chemie/stavebnice-iontu/': '/chemie/anorganicka-chemie/nazvoslovi/stavebnice-iontu/',
+		'/chemie/organicka-chemie/01-alkoholy-nazvoslovi/': '/chemie/organicka-chemie/hydroxysloucheniny/01-alkoholy-nazvoslovi/',
+		'/chemie/organicka-chemie/02-alkoholy-fyzikalni-vlastnosti/': '/chemie/organicka-chemie/hydroxysloucheniny/02-alkoholy-fyzikalni-vlastnosti/',
+		'/chemie/organicka-chemie/03-alkoholy-chemicke-vlastnosti/': '/chemie/organicka-chemie/hydroxysloucheniny/03-alkoholy-chemicke-vlastnosti/',
+		'/chemie/organicka-chemie/04-alkoholy-vyznamni-zastupci/': '/chemie/organicka-chemie/hydroxysloucheniny/04-alkoholy-vyznamni-zastupci/',
 	},
 	integrations: [
 		starlight({
@@ -73,7 +77,20 @@ export default defineConfig({
 								},
 							],
 						},
-						oblast('Organická chemie', 'chemie/organicka-chemie'),
+						{
+							// Organická chemie má podskupinu Hydroxysloučeniny (složka hydroxysloucheniny/) s kapitolami o alkoholech.
+							// Další podskupiny (např. uhlovodíky, karbonylové sloučeniny) přidejte stejně jako Hydroxysloučeniny.
+							label: 'Organická chemie',
+							collapsed: true,
+							items: [
+								{ slug: 'chemie/organicka-chemie', label: 'Přehled' },
+								{
+									label: 'Hydroxysloučeniny',
+									collapsed: true,
+									items: [{ autogenerate: { directory: 'chemie/organicka-chemie/hydroxysloucheniny' } }],
+								},
+							],
+						},
 						oblast('Biochemie', 'chemie/biochemie'),
 					],
 				},
