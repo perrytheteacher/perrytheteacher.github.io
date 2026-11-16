@@ -13,5 +13,6 @@ Uhlovodíky, deriváty uhlovodíků, reakce organických sloučenin.
 1. [Alkoholy – názvosloví](/chemie/organicka-chemie/01-alkoholy-nazvoslovi/)
 2. [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/02-alkoholy-fyzikalni-vlastnosti/)
 3. [Alkoholy – chemické vlastnosti](/chemie/organicka-chemie/03-alkoholy-chemicke-vlastnosti/)
+4. [Alkoholy – významní zástupci](/chemie/organicka-chemie/04-alkoholy-vyznamni-zastupci/)
 
 Další kapitoly postupně doplňujeme.
