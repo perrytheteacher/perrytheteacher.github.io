@@ -197,3 +197,9 @@ img.vzorec{height:auto;display:block}
 .slide .nuklid sup,.slide .nuklid sub{vertical-align:baseline;font-size:inherit;line-height:1;position:static}
 /* obrázek přes celý snímek s tmavým pozadím (ilustrace) */
 .slide img.obr{display:block;margin:0 auto;max-width:100%;height:auto;border-radius:10px}
+
+/* fotografie s popiskem autora a licence (kapitola Alkoholy – významní zástupci) */
+.foto{margin:0;display:flex;flex-direction:column;gap:3px;min-width:0}
+.foto img{display:block;border-radius:12px;background:#f4f6f9}
+.foto figcaption{font-size:13px;line-height:1.25;color:#8a919b}
+.slide .col{display:flex;flex-direction:column;gap:12px;min-width:0}

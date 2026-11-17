@@ -8,7 +8,13 @@ sidebar:
 Kapitola [Alkoholy – významní zástupci](/chemie/organicka-chemie/hydroxysloucheniny/04-alkoholy-vyznamni-zastupci/) shrnuje deset témat (methanol až mastné alkoholy) se stejnou strukturou: vlastnosti, výskyt, výroba s reakčními schématy, použití, zdraví. Je stavěná jako **studijní podklad k žákovským prezentacím** – každé téma kapitoly odpovídá jedné prezentaci a schémata označená ★ jsou povinným minimem, které musí v prezentaci zaznít.
 
 :::tip[Prezentace na hodinu]
-Látku prezentují žáci. Učitelská HTML prezentace k této kapitole zatím není; jako vzor pro žáky slouží vzorová prezentace o mentholu (látka mimo seznam témat, aby ji žáci nekopírovali).
+**[▶ Spustit prezentaci](/prezentace/alkoholy-vyznamni-zastupci/)** (37 snímků, 2 hodiny) – přehled zástupců s fotografiemi, schémata výrob ★, otázky k zamyšlení, hlasování, kritické myšlení (přírodní = bezpečné?, bioethanol, ethylenglykol v chladiči), úlohy G a H, najdi chybu a výstupní lístek. Hodí se jako úvod před žákovskými prezentacemi (co je povinné minimum) nebo jako shrnutí po nich.
+
+Stáhnout: <a href="/prezentace/alkoholy-vyznamni-zastupci/offline.html" download="alkoholy-vyznamni-zastupci-prezentace.html">⬇ pro offline práci (HTML)</a> · <a href="/prezentace/alkoholy-vyznamni-zastupci/alkoholy-vyznamni-zastupci.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
+
+Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje i prezentér) · **N** poznámky pro učitele · **T** časovač aktivity · **O** přehled snímků · **B** černá obrazovka · **H** nápověda.
+
+Jako vzor pro žáky slouží vzorová prezentace o mentholu (látka mimo seznam témat, aby ji žáci nekopírovali).
 :::
 
 ## Doporučený postup
@@ -57,4 +63,5 @@ Látku prezentují žáci. Učitelská HTML prezentace k této kapitole zatím n
 
 - Zadání žákovských prezentací s osnovou a hodnoticími kritérii (samostatný dokument).
 - Vzorová prezentace Menthol.
-- Fotografie k výrobám a použití se do kapitoly doplní později (místa jsou ve zdrojovém souboru kapitoly označená komentářem `FOTO`).
+- Fotografie k výrobám a použití jsou v prezentaci na hodinu (Wikimedia Commons, autoři a licence na posledním snímku); do kapitoly se doplní později (místa jsou ve zdrojovém souboru označená komentářem `FOTO`).
+- Dvě AI ilustrace (přehled použití, odmrazování letadla) jsou v prezentaci označené jako ilustrace, ne fotografie. Fotografie silonu ze zdrojové sady nemají volnou licenci, proto nejsou použity.
