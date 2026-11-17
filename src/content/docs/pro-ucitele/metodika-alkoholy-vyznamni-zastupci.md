@@ -63,5 +63,5 @@ Jako vzor pro žáky slouží vzorová prezentace o mentholu (látka mimo seznam
 
 - Zadání žákovských prezentací s osnovou a hodnoticími kritérii (samostatný dokument).
 - Vzorová prezentace Menthol.
-- Fotografie k výrobám a použití jsou v prezentaci na hodinu (Wikimedia Commons, autoři a licence na posledním snímku); do kapitoly se doplní později (místa jsou ve zdrojovém souboru označená komentářem `FOTO`).
+- Fotografie k výskytu, výrobám a použití jsou v kapitole i v prezentaci na hodinu (Wikimedia Commons; autor a licence u každého obrázku, v prezentaci i na posledním snímku). U cyklohexanolu fotografie chybí.
 - Dvě AI ilustrace (přehled použití, odmrazování letadla) jsou v prezentaci označené jako ilustrace, ne fotografie. Fotografie silonu ze zdrojové sady nemají volnou licenci, proto nejsou použity.
