@@ -1,0 +1,298 @@
+---
+title: 1. Ethery
+description: Struktura a názvosloví etherů, proč vřou níž než alkoholy a přesto se podobně rozpouštějí ve vodě, nereaktivita, štěpení, peroxidy, příprava a významní zástupci – od narkózy po benzin.
+sidebar:
+  order: 1
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import Otazka from '../../../../../components/Otazka.astro';
+
+Ethanol a dimethylether mají **stejný sumární vzorec C<sub>2</sub>H<sub>6</sub>O**. Ethanol je kapalina, kterou pijeme i dezinfikujeme ruce; dimethylether je plyn, který tlačí deodorant ze spreje. Jediný rozdíl: kyslík není na konci řetězce, ale **mezi dvěma uhlíky**. Proč tak malá změna dělá z kapaliny plyn – a proč je ether přesto „nejlepší kamarád“ chemika v laboratoři?
+
+Navazuje na kapitoly o alkoholech, hlavně [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/hydroxysloucheniny/02-alkoholy-fyzikalni-vlastnosti/) (vodíkové vazby) a [Alkoholy – chemické vlastnosti](/chemie/organicka-chemie/hydroxysloucheniny/03-alkoholy-chemicke-vlastnosti/) (vznik etheru dehydratací).
+
+:::note[Co se v této kapitole naučíte]
+- poznat ether ve vzorci a pojmenovat ho substitučním i skupinovým názvem,
+- vysvětlit, proč ethery vřou mnohem níž než alkoholy, a přesto se nižší ethery částečně rozpouštějí ve vodě,
+- popsat, proč jsou ethery dobrá rozpouštědla, jak se štěpí a proč jsou staré lahve etheru nebezpečné (peroxidy),
+- zapsat přípravu etheru Williamsonovou syntézou a dehydratací alkoholu,
+- uvést význam diethyletheru, dimethyletheru, ethylenoxidu, THF, MTBE a aromatických etherů.
+:::
+
+## 1 Co je ether
+
+**Ethery** jsou sloučeniny s obecným vzorcem **R–O–R′**: atom kyslíku je vázán **na dva uhlíky**. Skupině –O– mezi uhlíky říkáme **etherová vazba** (etherový kyslík). Ether si můžeme představit jako alkohol, v němž vodík skupiny –OH nahradil uhlovodíkový zbytek – nebo jako vodu, v níž oba vodíky nahradily alkyly.
+
+<div class="vzorce">
+<figure><img src="/obrazky/ethery/ethanol.png" alt="ethanol CH3–CH2–OH" width="137" /><figcaption>ethanol – alkohol, C<sub>2</sub>H<sub>6</sub>O</figcaption></figure>
+<figure><img src="/obrazky/ethery/dimethylether.png" alt="dimethylether CH3–O–CH3" width="145" /><figcaption>dimethylether – ether, C<sub>2</sub>H<sub>6</sub>O</figcaption></figure>
+</div>
+
+Ethanol a dimethylether jsou **izomery** (funkční izomerie): mají stejný sumární vzorec, ale jinou funkční skupinu.
+
+**Dělení etherů:**
+
+| podle | skupina | příklad |
+|---|---|---|
+| zbytků R a R′ | symetrické (R = R′) | diethylether |
+| | nesymetrické (R ≠ R′) | methoxyethan |
+| typu zbytků | alifatické | diethylether |
+| | aromatické (alespoň jeden aryl) | anisol (methoxybenzen) |
+| uspořádání | cyklické – kyslík je součástí kruhu | oxiran, tetrahydrofuran, 1,4-dioxan |
+
+<div class="vzorce">
+<figure><img src="/obrazky/ethery/anisol.png" alt="anisol, methoxybenzen" width="123" /><figcaption>anisol (methoxybenzen)</figcaption></figure>
+<figure><img src="/obrazky/ethery/oxiran.png" alt="oxiran, ethylenoxid" width="56" /><figcaption>oxiran (ethylenoxid)</figcaption></figure>
+<figure><img src="/obrazky/ethery/thf.png" alt="tetrahydrofuran" width="77" /><figcaption>tetrahydrofuran (THF, oxolan)</figcaption></figure>
+<figure><img src="/obrazky/ethery/dioxan.png" alt="1,4-dioxan" width="100" /><figcaption>1,4-dioxan</figcaption></figure>
+</div>
+
+Molekula etheru je **lomená** jako molekula vody (úhel C–O–C asi 110°). Vazby C–O jsou polární, proto je i celá molekula slabě polární – kyslík nese parciální záporný náboj δ−. **Na kyslíku ale není žádný vodík.**
+
+## 2 Názvosloví
+
+Ethery mají dva typy názvů. Oba jsou správné a oba potkáte.
+
+<Steps>
+
+1. **Substituční název** (podle uhlovodíku): větší (významnější) část molekuly je **základní uhlovodík**, menší část i s kyslíkem je předpona **alkoxy-**: methoxy- (CH<sub>3</sub>O–), ethoxy- (C<sub>2</sub>H<sub>5</sub>O–), propoxy-, butoxy-, fenoxy-. Lokant označí, na kterém uhlíku alkoxyskupina sedí: **1-methoxypropan**, **2-ethoxypropan**.
+
+2. **Skupinový (radikálově funkční) název**: názvy obou uhlovodíkových zbytků **abecedně** + slovo **ether**. U nesymetrického etheru se druhý zbytek píše do závorky: **ethyl(methyl)ether**. U symetrického se použije di-: **diethylether**. Ve starších textech uvidíte i ethylmethylether.
+
+</Steps>
+
+| vzorec | substituční název | skupinový název | triviální |
+|---|---|---|---|
+| CH<sub>3</sub>–O–CH<sub>3</sub> | methoxymethan | dimethylether | |
+| CH<sub>3</sub>–CH<sub>2</sub>–O–CH<sub>3</sub> | methoxyethan | ethyl(methyl)ether | |
+| CH<sub>3</sub>–CH<sub>2</sub>–O–CH<sub>2</sub>–CH<sub>3</sub> | ethoxyethan | diethylether | „ether“, „éter“ |
+| C<sub>6</sub>H<sub>5</sub>–O–CH<sub>3</sub> | methoxybenzen | methyl(fenyl)ether | anisol |
+| (CH<sub>3</sub>)<sub>3</sub>C–O–CH<sub>3</sub> | 2-methoxy-2-methylpropan | terc-butyl(methyl)ether | MTBE |
+
+**Řešený příklad.** Pojmenuj CH<sub>3</sub>–CH<sub>2</sub>–CH<sub>2</sub>–O–CH<sub>2</sub>–CH<sub>3</sub>.
+
+<div class="vzorce jeden"><figure><img src="/obrazky/ethery/u_1ethoxypropan.png" alt="" width="283" /></figure></div>
+
+1. Zbytky na kyslíku: propyl (3 C) a ethyl (2 C).
+2. Substitučně: delší propyl je základ **propan**, kratší ethyl + O = **ethoxy**; sedí na uhlíku 1 → **1-ethoxypropan**.
+3. Skupinově: abecedně ethyl, propyl → **ethyl(propyl)ether**.
+
+:::caution[Pozor na záměnu]
+Předpona **alkoxy-** (methoxy-) obsahuje kyslík, předpona **alkyl-** (methyl-) ne. 1-methoxypropan je ether C<sub>4</sub>H<sub>10</sub>O, 1-methylpropan je jen chybný název butanu.
+:::
+
+## 3 Fyzikální vlastnosti
+
+Nižší ethery jsou **těkavé, bezbarvé kapaliny** (dimethylether a ethyl(methyl)ether jsou plyny) s typickou nasládlou „éterovou“ vůní. Klíčem k jejich vlastnostem je, že **molekuly etheru spolu netvoří vodíkové vazby** – na kyslíku není vodík.
+
+<figure class="obrazek"><img src="/obrazky/ethery/teploty-varu.svg" alt="Sloupcový graf teplot varu alkanů, etherů a alkoholů s podobnou molární hmotností" style="max-width:760px" /><figcaption>Ve všech třech skupinách vře ether podobně jako alkan se stejně velkou molekulou, alkohol o 80–100 °C výš. Vodíkové vazby mezi molekulami alkoholu je při varu potřeba přerušit; mezi molekulami etheru žádné nejsou.</figcaption></figure>
+
+<figure class="obrazek"><img src="/obrazky/ethery/vodikove-vazby-ether.svg" alt="Schéma: mezi dvěma molekulami etheru vodíková vazba nevzniká, molekula vody ale vytvoří vodíkovou vazbu ke kyslíku etheru" style="max-width:760px" /><figcaption>Ether je jen <b>akceptorem</b> vodíkové vazby: nemá vlastní vodík na kyslíku, ale jeho kyslík může přijmout vodíkovou vazbu od vody. Proto se nižší ethery ve vodě částečně rozpouštějí.</figcaption></figure>
+
+| látka | M (g/mol) | t. varu | rozpustnost ve vodě (20–25 °C) |
+|---|---|---|---|
+| butan-1-ol | 74 | 118 °C | asi 7 g/100 ml |
+| diethylether | 74 | 35 °C | asi 6 g/100 ml |
+| pentan | 72 | 36 °C | prakticky nerozpustný |
+| tetrahydrofuran | 72 | 66 °C | mísí se s vodou |
+| anisol | 108 | 154 °C | prakticky nerozpustný |
+
+Všimněte si: diethylether a butan-1-ol mají **téměř stejnou rozpustnost ve vodě**, ale teploty varu se liší o 83 °C. Rozpustnost určují vodíkové vazby **s vodou** (ty ether tvořit umí), teplotu varu vazby **mezi vlastními molekulami** (ty ether nemá). Cyklický THF se s vodou mísí – jeho kyslík je „odkrytý“ a uhlovodíková část malá.
+
+**Další důležité vlastnosti diethyletheru:**
+- hustota 0,71 g/cm<sup>3</sup> – s vodou se nemísí úplně a vytvoří **horní vrstvu**, čehož se využívá při **extrakci** (vytřepávání) organických látek z vodného roztoku,
+- je **extrémně hořlavý**: páry jsou asi 2,5× těžší než vzduch, drží se při zemi a tečou k plameni; vzplanou už od horké plotýnky (teplota vznícení asi 160–180 °C), bez otevřeného ohně,
+- dobře rozpouští tuky, oleje, vosky, pryskyřice a většinu organických látek.
+
+## 4 Chemické vlastnosti
+
+### Ethery jsou málo reaktivní
+
+Ethery nereagují se zásadami, se sodíkem, se zředěnými kyselinami ani s běžnými oxidačními a redukčními činidly za laboratorní teploty. Nemají kyselý vodík (na rozdíl od alkoholů s Na neuvolní H<sub>2</sub>) a vazba C–O se štěpí jen za drastických podmínek. Právě proto jsou ethery výborná **rozpouštědla pro reakce**: rozpustí reagující látky, ale samy se nezúčastní.
+
+**Slabě zásadité.** Volné elektronové páry kyslíku přijmou proton silné kyseliny – ether se **rozpustí v koncentrované kyselině sírové** jako oxoniová sůl (alkany ne).
+
+**Štěpení kyselinou jodovodíkovou nebo bromovodíkovou.** Za varu s koncentrovanou HI se vazba C–O rozštěpí na halogenalkan a alkohol (s nadbytkem HI vznikne i z alkoholu halogenalkan):
+
+<p class="schema"><img src="/obrazky/ethery/z_stepeni_hi.png" alt="Štěpení diethyletheru kyselinou jodovodíkovou na jodethan a ethanol" width="682" /></p>
+
+**Hoření.** Ethery hoří na oxid uhličitý a vodu:
+
+<p class="rovnice">C<sub>4</sub>H<sub>10</sub>O + 6 O<sub>2</sub> → 4 CO<sub>2</sub> + 5 H<sub>2</sub>O</p>
+
+### Skryté nebezpečí: peroxidy
+
+Při delším stání na vzduchu a světle se ethery pomalu **oxidují kyslíkem (autooxidace)**. Napadá se uhlík sousedící s kyslíkem a vznikají **hydroperoxidy** a peroxidy:
+
+<p class="schema"><img src="/obrazky/ethery/z_peroxid.png" alt="Autooxidace diethyletheru kyslíkem na 1-ethoxyethylhydroperoxid" width="615" /></p>
+
+Peroxidy jsou **méně těkavé než ether**. Při destilaci nebo odpařování se proto hromadí ve zbytku v baňce a mohou **explodovat** – při zahřátí, nárazu i při otevírání zaschlého uzávěru. Proto se:
+- ether skladuje v **tmavých lahvích**, krátce, s **datem otevření** a se stabilizátorem (antioxidantem),
+- před destilací **testuje na peroxidy** (jodid draselný se peroxidy oxiduje na hnědý jod; existují i testovací proužky),
+- **nikdy nedestiluje do sucha**.
+
+### Výjimka: oxiran
+
+Tříčlenný kruh **oxiranu** (ethylenoxidu) má úhly vazeb asi 60° místo 110° – je silně **pnutý**, a proto na rozdíl od ostatních etherů **velmi reaktivní**. Kruh se snadno otevírá, např. vodou na ethylenglykol (viz [Alkoholy – významní zástupci](/chemie/organicka-chemie/hydroxysloucheniny/04-alkoholy-vyznamni-zastupci/)):
+
+<p class="schema"><img src="/obrazky/ethery/z_oxiran.png" alt="Hydratace oxiranu na ethan-1,2-diol" width="382" /></p>
+
+## 5 Příprava etherů
+
+**Williamsonova syntéza** – alkoholát reaguje s halogenalkanem (nukleofilní substituce). Hodí se i pro nesymetrické ethery:
+
+<p class="schema"><img src="/obrazky/ethery/z_williamson.png" alt="Ethanolát sodný a jodmethan dávají methoxyethan a jodid sodný" width="633" /></p>
+
+**Dehydratace alkoholu** kyselinou sírovou při nižší teplotě (u ethanolu asi 140 °C; při 170 °C už vzniká ethen) – hodí se pro **symetrické** ethery:
+
+<p class="schema"><img src="/obrazky/alkoholy/reakce/ex_ether1.png" alt="Dvě molekuly ethanolu dávají s kyselinou sírovou při 140 °C diethylether a vodu" width="552" /></p>
+
+**Ethylenoxid** se průmyslově vyrábí oxidací ethenu kyslíkem na stříbrném katalyzátoru:
+
+<p class="schema"><img src="/obrazky/ethery/z_oxiran_vyroba.png" alt="Oxidace ethenu kyslíkem na stříbře na oxiran" width="296" /></p>
+
+## 6 Významní zástupci
+
+<div class="vzorce">
+<figure><img src="/obrazky/ethery/diethylether.png" alt="diethylether" width="236" /><figcaption>diethylether</figcaption></figure>
+<figure><img src="/obrazky/ethery/mtbe.png" alt="MTBE" width="193" /><figcaption>MTBE</figcaption></figure>
+<figure><img src="/obrazky/ethery/eugenol.png" alt="eugenol" width="245" /><figcaption>eugenol – fenol a ether zároveň</figcaption></figure>
+</div>
+
+| látka | vlastnosti | význam |
+|---|---|---|
+| **dimethylether** (DME) | plyn, t. v. −25 °C | hnací plyn ve sprejích, chladivo; perspektivní palivo do dieselových motorů – hoří téměř bez sazí (molekula nemá vazbu C–C); vyrábí se dehydratací methanolu |
+| **diethylether** | kapalina, t. v. 35 °C, extrémně hořlavý | **16. 10. 1846** W. T. G. Morton v Bostonu poprvé veřejně předvedl operaci v etherové narkóze – začátek moderní anestezie. Dnes se jako anestetikum nepoužívá (hořlavost, dráždí dýchací cesty, nevolnost), slouží jako rozpouštědlo a k extrakci |
+| **oxiran** (ethylenoxid) | plyn, t. v. 11 °C, jedovatý, karcinogenní | výroba ethylenglykolu a tenzidů; **sterilizace** zdravotnických pomůcek, které nesnesou páru (alkyluje DNA mikroorganismů) |
+| **tetrahydrofuran** (THF), **1,4-dioxan** | kapaliny mísitelné s vodou | rozpouštědla v laboratoři i v průmyslu (lepidla, plasty) |
+| **MTBE** | kapalina, t. v. 55 °C | přísada do benzinu zvyšující **oktanové číslo**; vyrábí se z isobutenu a methanolu |
+| **anisol**, **anethol** | aromatické methylethery | anethol je hlavní složkou silice **anýzu a fenyklu** (ouzo, pastis); anisol voní podobně, surovina pro vonné látky |
+| **eugenol**, **vanilin** | mají skupinu –OCH<sub>3</sub> i –OH na benzenu (fenol + ether) | vůně hřebíčku a vanilky |
+
+<p class="schema"><img src="/obrazky/ethery/z_mtbe.png" alt="2-methylpropen a methanol dávají v kyselém prostředí MTBE" width="618" /></p>
+
+**Ethery a životní prostředí.** Většina těkavých etherů se v ovzduší během dnů rozloží reakcí s radikály ·OH. Problémem se ale stal **MTBE**: dobře se rozpouští ve vodě a v půdě se odbourává velmi pomalu, takže z netěsných nádrží čerpacích stanic pronikl do **podzemních vod** (zejména v USA). Voda je cítit už při desítkách mikrogramů MTBE na litr. V řadě států USA byl proto zakázán; v Evropě ho postupně nahrazuje **ETBE** (ethyl-terc-butylether) vyráběný z bioethanolu.
+
+:::note[Oprava častého omylu]
+Ve vonných látkách se ethery skutečně vyskytují (anethol, eugenol, vanilin), ale ne každá vonná látka je ether. Například **linalool** (vůně levandule a konvalinky) je terpenický **alkohol**, ne ether.
+:::
+
+## Shrnutí
+
+- Ether má obecný vzorec **R–O–R′**; je funkčním izomerem alkoholu se stejným počtem uhlíků.
+- Název substituční **alkoxyalkan** (methoxyethan) nebo skupinový **alkyl(alkyl)ether** (ethyl(methyl)ether).
+- Molekuly etheru **netvoří vodíkové vazby mezi sebou** → vřou podobně jako alkany, mnohem níž než alkoholy. Kyslík ale **přijme vodíkovou vazbu od vody** → nižší ethery jsou ve vodě částečně rozpustné.
+- Ethery jsou **málo reaktivní** (proto rozpouštědla), štěpí je HI nebo HBr; na vzduchu tvoří **výbušné peroxidy**; pnutý **oxiran** je výjimečně reaktivní.
+- Příprava: **Williamsonova syntéza** (alkoholát + halogenalkan), **dehydratace alkoholu** (H<sub>2</sub>SO<sub>4</sub>, 140 °C).
+- Významné: diethylether (anestezie 1846, rozpouštědlo), DME (palivo, sprej), ethylenoxid (sterilizace), THF, MTBE (benzin, kontaminace vod), anethol, eugenol (vůně).
+
+## Procvičování
+
+### A Pojmenuj ether (substitučně i skupinově)
+
+<div class="vzorce">
+<figure><img src="/obrazky/ethery/u_1methoxybutan.png" alt="" width="283" /><figcaption>A1</figcaption></figure>
+<figure><img src="/obrazky/ethery/u_2ethoxypropan.png" alt="" width="238" /><figcaption>A2</figcaption></figure>
+<figure><img src="/obrazky/ethery/u_ethoxybenzen.png" alt="" width="123" /><figcaption>A3</figcaption></figure>
+<figure><img src="/obrazky/ethery/u_methoxycyklohexan.png" alt="" width="123" /><figcaption>A4</figcaption></figure>
+<figure><img src="/obrazky/ethery/dipropylether.png" alt="" width="328" /><figcaption>A5</figcaption></figure>
+<figure><img src="/obrazky/ethery/u_2methoxy2methylbutan.png" alt="" width="239" /><figcaption>A6</figcaption></figure>
+</div>
+
+<details>
+<summary>Řešení A</summary>
+
+- **A1:** **1-methoxybutan**, butyl(methyl)ether
+- **A2:** **2-ethoxypropan**, ethyl(isopropyl)ether – kyslík je na prostředním uhlíku propanu
+- **A3:** **ethoxybenzen**, ethyl(fenyl)ether (triviálně fenetol)
+- **A4:** **methoxycyklohexan**, cyklohexyl(methyl)ether
+- **A5:** **1-propoxypropan**, dipropylether
+- **A6:** **2-methoxy-2-methylbutan**, methyl(terc-pentyl)ether (TAME, přísada do benzinu) – hlavní řetězec má 4 uhlíky, methoxyskupina i methyl jsou na C2
+
+</details>
+
+### B Napiš vzorec
+
+B1 ethoxyethan · B2 2-methoxypropan · B3 methoxybenzen · B4 ethyl(methyl)ether · B5 1-ethoxy-2-methylpropan
+
+<details>
+<summary>Řešení B</summary>
+
+- **B1:** CH<sub>3</sub>–CH<sub>2</sub>–O–CH<sub>2</sub>–CH<sub>3</sub> (diethylether)
+- **B2:** CH<sub>3</sub>–CH(O–CH<sub>3</sub>)–CH<sub>3</sub>, tj. (CH<sub>3</sub>)<sub>2</sub>CH–O–CH<sub>3</sub>
+- **B3:** C<sub>6</sub>H<sub>5</sub>–O–CH<sub>3</sub> (anisol)
+- **B4:** CH<sub>3</sub>–CH<sub>2</sub>–O–CH<sub>3</sub> (methoxyethan)
+- **B5:** CH<sub>3</sub>–CH<sub>2</sub>–O–CH<sub>2</sub>–CH(CH<sub>3</sub>)–CH<sub>3</sub>
+
+</details>
+
+### C Doplň reakci
+
+C1 Ethanolát sodný + brommethan → ? · C2 Diethylether + HI (var) → ? · C3 Methanol + H<sub>2</sub>SO<sub>4</sub> (konc., zahřátí) → ?
+
+<details>
+<summary>Řešení C</summary>
+
+- **C1:** CH<sub>3</sub>–CH<sub>2</sub>–O–CH<sub>3</sub> (methoxyethan), odštěpí se NaBr – Williamsonova syntéza
+- **C2:** CH<sub>3</sub>–CH<sub>2</sub>–I + CH<sub>3</sub>–CH<sub>2</sub>–OH (s nadbytkem HI nakonec 2 CH<sub>3</sub>–CH<sub>2</sub>–I a H<sub>2</sub>O)
+- **C3:** CH<sub>3</sub>–O–CH<sub>3</sub> (dimethylether) a H<sub>2</sub>O – methanol nemůže dát alken, má jen jeden uhlík
+
+</details>
+
+### D Rychlé otázky
+
+<Otazka
+	zadani="Proč vře dimethylether (−25 °C) o více než 100 °C níž než jeho izomer ethanol (78 °C)?"
+	moznosti={["dimethylether má menší molární hmotnost", "molekuly dimethyletheru mezi sebou netvoří vodíkové vazby", "dimethylether je nepolární", "dimethylether má kyslík uvnitř, proto je kyslík méně elektronegativní"]}
+	spravne={1}
+	vysvetleni="Oba mají M = 46 g/mol a oba jsou polární. Ethanol má vodík na kyslíku, a tvoří proto mezi molekulami vodíkové vazby, dimethylether ne."
+/>
+
+<Otazka
+	zadani="Diethylether se ve vodě rozpouští zhruba stejně (asi 6 g/100 ml) jako butan-1-ol. Proč?"
+	moznosti={["obě látky tvoří vodíkové vazby mezi vlastními molekulami", "kyslík etheru přijme vodíkovou vazbu od molekuly vody", "ether s vodou reaguje", "rozpustnost závisí jen na molární hmotnosti"]}
+	spravne={1}
+	vysvetleni="Ether je akceptor vodíkové vazby: vodík dodá voda. Mezi molekulami etheru samotného ale vodíkové vazby nevznikají."
+/>
+
+<Otazka
+	zadani="Co zabrání nehodě s peroxidy v etheru?"
+	moznosti={["skladovat ether v průhledné lahvi na okně", "destilovat ether vždy do sucha", "testovat ether na peroxidy a nedestilovat do sucha", "přidat do etheru sodík"]}
+	spravne={2}
+	vysvetleni="Peroxidy vznikají na světle a vzduchu a hromadí se v destilačním zbytku. Proto tmavá lahev, datum otevření, test a nikdy do sucha."
+/>
+
+<Otazka
+	zadani="Který ether je výrazně reaktivnější než ostatní a proč?"
+	moznosti={["diethylether – má nejnižší teplotu varu", "oxiran – tříčlenný kruh je silně pnutý", "anisol – má benzenové jádro", "1,4-dioxan – má dva kyslíky"]}
+	spravne={1}
+	vysvetleni="Úhly v tříčlenném kruhu jsou asi 60°, ideální je asi 110°. Otevřením kruhu se pnutí uvolní."
+/>
+
+## Kritické myšlení
+
+<details>
+<summary>Diethylether byl v 19. století „zázrakem“ medicíny, dnes se k narkóze nepoužívá. Znamená to, že byl objev chybou?</summary>
+
+Ne. Ether umožnil první bezbolestné operace a tím rozvoj chirurgie; tehdy neexistovala bezpečnější alternativa. Hodnocení látky se mění s tím, co je k dispozici: dnešní inhalační anestetika (např. sevofluran) nehoří, méně dráždí a lépe se dávkují. „Dobře“ a „špatně“ tu znamená „ve srovnání s čím a za jakých podmínek“.
+
+</details>
+
+<details>
+<summary>„DME hoří bez sazí, je to tedy čisté palivo.“ Co by bylo potřeba vědět, než to přijmete?</summary>
+
+Bez sazí ještě neznamená bez CO<sub>2</sub>: spálením DME vzniká oxid uhličitý stejně jako u nafty. Rozhoduje, **z čeho se DME vyrábí** – ze zemního plynu nebo uhlí (fosilní uhlík), nebo z biomasy či zachyceného CO<sub>2</sub>. Dále je potřeba porovnat energii na výrobu, výhřevnost (je nižší než u nafty) a emise oxidů dusíku. „Čistý“ je vždy potřeba upřesnit: čistý v čem?
+
+</details>
+
+<details>
+<summary>MTBE byl zaveden kvůli čistšímu spalování a pak se stal znečišťující látkou. Jaké vlastnosti molekuly bylo možné předem vzít v úvahu?</summary>
+
+Dobrou rozpustnost ve vodě (kyslík etheru je akceptor vodíkové vazby a molekula je malá), malou ochotu k biologickému rozkladu (terciární uhlík, stálá etherová vazba) a velmi nízký práh zápachu. Z vlastností struktury šlo odhadnout, že se látka bude ve vodě šířit a vydrží v ní. Ukazuje to, proč se u nových látek posuzuje nejen jejich účel, ale celý „život“ v prostředí.
+
+</details>
+
+<Aside type="tip" title="Pro učitele">
+Doporučený postup, prezentaci na hodinu a typické chyby najdete v metodice [Ethery](/pro-ucitele/metodika-ethery/). Navazující kapitola: [Thioly, sulfidy a sulfonové kyseliny](/chemie/organicka-chemie/ethery-sirne-slouceniny/02-thioly-sulfidy-sulfonove-kyseliny/).
+</Aside>

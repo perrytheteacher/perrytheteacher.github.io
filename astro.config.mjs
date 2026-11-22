@@ -78,7 +78,7 @@ export default defineConfig({
 							],
 						},
 						{
-							// Organická chemie má podskupinu Hydroxysloučeniny (složka hydroxysloucheniny/) s kapitolami o alkoholech.
+							// Organická chemie má podskupiny Hydroxysloučeniny (složka hydroxysloucheniny/) a Ethery a sirné sloučeniny (složka ethery-sirne-slouceniny/).
 							// Další podskupiny (např. uhlovodíky, karbonylové sloučeniny) přidejte stejně jako Hydroxysloučeniny.
 							label: 'Organická chemie',
 							collapsed: true,
@@ -88,6 +88,11 @@ export default defineConfig({
 									label: 'Hydroxysloučeniny',
 									collapsed: true,
 									items: [{ autogenerate: { directory: 'chemie/organicka-chemie/hydroxysloucheniny' } }],
+								},
+								{
+									label: 'Ethery a sirné sloučeniny',
+									collapsed: true,
+									items: [{ autogenerate: { directory: 'chemie/organicka-chemie/ethery-sirne-slouceniny' } }],
 								},
 							],
 						},
