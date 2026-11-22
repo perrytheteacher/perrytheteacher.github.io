@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 525" role="img" aria-label="Schéma tří plantogramů pravé nohy: noha vysoká, normálně klenutá a plochá, s vyznačenou tečnou, šířkou a a b" font-family="system-ui,Segoe UI,Arial,sans-serif">
+<rect width="620" height="525" fill="#fff"/>
+<g fill="#3a3f46">
+<ellipse cx="95" cy="170" rx="55" ry="58"/>
+<ellipse cx="112" cy="350" rx="38" ry="48"/>
+<circle cx="58" cy="92" r="17"/>
+<circle cx="88" cy="84" r="11"/>
+<circle cx="110" cy="88" r="10"/>
+<circle cx="129" cy="97" r="9"/>
+<circle cx="144" cy="110" r="8"/>
+</g>
+<line x1="150" y1="60" x2="150" y2="415" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="40" y1="170" x2="150" y2="170" stroke="#1f6feb" stroke-width="3"/>
+<text x="86" y="162" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">b</text>
+<text x="110" y="270" fill="#2e7d32" font-size="15" font-weight="700" text-anchor="middle">a = 0</text>
+<text x="95" y="440" font-size="16" font-weight="700" text-anchor="middle" fill="#1f2328">noha vysoká</text>
+<text x="95" y="462" font-size="14" text-anchor="middle" fill="#444">index 0 %</text>
+<g fill="#3a3f46">
+<ellipse cx="300" cy="170" rx="55" ry="58"/>
+<ellipse cx="317" cy="350" rx="38" ry="48"/>
+<rect x="322" y="185" width="33" height="160" rx="10"/>
+<circle cx="263" cy="92" r="17"/>
+<circle cx="293" cy="84" r="11"/>
+<circle cx="315" cy="88" r="10"/>
+<circle cx="334" cy="97" r="9"/>
+<circle cx="349" cy="110" r="8"/>
+</g>
+<line x1="355" y1="60" x2="355" y2="415" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="245" y1="170" x2="355" y2="170" stroke="#1f6feb" stroke-width="3"/>
+<text x="291" y="162" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">b</text>
+<line x1="322" y1="265" x2="355" y2="265" stroke="#2e7d32" stroke-width="3"/>
+<text x="338.5" y="258" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">a</text>
+<text x="300" y="440" font-size="16" font-weight="700" text-anchor="middle" fill="#1f2328">normálně klenutá</text>
+<text x="300" y="462" font-size="14" text-anchor="middle" fill="#444">index a/b = 33/110 = 30 %</text>
+<g fill="#3a3f46">
+<ellipse cx="505" cy="170" rx="55" ry="58"/>
+<ellipse cx="522" cy="350" rx="38" ry="48"/>
+<rect x="494" y="185" width="66" height="160" rx="10"/>
+<circle cx="468" cy="92" r="17"/>
+<circle cx="498" cy="84" r="11"/>
+<circle cx="520" cy="88" r="10"/>
+<circle cx="539" cy="97" r="9"/>
+<circle cx="554" cy="110" r="8"/>
+</g>
+<line x1="560" y1="60" x2="560" y2="415" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="450" y1="170" x2="560" y2="170" stroke="#1f6feb" stroke-width="3"/>
+<text x="496" y="162" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">b</text>
+<line x1="494" y1="265" x2="560" y2="265" stroke="#2e7d32" stroke-width="3"/>
+<text x="527.0" y="258" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">a</text>
+<text x="505" y="440" font-size="16" font-weight="700" text-anchor="middle" fill="#1f2328">plochá</text>
+<text x="505" y="462" font-size="14" text-anchor="middle" fill="#444">index a/b = 66/110 = 60 %</text>
+<text x="20" y="494" font-size="13" fill="#555">Schéma otisku pravé nohy, ne skutečný plantogram. Červeně tečna k zevnímu (laterálnímu) okraji;</text>
+<text x="20" y="512" font-size="13" fill="#555">šířky a a b se měří kolmo k tečně. Palec leží na mediální straně (vlevo).</text>
+</svg>
