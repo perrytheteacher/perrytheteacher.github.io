@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" height="470" role="img" aria-label="Sloupcový graf teplot varu benzenu, toluenu, cyklohexanolu a fenolu" font-family="system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+<rect width="760" height="470" fill="#fff"/>
+<line x1="90" y1="360.0" x2="730" y2="360.0" stroke="#e3e3e3"/>
+<text x="80" y="365.0" font-size="13" text-anchor="end" font-weight="normal" fill="#555" >0</text>
+<line x1="90" y1="290.0" x2="730" y2="290.0" stroke="#e3e3e3"/>
+<text x="80" y="295.0" font-size="13" text-anchor="end" font-weight="normal" fill="#555" >50</text>
+<line x1="90" y1="220.0" x2="730" y2="220.0" stroke="#e3e3e3"/>
+<text x="80" y="225.0" font-size="13" text-anchor="end" font-weight="normal" fill="#555" >100</text>
+<line x1="90" y1="150.0" x2="730" y2="150.0" stroke="#e3e3e3"/>
+<text x="80" y="155.0" font-size="13" text-anchor="end" font-weight="normal" fill="#555" >150</text>
+<line x1="90" y1="80.0" x2="730" y2="80.0" stroke="#e3e3e3"/>
+<text x="80" y="85.0" font-size="13" text-anchor="end" font-weight="normal" fill="#555" >200</text>
+<line x1="90" y1="360" x2="730" y2="360" stroke="#333"/>
+<text x="28" y="220.0" font-size="14" text-anchor="middle" font-weight="normal" fill="#222" transform="rotate(-90 28 220.0)">teplota varu (°C)</text>
+<rect x="120.0" y="247.86" width="100" height="112.13999999999999" fill="#9aa5b1"/>
+<text x="170.0" y="239.86" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >80,1 °C</text>
+<text x="170.0" y="382" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >benzen</text>
+<text x="170.0" y="402" font-size="13" text-anchor="middle" font-weight="normal" fill="#222" >C₆H₆</text>
+<text x="170.0" y="420" font-size="12" text-anchor="middle" font-weight="normal" fill="#555" >M = 78 g/mol</text>
+<rect x="280.0" y="205.16000000000003" width="100" height="154.83999999999997" fill="#9aa5b1"/>
+<text x="330.0" y="197.16000000000003" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >110,6 °C</text>
+<text x="330.0" y="382" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >toluen</text>
+<text x="330.0" y="402" font-size="13" text-anchor="middle" font-weight="normal" fill="#222" >C₆H₅–CH₃</text>
+<text x="330.0" y="420" font-size="12" text-anchor="middle" font-weight="normal" fill="#555" >M = 92 g/mol</text>
+<rect x="440.0" y="134.88" width="100" height="225.12" fill="#5b8db8"/>
+<text x="490.0" y="126.88" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >160,8 °C</text>
+<text x="490.0" y="382" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >cyklohexanol</text>
+<text x="490.0" y="402" font-size="13" text-anchor="middle" font-weight="normal" fill="#222" >C₆H₁₁–OH</text>
+<text x="490.0" y="420" font-size="12" text-anchor="middle" font-weight="normal" fill="#555" >M = 100 g/mol</text>
+<rect x="600.0" y="105.34" width="100" height="254.66" fill="#c0392b"/>
+<text x="650.0" y="97.34" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >181,9 °C</text>
+<text x="650.0" y="382" font-size="15" text-anchor="middle" font-weight="bold" fill="#222" >fenol</text>
+<text x="650.0" y="402" font-size="13" text-anchor="middle" font-weight="normal" fill="#222" >C₆H₅–OH</text>
+<text x="650.0" y="420" font-size="12" text-anchor="middle" font-weight="normal" fill="#555" >M = 94 g/mol</text>
+<text x="380.0" y="26" font-size="17" text-anchor="middle" font-weight="bold" fill="#222" >Teploty varu: co udělá skupina –OH na benzenovém jádře</text>
+<text x="730" y="48" font-size="12" text-anchor="end" font-weight="normal" fill="#555" >šedé: bez –OH (jen disperzní síly) · modré: alkohol · červené: fenol</text>
+<text x="730" y="464" font-size="11" text-anchor="end" font-weight="normal" fill="#777" >Data: CRC Handbook of Chemistry and Physics, 97. vyd.</text>
+</svg>

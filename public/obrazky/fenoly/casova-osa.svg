@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 400" width="980" height="400" role="img" aria-label="Časová osa objevů a využití fenolů od roku 1834 do roku 2011" font-family="system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+<rect width="980" height="400" fill="#fff"/>
+<text x="490.0" y="26" font-size="17" text-anchor="middle" font-weight="bold" fill="#222" >Fenoly v historii</text>
+<line x1="50" y1="200" x2="930" y2="200" stroke="#333" stroke-width="3"/>
+<line x1="50.0" y1="195" x2="50.0" y2="205" stroke="#333"/>
+<line x1="160.0" y1="195" x2="160.0" y2="205" stroke="#333"/>
+<line x1="270.0" y1="195" x2="270.0" y2="205" stroke="#333"/>
+<line x1="380.0" y1="195" x2="380.0" y2="205" stroke="#333"/>
+<line x1="490.0" y1="195" x2="490.0" y2="205" stroke="#333"/>
+<line x1="600.0" y1="195" x2="600.0" y2="205" stroke="#333"/>
+<line x1="710.0" y1="195" x2="710.0" y2="205" stroke="#333"/>
+<line x1="820.0" y1="195" x2="820.0" y2="205" stroke="#333"/>
+<line x1="930.0" y1="195" x2="930.0" y2="205" stroke="#333"/>
+<circle cx="89.6" cy="200" r="6" fill="#c0392b"/>
+<line x1="89.6" y1="200" x2="89.6" y2="172" stroke="#c0392b" stroke-width="1.2"/>
+<text x="89.6" y="142" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1834</text>
+<text x="89.6" y="159" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >F. F. Runge izoluje z černouhelného</text>
+<text x="89.6" y="174" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >dehtu „karbolovou kyselinu“</text>
+<circle cx="129.2" cy="200" r="6" fill="#c0392b"/>
+<line x1="129.2" y1="200" x2="129.2" y2="215" stroke="#c0392b" stroke-width="1.2"/>
+<text x="129.2" y="231" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1843</text>
+<text x="129.2" y="248" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >Ch. Gerhardt zavádí</text>
+<text x="129.2" y="263" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >název fenol</text>
+<circle cx="204.0" cy="200" r="6" fill="#c0392b"/>
+<line x1="204.0" y1="200" x2="204.0" y2="117" stroke="#c0392b" stroke-width="1.2"/>
+<text x="204.0" y="87" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1860</text>
+<text x="204.0" y="104" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >H. Kolbe: syntéza kyseliny</text>
+<text x="204.0" y="119" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >salicylové z fenolátu</text>
+<circle cx="226.0" cy="200" r="6" fill="#c0392b"/>
+<line x1="226.0" y1="200" x2="226.0" y2="270" stroke="#c0392b" stroke-width="1.2"/>
+<text x="226.0" y="286" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1865</text>
+<text x="226.0" y="303" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >J. Lister: první operace</text>
+<text x="226.0" y="318" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >s karbolovou kyselinou</text>
+<circle cx="287.6" cy="200" r="6" fill="#c0392b"/>
+<line x1="287.6" y1="200" x2="287.6" y2="62" stroke="#c0392b" stroke-width="1.2"/>
+<text x="287.6" y="32" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1879</text>
+<text x="287.6" y="49" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >ústní voda Listerine</text>
+<text x="287.6" y="64" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >(thymol) – pojmenována po Listerovi</text>
+<circle cx="331.6" cy="200" r="6" fill="#c0392b"/>
+<line x1="331.6" y1="200" x2="331.6" y2="325" stroke="#c0392b" stroke-width="1.2"/>
+<text x="331.6" y="341" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1889</text>
+<text x="331.6" y="358" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >Lysol – dezinfekce</text>
+<text x="331.6" y="373" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >z kresolů a mýdla</text>
+<circle cx="366.8" cy="200" r="6" fill="#c0392b"/>
+<line x1="366.8" y1="200" x2="366.8" y2="172" stroke="#c0392b" stroke-width="1.2"/>
+<text x="366.8" y="142" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1897</text>
+<text x="366.8" y="159" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >F. Hoffmann (Bayer):</text>
+<text x="366.8" y="174" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >kyselina acetylsalicylová</text>
+<circle cx="410.79999999999995" cy="200" r="6" fill="#c0392b"/>
+<line x1="410.79999999999995" y1="200" x2="410.79999999999995" y2="215" stroke="#c0392b" stroke-width="1.2"/>
+<text x="410.79999999999995" y="231" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1907</text>
+<text x="410.79999999999995" y="248" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >L. Baekeland: bakelit –</text>
+<text x="410.79999999999995" y="263" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >první plně syntetický plast</text>
+<circle cx="573.6" cy="200" r="6" fill="#c0392b"/>
+<line x1="573.6" y1="200" x2="573.6" y2="117" stroke="#c0392b" stroke-width="1.2"/>
+<text x="573.6" y="87" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >1944</text>
+<text x="573.6" y="104" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >H. Hock: kumenový</text>
+<text x="573.6" y="119" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >proces – fenol + aceton</text>
+<circle cx="868.4000000000001" cy="200" r="6" fill="#c0392b"/>
+<line x1="868.4000000000001" y1="200" x2="868.4000000000001" y2="270" stroke="#c0392b" stroke-width="1.2"/>
+<text x="868.4000000000001" y="286" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >2011</text>
+<text x="868.4000000000001" y="303" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >EU zakazuje bisfenol A</text>
+<text x="868.4000000000001" y="318" font-size="12" text-anchor="middle" font-weight="normal" fill="#222" >v kojeneckých lahvích</text>
+</svg>

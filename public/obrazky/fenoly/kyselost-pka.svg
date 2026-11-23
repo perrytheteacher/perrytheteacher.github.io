@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" width="940" height="420" role="img" aria-label="Číselná osa pKa s kyselinou pikrovou, octovou, uhličitou, nitrofenolem, fenolem, kresolem, vodou a ethanolem" font-family="system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+<rect width="940" height="420" fill="#fff"/>
+<text x="470.0" y="28" font-size="17" text-anchor="middle" font-weight="bold" fill="#222" >Stupnice kyselosti: čím menší pK<tspan baseline-shift="sub" font-size="12">a</tspan>, tím silnější kyselina</text>
+<rect x="50.0" y="158" width="310.0294117647059" height="24" fill="#fdebd0"/>
+<rect x="360.0294117647059" y="158" width="324.6764705882352" height="24" fill="#fadbd8"/>
+<line x1="50" y1="170" x2="880" y2="170" stroke="#222" stroke-width="2"/>
+<line x1="50.0" y1="165" x2="50.0" y2="175" stroke="#222"/>
+<line x1="98.8235294117647" y1="165" x2="98.8235294117647" y2="175" stroke="#222"/>
+<line x1="147.6470588235294" y1="165" x2="147.6470588235294" y2="175" stroke="#222"/>
+<line x1="196.47058823529412" y1="165" x2="196.47058823529412" y2="175" stroke="#222"/>
+<line x1="245.2941176470588" y1="165" x2="245.2941176470588" y2="175" stroke="#222"/>
+<line x1="294.11764705882354" y1="165" x2="294.11764705882354" y2="175" stroke="#222"/>
+<line x1="342.94117647058823" y1="165" x2="342.94117647058823" y2="175" stroke="#222"/>
+<line x1="391.7647058823529" y1="165" x2="391.7647058823529" y2="175" stroke="#222"/>
+<line x1="440.5882352941176" y1="165" x2="440.5882352941176" y2="175" stroke="#222"/>
+<line x1="489.4117647058824" y1="165" x2="489.4117647058824" y2="175" stroke="#222"/>
+<line x1="538.2352941176471" y1="165" x2="538.2352941176471" y2="175" stroke="#222"/>
+<line x1="587.0588235294118" y1="165" x2="587.0588235294118" y2="175" stroke="#222"/>
+<line x1="635.8823529411765" y1="165" x2="635.8823529411765" y2="175" stroke="#222"/>
+<line x1="684.7058823529411" y1="165" x2="684.7058823529411" y2="175" stroke="#222"/>
+<line x1="733.5294117647059" y1="165" x2="733.5294117647059" y2="175" stroke="#222"/>
+<line x1="782.3529411764706" y1="165" x2="782.3529411764706" y2="175" stroke="#222"/>
+<line x1="831.1764705882352" y1="165" x2="831.1764705882352" y2="175" stroke="#222"/>
+<line x1="880.0" y1="165" x2="880.0" y2="175" stroke="#222"/>
+<text x="50.0" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >0</text>
+<text x="147.6470588235294" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >2</text>
+<text x="245.2941176470588" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >4</text>
+<text x="342.94117647058823" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >6</text>
+<text x="440.5882352941176" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >8</text>
+<text x="538.2352941176471" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >10</text>
+<text x="635.8823529411765" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >12</text>
+<text x="733.5294117647059" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >14</text>
+<text x="831.1764705882352" y="200" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >16</text>
+<text x="894" y="175" font-size="15" text-anchor="start" font-weight="normal" fill="#222" >pK<tspan baseline-shift="sub" font-size="10">a</tspan></text>
+<circle cx="68.5529411764706" cy="170" r="6" fill="#7d3c98"/>
+<line x1="68.5529411764706" y1="170" x2="68.5529411764706" y2="140" stroke="#7d3c98" stroke-dasharray="3 3"/>
+<text x="68.5529411764706" y="115" font-size="14" text-anchor="middle" font-weight="bold" fill="#7d3c98" >kyselina pikrová</text>
+<text x="68.5529411764706" y="132" font-size="13" text-anchor="middle" font-weight="normal" fill="#7d3c98" >0,38</text>
+<circle cx="282.4" cy="170" r="6" fill="#555"/>
+<line x1="282.4" y1="170" x2="282.4" y2="216" stroke="#555" stroke-dasharray="3 3"/>
+<text x="282.4" y="232" font-size="14" text-anchor="middle" font-weight="bold" fill="#555" >kyselina octová</text>
+<text x="282.4" y="249" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" >4,76</text>
+<circle cx="360.0294117647059" cy="170" r="6" fill="#555"/>
+<line x1="360.0294117647059" y1="170" x2="360.0294117647059" y2="98" stroke="#555" stroke-dasharray="3 3"/>
+<text x="360.0294117647059" y="73" font-size="14" text-anchor="middle" font-weight="bold" fill="#555" >kyselina uhličitá (pK<tspan baseline-shift="sub" font-size="10">a1</tspan>)</text>
+<text x="360.0294117647059" y="90" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" >6,35</text>
+<circle cx="399.0882352941176" cy="170" r="6" fill="#c0392b"/>
+<line x1="399.0882352941176" y1="170" x2="399.0882352941176" y2="258" stroke="#c0392b" stroke-dasharray="3 3"/>
+<text x="399.0882352941176" y="274" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >4-nitrofenol</text>
+<text x="399.0882352941176" y="291" font-size="13" text-anchor="middle" font-weight="normal" fill="#c0392b" >7,15</text>
+<circle cx="537.7470588235294" cy="170" r="6" fill="#c0392b"/>
+<line x1="537.7470588235294" y1="170" x2="537.7470588235294" y2="140" stroke="#c0392b" stroke-dasharray="3 3"/>
+<text x="537.7470588235294" y="115" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >fenol</text>
+<text x="537.7470588235294" y="132" font-size="13" text-anchor="middle" font-weight="normal" fill="#c0392b" >9,99</text>
+<circle cx="550.929411764706" cy="170" r="6" fill="#c0392b"/>
+<line x1="550.929411764706" y1="170" x2="550.929411764706" y2="216" stroke="#c0392b" stroke-dasharray="3 3"/>
+<text x="550.929411764706" y="232" font-size="14" text-anchor="middle" font-weight="bold" fill="#c0392b" >4-methylfenol</text>
+<text x="550.929411764706" y="249" font-size="13" text-anchor="middle" font-weight="normal" fill="#c0392b" >10,26</text>
+<circle cx="816.5294117647059" cy="170" r="6" fill="#555"/>
+<line x1="816.5294117647059" y1="170" x2="816.5294117647059" y2="140" stroke="#555" stroke-dasharray="3 3"/>
+<text x="816.5294117647059" y="115" font-size="14" text-anchor="middle" font-weight="bold" fill="#555" >voda</text>
+<text x="816.5294117647059" y="132" font-size="13" text-anchor="middle" font-weight="normal" fill="#555" >15,70</text>
+<circle cx="826.2941176470588" cy="170" r="6" fill="#2471a3"/>
+<line x1="826.2941176470588" y1="170" x2="826.2941176470588" y2="258" stroke="#2471a3" stroke-dasharray="3 3"/>
+<text x="826.2941176470588" y="274" font-size="14" text-anchor="middle" font-weight="bold" fill="#2471a3" >ethanol</text>
+<text x="826.2941176470588" y="291" font-size="13" text-anchor="middle" font-weight="normal" fill="#2471a3" >15,90</text>
+<line x1="50.0" y1="323" x2="880.0" y2="323" stroke="#ccc"/>
+<text x="206.23529411764704" y="345" font-size="13" text-anchor="middle" font-weight="bold" fill="#a04000" >reagují i s NaHCO₃</text>
+<text x="206.23529411764704" y="363" font-size="12" text-anchor="middle" font-weight="normal" fill="#a04000" >(šumí – uvolní CO₂)</text>
+<text x="523.5882352941176" y="345" font-size="13" text-anchor="middle" font-weight="bold" fill="#922b21" >reagují s NaOH, ne s NaHCO₃</text>
+<text x="523.5882352941176" y="363" font-size="12" text-anchor="middle" font-weight="normal" fill="#922b21" >(fenoly)</text>
+<text x="792.1176470588234" y="345" font-size="13" text-anchor="middle" font-weight="bold" fill="#1f618d" >s NaOH prakticky ne</text>
+<text x="792.1176470588234" y="363" font-size="12" text-anchor="middle" font-weight="normal" fill="#1f618d" >(alkoholy – jen s Na)</text>
+<line x1="360.0294117647059" y1="311" x2="360.0294117647059" y2="369" stroke="#999" stroke-dasharray="4 3"/>
+<line x1="684.7058823529411" y1="311" x2="684.7058823529411" y2="369" stroke="#999" stroke-dasharray="4 3"/>
+<text x="920" y="408" font-size="11" text-anchor="end" font-weight="normal" fill="#777" >Hodnoty pK<tspan baseline-shift="sub" font-size="9">a</tspan> ve vodě při 25 °C (CRC Handbook). Hranice reakcí s NaOH a NaHCO₃ jsou přibližné.</text>
+</svg>

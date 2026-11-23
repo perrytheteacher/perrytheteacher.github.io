@@ -1,0 +1,381 @@
+---
+title: 5. Fenoly
+description: Hydroxyderiváty arenů – výskyt, fyzikální vlastnosti, kyselost a vznik fenolátů, krátce elektrofilní substituce, důkaz fenolů ionty Fe³⁺, významní zástupci, jejich využití a historie od karbolové kyseliny po bakelit a aspirin.
+sidebar:
+  order: 5
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import Aplikace from '../../../../../components/Aplikace.astro';
+import Otazka from '../../../../../components/Otazka.astro';
+
+Fenol i cyklohexanol mají šestičlenný kruh a jednu skupinu –OH. Přesto fenol leptá kůži, rozpustí se v hydroxidu sodném a s kapkou chloridu železitého se zbarví fialově, kdežto cyklohexanol nic z toho neudělá. Proč tolik záleží na tom, jestli je –OH vázaná na **aromatické** jádro?
+
+Navazuje na kapitoly o alkoholech, hlavně [Alkoholy – chemické vlastnosti](/chemie/organicka-chemie/hydroxysloucheniny/03-alkoholy-chemicke-vlastnosti/) (kyselost, alkoholáty).
+
+:::note[Co se v této kapitole naučíte]
+- rozpoznat fenol podle vzorce a odlišit ho od alkoholu s benzenovým jádrem,
+- vysvětlit, proč je fenol kyselejší než alkoholy, ale slabší kyselina než kyselina uhličitá, a zapsat vznik fenolátů,
+- popsat, proč fenol snadno podléhá elektrofilní substituci (bromová voda),
+- dokázat fenoly roztokem FeCl<sub>3</sub> a odlišit fenol, alkohol a karboxylovou kyselinu,
+- uvést významné fenoly, jejich využití a souvislosti s historií medicíny a průmyslu.
+:::
+
+## 1 Co jsou fenoly
+
+**Fenoly** jsou hydroxyderiváty arenů: skupina **–OH je vázána přímo na uhlík aromatického jádra**. Podle počtu skupin –OH je dělíme na jednosytné a vícesytné.
+
+Nejjednodušší je **fenol** C<sub>6</sub>H<sub>5</sub>–OH (systematicky benzenol, dříve kyselina karbolová). U ostatních se běžně používají triviální názvy, systematický název tvoříme příponou **-ol** (-diol, -triol) nebo předponou **hydroxy-**.
+
+<div class="vzorce">
+<figure><img src="/obrazky/fenoly/fenol.png" alt="fenol" width="81" /><figcaption>fenol</figcaption></figure>
+<figure><img src="/obrazky/fenoly/o-kresol.png" alt="2-methylfenol" width="158" /><figcaption>2-methylfenol (o-kresol)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/p-kresol.png" alt="4-methylfenol" width="88" /><figcaption>4-methylfenol (p-kresol)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/naftol1.png" alt="naftalen-1-ol" width="152" /><figcaption>naftalen-1-ol (1-naftol)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/pyrokatechol.png" alt="benzen-1,2-diol" width="146" /><figcaption>benzen-1,2-diol (pyrokatechol)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/resorcinol.png" alt="benzen-1,3-diol" width="146" /><figcaption>benzen-1,3-diol (resorcinol)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/hydrochinon.png" alt="benzen-1,4-diol" width="81" /><figcaption>benzen-1,4-diol (hydrochinon)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/pyrogallol.png" alt="benzen-1,2,3-triol" width="146" /><figcaption>benzen-1,2,3-triol (pyrogallol)</figcaption></figure>
+</div>
+
+:::caution[Fenol, nebo alkohol?]
+Rozhoduje, **na jakém uhlíku** je –OH. Benzylalkohol C<sub>6</sub>H<sub>5</sub>–CH<sub>2</sub>–OH má benzenové jádro, ale –OH je na uhlíku CH<sub>2</sub> mimo jádro – je to **alkohol**. Cyklohexanol má kruh, ale ne aromatický – také **alkohol**.
+:::
+
+<div class="vzorce">
+<figure><img src="/obrazky/fenoly/fenol.png" alt="fenol" width="81" /><figcaption>fenol – <b>fenol</b></figcaption></figure>
+<figure><img src="/obrazky/fenoly/benzylalkohol.png" alt="benzylalkohol" width="111" /><figcaption>benzylalkohol – <b>alkohol</b></figcaption></figure>
+<figure><img src="/obrazky/fenoly/cyklohexanol.png" alt="cyklohexanol" width="81" /><figcaption>cyklohexanol – <b>alkohol</b></figcaption></figure>
+</div>
+
+## 2 Výskyt
+
+**Černouhelný dehet.** Fenol objevil v roce 1834 F. F. Runge v dehtu ze suché destilace uhlí a nazval ho *Karbolsäure* („kyselina z uhelného oleje“). Až do 1. světové války byl dehet jediným zdrojem fenolu a kresolů. Dnes se fenol vyrábí synteticky – hlavně **kumenovým procesem** (oddíl 6).
+
+**V přírodě** jsou fenolové skupiny všudypřítomné – fenoly jsou typické hlavně pro rostliny:
+
+| kde | látka | co dělá |
+|---|---|---|
+| tymián, oregano | **thymol**, karvakrol | vůně, antiseptický účinek |
+| hřebíček | **eugenol** | vůně, mírně znecitlivuje (zubní lékařství) |
+| vanilkový lusk | **vanilin** | vůně vanilky |
+| kůra vrby | salicin → **kyselina salicylová** | tlumí bolest a horečku, předchůdce aspirinu |
+| čaj, víno, dubová kůra | **třísloviny** (taniny) | trpká chuť, vyčiňování kůže |
+| ovoce, květy, červené zelí | **flavonoidy**, antokyany | barviva, antioxidanty |
+| dřevo | **lignin** (polymer fenolových jednotek) | zpevňuje buněčné stěny |
+| hroznové víno | **resveratrol** | ochrana rostliny před plísněmi |
+
+**V živočišném těle:** aminokyselina **tyrosin** má fenolovou skupinu; vznikají z ní **katecholaminy** (dopamin, noradrenalin, adrenalin – obsahují jádro pyrokatecholu), hormony štítné žlázy a tmavé barvivo **melanin**. Fenolové jádro má i ženský pohlavní hormon **estradiol**. Ve vitaminu E (tokoferol) chrání fenolová –OH tuky před oxidací.
+
+<div class="vzorce">
+<figure><img src="/obrazky/fenoly/thymol.png" alt="thymol" width="301" /><figcaption>thymol (tymián)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/eugenol.png" alt="eugenol" width="194" /><figcaption>eugenol (hřebíček)</figcaption></figure>
+<figure><img src="/obrazky/fenoly/vanilin.png" alt="vanilin" width="194" /><figcaption>vanilin</figcaption></figure>
+<figure><img src="/obrazky/fenoly/dopamin.png" alt="dopamin" width="200" /><figcaption>dopamin – katecholamin</figcaption></figure>
+<figure><img src="/obrazky/fenoly/resveratrol.png" alt="resveratrol" width="212" /><figcaption>resveratrol (víno)</figcaption></figure>
+</div>
+
+## 3 Fyzikální vlastnosti
+
+**Fenol** tvoří bezbarvé krystaly (t. t. 41 °C) s typickým „nemocničním“ zápachem. Na vzduchu a světle **růžoví až hnědne** – oxiduje se. Je hygroskopický: s trochou vody tvoří kapalinu (dříve „tekutá karbolka“).
+
+- **Rozpustnost ve vodě je omezená** – asi 8 g ve 100 ml při 20 °C. Skupina –OH tvoří s vodou vodíkové vazby, velké nepolární jádro rozpouštění brání. Nad asi 66 °C se fenol s vodou mísí v každém poměru. Dobře se rozpouští v ethanolu, etheru a – jak uvidíme – v roztoku hydroxidu.
+- **Teplota varu** (182 °C) je mnohem vyšší než u toluenu s podobnou molární hmotností – molekuly fenolu jsou spojené **vodíkovými vazbami**.
+- Vícesytné fenoly (pyrokatechol, resorcinol) jsou ve vodě rozpustnější – víc skupin –OH, víc vodíkových vazeb.
+
+<figure class="obrazek"><img src="/obrazky/fenoly/teploty-varu.svg" alt="Sloupcový graf teplot varu benzenu, toluenu, cyklohexanolu a fenolu" style="max-width:760px" /><figcaption>Toluen a fenol mají skoro stejnou molární hmotnost, ale fenol vře o 71 °C výš – drží ho vodíkové vazby. Fenol vře výš i než cyklohexanol: jeho vazba O–H je polárnější (fenol je kyselejší), takže vodíkové vazby jsou silnější.</figcaption></figure>
+
+:::danger[Fenol je jedovatý a žíravý]
+Fenol **leptá kůži** (bílé skvrny, které později zčervenají) a **rychle se jí vstřebává** do krve – poleptání větší plochy může vést k otravě. Poškozuje nervovou soustavu, játra a ledviny. Při práci rukavice a brýle; potřísněnou kůži se doporučuje omýt polyethylenglykolem (PEG 300/400), jinak velkým množstvím vody.
+:::
+
+## 4 Proč se fenol liší od alkoholu
+
+Kyslík skupiny –OH má volné elektronové páry. U fenolu jeden z nich **vstupuje do konjugace s π-elektrony aromatického jádra** (kladný mezomerní efekt, +M). To má tři důsledky:
+
+<Steps>
+
+1. **Vazba O–H je polárnější** → proton se odštěpí snáz → fenol je **kyselejší** než alkoholy (oddíl 5).
+
+2. **Jádro je bohatší na elektrony**, hlavně v polohách *ortho* a *para* → fenol mnohem snáz podléhá **elektrofilní substituci** než benzen (oddíl 7).
+
+3. **Vazba C–O je pevnější** (má částečně charakter dvojné vazby) → skupinu –OH nelze nahradit halogenem ani odštěpit eliminací jako u alkoholů a fenol se neoxiduje na aldehyd či keton.
+
+</Steps>
+
+## 5 Kyselost a vznik solí – fenoláty
+
+Fenol je **slabá kyselina** (pK<sub>a</sub> ≈ 10). Ve vodě se nepatrně ionizuje:
+
+<p class="rovnice">C<sub>6</sub>H<sub>5</sub>–OH + H<sub>2</sub>O ⇌ C<sub>6</sub>H<sub>5</sub>–O<sup>−</sup> + H<sub>3</sub>O<sup>+</sup><br /><span style="font-size:.85em">fenolátový anion</span></p>
+
+Je asi **milionkrát kyselejší než ethanol** (pK<sub>a</sub> ≈ 16), ale asi **tisíckrát slabší než kyselina uhličitá** (pK<sub>a1</sub> 6,35) a stotisíckrát slabší než kyselina octová.
+
+### Proč je fenol kyselejší než alkohol
+
+Rozhoduje stabilita aniontu, který po odštěpení protonu vznikne. V **ethanolátu** zůstane záporný náboj soustředěný na kyslíku. Ve **fenolátu** se náboj **delokalizuje** do jádra – na uhlíky v polohách *ortho* a *para*. Rozprostřený náboj = stabilnější anion = snazší odštěpení protonu.
+
+<figure class="obrazek"><img src="/obrazky/fenoly/rezonance.png" alt="Čtyři rezonanční struktury fenolátového aniontu: záporný náboj na kyslíku, na dvou uhlících ortho a na uhlíku para" style="max-width:552px" /><figcaption>Rezonanční (mezní) struktury fenolátového aniontu. Skutečný anion je „průměrem“ těchto struktur – záporný náboj je rozprostřen na kyslík a uhlíky v polohách 2, 4 a 6. Ve stejných polohách pak fenol nejsnáze reaguje s elektrofily.</figcaption></figure>
+
+Kyselost ovlivňují i substituenty na jádře: skupiny, které elektrony **odtahují** (–NO<sub>2</sub>, halogeny), náboj fenolátu dál stabilizují a **kyselost zvyšují**; skupiny, které elektrony **dodávají** (–CH<sub>3</sub>), ji mírně snižují. Kyselina pikrová (2,4,6-trinitrofenol) je už silná kyselina – proto „kyselina“ v názvu.
+
+<figure class="obrazek"><img src="/obrazky/fenoly/kyselost-pka.svg" alt="Číselná osa pKa: kyselina pikrová 0,38, octová 4,76, uhličitá 6,35, 4-nitrofenol 7,15, fenol 9,99, 4-methylfenol 10,26, voda 15,7, ethanol 15,9" style="max-width:860px" /><figcaption>Fenoly leží na stupnici kyselosti mezi karboxylovými kyselinami a alkoholy. Z polohy na ose se dá předpovědět, s čím fenol reaguje: s NaOH ano, s NaHCO<sub>3</sub> ne – kyselina uhličitá je silnější.</figcaption></figure>
+
+### Vznik fenolátů
+
+<Steps>
+
+1. **S hydroxidy** – na rozdíl od alkoholů! Fenol se v roztoku NaOH rozpustí, vznikne **fenolát sodný** (iontová sůl, ve vodě dobře rozpustná):
+
+   <p class="schema"><img src="/obrazky/fenoly/z_naoh.png" alt="Fenol a hydroxid sodný dávají fenolát sodný a vodu" width="353" /></p>
+
+2. **S alkalickými kovy** – stejně jako alkoholy, uvolňuje se vodík:
+
+   <p class="rovnice">2 C<sub>6</sub>H<sub>5</sub>OH + 2 Na → 2 C<sub>6</sub>H<sub>5</sub>O<sup>−</sup>Na<sup>+</sup> + H<sub>2</sub></p>
+
+3. **S hydrogenuhličitanem sodným fenol nereaguje** – je slabší kyselina než kyselina uhličitá. Tím se fenoly liší od karboxylových kyselin, které s NaHCO<sub>3</sub> šumí.
+
+4. **Silnější kyselina vytěsní fenol z fenolátu.** Stačí i oxid uhličitý – roztok fenolátu se zakalí vyloučeným fenolem:
+
+   <p class="schema"><img src="/obrazky/fenoly/z_co2.png" alt="Fenolát sodný s oxidem uhličitým a vodou dává fenol a hydrogenuhličitan sodný" width="351" /></p>
+
+   <p class="schema"><img src="/obrazky/fenoly/z_hcl.png" alt="Fenolát sodný a kyselina chlorovodíková dávají fenol a chlorid sodný" width="351" /></p>
+
+</Steps>
+
+<figure class="obrazek"><img src="/obrazky/fenoly/pokus-fenolat.svg" alt="Tři zkumavky: zakalený fenol ve vodě, čirý roztok po přidání NaOH a znovu zákal po přidání HCl" style="max-width:800px" /><figcaption>Vratnost „fenol ⇌ fenolát“ je vidět okem: zákal zmizí v louhu a vrátí se po okyselení. Stejně se fenoly v praxi oddělují od nekyselých látek – vytřepou se do roztoku NaOH a pak se kyselinou znovu vyloučí.</figcaption></figure>
+
+**Názvy solí:** anion fenolu je **fenolát** (také fenoxid): C<sub>6</sub>H<sub>5</sub>ONa fenolát sodný, (C<sub>6</sub>H<sub>5</sub>O)<sub>3</sub>Fe fenolát železitý. Fenoláty jsou ve vodě zásadité (hydrolýza – fenolátový anion je konjugovaná báze slabé kyseliny).
+
+<div class="vzorce jeden"><figure><img src="/obrazky/fenoly/fenolat.png" alt="fenolát sodný" width="128" /><figcaption>fenolát sodný – iontová sloučenina</figcaption></figure></div>
+
+**Využití fenolátů:** fenolát sodný reaguje za tlaku a zvýšené teploty s CO<sub>2</sub> na **salicylan sodný** (Kolbeho–Schmittova reakce). Z něj se získává kyselina salicylová a z ní aspirin – viz oddíl 9.
+
+## 6 Výroba fenolu – kumenový proces
+
+Dnes se vyrábí přes 90 % fenolu **kumenovým procesem** (H. Hock, 1944): benzen se alkyluje propenem na **kumen** (isopropylbenzen), ten se vzduchem oxiduje na hydroperoxid a kyselina ho rozštěpí na **fenol a aceton**. Z jedné výroby tak vznikají dvě cenné suroviny.
+
+<p class="schema"><img src="/obrazky/fenoly/z_kumen.png" alt="Kumenový proces: benzen a propen, kumen, kumenhydroperoxid, fenol a aceton" width="900" /></p>
+
+## 7 Elektrofilní substituce – stručně
+
+Skupina –OH je **silně aktivující substituent** a směruje do poloh *ortho* a *para* (tam, kam se podle rezonančních struktur rozprostírá elektronová hustota). Fenol proto reaguje mnohem snáz než benzen – **bez katalyzátoru** a za mírných podmínek.
+
+- **Bromace:** s bromovou vodou fenol reaguje okamžitě, bromová voda se **odbarví** a vypadne **bílá sraženina 2,4,6-tribromfenolu** (benzen s bromovou vodou nereaguje vůbec). Slouží jako důkaz fenolu.
+
+  <p class="schema"><img src="/obrazky/fenoly/z_brom.png" alt="Fenol a bromová voda dávají 2,4,6-tribromfenol a bromovodík" width="433" /></p>
+
+- **Nitrace:** už zředěná HNO<sub>3</sub> dává směs **2-nitrofenolu a 4-nitrofenolu**, koncentrovaná vede až ke **kyselině pikrové** (2,4,6-trinitrofenolu).
+
+  <p class="schema"><img src="/obrazky/fenoly/z_nitrace.png" alt="Nitrace fenolu zředěnou kyselinou dusičnou na 2-nitrofenol a 4-nitrofenol" width="531" /></p>
+
+**Oxidace.** Vícesytné fenoly s –OH v polohách 1,2 nebo 1,4 se snadno oxidují na **chinony**. Hydrochinon tak působí jako **redukční činidlo** – na tom stála černobílá fotografie (vývojka redukuje osvětlený AgBr na stříbro):
+
+<p class="schema"><img src="/obrazky/fenoly/z_oxidace.png" alt="Oxidace hydrochinonu na 1,4-benzochinon" width="304" /></p>
+
+Snadnou oxidovatelnost využívají i **fenolové antioxidanty** – zachytí reaktivní radikály dřív, než napadnou tuky (vitamin E v buněčných membránách, BHT – butylhydroxytoluen, E321 – v potravinách a plastech).
+
+## 8 Důkaz fenolů ionty Fe³⁺
+
+Fenoly dávají s neutrálním zředěným roztokem **chloridu železitého** **intenzivní zbarvení** – fialové, modré, zelené až červenohnědé podle druhu fenolu. Vznikají **komplexní sloučeniny železa s fenolátovými ligandy**. Zjednodušeně:
+
+<p class="rovnice">6 C<sub>6</sub>H<sub>5</sub>OH + Fe<sup>3+</sup> → [Fe(OC<sub>6</sub>H<sub>5</sub>)<sub>6</sub>]<sup>3−</sup> + 6 H<sup>+</sup><br /><span style="font-size:.85em">fialově zbarvený komplex (skutečné složení závisí na podmínkách)</span></p>
+
+**Alkoholy tuto reakci nedávají** – roztok zůstane žlutý (barva FeCl<sub>3</sub>). Reakce tedy slouží k **důkazu fenolové skupiny** a podle barvy i k **rozlišení jednotlivých fenolů**.
+
+<figure class="obrazek"><img src="/obrazky/fenoly/fe3-zkumavky.svg" alt="Zkumavky s výsledky reakce s FeCl3: ethanol žlutá, fenol fialová, 4-methylfenol modrofialová, resorcinol fialová, pyrokatechol zelená, pyrogallol modrá přecházející v červenohnědou, kyselina salicylová fialová, tříslovina modročerná" style="max-width:860px" /><figcaption>Barvy komplexů s Fe<sup>3+</sup>. Pyrokatechol se dvěma sousedními –OH tvoří s železem chelát a barví se zeleně. Hydrochinon a pyrogallol Fe<sup>3+</sup> zároveň oxiduje, proto se jejich barva rychle mění. Kyselý roztok (H<sup>+</sup>) komplex rozkládá – zkouška se dělá v neutrálním prostředí.</figcaption></figure>
+
+**Kde se zkouška používá:**
+
+- **Čistota aspirinu:** kyselina acetylsalicylová nemá volnou fenolovou –OH, s FeCl<sub>3</sub> fialově nezbarví. Fialová barva prozradí nezreagovanou nebo rozloženou **kyselinu salicylovou** – i staré tablety páchnoucí po octu.
+- **Železitoduběnkový inkoust:** třísloviny z duběnek (kyselina gallová a její estery) dávají s ionty železa **modročerné** sloučeniny. Tímto inkoustem se psalo od středověku až do 20. století – středověké rukopisy, J. S. Bach i Leonardo da Vinci. Kyselé železité soli však papír časem „prožírají“ (inkoustová koroze).
+- **Medicína:** dřív se zkouškou s FeCl<sub>3</sub> v moči hledala fenylketonurie (vrozená porucha metabolismu fenylalaninu).
+
+### Jak rozlišit alkohol, fenol a karboxylovou kyselinu
+
+<figure class="obrazek"><img src="/obrazky/fenoly/rozliseni.svg" alt="Vývojový diagram: NaHCO3 – šumí karboxylová kyselina; FeCl3 – zbarvení fenol; jinak alkohol" style="max-width:860px" /><figcaption>Dvě zkumavky stačí: hydrogenuhličitan rozliší kyselinu silnější než H<sub>2</sub>CO<sub>3</sub>, chlorid železitý fenolovou –OH. Logika vychází z osy pK<sub>a</sub> výše.</figcaption></figure>
+
+<Aplikace src="/aplikace/fenoly-laborator/" title="Laboratoř: fenol, alkohol, nebo kyselina?" vyska={920} stahnout="fenoly-laborator.html" />
+
+## 9 Významní zástupci
+
+### Fenol (kyselina karbolová)
+
+**Antiseptikum, které změnilo chirurgii.** V polovině 19. století umírala po operacích velká část pacientů na infekce ran („nemocniční gangréna“). Skotský chirurg **Joseph Lister** si přečetl práce L. Pasteura o mikroorganismech a v srpnu **1865** poprvé ošetřil otevřenou zlomeninu obvazem s kyselinou karbolovou. Brzy dezinfikoval nástroje, ruce i operační pole (karbolem se dokonce rozprašovalo ve vzduchu sálu) a úmrtnost po amputacích na jeho oddělení výrazně klesla. Fenol se pro chirurgii ukázal jako příliš dráždivý a jedovatý a nahradily ho šetrnější látky – Listerova myšlenka **antisepse** ale zůstala. Účinnost dezinfekčních látek se dlouho udávala **fenolovým koeficientem** (kolikrát je látka účinnější než fenol).
+
+**Dnes** je fenol hlavně průmyslová surovina (světová výroba řádově 10 milionů tun ročně):
+
+- **fenolformaldehydové pryskyřice** – kondenzací fenolu s formaldehydem vzniká **bakelit** (L. Baekeland, 1907), první plně syntetický plast; dnes lepidla do překližek a dřevotřísky, izolace, brzdové destičky,
+- **bisfenol A** (z fenolu a acetonu) → polykarbonáty a epoxidové pryskyřice,
+- **cyklohexanol** (hydrogenací fenolu) → kaprolaktam → polyamid (silon, nylon 6),
+- **léčiva, barviva, herbicidy** (např. paracetamol, kyselina salicylová).
+
+<div class="vzorce">
+<figure><img src="/obrazky/fenoly/bisfenolA.png" alt="bisfenol A" width="264" /><figcaption>bisfenol A</figcaption></figure>
+<figure><img src="/obrazky/fenoly/paracetamol.png" alt="paracetamol" width="153" /><figcaption>paracetamol – fenolová –OH</figcaption></figure>
+</div>
+
+### Kresoly (methylfenoly)
+
+Tři izomery (o-, m-, p-) se získávají z dehtu. Jsou účinnější a méně jedovaté dezinfekce než fenol. Roztok kresolů v mýdle – **Lysol** (1889) – se masově používal například při epidemii cholery v Hamburku (1892). Směsi fenolů a kresolů z dehtu (**kreozot**, karbolineum) impregnovaly dřevo – železniční pražce, sloupy, ploty.
+
+### Thymol
+
+Vonná složka tymiánu, antiseptikum v **ústních vodách** a zubních pastách. Známá ústní voda **Listerine** (1879) obsahuje thymol a jmenuje se po Josephu Listerovi.
+
+### Pyrokatechol, resorcinol, hydrochinon
+
+- **Pyrokatechol** – jádro katecholaminů (adrenalin, dopamin) a léku na Parkinsonovu chorobu **L-DOPA**. Když rozkrojené jablko či banán **hnědne**, enzym (polyfenoloxidáza) oxiduje fenoly s katecholovým jádrem na chinony, které se spojují v hnědá barviva.
+- **Resorcinol** – v kosmetice proti akné a lupům, ve farbách na vlasy, v lepidlech (resorcinolformaldehydové pryskyřice spojují kord s pryží v pneumatikách).
+- **Hydrochinon** – **fotografická vývojka**, antioxidant. Krémy na bělení kůže s hydrochinonem jsou v EU v kosmetice zakázané.
+
+:::tip[Zajímavost: brouk s „chemickým dělem“]
+**Prskavec** (*Brachinus*) má v zadečku zásobník s hydrochinony a peroxidem vodíku. Při ohrožení je přepustí do reakční komůrky s enzymy (katalázou a peroxidázami): peroxid se rozloží, hydrochinony se oxidují na dráždivé **benzochinony** a směs se vystříkne s hlasitým prsknutím při teplotě kolem **100 °C**.
+:::
+
+### Pyrogallol a kyselina gallová
+
+**Pyrogallol** byl jednou z prvních fotografických vývojek. Jeho zásaditý roztok rychle **pohlcuje kyslík** (hnědne) – využívalo se to při rozboru plynů ke stanovení O<sub>2</sub>. **Kyselina gallová** a její estery tvoří **třísloviny** (taniny) – odtud železitoduběnkový inkoust (oddíl 8) a vyčiňování kůží.
+
+<div class="vzorce jeden"><figure><img src="/obrazky/fenoly/gallova.png" alt="kyselina gallová" width="271" /><figcaption>kyselina gallová (3,4,5-trihydroxybenzoová)</figcaption></figure></div>
+
+### Kyselina salicylová a aspirin
+
+Odvary z **vrbové kůry** proti horečce a bolesti znali už staří Egypťané a Řekové. Účinnou látkou je glykosid salicin, z něhož v těle vzniká **kyselina salicylová**. H. Kolbe ji v roce 1860 vyrobil synteticky z fenolátu sodného a CO<sub>2</sub>:
+
+<p class="schema"><img src="/obrazky/fenoly/z_kolbe.png" alt="Fenolát sodný s CO2 za tlaku dává salicylan sodný, s HCl kyselinu salicylovou" width="760" /></p>
+
+Kyselina salicylová ale silně dráždí žaludek. **Felix Hoffmann** ve firmě Bayer proto v roce 1897 acetyloval její fenolovou skupinu – vznikla **kyselina acetylsalicylová**, od roku 1899 prodávaná jako **Aspirin**:
+
+<p class="schema"><img src="/obrazky/fenoly/z_aspirin.png" alt="Kyselina salicylová a acetanhydrid dávají kyselinu acetylsalicylovou a kyselinu octovou" width="580" /></p>
+
+Kyselina salicylová se dnes používá hlavně zevně – na odstraňování bradavic a ztvrdlé kůže, proti akné a jako konzervant.
+
+### Kyselina pikrová
+
+**2,4,6-trinitrofenol** – žluté krystaly. V 19. století sloužil jako **žluté barvivo** hedvábí a vlny, později jako výbušnina do dělostřeleckých granátů (melinit, lyddit). Vysušená kyselina pikrová a její soli s kovy jsou citlivé na náraz – v laboratořích se proto uchovává zvlhčená vodou.
+
+<div class="vzorce jeden"><figure><img src="/obrazky/fenoly/pikrova.png" alt="kyselina pikrová" width="226" /><figcaption>kyselina pikrová (2,4,6-trinitrofenol)</figcaption></figure></div>
+
+### Naftoly
+
+**1-naftol a 2-naftol** jsou suroviny pro **azobarviva** – reakcí s diazoniovými solemi vznikají syté oranžové a červené pigmenty.
+
+### Fenoly v historii
+
+<figure class="obrazek"><img src="/obrazky/fenoly/casova-osa.svg" alt="Časová osa: 1834 Runge, 1843 Gerhardt, 1860 Kolbe, 1865 Lister, 1879 Listerine, 1889 Lysol, 1897 Hoffmann, 1907 Baekeland, 1944 Hock, 2011 zákaz bisfenolu A v kojeneckých lahvích" style="max-width:900px" /><figcaption>Fenol provází moderní chemii od dehtu přes antisepsi, léčiva a první plast až po dnešní debatu o bezpečnosti bisfenolu A. Název „fenol“ zavedl Ch. Gerhardt podle slova *phène* (benzen), které A. Laurent odvodil z řeckého *fainó* – „svítím“: benzen pocházel z výroby svítiplynu.</figcaption></figure>
+
+## Shrnutí
+
+- **Fenoly** mají –OH vázanou **přímo na aromatické jádro**; benzylalkohol ani cyklohexanol fenoly nejsou.
+- Fenol: bezbarvé krystaly, na vzduchu růžoví, omezeně rozpustný ve vodě, **jedovatý a žíravý**; vodíkové vazby → vysoká teplota varu.
+- Volný elektronový pár kyslíku je v konjugaci s jádrem: **vyšší kyselost**, **snadná elektrofilní substituce** do poloh o-, p-, pevná vazba C–O.
+- Fenol (pK<sub>a</sub> ≈ 10) je **kyselejší než alkoholy**, ale **slabší než kyselina uhličitá**: reaguje s NaOH na **fenolát**, nereaguje s NaHCO<sub>3</sub>; z fenolátu ho vytěsní i CO<sub>2</sub>.
+- S bromovou vodou vzniká **bílý 2,4,6-tribromfenol**; s **Fe<sup>3+</sup>** dávají fenoly **fialové, modré či zelené** zbarvení, alkoholy ne.
+- Fenol se vyrábí **kumenovým procesem**; slouží k výrobě **bakelitu**, **bisfenolu A**, polyamidů a léčiv. Historicky: **Listerova antisepse**, **aspirin**, železitoduběnkový inkoust.
+
+## Procvičování
+
+### A Je to fenol? Pojmenuj
+
+<div class="vzorce">
+<figure><img src="/obrazky/fenoly/u_3methylfenol.png" alt="" width="158" /><figcaption>A1</figcaption></figure>
+<figure><img src="/obrazky/fenoly/u_4chlorfenol.png" alt="" width="81" /><figcaption>A2</figcaption></figure>
+<figure><img src="/obrazky/fenoly/u_fenylmethanol.png" alt="" width="111" /><figcaption>A3</figcaption></figure>
+<figure><img src="/obrazky/fenoly/u_24dinitrofenol.png" alt="" width="160" /><figcaption>A4</figcaption></figure>
+<figure><img src="/obrazky/fenoly/u_4ethylfenol.png" alt="" width="115" /><figcaption>A5</figcaption></figure>
+<figure><img src="/obrazky/fenoly/u_2methoxyfenol.png" alt="" width="180" /><figcaption>A6</figcaption></figure>
+</div>
+
+<details>
+<summary>Řešení A</summary>
+
+- **A1:** fenol – **3-methylfenol** (m-kresol)
+- **A2:** fenol – **4-chlorfenol**
+- **A3:** **není fenol** – fenylmethanol (benzylalkohol), –OH je na CH<sub>2</sub> mimo jádro
+- **A4:** fenol – **2,4-dinitrofenol** (kyselejší než fenol díky skupinám –NO<sub>2</sub>)
+- **A5:** fenol – **4-ethylfenol**
+- **A6:** fenol – **2-methoxyfenol** (guajakol, vůně kouře a uzeného); skupina –O–CH<sub>3</sub> je etherová, fenolová je –OH
+
+</details>
+
+### B Doplň reakci
+
+<p class="schema"><img src="/obrazky/fenoly/b_zak.png" alt="Pět reakčních schémat s prázdnými rámečky" width="511" /></p>
+
+<details>
+<summary>Řešení B</summary>
+
+<p class="schema"><img src="/obrazky/fenoly/b_res.png" alt="Řešení: B1 4-methylfenolát sodný, odštěpí se voda; B2 fenol; B3 3 Br2; B4 nereaguje; B5 disodná sůl hydrochinonu" width="500" /></p>
+
+- **B1:** 4-methylfenolát sodný, odštěpí se H<sub>2</sub>O
+- **B2:** silnější kyselina vytěsní fenol z fenolátu
+- **B3:** 3 Br<sub>2</sub> – substituce ve všech polohách o- a p-
+- **B4:** **nereaguje** – fenol je slabší kyselina než kyselina uhličitá
+- **B5:** obě skupiny –OH jsou fenolové, s nadbytkem NaOH vznikne disodná sůl
+
+</details>
+
+### C Rychlé otázky
+
+<Otazka
+	zadani="Proč se fenol rozpustí v roztoku NaOH, ale cyklohexanol ne?"
+	moznosti={["fenol je lépe rozpustný ve vodě", "fenol je mnohem kyselejší – s NaOH vznikne iontový fenolát", "cyklohexanol reaguje s NaOH na nerozpustnou sůl", "NaOH rozbije aromatické jádro"]}
+	spravne={1}
+	vysvetleni="Fenol (pK<sub>a</sub> ≈ 10) předá proton hydroxidovému aniontu, vznikne rozpustný fenolát sodný. Cyklohexanol je alkohol (pK<sub>a</sub> ≈ 16–18), s NaOH prakticky nereaguje."
+/>
+
+<Otazka
+	zadani="Co je hlavní příčinou vyšší kyselosti fenolu ve srovnání s ethanolem?"
+	moznosti={["fenol má větší molární hmotnost", "záporný náboj fenolátu se delokalizuje do aromatického jádra", "fenol tvoří silnější vodíkové vazby s vodou", "v jádře je víc atomů vodíku, které se mohou odštěpit"]}
+	spravne={1}
+	vysvetleni="Kyselost určuje stabilita aniontu. Ve fenolátu je náboj rozprostřen na kyslík a uhlíky v polohách 2, 4 a 6, v ethanolátu zůstává na kyslíku."
+/>
+
+<Otazka
+	zadani="Do zkumavky s neznámou látkou přidáte NaHCO<sub>3</sub> – nic se neděje. Po přidání FeCl<sub>3</sub> se roztok zbarví fialově. O jakou látku jde?"
+	moznosti={["karboxylová kyselina", "alkohol", "fenol", "ether"]}
+	spravne={2}
+	vysvetleni="Nešumí → není to kyselina silnější než H<sub>2</sub>CO<sub>3</sub>. Fialové zbarvení s Fe<sup>3+</sup> → fenolová –OH."
+/>
+
+<Otazka
+	zadani="Do roztoku fenolátu sodného zavádíme CO<sub>2</sub>. Co pozorujeme?"
+	moznosti={["nic, CO<sub>2</sub> s fenolátem nereaguje", "roztok se zakalí – vyloučí se fenol", "unikají bublinky vodíku", "roztok se zbarví fialově"]}
+	spravne={1}
+	vysvetleni="Kyselina uhličitá je silnější než fenol, a proto ho z jeho soli vytěsní: C<sub>6</sub>H<sub>5</sub>ONa + CO<sub>2</sub> + H<sub>2</sub>O → C<sub>6</sub>H<sub>5</sub>OH + NaHCO<sub>3</sub>."
+/>
+
+<Otazka
+	zadani="Proč se fenol s bromovou vodou bromuje bez katalyzátoru, kdežto benzen potřebuje FeBr<sub>3</sub>?"
+	moznosti={["fenol je kyselina a katalyzuje se sám", "skupina –OH dodává jádru elektrony (hlavně do poloh o- a p-) a usnadňuje elektrofilní substituci", "brom reaguje se skupinou –OH, ne s jádrem", "bromová voda je silnější činidlo než brom"]}
+	spravne={1}
+	vysvetleni="Volný elektronový pár kyslíku je v konjugaci s jádrem; jádro je bohaté na elektrony a elektrofil ho napadne snadno – proto rovnou trojnásobná substituce na 2,4,6-tribromfenol."
+/>
+
+## Kritické myšlení
+
+<details>
+<summary>Lister zavedl karbolovou kyselinu a úmrtnost po amputacích na jeho oddělení klesla. Dokazuje to, že ji způsobil právě fenol? Co dalšího by se muselo zkontrolovat?</summary>
+
+Samotné srovnání „před a po“ nestačí. Ve stejné době se mohlo změnit i něco jiného – složení pacientů, typy zranění, hygiena nemocnice, větrání, zkušenost chirurga. Silnějším důkazem by bylo srovnání pacientů operovaných **ve stejném období** s karbolem a bez něj, nejlépe s náhodným přidělením. Listerův argument však podpořilo, že jeho postup vycházel z **ověřitelného mechanismu** (Pasteurovy mikroorganismy) a že ho s podobným výsledkem zopakovali jiní chirurgové. Dnešní medicína proto vyžaduje kontrolované klinické studie.
+
+</details>
+
+<details>
+<summary>„Antioxidanty z vína a čaje (polyfenoly) chrání před rakovinou, protože v kádince zachytávají radikály.“ Je ten závěr oprávněný?</summary>
+
+Z pokusu v kádince plyne jen to, že látka **umí** reagovat s radikály. Neplyne z něj, kolik se jí vstřebá ze střeva, jak rychle se v těle přemění, jestli se dostane do buněk v účinné koncentraci, ani že radikály jsou příčinou dané nemoci. Studie u lidí výsledky „ze zkumavky“ často nepotvrdily (u resveratrolu by bylo nutné vypít nereálné množství vína). Účinek v laboratoři je **hypotéza**, ne důkaz účinku v těle.
+
+</details>
+
+<details>
+<summary>Bisfenol A se v EU nesmí používat v kojeneckých lahvích (od roku 2011) a později byl zakázán ve všech materiálech pro styk s potravinami. Proč se regulace u něj zpřísňovala postupně, a ne hned?</summary>
+
+BPA strukturou připomíná estrogen (dvě fenolové skupiny ve vhodné vzdálenosti) a ve vysokých dávkách se hormonálně projevuje. Sporné bylo, zda škodí i **v nízkých dávkách**, kterým jsou lidé běžně vystaveni – studie se lišily. Regulátoři proto nejdřív chránili nejcitlivější skupinu (kojence) podle **principu předběžné opatrnosti** a další omezení přidávali, jak přibývaly údaje a jak hodnocení EFSA snížilo bezpečnou denní dávku. Postupné zpřísňování není nedůslednost, ale typický průběh hodnocení rizika při nejistých datech. Otázkou zůstává i bezpečnost náhražek (např. bisfenolu S), které jsou si s BPA strukturně podobné.
+
+</details>
+
+<Aside type="tip" title="Pro učitele">
+Doporučený postup, prezentaci na hodinu, pokusy a typické chyby najdete v metodice [Fenoly](/pro-ucitele/metodika-fenoly/). Předchozí kapitola: [Alkoholy – významní zástupci](/chemie/organicka-chemie/hydroxysloucheniny/04-alkoholy-vyznamni-zastupci/).
+</Aside>

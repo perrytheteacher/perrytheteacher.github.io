@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" role="img" aria-label="Zkumavky s výsledky reakce s chloridem železitým pro ethanol, fenol, kresol, resorcinol, pyrokatechol, pyrogallol, kyselinu salicylovou a tříslovinu" font-family="system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+<rect width="900" height="380" fill="#fff"/>
+<text x="450.0" y="26" font-size="17" text-anchor="middle" font-weight="bold" fill="#222" >Reakce s roztokem FeCl₃ (Fe³⁺): fenoly dávají barevné komplexy, alkoholy ne</text>
+<path d="M62.5,150 L62.5,227.0 A20.0,20.0 0 0 0 102.5,227.0 L102.5,150 Z" fill="#f4d03f"/>
+<path d="M59.5,60 L59.5,227.0 A23.0,23.0 0 0 0 105.5,227.0 L105.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="53.5" y1="60" x2="111.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="82.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >ethanol</text>
+<text x="82.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >žlutá</text>
+<text x="82.5" y="319" font-size="12" text-anchor="middle" font-weight="normal" fill="#444" >(barva FeCl₃)</text>
+<text x="82.5" y="338" font-size="12" text-anchor="middle" font-weight="bold" fill="#c0392b" >negativní</text>
+<path d="M167.5,150 L167.5,227.0 A20.0,20.0 0 0 0 207.5,227.0 L207.5,150 Z" fill="#7d3c98"/>
+<path d="M164.5,60 L164.5,227.0 A23.0,23.0 0 0 0 210.5,227.0 L210.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="158.5" y1="60" x2="216.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="187.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >fenol</text>
+<text x="187.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >fialová</text>
+<path d="M272.5,150 L272.5,227.0 A20.0,20.0 0 0 0 312.5,227.0 L312.5,150 Z" fill="#5b2c6f"/>
+<path d="M269.5,60 L269.5,227.0 A23.0,23.0 0 0 0 315.5,227.0 L315.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="263.5" y1="60" x2="321.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="292.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >4-methylfenol</text>
+<text x="292.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >modrofialová</text>
+<path d="M377.5,150 L377.5,227.0 A20.0,20.0 0 0 0 417.5,227.0 L417.5,150 Z" fill="#8e44ad"/>
+<path d="M374.5,60 L374.5,227.0 A23.0,23.0 0 0 0 420.5,227.0 L420.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="368.5" y1="60" x2="426.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="397.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >resorcinol</text>
+<text x="397.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >fialová</text>
+<path d="M482.5,150 L482.5,227.0 A20.0,20.0 0 0 0 522.5,227.0 L522.5,150 Z" fill="#1e8449"/>
+<path d="M479.5,60 L479.5,227.0 A23.0,23.0 0 0 0 525.5,227.0 L525.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="473.5" y1="60" x2="531.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="502.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >pyrokatechol</text>
+<text x="502.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >zelená</text>
+<path d="M587.5,150 L587.5,227.0 A20.0,20.0 0 0 0 627.5,227.0 L627.5,150 Z" fill="#922b21"/>
+<path d="M584.5,60 L584.5,227.0 A23.0,23.0 0 0 0 630.5,227.0 L630.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="578.5" y1="60" x2="636.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="607.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >pyrogallol</text>
+<text x="607.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >modrá →</text>
+<text x="607.5" y="319" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >červenohnědá</text>
+<path d="M692.5,150 L692.5,227.0 A20.0,20.0 0 0 0 732.5,227.0 L732.5,150 Z" fill="#9b59b6"/>
+<path d="M689.5,60 L689.5,227.0 A23.0,23.0 0 0 0 735.5,227.0 L735.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="683.5" y1="60" x2="741.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="712.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >kys. salicylová</text>
+<text x="712.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >fialová</text>
+<path d="M797.5,150 L797.5,227.0 A20.0,20.0 0 0 0 837.5,227.0 L837.5,150 Z" fill="#1b2631"/>
+<path d="M794.5,60 L794.5,227.0 A23.0,23.0 0 0 0 840.5,227.0 L840.5,60" fill="none" stroke="#333" stroke-width="2"/>
+<line x1="788.5" y1="60" x2="846.5" y2="60" stroke="#333" stroke-width="2"/>
+<text x="817.5" y="282" font-size="14" text-anchor="middle" font-weight="bold" fill="#222" >tříslovina</text>
+<text x="817.5" y="302" font-size="13" text-anchor="middle" font-weight="normal" fill="#444" >modročerná</text>
+<text x="450.0" y="366" font-size="12" text-anchor="middle" font-weight="normal" fill="#666" >Schéma, ne fotografie – odstíny jsou orientační, závisí na koncentraci, pH a stáří roztoku. Pyrogallol a hydrochinon Fe³⁺ zároveň oxiduje.</text>
+</svg>

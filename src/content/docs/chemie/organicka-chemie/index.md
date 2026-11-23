@@ -16,6 +16,7 @@ Uhlovodíky, deriváty uhlovodíků, reakce organických sloučenin.
 2. [Alkoholy – dělení a fyzikální vlastnosti](/chemie/organicka-chemie/hydroxysloucheniny/02-alkoholy-fyzikalni-vlastnosti/)
 3. [Alkoholy – chemické vlastnosti](/chemie/organicka-chemie/hydroxysloucheniny/03-alkoholy-chemicke-vlastnosti/)
 4. [Alkoholy – významní zástupci](/chemie/organicka-chemie/hydroxysloucheniny/04-alkoholy-vyznamni-zastupci/)
+5. [Fenoly](/chemie/organicka-chemie/hydroxysloucheniny/05-fenoly/)
 
 **Ethery a sirné sloučeniny**
 
