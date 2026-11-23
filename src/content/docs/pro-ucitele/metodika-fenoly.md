@@ -8,7 +8,7 @@ sidebar:
 Kapitola [Fenoly](/chemie/organicka-chemie/hydroxysloucheniny/05-fenoly/) uzavírá hydroxysloučeniny. Těžiště je v **kyselosti a fenolátech** a v **důkazu fenolů ionty Fe<sup>3+</sup>**; elektrofilní substituce je jen stručně (podrobně patří k arenům). Zástupci a historie (Lister, bakelit, aspirin, inkoust) slouží jako motivační a mezipředmětové propojení.
 
 :::tip[Prezentace na hodinu]
-**[▶ Spustit prezentaci](/prezentace/fenoly/)** (33 snímků) – evokace fenol × cyklohexanol, hlasování „který je fenol“, predikce teploty varu a graf, tři důsledky konjugace, hlasování o reakcích s NaOH a NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu, pokus fenol/NaOH/HCl, bromace, predikce a výsledky s FeCl<sub>3</sub>, aplikace Neznámý vzorek, úloha se třemi zkumavkami, zástupci, časová osa, úloha B, Lister a korelace × příčina, výstupní lístek.
+**[▶ Spustit prezentaci](/prezentace/fenoly/)** (35 snímků) – evokace fenol × cyklohexanol, hlasování „který je fenol“, predikce teploty varu a graf, tři důsledky konjugace, hlasování o reakcích s NaOH a NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu, pokus fenol/NaOH/HCl, bromace, predikce a výsledky s FeCl<sub>3</sub>, video zkoušky s FeCl<sub>3</sub>, aplikace Neznámý vzorek, úloha se třemi zkumavkami, zástupci, videa s prskavcem, časová osa, úloha B, Lister a korelace × příčina, výstupní lístek.
 
 Stáhnout: <a href="/prezentace/fenoly/offline.html" download="fenoly-prezentace.html">⬇ pro offline práci (HTML)</a> · <a href="/prezentace/fenoly/fenoly.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
 
@@ -27,7 +27,7 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 | Proč se liší od alkoholu | 3 min | tři důsledky konjugace (11) |
 | Kyselost | 10 min | hlasování NaOH/NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu (12–14) |
 | Fenoláty | 10 min | rovnice, pokus fenol → fenolát → fenol (15–16) |
-| Výstupní lístek | 4 min | (31–32) |
+| Výstupní lístek | 4 min | (33–34) |
 
 **2. hodina – důkaz a zástupci**
 
@@ -35,13 +35,13 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 |---|---|---|
 | Opakování | 3 min | výstupní lístek z minula |
 | Elektrofilní substituce | 5 min | bromová voda, nitrace (17) |
-| Důkaz Fe<sup>3+</sup> | 10 min | predikce, pokus, výsledky (18–19) |
-| Aplikace | 8 min | Neznámý vzorek ve dvojicích (20) |
-| Rozlišení látek | 5 min | tři zkumavky a vývojový diagram (21–22) |
-| Zástupci a historie | 8 min | (23–25), výběr příběhů podle třídy |
-| Procvičení a reflexe | 6 min | úloha B nebo kritické myšlení Lister (26–30), shrnutí se semaforem (33) |
+| Důkaz Fe<sup>3+</sup> | 10 min | predikce, pokus, výsledky, případně video (18–20) |
+| Aplikace | 8 min | Neznámý vzorek ve dvojicích (21) |
+| Rozlišení látek | 5 min | tři zkumavky a vývojový diagram (22–23) |
+| Zástupci a historie | 8 min | (24–27), výběr příběhů podle třídy; videa s prskavcem (26) |
+| Procvičení a reflexe | 6 min | úloha B nebo kritické myšlení Lister (28–32), shrnutí se semaforem (35) |
 
-**Zkrácená verze na 1 hodinu:** snímky 3–6, 8–9, 12–16, 18–19, 21–22, 31–33; zástupce zadejte z kapitoly jako domácí čtení (otázky z oddílu Kritické myšlení).
+**Zkrácená verze na 1 hodinu:** snímky 3–6, 8–9, 12–16, 18–20, 22–23, 33–35; zástupce zadejte z kapitoly jako domácí čtení (otázky z oddílu Kritické myšlení).
 
 ## Pokusy
 
@@ -87,5 +87,6 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 ## Materiály ke kapitole
 
 - **Aplikace** [Laboratoř: fenol, alkohol, nebo kyselina?](/aplikace/fenoly-laborator/) – 10 látek × 5 činidel s předpovědí a vysvětlením; režim Neznámý vzorek (určit typ látky co nejmenším počtem zkoušek, skóre).
+- **Videa (YouTube):** [The ferric chloride test for phenols](https://www.youtube.com/watch?v=sjhoUkz4TPY) – náhrada pokusu, když ve sbírce chybí fenol; prskavec [zpomaleně 1000 snímků/s](https://www.youtube.com/watch?v=zhXmfXHUeso) a [obranný výstřik](https://www.youtube.com/watch?v=Pib9qT-pccI) – motivace k oxidaci hydrochinonu.
 - **Vědecké obrázky (SVG):** teploty varu (CRC Handbook), osa pK<sub>a</sub> (CRC Handbook), pokus fenol/NaOH/HCl (schéma), barvy komplexů s Fe<sup>3+</sup> (schéma, odstíny orientační), vývojový diagram rozlišení, časová osa.
 - **Vzorce a reakční schémata** RDKit v české školní konvenci (činidlo nad šipkou, odštěpené látky pod šipkou), rezonanční struktury fenolátu, kumenový proces, Kolbeho–Schmittova reakce, acetylace kyseliny salicylové.
