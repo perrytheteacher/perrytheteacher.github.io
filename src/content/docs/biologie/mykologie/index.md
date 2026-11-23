@@ -12,5 +12,6 @@ Houby a lišejníky – stavba, výživa, rozmnožování, systém, určování 
 
 1. [Houby – BS](/biologie/mykologie/01-houby-bs/) – biologický seminář, 3. ročník
 2. [Lišejníky – BS](/biologie/mykologie/02-lisejniky-bs/) – biologický seminář, 3. ročník
+3. [Houby (komplet) – BS](/biologie/mykologie/03-houby-komplet-bs/) – souhrnná studijní příručka k písemce
 
 Další kapitoly postupně doplňujeme.

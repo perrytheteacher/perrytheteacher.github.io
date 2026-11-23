@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1230 650" width="1230" height="650" role="img" aria-label="Schéma plodnice muchomůrky v podélném řezu s popisky a výřez lupenu s hymeniem, bazidiemi a bazidiosporami">
+<rect width="100%" height="100%" fill="#fff"/>
+<style>text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;fill:#111}.m{font-size:14px;fill:#555}.t{font-size:19px;font-weight:600}.l{stroke:#333;stroke-width:1.2;fill:none}</style>
+<line x1="20" y1="520" x2="590" y2="520" stroke="#8a6a45" stroke-width="2"/>
+<rect x="20" y="520" width="570" height="100" fill="#f3ebdf"/>
+<polyline points="339,535 342,545 350,557 317,563 343,572 323,588" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="358,535 383,546 394,553 404,568 406,581 419,588" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="381,535 388,544 352,559 350,572 379,585 411,595" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="384,535 380,550 409,557 381,566 416,576 426,585" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="361,535 352,545 358,556 389,569 422,584 459,596" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="333,535 360,551 391,562 407,570 433,582 416,589" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="388,535 426,542 448,552 422,561 442,576 408,588" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="324,535 340,544 369,560 370,576 355,583 363,589" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="336,535 329,547 303,554 331,563 365,578 356,588" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="362,535 373,547 377,559 411,570 405,583 385,592" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="398,535 400,546 363,557 369,563 378,575 344,587" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="357,535 371,545 387,558 350,565 364,580 345,591" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="367,535 354,545 339,554 347,563 337,577 301,589" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="379,535 364,543 387,552 364,562 379,569 365,578" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="387,535 382,550 357,559 368,574 365,582 336,593" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="335,535 359,549 335,558 358,571 381,580 353,589" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="384,535 366,544 360,555 353,570 327,576 360,591" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="399,535 394,551 426,559 445,573 457,584 441,594" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="338,535 305,547 289,561 255,576 269,591 299,606" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="366,535 329,548 304,557 317,569 310,584 319,594" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="340,535 368,546 389,555 366,567 390,574 412,590" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="384,535 409,541 419,556 385,564 367,576 361,586" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="382,535 344,542 316,549 283,565 310,571 310,581" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="345,535 334,547 340,557 317,566 288,578 305,588" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="326,535 302,545 310,559 301,573 310,583 300,594" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<polyline points="376,535 370,548 367,556 370,569 337,580 332,594" stroke="#b9a48a" stroke-width="1.2" fill="none"/>
+<path d="M302,522 C285,470 300,440 322,432 L398,432 C420,440 435,470 418,522 Z" fill="#efe9da" stroke="#555" stroke-width="1.5"/>
+<path d="M314,520 C302,480 316,452 338,446 L382,446 C404,452 418,480 406,520 Z" fill="#fbfaf5" stroke="#777" stroke-width="1.2"/>
+<path d="M338,448 L345,205 L375,205 L382,448 Z" fill="#fbfaf5" stroke="#555" stroke-width="1.5"/>
+<path d="M344,262 C305,275 298,300 310,312 C320,295 335,285 344,282 Z" fill="#f1efe8" stroke="#555" stroke-width="1.3"/>
+<path d="M376,262 C415,275 422,300 410,312 C400,295 385,285 376,282 Z" fill="#f1efe8" stroke="#555" stroke-width="1.3"/>
+<path d="M160,215 C170,110 260,70 360,68 C460,70 550,110 560,215 C480,200 240,200 160,215 Z" fill="#fdfcf7" stroke="#555" stroke-width="1.5"/>
+<path d="M160,215 C170,110 260,70 360,68 C460,70 550,110 560,215" fill="none" stroke="#c0392b" stroke-width="6" opacity=".85"/>
+<rect x="231" y="112" width="14" height="9" rx="3" fill="#fff" stroke="#666" stroke-width="1"/>
+<rect x="285" y="79" width="14" height="9" rx="3" fill="#fff" stroke="#666" stroke-width="1"/>
+<rect x="338" y="64" width="14" height="9" rx="3" fill="#fff" stroke="#666" stroke-width="1"/>
+<rect x="391" y="68" width="14" height="9" rx="3" fill="#fff" stroke="#666" stroke-width="1"/>
+<rect x="444" y="91" width="14" height="9" rx="3" fill="#fff" stroke="#666" stroke-width="1"/>
+<rect x="490" y="124" width="14" height="9" rx="3" fill="#fff" stroke="#666" stroke-width="1"/>
+<line x1="182" y1="202" x2="182" y2="203" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="192" y1="199" x2="192" y2="203" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="202" y1="196" x2="202" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="213" y1="194" x2="213" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="224" y1="192" x2="224" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="234" y1="189" x2="234" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="244" y1="187" x2="244" y2="205" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="255" y1="186" x2="255" y2="205" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="266" y1="184" x2="266" y2="205" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="276" y1="183" x2="276" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="286" y1="181" x2="286" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="297" y1="180" x2="297" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="308" y1="179" x2="308" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="318" y1="178" x2="318" y2="207" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="328" y1="178" x2="328" y2="207" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="339" y1="177" x2="339" y2="207" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="381" y1="177" x2="381" y2="207" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="392" y1="178" x2="392" y2="207" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="402" y1="178" x2="402" y2="207" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="412" y1="179" x2="412" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="423" y1="180" x2="423" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="434" y1="181" x2="434" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="444" y1="183" x2="444" y2="206" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="454" y1="184" x2="454" y2="205" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="465" y1="186" x2="465" y2="205" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="476" y1="187" x2="476" y2="205" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="486" y1="189" x2="486" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="496" y1="192" x2="496" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="507" y1="194" x2="507" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="518" y1="196" x2="518" y2="204" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="528" y1="199" x2="528" y2="203" stroke="#9c8f7a" stroke-width="2.4"/>
+<line x1="538" y1="202" x2="538" y2="203" stroke="#9c8f7a" stroke-width="2.4"/>
+<polyline class="l" points="210,128 167,60 20,60"/><circle cx="210" cy="128" r="2.6" fill="#333"/>
+<text x="20" y="53">pokožka klobouku</text>
+<line class="l" x1="408" y1="82" x2="610" y2="40"/><circle cx="408" cy="82" r="2.6" fill="#333"/>
+<text x="616" y="45" text-anchor="start">zbytky obecného závoje</text>
+<text class="m" x="616" y="63" text-anchor="start">(bradavky na klobouku)</text>
+<line class="l" x1="420" y1="150" x2="610" y2="115"/><circle cx="420" cy="150" r="2.6" fill="#333"/>
+<text x="616" y="120" text-anchor="start">klobouk (dužnina)</text>
+<polyline class="l" points="230,203 186,268 20,268"/><circle cx="230" cy="203" r="2.6" fill="#333"/>
+<text x="20" y="261">lupeny = hymenofor</text>
+<text class="m" x="20" y="286">nesou hymenium</text>
+<line class="l" x1="412" y1="300" x2="610" y2="290"/><circle cx="412" cy="300" r="2.6" fill="#333"/>
+<text x="616" y="295" text-anchor="start">prsten</text>
+<text class="m" x="616" y="313" text-anchor="start">(zbytek částečného závoje)</text>
+<line class="l" x1="370" y1="380" x2="610" y2="370"/><circle cx="370" cy="380" r="2.6" fill="#333"/>
+<text x="616" y="375" text-anchor="start">třeň</text>
+<line class="l" x1="392" y1="470" x2="610" y2="455"/><circle cx="392" cy="470" r="2.6" fill="#333"/>
+<text x="616" y="460" text-anchor="start">hlíza a pochva</text>
+<text class="m" x="616" y="478" text-anchor="start">(zbytek obecného závoje)</text>
+<polyline class="l" points="280,560 195,492 20,492"/><circle cx="280" cy="560" r="2.6" fill="#333"/>
+<text x="20" y="485">mycelium (podhoubí)</text>
+<text class="m" x="20" y="510">vegetativní tělo houby</text>
+<text class="m" x="20" y="640">celá plodnice je spletena z hyf terciárního mycelia (n + n)</text>
+<line x1="210" y1="207" x2="860" y2="270" stroke="#999" stroke-dasharray="4 4"/>
+<rect x="860" y="250" width="345" height="300" rx="10" fill="#fafafa" stroke="#999"/>
+<text class="t" x="874" y="278">Výřez: povrch lupenu</text>
+<rect x="880" y="465" width="305" height="80" fill="#efe9da" stroke="#888"/>
+<path d="M882,480 C950,474 1020,486 1183,480" stroke="#c7b79b" fill="none"/>
+<path d="M882,494 C950,488 1020,500 1183,494" stroke="#c7b79b" fill="none"/>
+<path d="M882,508 C950,502 1020,514 1183,508" stroke="#c7b79b" fill="none"/>
+<path d="M882,522 C950,516 1020,528 1183,522" stroke="#c7b79b" fill="none"/>
+<path d="M882,536 C950,530 1020,542 1183,536" stroke="#c7b79b" fill="none"/>
+<path d="M896,465 L896,401 Q896,387 905,387 Q914,387 914,401 L914,465 Z" fill="#e9f1fb" stroke="#4a6c8f" stroke-width="1.3"/>
+<line x1="900.1" y1="388" x2="893.8" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="891.7" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="903.2" y1="388" x2="901.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="900.2" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="906.8" y1="388" x2="909.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="909.8" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="909.9" y1="388" x2="916.2" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="918.3" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<path d="M938,465 L938,427 Q938,413 947,413 Q956,413 956,427 L956,465 Z" fill="#e9f1fb" stroke="#4a6c8f" stroke-width="1.3"/>
+<path d="M980,465 L980,401 Q980,387 989,387 Q998,387 998,401 L998,465 Z" fill="#e9f1fb" stroke="#4a6c8f" stroke-width="1.3"/>
+<line x1="984.1" y1="388" x2="977.8" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="975.7" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="987.2" y1="388" x2="985.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="984.2" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="990.8" y1="388" x2="993.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="993.8" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="993.9" y1="388" x2="1000.2" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1002.3" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<path d="M1022,465 L1022,427 Q1022,413 1031,413 Q1040,413 1040,427 L1040,465 Z" fill="#e9f1fb" stroke="#4a6c8f" stroke-width="1.3"/>
+<path d="M1064,465 L1064,401 Q1064,387 1073,387 Q1082,387 1082,401 L1082,465 Z" fill="#e9f1fb" stroke="#4a6c8f" stroke-width="1.3"/>
+<line x1="1068.1" y1="388" x2="1061.8" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1059.7" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="1071.2" y1="388" x2="1069.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1068.2" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="1074.8" y1="388" x2="1077.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1077.8" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="1077.9" y1="388" x2="1084.2" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1086.3" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<path d="M1106,465 L1106,427 Q1106,413 1115,413 Q1124,413 1124,427 L1124,465 Z" fill="#e9f1fb" stroke="#4a6c8f" stroke-width="1.3"/>
+<path d="M1148,465 L1148,401 Q1148,387 1157,387 Q1166,387 1166,401 L1166,465 Z" fill="#e9f1fb" stroke="#4a6c8f" stroke-width="1.3"/>
+<line x1="1152.1" y1="388" x2="1145.8" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1143.7" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="1155.2" y1="388" x2="1153.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1152.2" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="1158.8" y1="388" x2="1161.0" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1161.8" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<line x1="1161.9" y1="388" x2="1168.2" y2="375" stroke="#4a6c8f" stroke-width="1.2"/>
+<ellipse cx="1170.3" cy="369" rx="3.6" ry="5.5" fill="#6b4f2a"/>
+<text x="880" y="310" class="m">bazidiospory (n) na sterigmatech</text>
+<line class="l" x1="980" y1="314" x2="989" y2="362"/>
+<text x="1050" y="345" class="m">bazidie</text>
+<line class="l" x1="1075" y1="350" x2="1073" y2="400"/>
+<path d="M1172,370 h8 v95 h-8" class="l"/>
+<text class="m" transform="translate(1198,418) rotate(-90)" text-anchor="middle">hymenium</text>
+<text x="890" y="540" class="m" style="font-size:13px">dřeň lupenu z hyf (n + n)</text>
+<text class="m" x="860" y="238">schéma, ne fotografie; není v měřítku</text>
+</svg>
