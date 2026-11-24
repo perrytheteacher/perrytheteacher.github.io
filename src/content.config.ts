@@ -6,6 +6,7 @@ import { docsSchema } from '@astrojs/starlight/schema';
 export const collections = {
 	docs: defineCollection({ loader: docsLoader(), schema: docsSchema({
 		// novinky: false – stránka se nezobrazí v sekci Novinky
-		extend: z.object({ novinky: z.boolean().optional() }),
+		// prezentace: <nazev> – kapitola dostane nahoře tlačítko na /prezentace/<nazev>/
+		extend: z.object({ novinky: z.boolean().optional(), prezentace: z.string().optional() }),
 	}) }),
 };

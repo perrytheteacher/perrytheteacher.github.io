@@ -10,12 +10,19 @@ const jeKapitola =
 	!id.endsWith('index') &&
 	(casti.length >= 3 || (casti.length === 2 && ['ai', 'pro-ucitele'].includes(casti[0])));
 const adresa = new URL(Astro.url.pathname, Astro.site).href;
+// prezentace: <nazev> ve frontmatteru kapitoly → tlačítko na prezentaci k hodině (sekce Pro učitele)
+const prezentace = Astro.locals.starlightRoute.entry.data.prezentace;
 ---
 
 <Default />
 {
 	jeKapitola && (
 		<div class="export-pdf print:hidden">
+			{prezentace && (
+				<a class="export-pdf__prezentace" href={`/prezentace/${prezentace}/`} target="_blank" rel="noopener" title="Prezentace na hodinu z metodické části – otevře se v nové záložce (F = celá obrazovka)">
+					▶ Prezentace na hodinu
+				</a>
+			)}
 			<button type="button" data-reseni="0" title="Zápis a procvičování bez řešení – místo pro odpovědi do sešitu">
 				Export do PDF
 			</button>
@@ -96,6 +103,19 @@ const adresa = new URL(Astro.url.pathname, Astro.site).href;
 	}
 	:root[data-theme='light'] .export-pdf button[data-reseni='1'] {
 		color: var(--sl-color-accent);
+	}
+	.export-pdf__prezentace {
+		font-size: var(--sl-text-sm);
+		padding: 0.35rem 0.85rem;
+		border-radius: 0.4rem;
+		border: 1px solid #c2410c;
+		background: #ea580c;
+		color: #fff !important;
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.export-pdf__prezentace:hover {
+		filter: brightness(1.1);
 	}
 	.export-pdf button:hover {
 		filter: brightness(1.1);

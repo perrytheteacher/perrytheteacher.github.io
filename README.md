@@ -18,6 +18,7 @@ Web: https://perrytheteacher.github.io
 - Otázka: `<Otazka zadani="..." moznosti={["A", "B"]} spravne={0} vysvetleni="..." />`
 - Rámeček: `:::note`, `:::tip`, `:::caution` … `:::`
 - Chemické vzorce: `H<sub>2</sub>SO<sub>4</sub>`
+- Prezentace na hodinu: do frontmatteru kapitoly `prezentace: nazev` → pod nadpisem se objeví tlačítko **▶ Prezentace na hodinu** vedoucí na `/prezentace/nazev/` (složka v `public/prezentace/`)
 
 ## Novinky
 
