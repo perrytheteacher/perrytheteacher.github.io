@@ -8,7 +8,7 @@ sidebar:
 Kapitola [Fenoly](/chemie/organicka-chemie/hydroxysloucheniny/05-fenoly/) uzavírá hydroxysloučeniny. Těžiště je v **kyselosti a fenolátech** a v **důkazu fenolů ionty Fe<sup>3+</sup>**; elektrofilní substituce je jen stručně (podrobně patří k arenům). Zástupci a historie (Lister, bakelit, aspirin, inkoust) slouží jako motivační a mezipředmětové propojení.
 
 :::tip[Prezentace na hodinu]
-**[▶ Spustit prezentaci](/prezentace/fenoly/)** (38 snímků) – evokace fenol × cyklohexanol, hlasování „který je fenol“, predikce teploty varu a graf, tři důsledky konjugace, hlasování o reakcích s NaOH a NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu, pokus fenol/NaOH/HCl, bromace, predikce a výsledky s FeCl<sub>3</sub>, video zkoušky s FeCl<sub>3</sub>, aplikace Neznámý vzorek, úloha se třemi zkumavkami, zástupci, fotografie (retortovna, krystaly fenolu, inkoustová koroze, pražce), videa s prskavcem, časová osa, úloha B, Lister a korelace × příčina, výstupní lístek.
+**[▶ Spustit prezentaci](/prezentace/fenoly/)** (40 snímků) – evokace fenol × cyklohexanol, hlasování „který je fenol“, predikce teploty varu a graf, tři důsledky konjugace, hlasování o reakcích s NaOH a NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu, pokus fenol/NaOH/HCl, bromace, predikce a výsledky s FeCl<sub>3</sub>, video zkoušky s FeCl<sub>3</sub>, aplikace Neznámý vzorek, úloha se třemi zkumavkami a srovnávací tabulka, zástupci, polyfenoly v rostlinách, fotografie (retortovna, krystaly fenolu, inkoustová koroze, pražce), videa s prskavcem, časová osa, úloha B, Lister a korelace × příčina, výstupní lístek.
 
 Stáhnout: <a href="/prezentace/fenoly/offline.html" download="fenoly-prezentace.html">⬇ pro offline práci (HTML)</a> · <a href="/prezentace/fenoly/fenoly.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
 
@@ -27,7 +27,7 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 | Proč se liší od alkoholu | 3 min | tři důsledky konjugace (12) |
 | Kyselost | 10 min | hlasování NaOH/NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu (13–15) |
 | Fenoláty | 9 min | rovnice, pokus fenol → fenolát → fenol (16–17) |
-| Výstupní lístek | 4 min | (36–37) |
+| Výstupní lístek | 4 min | (38–39) |
 
 **2. hodina – důkaz a zástupci**
 
@@ -37,11 +37,11 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 | Elektrofilní substituce | 5 min | bromová voda, nitrace (18) |
 | Důkaz Fe<sup>3+</sup> | 10 min | predikce, pokus, výsledky, inkoust, případně video (19–22) |
 | Aplikace | 8 min | Neznámý vzorek ve dvojicích (23) |
-| Rozlišení látek | 5 min | tři zkumavky a vývojový diagram (24–25) |
-| Zástupci a historie | 8 min | (26–30), výběr příběhů podle třídy; pražce s kreozotem (28), videa s prskavcem (29) |
-| Procvičení a reflexe | 6 min | úloha B nebo kritické myšlení Lister (31–35), shrnutí se semaforem (38) |
+| Rozlišení látek | 5 min | tři zkumavky, vývojový diagram a srovnávací tabulka (24–26) |
+| Zástupci a historie | 8 min | (27–32), výběr příběhů podle třídy; polyfenoly v rostlinách (29), pražce s kreozotem (30), videa s prskavcem (31) |
+| Procvičení a reflexe | 6 min | úloha B nebo kritické myšlení Lister (33–37), shrnutí se semaforem (40) |
 
-**Zkrácená verze na 1 hodinu:** snímky 3–6, 9–10, 13–17, 19–20, 24–25, 36–38; zástupce zadejte z kapitoly jako domácí čtení (otázky z oddílu Kritické myšlení).
+**Zkrácená verze na 1 hodinu:** snímky 3–6, 9–10, 13–17, 19–20, 24–26, 38–40; zástupce zadejte z kapitoly jako domácí čtení (otázky z oddílu Kritické myšlení).
 
 ## Pokusy
 
