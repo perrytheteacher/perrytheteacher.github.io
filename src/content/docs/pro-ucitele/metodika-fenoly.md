@@ -8,7 +8,7 @@ sidebar:
 Kapitola [Fenoly](/chemie/organicka-chemie/hydroxysloucheniny/05-fenoly/) uzavírá hydroxysloučeniny. Těžiště je v **kyselosti a fenolátech** a v **důkazu fenolů ionty Fe<sup>3+</sup>**; elektrofilní substituce je jen stručně (podrobně patří k arenům). Zástupci a historie (Lister, bakelit, aspirin, inkoust) slouží jako motivační a mezipředmětové propojení.
 
 :::tip[Prezentace na hodinu]
-**[▶ Spustit prezentaci](/prezentace/fenoly/)** (40 snímků) – evokace fenol × cyklohexanol, hlasování „který je fenol“, predikce teploty varu a graf, tři důsledky konjugace, hlasování o reakcích s NaOH a NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu, pokus fenol/NaOH/HCl, bromace, predikce a výsledky s FeCl<sub>3</sub>, video zkoušky s FeCl<sub>3</sub>, aplikace Neznámý vzorek, úloha se třemi zkumavkami a srovnávací tabulka, zástupci, polyfenoly v rostlinách, fotografie (retortovna, krystaly fenolu, inkoustová koroze, pražce), videa s prskavcem, časová osa, úloha B, Lister a korelace × příčina, výstupní lístek.
+**[▶ Spustit prezentaci](/prezentace/fenoly/)** (44 snímků) – evokace fenol × cyklohexanol, hlasování „který je fenol“, predikce teploty varu a graf, tři důsledky konjugace, hlasování o reakcích s NaOH a NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu, pokus fenol/NaOH/HCl, bromace, predikce a výsledky s FeCl<sub>3</sub>, video zkoušky s FeCl<sub>3</sub>, aplikace Neznámý vzorek, úloha se třemi zkumavkami a srovnávací tabulka, infografiky (tribromfenol, FeCl<sub>3</sub>, Lister, hydrochinon), zástupci, polyfenoly v rostlinách, fotografie (retortovna, krystaly fenolu, inkoustová koroze, pražce), videa s prskavcem, časová osa, úloha B, Lister a korelace × příčina, výstupní lístek.
 
 Stáhnout: <a href="/prezentace/fenoly/offline.html" download="fenoly-prezentace.html">⬇ pro offline práci (HTML)</a> · <a href="/prezentace/fenoly/fenoly.pdf" download>⬇ PDF</a> (snímek na stránku, všechny kroky odkryté)
 
@@ -27,21 +27,21 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 | Proč se liší od alkoholu | 3 min | tři důsledky konjugace (12) |
 | Kyselost | 10 min | hlasování NaOH/NaHCO<sub>3</sub>, osa pK<sub>a</sub>, rezonance fenolátu (13–15) |
 | Fenoláty | 9 min | rovnice, pokus fenol → fenolát → fenol (16–17) |
-| Výstupní lístek | 4 min | (38–39) |
+| Výstupní lístek | 4 min | (42–43) |
 
 **2. hodina – důkaz a zástupci**
 
 | Fáze | Čas | Činnost (snímky) |
 |---|---|---|
 | Opakování | 3 min | výstupní lístek z minula |
-| Elektrofilní substituce | 5 min | bromová voda, nitrace (18) |
-| Důkaz Fe<sup>3+</sup> | 10 min | predikce, pokus, výsledky, inkoust, případně video (19–22) |
-| Aplikace | 8 min | Neznámý vzorek ve dvojicích (23) |
-| Rozlišení látek | 5 min | tři zkumavky, vývojový diagram a srovnávací tabulka (24–26) |
-| Zástupci a historie | 8 min | (27–32), výběr příběhů podle třídy; polyfenoly v rostlinách (29), pražce s kreozotem (30), videa s prskavcem (31) |
-| Procvičení a reflexe | 6 min | úloha B nebo kritické myšlení Lister (33–37), shrnutí se semaforem (40) |
+| Elektrofilní substituce | 5 min | bromová voda, nitrace, bílá sraženina tribromfenolu (18–19) |
+| Důkaz Fe<sup>3+</sup> | 10 min | predikce, pokus, výsledky, infografika, inkoust, případně video (20–24) |
+| Aplikace | 8 min | Neznámý vzorek ve dvojicích (25) |
+| Rozlišení látek | 5 min | tři zkumavky, vývojový diagram a srovnávací tabulka (26–28) |
+| Zástupci a historie | 8 min | (29–36), výběr příběhů podle třídy; Lister (30), polyfenoly v rostlinách (32), pražce s kreozotem (33), hydrochinon – vývojka a prskavec (34–35) |
+| Procvičení a reflexe | 6 min | úloha B nebo kritické myšlení Lister (37–41), shrnutí se semaforem (44) |
 
-**Zkrácená verze na 1 hodinu:** snímky 3–6, 9–10, 13–17, 19–20, 24–26, 38–40; zástupce zadejte z kapitoly jako domácí čtení (otázky z oddílu Kritické myšlení).
+**Zkrácená verze na 1 hodinu:** snímky 3–6, 9–10, 13–17, 20–21, 26–28, 42–44; zástupce zadejte z kapitoly jako domácí čtení (otázky z oddílu Kritické myšlení).
 
 ## Pokusy
 
@@ -87,6 +87,7 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 ## Materiály ke kapitole
 
 - **Aplikace** [Laboratoř: fenol, alkohol, nebo kyselina?](/aplikace/fenoly-laborator/) – 10 látek × 5 činidel s předpovědí a vysvětlením; režim Neznámý vzorek (určit typ látky co nejmenším počtem zkoušek, skóre).
+- **Infografiky (AI, Gemini):** šest obrázků v kapitole i prezentaci (`/obrazky/fenoly/gemini/`) převzatých z prezentace vygenerované v Gemini Notebook a odborně zkontrolovaných. Infografiky s chybnými strukturními vzorci (fenol jako pyrokatechol či nearomatický cyklohexadiendiol, kumen jako xylen, bisfenol A s –OH navíc, nesmyslné rezonanční struktury, hydrochinon a chinon jako necyklické látky) a štítkem „aromatická vazba“ u vazby C–O nebyly použity; u ostatních byly chybné části vyříznuty.
 - **Videa (YouTube):** [The ferric chloride test for phenols](https://www.youtube.com/watch?v=sjhoUkz4TPY) – náhrada pokusu, když ve sbírce chybí fenol; prskavec [zpomaleně 1000 snímků/s](https://www.youtube.com/watch?v=zhXmfXHUeso) a [obranný výstřik](https://www.youtube.com/watch?v=Pib9qT-pccI) – motivace k oxidaci hydrochinonu.
 - **Fotografie (Wikimedia Commons, licence v popiscích):** retortovna plynárny v Biggaru (Chris Allen, CC BY-SA 2.0), krystaly fenolu (B. Bulicz, CC BY-SA 3.0), inkoustová koroze (volné dílo), pražce před a po impregnaci kreozotem (Jack Delano, Library of Congress, volné dílo); ilustrační obrázek uhlí a dehtu vygenerovaný AI (ChatGPT).
 - **Vědecké obrázky (SVG):** teploty varu (CRC Handbook), osa pK<sub>a</sub> (CRC Handbook), pokus fenol/NaOH/HCl (schéma), barvy komplexů s Fe<sup>3+</sup> (schéma, odstíny orientační), vývojový diagram rozlišení, časová osa.
