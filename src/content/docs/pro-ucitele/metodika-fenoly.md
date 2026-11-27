@@ -1,6 +1,6 @@
 ---
 title: 'Metodika: Fenoly'
-description: Doporučený postup, prezentace na hodinu, pokusy, typické chyby a odborné poznámky ke kapitole Fenoly.
+description: Doporučený postup, prezentace na hodinu, skupinová aktivita s pracovními kartami, pokusy, typické chyby a odborné poznámky ke kapitole Fenoly.
 sidebar:
   order: 16
 ---
@@ -42,6 +42,43 @@ Ovládání: **F** celá obrazovka · **→ / mezerník** další krok (funguje 
 | Procvičení a reflexe | 6 min | úloha B nebo kritické myšlení Lister (37–41), shrnutí se semaforem (44) |
 
 **Zkrácená verze na 1 hodinu:** snímky 3–6, 9–10, 13–17, 20–21, 26–28, 42–44; zástupce zadejte z kapitoly jako domácí čtení (otázky z oddílu Kritické myšlení).
+
+## Skupinová aktivita: Fenoly v souvislostech
+
+Samostatná hodina (45 min) místo bloku „Zástupci a historie“ nebo jako navazující hodina. Každý ze čtyř členů skupiny dostane kartu s jedním fenolem, který má historický nebo společenský přesah. Žák doplní vzorec, přečte si text, látku představí skupině a položí otázku pro kritické myšlení. Skupina pak o ní diskutuje a odpověď zapíše na odevzdávací list.
+
+:::tip[Pracovní karty k tisku]
+**[▶ Otevřít karty a odevzdávací list](/materialy/fenoly-v-souvislostech/)** (tisk z prohlížeče) · <a href="/materialy/fenoly-v-souvislostech/fenoly-v-souvislostech.pdf" download>⬇ PDF k tisku</a> (12 stran A4: pokyny, 10 karet, odevzdávací list)
+
+Každá karta je na samostatné straně. Tiskněte jednu sadu karet na skupinu a jeden odevzdávací list na skupinu. Žáci pracují bez AI a bez internetu, upozornění je na každé kartě.
+:::
+
+| Fáze | Čas | Činnost |
+|---|---|---|
+| Zadání | 5 min | rozdělení do čtveřic, rozdání karet, pravidla (bez AI a internetu) |
+| Samostatná práce | 10 min | vzorec, text, vlastní úvaha k otázce |
+| Představení a diskuse | 4 × 4 min | každý představí látku a položí svou otázku, skupina diskutuje |
+| Zápis | 5 min | společná odpověď ke každé kartě na odevzdávací list |
+| Reflexe | 5 min | 2–3 skupiny přečtou nejzajímavější úvahu, propojení s chemií fenolů (kyselost, oxidace, důkaz Fe<sup>3+</sup>) |
+
+**Výběr karet:** dvojice karet ke stejné látce (1 a 2 hydrochinon, 3 a 4 fenol, 5 a 6 pyrokatechol) mají obě úvodní informace o látce, takže lze ve skupině použít kteroukoli z nich. Doporučené čtveřice: 1, 3, 5, 8 (fotografie, medicína, mozek, výživa) nebo 2, 4, 7, 10 (příroda, plasty, kosmetika, válka); kartu 9 přidejte pětičlenné skupině.
+
+**Hodnocení odevzdávacího listu:** formativní. Hodnotí se zdůvodnění, ne „správný“ názor. Dobrá odpověď uvádí argument, příklad a případně protiargument nebo odlišný názor ve skupině.
+
+| Karta (vzorec ke kontrole) | Možné směry odpovědí |
+|---|---|
+| **1 Hydrochinon – fotografie**<br>benzen-1,4-diol | Fotografie se zdemokratizovala a zlevnila, snímků je nesrovnatelně víc. Každý snímek na filmu stál peníze, a proto se nad ním víc přemýšlelo. Hodnota se přesunula od řemesla ke kompozici a myšlence. Návrat k filmu: hmatatelnost, nejistota výsledku, pomalost, nostalgie. |
+| **2 Hydrochinon – prskavec**<br>benzen-1,4-diol a p-benzochinon | Argument „nezjednodušitelné složitosti“ je slabý, protože mezistupně mají vlastní výhodu: chinony jako odpudivý sekret (mnoho brouků), pak jímka na zásobu, enzymy urychlující oxidaci a nakonec zahřátí a výstřik. Kataláza a peroxidáza jsou běžné enzymy buněk. |
+| **3 Fenol – Lister**<br>hydroxybenzen | Před antisepsí: sepse, gangréna, horečka omladnic, vysoká úmrtnost po operacích. Fenol se na rány nehodí: leptá tkáně, je toxický a vstřebává se kůží. Dnes: povidon-jod, chlorhexidin, oktenidin, ethanol na kůži před injekcí, sterilizace nástrojů, rukavice, mytí rukou. |
+| **4 Fenol – bakelit**<br>fenol a methanal (H<sub>2</sub>C=O) | Elektroinstalace a elektronika, telefony, obaly prodlužující trvanlivost potravin, jednorázové stříkačky a katetry, lehčí auta a letadla. Daň: odpad, mikroplasty, závislost na ropě; reaktoplasty téměř nelze recyklovat. |
+| **5 Katecholaminy**<br>benzen-1,2-diol a dopamin | Dopamin není „hormon štěstí“, ale signál očekávání odměny. Nepravidelná odměna (lajky, notifikace) posiluje opakované chování. Ocenit vlastní zkušenost, konkrétní příklady a obranu: vypnuté notifikace, časové limity, telefon mimo dosah. |
+| **6 L-DOPA**<br>benzen-1,2-diol a L-DOPA (2× fenolová –OH, –NH<sub>2</sub>, –COOH) | Počet pacientů skutečně roste, hlavně kvůli stárnutí populace a delšímu dožití. Roli hraje i lepší a dřívější diagnostika, větší povědomí a medializace. Diskutují se i faktory prostředí (pesticidy). Ocenit rozlišení absolutního počtu a věkově standardizovaného výskytu. |
+| **7 Resorcinol**<br>benzen-1,3-diol; izomery pyrokatechol (1,2) a hydrochinon (1,4) | „Bez chemie“ je nesmysl, vše je tvořeno chemickými látkami; jde o marketing ze strachu (chemofobie). „Klinicky testováno“ neříká, na kolika lidech, s jakým výsledkem ani zda byla kontrolní skupina. Důvěryhodnost: složení (INCI), nezávislé studie, dávka. |
+| **8 Polyfenoly**<br>resveratrol, (E)-5-[2-(4-hydroxyfenyl)ethenyl]benzen-1,3-diol | Korelace neznamená příčinu. Jiná vysvětlení: celá strava a životní styl, menší porce, méně cukru, pohyb, rozdíly ve sběru statistik. Víno obsahuje resveratrolu málo, alkohol je karcinogen. Dobré zprávy o oblíbených věcech se šíří rychle, protože je chceme slyšet. |
+| **9 Bisfenol A**<br>2,2-bis(4-hydroxyfenyl)propan; 2 C<sub>6</sub>H<sub>5</sub>OH + CH<sub>3</sub>COCH<sub>3</sub> → C<sub>15</sub>H<sub>16</sub>O<sub>2</sub> + H<sub>2</sub>O | „BPA free“ neznamená bezpečný, náhrady (BPS, BPF) jsou podobné a méně prozkoumané. Diskuse o důkazním břemenu (v EU u chemikálií např. REACH) a o principu předběžné opatrnosti. |
+| **10 Kyselina pikrová**<br>2,4,6-trinitrofenol; C<sub>6</sub>H<sub>5</sub>OH + 3 HNO<sub>3</sub> → C<sub>6</sub>H<sub>2</sub>(NO<sub>2</sub>)<sub>3</sub>OH + 3 H<sub>2</sub>O (kat. H<sub>2</sub>SO<sub>4</sub>) | Odpovědnost vědce vs. odpovědnost toho, kdo objev použije. Nobel (dynamit → Nobelovy ceny), Haber (syntéza amoniaku → hnojiva i výbušniny; chemické zbraně), jaderná energie. Chemicky: nitroskupiny odtahují elektrony a stabilizují fenolát, pK<sub>a</sub> 0,38 proti 9,99 u fenolu. |
+
+<figure class="obrazek"><img src="/obrazky/fenoly/skupinova-aktivita-vzorce.png" alt="Strukturní vzorce látek z karet 1–10: hydrochinon, p-benzochinon, fenol, formaldehyd, pyrokatechol, dopamin, L-DOPA, resorcinol, resveratrol, bisfenol A a kyselina pikrová" style="max-width:760px" /><figcaption>Vzorce ke kontrole žákovských kreseb; číslo u názvu odpovídá kartě. Všimněte si polohy skupin –OH u izomerů benzendiolů (karty 1, 5, 7) a trans-dvojné vazby u resveratrolu.</figcaption></figure>
 
 ## Pokusy
 
